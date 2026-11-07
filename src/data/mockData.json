@@ -21,55 +21,38 @@
   "providers": [
     {
       "id": "prov-1",
-      "name": "Carlos Romero",
+      "name": "Roberto Gómez",
       "category": "Plomería",
-      "secondaryCategory": "Electricidad",
+      "secondaryCategory": "Gasista Matriculado",
       "neighborhood": "Barrio Alberdi",
       "address": "Pasaje San Martín 420",
       "phone": "+54 9 358 412-8899",
       "rating": 4.9,
       "reviewCount": 38,
-      "priceInfo": "Presupuesto sin cargo en el barrio",
+      "distanceKm": 0.8,
+      "priceInfo": "$4.500 visita / diagnóstico",
+      "basePrice": 4500,
       "availability": "Disponible hoy",
-      "description": "45 años. Electricista y plomero independiente con 20 años en Alberdi. Atención rápida y cobro en efectivo.",
+      "description": "Especialista en detección de fugas, colocación de griferías, desagües, termosolares y destapaciones con maquinaria especializada. Más de 12 años de trayectoria resolviendo emergencias domiciliarias en toda la zona barrial con tarifas transparentes.",
       "avatar": "👨‍🔧",
-      "featured": true
+      "avatarUrl": "https://images.unsplash.com/photo-1540569014015-19a7be504e3a?w=150&auto=format&fit=crop&q=80",
+      "imageUrl": "https://images.unsplash.com/photo-1581244277943-fe4a9c777189?w=600&auto=format&fit=crop&q=80",
+      "gallery": [
+        "https://images.unsplash.com/photo-1581244277943-fe4a9c777189?w=600&auto=format&fit=crop&q=80",
+        "https://images.unsplash.com/photo-1504148455328-c376907d081c?w=600&auto=format&fit=crop&q=80",
+        "https://images.unsplash.com/photo-1585704032915-c3400ca199e7?w=600&auto=format&fit=crop&q=80"
+      ],
+      "featured": true,
+      "verifiedBadge": true,
+      "servicesOffered": [
+        { "id": "s-1", "title": "Cambio de flexible y canillas", "basePrice": 12000, "description": "Desarme, colocación de flexible de acero inoxidable y prueba de estanqueidad." },
+        { "id": "s-2", "title": "Destapación de bacha o desagüe", "basePrice": 15000, "description": "Limpieza profunda con sonda mecánica y desengrasado sin romper caños." },
+        { "id": "s-3", "title": "Service de calefón o termotanque", "basePrice": 18000, "description": "Limpieza de quemadores, cambio de termocupla y revisión de tiraje." }
+      ]
     },
     {
       "id": "prov-2",
-      "name": "Jorge Ramírez",
-      "category": "Gas y Estufas",
-      "secondaryCategory": "Plomería",
-      "neighborhood": "Barrio Banda Norte",
-      "address": "Av. Marcelo T. de Alvear 1150",
-      "phone": "+54 9 358 433-2144",
-      "rating": 4.8,
-      "reviewCount": 27,
-      "priceInfo": "Consulta básica $5.000",
-      "availability": "Atiende de 8 a 18 hs",
-      "description": "Gasista matriculado. Instalación y service de calefactores, cocinas y termotanques con garantía.",
-      "avatar": "👷‍♂️",
-      "featured": true
-    },
-    {
-      "id": "prov-3",
-      "name": "Roberto Gómez",
-      "category": "Carpintería",
-      "secondaryCategory": "Albañilería",
-      "neighborhood": "Barrio Castelli",
-      "address": "Calle Las Heras 890",
-      "phone": "+54 9 358 501-7733",
-      "rating": 4.7,
-      "reviewCount": 19,
-      "priceInfo": "Presupuesto a convenir",
-      "availability": "Lunes a viernes",
-      "description": "Carpintero de toda la vida. Arreglo de aberturas hinchadas, mesas, sillas y muebles a medida.",
-      "avatar": "🪵",
-      "featured": false
-    },
-    {
-      "id": "prov-4",
-      "name": "Ana Laura Benítez",
+      "name": "Carlos Rossi",
       "category": "Cerrajería",
       "secondaryCategory": "Electricidad",
       "neighborhood": "Barrio Centro",
@@ -77,43 +60,78 @@
       "phone": "+54 9 358 488-0011",
       "rating": 5.0,
       "reviewCount": 54,
+      "distanceKm": 1.2,
       "priceInfo": "Urgencias las 24 hs",
+      "basePrice": 6000,
       "availability": "Guardia 24 hs",
-      "description": "Cerrajería integral a domicilio. Apertura de puertas trabadas, cerraduras de seguridad y candados.",
+      "description": "Cerrajería integral a domicilio. Apertura de puertas trabadas sin romper marcos, cambio de combinaciones, cerraduras de seguridad multipunto y candados.",
       "avatar": "🔑",
-      "featured": true
+      "avatarUrl": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&auto=format&fit=crop&q=80",
+      "imageUrl": "https://images.unsplash.com/photo-1558002038-1055907df827?w=600&auto=format&fit=crop&q=80",
+      "gallery": [
+        "https://images.unsplash.com/photo-1558002038-1055907df827?w=600&auto=format&fit=crop&q=80"
+      ],
+      "featured": true,
+      "verifiedBadge": true,
+      "servicesOffered": [
+        { "id": "s-4", "title": "Apertura de puerta trabada", "basePrice": 14000, "description": "Apertura sin daños estéticos en la puerta." },
+        { "id": "s-5", "title": "Cambio de cerradura de seguridad", "basePrice": 22000, "description": "Provisión e instalación de cerradura de primera marca." }
+      ]
     },
     {
-      "id": "prov-5",
-      "name": "Miguel Ángel Torres",
-      "category": "Pintura",
-      "secondaryCategory": "Albañilería",
-      "neighborhood": "Barrio Alberdi",
-      "address": "Echeverría 630",
-      "phone": "+54 9 358 421-9900",
+      "id": "prov-3",
+      "name": "Marcos Rivas",
+      "category": "Electricidad",
+      "secondaryCategory": "Instalaciones",
+      "neighborhood": "Barrio Banda Norte",
+      "address": "Av. Marcelo T. de Alvear 1150",
+      "phone": "+54 9 358 433-2144",
       "rating": 4.9,
       "reviewCount": 42,
-      "priceInfo": "Precios accesibles por metro",
-      "availability": "Disponible próxima semana",
-      "description": "Pintura látex, esmaltes y revoques finos. Trabajo limpio y prolijo para vecinos de la zona.",
-      "avatar": "🎨",
-      "featured": false
+      "distanceKm": 2.1,
+      "priceInfo": "Presupuesto sin cargo en el día",
+      "basePrice": 5000,
+      "availability": "Disponible lunes a sábado",
+      "description": "Técnico electricista habilitado. Tableros generales, disyuntores térmicos, recableados reglamentarios, instalación de luminarias LED y puestas a tierra con jabalina.",
+      "avatar": "⚡",
+      "avatarUrl": "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=150&auto=format&fit=crop&q=80",
+      "imageUrl": "https://images.unsplash.com/photo-1621905251189-08b45d6a269e?w=600&auto=format&fit=crop&q=80",
+      "gallery": [
+        "https://images.unsplash.com/photo-1621905251189-08b45d6a269e?w=600&auto=format&fit=crop&q=80"
+      ],
+      "featured": true,
+      "verifiedBadge": true,
+      "servicesOffered": [
+        { "id": "s-6", "title": "Revisión de cortocircuito y tablero", "basePrice": 15000, "description": "Diagnóstico de fuga de corriente y recambio de térmicas." },
+        { "id": "s-7", "title": "Instalación de apliques y tomas", "basePrice": 8000, "description": "Colocación prolija de lámparas y enchufes." }
+      ]
     },
     {
-      "id": "prov-6",
-      "name": "Lucas Silva",
-      "category": "Jardinería",
-      "secondaryCategory": "Albañilería",
-      "neighborhood": "Barrio Las Delicias",
-      "address": "Riobamba 120",
-      "phone": "+54 9 358 465-3322",
+      "id": "prov-4",
+      "name": "Mariana Sosa",
+      "category": "Pintura",
+      "secondaryCategory": "Decoración",
+      "neighborhood": "Barrio Castelli",
+      "address": "Calle Las Heras 890",
+      "phone": "+54 9 358 501-7733",
       "rating": 4.8,
-      "reviewCount": 16,
-      "priceInfo": "Corte de pasto desde $4.000",
-      "availability": "Sábados y domingos",
-      "description": "Mantenimiento de jardines, corte con motoguadaña, retiro de ramas y arreglos de canteros.",
-      "avatar": "🌿",
-      "featured": false
+      "reviewCount": 29,
+      "distanceKm": 1.5,
+      "priceInfo": "Precios por metro cuadrado",
+      "basePrice": 4000,
+      "availability": "Disponible próxima semana",
+      "description": "Pintura de interiores y exteriores. Acabados finos satinados, tratamiento antihumedad, impermeabilizaciones y pintura de aberturas de madera y hierro.",
+      "avatar": "🎨",
+      "avatarUrl": "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=150&auto=format&fit=crop&q=80",
+      "imageUrl": "https://images.unsplash.com/photo-1589939705384-5185137a7f0f?w=600&auto=format&fit=crop&q=80",
+      "gallery": [
+        "https://images.unsplash.com/photo-1589939705384-5185137a7f0f?w=600&auto=format&fit=crop&q=80"
+      ],
+      "featured": false,
+      "verifiedBadge": true,
+      "servicesOffered": [
+        { "id": "s-8", "title": "Pintura de ambiente estándar", "basePrice": 35000, "description": "Enduido, lijado, dos manos de látex lavable de calidad." }
+      ]
     }
   ],
   "defaultUsers": {
@@ -125,16 +143,18 @@
       "neighborhood": "Barrio Alberdi",
       "address": "Calle Colombres 312",
       "phone": "+54 9 358 411-2233",
+      "avatar": "👵",
       "notes": "Prefiero que me llamen o me manden WhatsApp antes de venir."
     },
     "prestador": {
       "id": "prov-1",
-      "name": "Carlos Romero",
+      "name": "Roberto Gómez",
       "role": "prestador",
       "category": "Plomería",
       "neighborhood": "Barrio Alberdi",
       "address": "Pasaje San Martín 420",
       "phone": "+54 9 358 412-8899",
+      "avatar": "👨‍🔧",
       "notes": "Trabajo de lunes a sábados en toda la zona este."
     }
   },
@@ -142,7 +162,7 @@
     {
       "id": "req-101",
       "providerId": "prov-1",
-      "providerName": "Carlos Romero",
+      "providerName": "Roberto Gómez",
       "providerCategory": "Plomería",
       "providerPhone": "+54 9 358 412-8899",
       "clientName": "Marta Fernández",
@@ -152,24 +172,67 @@
       "description": "Gotea mucho por debajo cuando abro la canilla caliente. Necesito que lo mires cuanto antes.",
       "status": "en_curso",
       "date": "06/11/2026",
+      "scheduledTime": "17:30 - 20:30 hs",
       "rating": null,
-      "comment": null
+      "comment": null,
+      "quote": {
+        "title": "Presupuesto de Visita y Reparación",
+        "items": [
+          { "description": "Cambio de flexible + sellado de bacha", "amount": 15000 },
+          { "description": "Materiales selladores y arandelas", "amount": 4000 }
+        ],
+        "total": 19000,
+        "status": "pendiente"
+      }
     },
     {
       "id": "req-102",
-      "providerId": "prov-1",
-      "providerName": "Carlos Romero",
-      "providerCategory": "Electricidad",
-      "providerPhone": "+54 9 358 412-8899",
+      "providerId": "prov-2",
+      "providerName": "Carlos Rossi",
+      "providerCategory": "Cerrajería",
+      "providerPhone": "+54 9 358 488-0011",
       "clientName": "Marta Fernández",
       "clientNeighborhood": "Barrio Alberdi",
       "clientAddress": "Calle Colombres 312",
-      "title": "Instalación de aplique de luz en el pasillo",
-      "description": "Colocación de portalámparas nuevo y tecla de encendido.",
+      "title": "Copia de llave y cambio de pestillo",
+      "description": "El pestillo de la puerta de entrada quedó trabado.",
       "status": "finalizado",
       "date": "24/10/2026",
+      "scheduledTime": "10:00 - 12:00 hs",
       "rating": 5,
-      "comment": "Excelente trabajo de Carlos, muy respetuoso y puntual."
+      "comment": "Excelente trabajo de Carlos, muy respetuoso, vino al toque y cobró lo justo.",
+      "quote": {
+        "title": "Apertura y Cambio de Cilindro",
+        "items": [
+          { "description": "Mano de obra cerrajería", "amount": 9000 },
+          { "description": "Cilindro nuevo", "amount": 7000 }
+        ],
+        "total": 16000,
+        "status": "aceptado"
+      }
+    }
+  ],
+  "initialChats": [
+    {
+      "id": "chat-req-101",
+      "requestId": "req-101",
+      "providerId": "prov-1",
+      "messages": [
+        {
+          "id": "m-1",
+          "sender": "cliente",
+          "text": "Hola Roberto, te mandé la solicitud por la bacha que pierde agua. Te paso la foto para que veas el caño.",
+          "time": "10:42 AM",
+          "photo": "https://images.unsplash.com/photo-1585704032915-c3400ca199e7?w=500&auto=format&fit=crop&q=80",
+          "photoName": "foto_fuga_bacha.jpg"
+        },
+        {
+          "id": "m-2",
+          "sender": "prestador",
+          "text": "Hola vecina, qué tal. Sí, parece ser el flexible desgastado. Puedo pasar mañana a primera hora con los repuestos. Te preparo un presupuesto formal acá.",
+          "time": "10:46 AM"
+        }
+      ]
     }
   ]
 }

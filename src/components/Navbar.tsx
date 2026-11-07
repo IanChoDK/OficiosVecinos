@@ -7,7 +7,7 @@ import {
   useAccessibleFont,
 } from "@/lib/storage";
 
-export type NavTab = "inicio" | "servicios" | "perfil";
+export type NavTab = "inicio" | "servicios" | "chat" | "perfil";
 
 interface NavbarProps {
   currentTab: NavTab;
@@ -37,6 +37,7 @@ export const Navbar: React.FC<NavbarProps> = ({
   const navItems = [
     { id: "inicio" as NavTab, label: "Página Principal", icon: "🏠" },
     { id: "servicios" as NavTab, label: "Servicios", icon: "🛠️" },
+    { id: "chat" as NavTab, label: "Mensajes", icon: "💬" },
     { id: "perfil" as NavTab, label: "Mi Perfil", icon: "👤" },
   ];
 
@@ -83,6 +84,23 @@ export const Navbar: React.FC<NavbarProps> = ({
               <span className="text-sm">👁️</span>
               <span className="hidden sm:inline">Texto Grande</span>
               <span className="sm:hidden">A+</span>
+            </button>
+
+            {/* Botón de Chat con Notificación */}
+            <button
+              type="button"
+              onClick={() => onTabChange("chat")}
+              aria-label="Ver mensajes y chats con profesionales"
+              className={`min-h-[44px] min-w-[44px] px-2.5 py-1.5 rounded-xl border flex items-center justify-center transition-all relative active:scale-95 focus:outline-none focus:ring-2 focus:ring-[#1764AE] ${
+                currentTab === "chat"
+                  ? "bg-[#1764AE] text-white border-[#1764AE]"
+                  : "bg-white text-slate-700 border-gray-300 hover:bg-slate-100"
+              }`}
+            >
+              <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24" aria-hidden="true">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M8.625 12a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0H8.25m4.125 0a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0H12m4.125 0a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0h-.375M21 12c0 4.556-4.03 8.25-9 8.25a9.764 9.764 0 01-2.555-.337A5.972 5.972 0 015.41 20.97a.75.75 0 01-.974-.94 5.962 5.962 0 011.026-2.502C3.906 16.095 3 14.16 3 12c0-4.556 4.03-8.25 9-8.25s9 3.694 9 8.25z" />
+              </svg>
+              <span className="absolute top-1.5 right-1.5 w-2.5 h-2.5 rounded-full bg-[#10B981] ring-2 ring-white" />
             </button>
 
             {/* Selector de Rol: Cliente vs Prestador */}

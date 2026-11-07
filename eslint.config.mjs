@@ -15,6 +15,11 @@ const eslintConfig = defineConfig([
     ".agents/**",
     "docs/**",
   ]),
+  {
+    rules: {
+      "@next/next/no-img-element": "off",
+    },
+  },
 ]);
 
 export default eslintConfig;

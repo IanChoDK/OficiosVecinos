@@ -51,5 +51,14 @@ Registro cronológico estricto de decisiones técnicas y acuerdos de diseño del
 - **Contexto**: Solicitud de operar como un frontend 100% cliente sin backend ni dependencias de servidor Node.
 - **Decisión**: Configurar `output: 'export'` e `images: { unoptimized: true }` en `next.config.ts`. Centralizar la persistencia y sesiones simuladas en `LocalStorage` con datos de `mockData.json` y sincronización reactiva con `useSyncExternalStore`.
 
+### [ADR-012] · [2026-11-07 01:45] — Ingesta Visual y Maquetación de Pantallas Stitch en SPA
+- **Contexto**: Ingesta visual y traducción a software vivo de los wireframes exportados de Stitch (`docs/Archivos de contexto/stitch_oficios_vecinos_app/`).
+- **Decisión**: Integrar los componentes y flujos de Stitch en una experiencia fluida dentro de la SPA en Next.js 16 + Tailwind CSS:
+  1. **Componentes Atómicos Reutilizables**: `TradeCard` (variantes compact en carrusel y full en feed con insignias barriales y tarifas de visita), `CategoryGrid` (píldoras táctiles con selector interactivo), `ChatBubble` (mensajería saliente y entrante con soporte para fotografías de evidencia), `QuoteWidget` (tarjeta de presupuesto oficial desglosado con micro-flujo de aprobación reactivo), `ContractingFormModal` (formulario en pasos sin tarjeta de crédito ni checkout).
+  2. **Vistas de Pantallas Stitch**: `ProviderDetailView` (ficha completa de prestador con galería de fotos, insignias de verificación, tarifas transparentes y footer flotante) y `ChatView` (conversación con prestador, drawer de garantías, respuestas rápidas y persistencia reactiva en `LocalStorage`).
+  3. **Leyes de Gestalt**: Agrupamiento por proximidad en fichas, semejanza en botones según jerarquía y continuidad visual en carruseles móviles (tarjetas cortadas al margen derecho).
+  4. **Accesibilidad e Interacción**: Cumplimiento de los 5 estados obligatorios en cada componente interactivo (`Default`, `Hover`, `Active`, `Focus` visible con ring `#1764AE`, `Disabled`), áreas táctiles `>= 44-48px` y contraste WCAG AA (`>= 4.5:1`).
+
+
 
 

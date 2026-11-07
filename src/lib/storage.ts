@@ -15,6 +15,13 @@ export interface UserProfile {
   category?: string;
 }
 
+export interface ServiceOffer {
+  id: string;
+  title: string;
+  basePrice: number;
+  description: string;
+}
+
 export interface Provider {
   id: string;
   name: string;
@@ -26,10 +33,46 @@ export interface Provider {
   rating: number;
   reviewCount: number;
   priceInfo: string;
+  basePrice?: number;
+  distanceKm?: number;
   availability: string;
   description: string;
   avatar: string;
+  avatarUrl?: string;
+  imageUrl?: string;
+  gallery?: string[];
   featured?: boolean;
+  verifiedBadge?: boolean;
+  servicesOffered?: ServiceOffer[];
+}
+
+export interface QuoteItem {
+  description: string;
+  amount: number;
+}
+
+export interface ServiceQuote {
+  title: string;
+  items: QuoteItem[];
+  total: number;
+  status: "pendiente" | "aceptado" | "rechazado";
+  scheduledTime?: string;
+}
+
+export interface ChatMessage {
+  id: string;
+  sender: "cliente" | "prestador";
+  text: string;
+  time: string;
+  photo?: string;
+  photoName?: string;
+}
+
+export interface ChatConversation {
+  id: string;
+  requestId: string;
+  providerId: string;
+  messages: ChatMessage[];
 }
 
 export interface ServiceRequest {
@@ -45,8 +88,10 @@ export interface ServiceRequest {
   description: string;
   status: "pendiente" | "en_curso" | "finalizado" | "cancelado";
   date: string;
+  scheduledTime?: string;
   rating?: number | null;
   comment?: string | null;
+  quote?: ServiceQuote | null;
 }
 
 const STORAGE_KEYS = {
@@ -54,6 +99,7 @@ const STORAGE_KEYS = {
   ROLE: "oficios_current_role",
   PROVIDERS: "oficios_providers_list",
   REQUESTS: "oficios_requests_list",
+  CHATS: "oficios_chats_list",
   ACCESSIBLE_FONT: "oficios_accessible_font",
 };
 
@@ -91,6 +137,13 @@ export function initStorage() {
     localStorage.setItem(
       STORAGE_KEYS.REQUESTS,
       JSON.stringify(mockData.initialRequests)
+    );
+  }
+
+  if (!localStorage.getItem(STORAGE_KEYS.CHATS)) {
+    localStorage.setItem(
+      STORAGE_KEYS.CHATS,
+      JSON.stringify(mockData.initialChats)
     );
   }
 
@@ -353,3 +406,150 @@ export function useAccessibleFont(): boolean {
     () => false
   );
 }
+
+// Gestión de Mensajes y Chats (Stitch Architecture)
+export function getStoredChats(): ChatConversation[] {
+  if (typeof window === "undefined") return mockData.initialChats as ChatConversation[];
+  initStorage();
+  const raw = localStorage.getItem(STORAGE_KEYS.CHATS);
+  if (!raw) return mockData.initialChats as ChatConversation[];
+  try {
+    return JSON.parse(raw);
+  } catch {
+    return mockData.initialChats as ChatConversation[];
+  }
+}
+
+export function useAppChats(): ChatConversation[] {
+  const raw = useSyncExternalStore(
+    subscribe,
+    () => {
+      if (typeof window === "undefined") return JSON.stringify(mockData.initialChats);
+      initStorage();
+      return localStorage.getItem(STORAGE_KEYS.CHATS) || JSON.stringify(mockData.initialChats);
+    },
+    () => JSON.stringify(mockData.initialChats)
+  );
+  try {
+    return JSON.parse(raw);
+  } catch {
+    return mockData.initialChats as ChatConversation[];
+  }
+}
+
+export function getChatByRequestId(requestId: string): ChatConversation | undefined {
+  const chats = getStoredChats();
+  return chats.find((c) => c.requestId === requestId);
+}
+
+export function sendChatMessage(
+  requestId: string,
+  sender: "cliente" | "prestador",
+  text: string,
+  photo?: string,
+  photoName?: string
+): ChatMessage {
+  const chats = getStoredChats();
+  const now = new Date();
+  const timeStr = now.toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" });
+
+  const newMessage: ChatMessage = {
+    id: `m-${Date.now()}`,
+    sender,
+    text,
+    time: timeStr,
+    ...(photo ? { photo, photoName } : {}),
+  };
+
+  let found = false;
+  const updatedChats = chats.map((chat) => {
+    if (chat.requestId === requestId) {
+      found = true;
+      return {
+        ...chat,
+        messages: [...chat.messages, newMessage],
+      };
+    }
+    return chat;
+  });
+
+  if (!found) {
+    // Buscar la request correspondiente para sacar el providerId
+    const requests = getStoredRequests();
+    const req = requests.find((r) => r.id === requestId);
+    const newChat: ChatConversation = {
+      id: `chat-${requestId}`,
+      requestId,
+      providerId: req ? req.providerId : "prov-1",
+      messages: [newMessage],
+    };
+    updatedChats.push(newChat);
+  }
+
+  if (typeof window !== "undefined") {
+    localStorage.setItem(STORAGE_KEYS.CHATS, JSON.stringify(updatedChats));
+    notifyChange();
+  }
+
+  return newMessage;
+}
+
+export function respondToQuote(
+  requestId: string,
+  status: "aceptado" | "rechazado"
+) {
+  const requests = getStoredRequests();
+  const updatedRequests = requests.map((req) => {
+    if (req.id === requestId && req.quote) {
+      return {
+        ...req,
+        status: status === "aceptado" ? ("en_curso" as const) : ("cancelado" as const),
+        quote: {
+          ...req.quote,
+          status,
+        },
+      };
+    }
+    return req;
+  });
+
+  if (typeof window !== "undefined") {
+    localStorage.setItem(STORAGE_KEYS.REQUESTS, JSON.stringify(updatedRequests));
+
+    // Agregar un mensaje automático de confirmación o ajuste en el chat
+    const now = new Date();
+    const timeStr = now.toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" });
+    const autoText =
+      status === "aceptado"
+        ? "✅ Presupuesto aceptado por el cliente. Turno coordinado con éxito."
+        : "❌ El presupuesto fue rechazado por el cliente.";
+
+    const chats = getStoredChats();
+    const updatedChats = chats.map((chat) => {
+      if (chat.requestId === requestId) {
+        return {
+          ...chat,
+          messages: [
+            ...chat.messages,
+            {
+              id: `m-quote-${Date.now()}`,
+              sender: "cliente" as const,
+              text: autoText,
+              time: timeStr,
+            },
+          ],
+        };
+      }
+      return chat;
+    });
+
+    localStorage.setItem(STORAGE_KEYS.CHATS, JSON.stringify(updatedChats));
+    notifyChange();
+  }
+}
+
+export function getProviderById(id: string): Provider | undefined {
+  const providers = getStoredProviders();
+  return providers.find((p) => p.id === id);
+}
+

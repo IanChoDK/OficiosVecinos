@@ -47,4 +47,9 @@ Registro cronológico estricto de decisiones técnicas y acuerdos de diseño del
 - **Contexto**: Eliminar la sobrecarga cognitiva y técnica de 2.800+ skills incompatibles o superfluas (backends, Docker, móviles nativos, frameworks no autorizados).
 - **Decisión**: Podar la biblioteca externa conservando únicamente 8 habilidades hiperespecializadas alineadas con el stack (HTML5/Tailwind), accesibilidad WCAG AA, dinamismo DOM y metodología SDD.
 
+### [ADR-011] · [2026-11-07 01:16] — Reconfiguración a SPA Estricta y Persistencia en LocalStorage
+- **Contexto**: Solicitud de operar como un frontend 100% cliente sin backend ni dependencias de servidor Node.
+- **Decisión**: Configurar `output: 'export'` e `images: { unoptimized: true }` en `next.config.ts`. Centralizar la persistencia y sesiones simuladas en `LocalStorage` con datos de `mockData.json` y sincronización reactiva con `useSyncExternalStore`.
+
+
 

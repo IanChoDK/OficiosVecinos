@@ -43,3 +43,8 @@ Registro cronológico estricto de decisiones técnicas y acuerdos de diseño del
 - **Contexto**: Disponer de un catálogo amplio de habilidades y patrones para consultar bajo demanda sin sobrecargar el contexto activo.
 - **Decisión**: Importar el repositorio `sickn33/agentic-awesome-skills` dentro de `.agents/skills/agentic-awesome-skills/`, manteniendo las 8 skills curadas del proyecto en la raíz de `.agents/skills/`.
 
+### [ADR-010] · [2026-11-07 00:52] — Auditoría y Poda Inteligente de Skills
+- **Contexto**: Eliminar la sobrecarga cognitiva y técnica de 2.800+ skills incompatibles o superfluas (backends, Docker, móviles nativos, frameworks no autorizados).
+- **Decisión**: Podar la biblioteca externa conservando únicamente 8 habilidades hiperespecializadas alineadas con el stack (HTML5/Tailwind), accesibilidad WCAG AA, dinamismo DOM y metodología SDD.
+
+

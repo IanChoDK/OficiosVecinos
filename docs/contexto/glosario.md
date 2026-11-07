@@ -1,35 +1,39 @@
-# Glosario del Dominio - OficiosVecinos
+# Glosario del Dominio & Rotulado - OficiosVecinos
 
-Este documento compila el lenguaje ubicuo y los conceptos clave del proyecto **OficiosVecinos** (desarrollado por Chena Martin, Ibañez Ian, Pereyra Franco y Scheurer Roy).
-
----
-
-## 1. Arquetipos de Usuario (User Personas)
-
-### Marta (El Vecino - Cliente)
-- **Perfil**: 62 años, jubilada, reside en un barrio periférico.
-- **Dispositivo**: Celular de gama baja, uso principal mediante WhatsApp. No opera con tarjetas de crédito.
-- **Dolor**: Necesita reparaciones urgentes (ej. plomería), teme ingresar personas desconocidas a su hogar y le abruman las aplicaciones con muchos pasos o cobros por adelantado.
-- **Objetivo**: Conectar con un técnico confiable y cercano en su propio barrio, coordinar el horario y pagar en efectivo.
-
-### Carlos (El Profesional - Oficio)
-- **Perfil**: 45 años, electricista y plomero independiente.
-- **Dispositivo**: Trabaja en exteriores, conectividad móvil intermitente, manipula el celular con las manos sucias o apurado.
-- **Dolor**: Excelente mano de obra pero le cuesta publicitarse en redes sociales o manejar software complejo.
-- **Objetivo**: Que los vecinos de su zona lo ubiquen fácilmente y lo llamen con un solo toque para multiplicar sus trabajos diarios.
+Vocabulario ubicuo, reglas de negocio nucleares y diccionario de rotulado orientado al usuario.
 
 ---
 
-## 2. Entidades & Términos de Dominio
+## 1. Términos del Dominio
+- **Vecino (Cliente - Marta)**: Usuario que busca ayuda práctica y reparaciones en su hogar.
+- **Prestador (Oficio / Profesional - Carlos)**: Trabajador independiente que ofrece sus servicios técnicos en su zona de residencia.
+- **Servicio Ofrecido**: Publicación que describe la actividad laboral, disponibilidad y zona del prestador.
+- **Categoría de Oficio**: Rubro de trabajo (Plomería, Electricidad, Gas, Pintura, Carpintería, etc.).
+- **Zona / Barrio**: Delimitación geográfica de cercanía que prioriza prestadores locales.
+- **Contacto Directo**: Coordinación ágil e inmediata vía llamada telefónica o chat barrial.
+- **Solicitud de Servicio**: Pedido iniciado por el vecino para dar seguimiento al estado del trabajo.
+- **Calificación (5 Estrellas)**: Evaluación de 1 toque al finalizar la labor realizada.
 
-- **Vecino (Cliente)**: Usuario que busca y contrata servicios de oficios para su hogar o comercio barrial.
-- **Prestador (Oficio / Profesional)**: Trabajador independiente o especialista técnico que publica sus servicios y radio de atención.
-- **Servicio Ofrecido**: Publicación que describe la actividad laboral del prestador (rubro, disponibilidad horaria, zona de cobertura).
-- **Categoría de Oficio**: Clasificación temática para organizar y filtrar los servicios (Plomería, Electricidad, Gas, Pintura, Carpintería, Jardinería, Cerrajería, etc.).
-- **Zona / Barrio**: Delimitación geográfica de proximidad que prioriza los prestadores que viven o trabajan a pocas cuadras del vecino solicitante.
-- **Contacto Directo**: Mecanismo de contratación sin pasarela bancaria intermedia; conecta al cliente con el prestador mediante llamada telefónica o mensajería instantánea.
-- **Solicitud de Servicio**: Registro creado cuando el cliente inicia un pedido a un prestador, permitiendo seguir su estado (Pendiente, En curso, Finalizada, Cancelada).
-- **Calificación por Estrellas**: Valoración rápida de 1 a 5 estrellas otorgada por el vecino al culminar el trabajo (con redacción de testimonio opcional).
-- **Suscripción del Prestador**: Plan que define la visibilidad y destacados del profesional en las búsquedas barriales.
-- **Modo Accesible (Accessible Scale)**: Ajuste global del tamaño tipográfico (hasta 36px en títulos y 20px en cards) para facilitar la lectura sin lentes o bajo luz solar intensa.
-- **Servicios Populares**: Sección destacada en la pantalla de inicio con los rubros más requeridos, orientada a captar el interés inmediato del usuario.
+---
+
+## 2. Reglas de Negocio Nucleares
+1. **Acceso Libre y sin Barreras**: La búsqueda y visualización de oficios no requiere login previo.
+2. **Cero Comisiones y Pagos en Efectivo**: La plataforma no intermedia pagos bancarios; el acuerdo de cobro es directo entre vecinos.
+3. **Contratación Inmediata**: No existen carritos de compra ni procesos de checkout multipartes.
+4. **Localidad Estricta**: Todo oficio publicado debe pertenecer a una categoría y a un barrio/zona de cobertura delimitada.
+5. **Calificación sin Fricción**: Calificar con 5 estrellas toma 1 toque; el comentario escrito es siempre opcional.
+
+---
+
+## 3. Tabla de Rotulado: Lenguaje Natural vs. Dev Jargon
+
+| Dev / Tech Jargon | Rotulado Orientado al Usuario (Lenguaje Cotidiano) |
+| :--- | :--- |
+| `Submit` / `Enviar formulario` | **"Llamar al plomero"** / **"Guardar mi oficio"** / **"Pedir presupuesto"** |
+| `Add to Cart` / `Checkout` | **"Contactar a Carlos"** / **"Hablar con el profesional"** |
+| `Filter Query` / `Search Params` | **"Buscar por zona"** / **"Elegir oficio"** |
+| `Error 504 Gateway Timeout` | **"Tu internet está un poco lento. Volvé a intentarlo en un ratito."** |
+| `Empty Dataset / Null Result` | **"Todavía no hay carpinteros en esta zona. ¡Contale a tu carpintero de confianza para que se sume!"** |
+| `Rating Form / Feedback` | **"Dejar 5 estrellas a Carlos"** |
+| `Authentication / Sign In` | **"Ingresar como Vecino o Prestador"** |
+| `User Role Toggle` | **"Cambiar a modo Prestador"** |

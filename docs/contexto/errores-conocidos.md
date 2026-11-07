@@ -1,33 +1,43 @@
-# Historial de Errores Conocidos y Soluciones - OficiosVecinos
+# Errores Conocidos y Gotchas de Usabilidad - OficiosVecinos
 
-Este documento compila incidentes técnicos, trampas de diseño y sus soluciones definitivas para prevenir regresiones.
-
----
-
-## Incidente 001: Naming restrictions de npm al inicializar con `create-next-app`
-- **Síntoma**: Fallo al ejecutar `npx create-next-app@latest .` debido a mayúsculas en el nombre del directorio (`OficiosVecinos`).
-- **Causa**: Las reglas de nomenclatura de paquetes de npm prohíben caracteres en mayúscula.
-- **Solución**: Inicializar el proyecto con nombre en minúsculas en `package.json` (`"name": "oficios-vecinos"`), manteniendo los archivos en la raíz del repositorio.
+Bitácora técnica de resolución de problemas, soluciones de accesibilidad y ajustes de responsive móvil.
 
 ---
 
-## Incidente 002: Contraste insuficiente en colores de éxito y peligro sobre fondo blanco
-- **Síntoma**: Los textos en color success (`#00C8FF`) y danger (`#FF0025`) fallan el ratio de contraste mínimo de 4.5:1 exigido por WCAG AA sobre fondos blancos.
-- **Causa**: Niveles altos de luminancia que dificultan la lectura en pantallas con brillo solar.
-- **Solución**: Se establecieron variantes oscuras de alto contraste (ej. `#006B8A` para success y `#B30018` para danger) dedicadas exclusivamente a textos legibles, reservando los tonos vibrantes originales únicamente para bordes, fondos suaves e iconos decorativos.
+## 1. Gotchas de Usabilidad
+- **Desorientación por Íconos Aislados**:
+  - *Problema*: Usuarios como Marta se desorientan frente a íconos abstractos (hamburguesas, embudos de filtro o disquetes).
+  - *Solución*: Todo ícono debe acompañarse obligatoriamente de texto explícito ("Buscar por zona", "Mis oficios").
+- **Falta de Affordance en Botones Planos (Flat Design)**:
+  - *Problema*: Controles planos que se confunden con etiquetas estáticas.
+  - *Solución*: Uso de sombras (`shadow-md`), bordes nítidos y efecto de hundimiento táctil (`active:scale-95`).
 
 ---
 
-## Incidente 003: Pérdida de foco y desorientación en modales
-- **Síntoma**: Al abrir un modal de contacto o confirmación, el usuario navegando con Tab continúa recorriendo elementos ocultos de la página de fondo.
-- **Causa**: Falta de trampa de foco (focus trap) y gestión deficiente del ciclo de vida del modal en React.
-- **Solución**: Todo modal debe atrapar el foco en su interior al abrirse, devolver el foco al elemento disparador al cerrarse, y permitir el cierre inmediato presionando la tecla `Escape`.
+## 2. Soluciones de Contraste en Modo Claro (WCAG AA)
+- **Fallo de Luminancia en Éxito y Peligro**:
+  - *Problema*: Los colores `#00C8FF` (success) y `#FF0025` (danger) no alcanzan el ratio 4.5:1 exigido sobre fondos blancos/claros bajo la luz solar.
+  - *Solución*: Se reservan `#00C8FF` y `#FF0025` para bordes e iconos. Para los textos legibles sobre fondos claros se emplean variantes oscuras: `success-text` (`#006B8A`) y `danger-text` (`#B30018`).
 
 ---
 
-## Incidente 004: Desorientación de adultos mayores ante iconografía abstracta y botones planos
-- **Síntoma**: Usuarios como Marta no identifican botones planos (flat design) confundiéndolos con títulos, o se pierden ante íconos aislados (hamburguesas, disquetes o embudos de filtro).
-- **Causa**: Brecha entre las convenciones de software contemporáneas y el modelo mental de usuarios con baja adopción tecnológica.
-- **Solución**:
-  1. Todos los botones deben poseer sombras visibles (`box-shadow`), bordes definidos y cambios de estado táctiles (hundimiento con `scale-95`).
-  2. Todo ícono debe ir obligatoriamente acompañado de una etiqueta de texto explícita (ej. "Buscar por zona" en lugar de un ícono de filtro aislado).
+## 3. Problemas de Foco en Teclado
+- **Pérdida de Foco en Modales**:
+  - *Problema*: Al abrir un modal de contacto, la navegación con `Tab` continúa recorriendo elementos ocultos del fondo.
+  - *Solución*: Implementar trampa de foco (`focus trap`) que confine la navegación al modal, cierre con `Escape` y devuelva el foco al botón disparador al cerrarse.
+- **Indicador de Foco Invisible**:
+  - *Problema*: Perfilado por defecto del navegador anulado sin reemplazo.
+  - *Solución*: Anillo de enfoque obligatorio de alto contraste: `focus:ring-2 focus:ring-[#1764AE] focus:ring-offset-2`.
+
+---
+
+## 4. Ajustes de Responsive Móvil
+- **Áreas Táctiles Pequeñas (< 44px)**:
+  - *Problema*: Pulsaciones erróneas en pantallas pequeñas o manipulación apurada en la calle (Carlos).
+  - *Solución*: Altura mínima de botón de `h-11` a `h-12` (44px a 48px) con separación de al menos `gap-3`.
+- **Sensación de Lista Incompleta sin Scroll**:
+  - *Problema*: Grillas que encajan al milímetro en pantalla transmiten la idea de que "no hay más contenido".
+  - *Solución*: La última tarjeta de carruseles o listas horizontales debe quedar **cortada al 50%** en el margen para inducir el deslizamiento táctil intuitivo.
+- **Reseteo Accidental de Formularios en Errores**:
+  - *Problema*: Formularios que borran los datos válidos cuando un campo falla.
+  - *Solución*: Validación no destructiva campo a campo en el evento `onBlur`, preservando la información ya escrita.

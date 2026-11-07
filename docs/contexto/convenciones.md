@@ -1,95 +1,58 @@
-# Convenciones de Diseño, Código y UX - OficiosVecinos
+# Convenciones de Diseño, UI y Accesibilidad - OficiosVecinos
 
-Este documento establece las pautas obligatorias de diseño visual, accesibilidad (a11y), tokens de Tailwind y estándares de código para **OficiosVecinos**.
+Guía normativa de tokens, tipografía, estados y diseño visual para **OficiosVecinos**.
 
 ---
 
-## 1. Tokens de Color Oficiales (Tailwind CSS)
+## 1. Sistema de Colores Semánticos (Tailwind CSS)
 
-> **REGLA DE ORO**: Queda estrictamente prohibido utilizar códigos hexadecimales sueltos en los componentes. Toda la aplicación debe emplear únicamente los tokens semánticos definidos:
+> **Prohibido el uso de colores hexadecimales sueltos en componentes.**
 
-| Token Semántico | Valor Hex / Base | Uso y Significado |
+| Token | Valor Hex | Uso Semántico |
 | :--- | :--- | :--- |
-| `primary` | `#1764AE` | Acciones principales ("Solicitar servicio", "Continuar", "Guardar mi oficio"). Azul que transmite confianza y seguridad. |
-| `primary-dark` | `#00112B` | Hover de botones primarios, títulos principales y textos de alto contraste. |
-| `secondary` / `neutral` | `#E2E2E3` | Acciones secundarias ("Volver", "Quizás más tarde"), fondos de tarjetas y estado deshabilitado. |
-| `success` | `#00C8FF` | Bordes e iconos de confirmación ("Solicitud enviada", "Servicio creado"). |
-| `success-text` | `#006B8A` *(o variante oscura)* | Texto de éxito con contraste **>= 4.5:1** contra fondos blancos/claros. |
-| `danger` | `#FF0025` | Bordes e iconos de error y acciones destructivas ("Eliminar servicio"). |
-| `danger-text` | `#B30018` *(o variante oscura)* | Texto de error con contraste **>= 4.5:1** contra fondos blancos/claros. |
-| `warning` | `#D97706` *(ámbar accesible)* | Estados intermedios ("Solicitud pendiente", "Suscripción por vencer"). |
+| `primary` | `#1764AE` | Acciones principales ("Solicitar servicio", "Continuar"). Azul de confianza. |
+| `primary-dark` | `#00112B` | Hover de primarios, títulos y textos de máxima legibilidad. |
+| `secondary` | `#E2E2E3` | Fondos de tarjetas, acciones secundarias ("Volver") y deshabilitados. |
+| `success` | `#00C8FF` | Bordes e iconos de confirmación y éxito. |
+| `success-text`| `#006B8A` | **Texto de éxito sobre blanco** (cumple contraste WCAG >= 4.5:1). |
+| `danger` | `#FF0025` | Bordes e iconos de error o acciones destructivas. |
+| `danger-text` | `#B30018` | **Texto de error sobre blanco** (cumple contraste WCAG >= 4.5:1). |
+| `warning` | `#D97706` | Ámbar con alto contraste para estados pendientes o advertencias. |
 
 ---
 
-## 2. Escala Tipográfica & Accesibilidad
-
-- **Fuente para Textos**: `Roboto` (sans-serif), clara, neutral y altamente legible en pantallas pequeñas.
-- **Fuente para Títulos**: `Roboto Mono`, otorgando diferenciación visual y carácter técnico barrial.
-- **Tamaño Mínimo en Mobile**: `16px` para texto base (interlineado mínimo de 150%).
-
-### Escalas Tipográficas (Conmutables por Toggle de Accesibilidad)
-- **Modo Normal**:
-  - Título de página: `24px` (`text-2xl font-bold font-mono`)
+## 2. Escala Tipográfica Modular & Accesible
+- **Fuentes**: `font-sans` (`Roboto`) en cuerpo de texto; `font-mono` (`Roboto Mono`) en encabezados.
+- **Escala Normal**:
+  - Títulos: `24px` (`text-2xl font-bold font-mono`)
   - Subtítulos: `18px` (`text-lg font-semibold`)
-  - Texto de tarjetas: `16px` (`text-base`)
-  - Metadatos y detalles: `12px` (`text-xs text-gray-600`)
-- **Modo Accesible (Activado por Marta)**:
-  - Título de página: `36px` (`text-4xl font-bold font-mono`)
-  - Subtítulos: `24px` (`text-2xl font-semibold`)
-  - Texto de tarjetas: `20px` (`text-xl`)
-  - Metadatos y detalles: `16px` (`text-base`)
+  - Texto base / tarjetas: `16px` (`text-base leading-relaxed`)
+  - Metadatos: `12px` (`text-xs text-gray-600`)
+- **Escala Accesible (Toggle en Perfil)**:
+  - Títulos: `36px` (`text-4xl`) | Subtítulos: `24px` (`text-2xl`) | Cards: `20px` (`text-xl`) | Metadatos: `16px` (`text-base`).
 
 ---
 
-## 3. Los 5 Estados Obligatorios de Componentes Interactivos
-
-Todo elemento interactivo (`Button`, `Input`, `Card`, `Selector de Rol`) debe implementar visualmente:
-
-1. **Default**:
-   - `bg-primary text-white shadow-md border border-transparent` (en botones primarios).
-   - Sombras y bordes definidos para otorgar **Affordance físico** (que parezca botón, nunca plano o confuso).
-2. **Hover**:
-   - `hover:bg-primary-dark hover:shadow-lg transition-colors duration-200`.
-   - Cambio sutil de color o leve elevación al pasar el cursor.
-3. **Active**:
-   - `active:scale-95 active:shadow-inner active:bg-[#000d20]`.
-   - Sensación táctil de "hundirse" físicamente al ser pulsado.
-4. **Focus**:
-   - `focus:outline-none focus:ring-2 focus:ring-[#1764AE] focus:ring-offset-2`.
-   - Borde resaltado nítido para permitir navegación completa por teclado con Tab y Enter.
-5. **Disabled**:
-   - `disabled:bg-[#E2E2E3] disabled:text-gray-500 disabled:cursor-not-allowed disabled:shadow-none`.
-   - Claramente inerte y sin respuestas a eventos.
+## 3. Los 5 Estados Obligatorios de Componentes
+Todo componente interactivo debe implementar explícitamente:
+1. **Default**: `shadow-md border border-transparent` (affordance físico visible; nunca plano).
+2. **Hover**: `hover:bg-primary-dark hover:shadow-lg transition-colors duration-200`.
+3. **Active**: `active:scale-95 active:shadow-inner` (sensación táctil de hundimiento).
+4. **Focus**: `focus:outline-none focus:ring-2 focus:ring-[#1764AE] focus:ring-offset-2`.
+5. **Disabled**: `disabled:bg-[#E2E2E3] disabled:text-gray-500 disabled:cursor-not-allowed`.
 
 ---
 
-## 4. Leyes de Gestalt y Jerarquía Visual
-
-- **Ley de Proximidad**: Los elementos de un mismo bloque (foto, nombre, oficio y botón de Carlos) deben estar agrupados con espaciado interno estrecho. El botón de acción debe estar indiscutiblemente más cerca de su contenido que de la tarjeta siguiente. Las etiquetas de formularios van pegadas inmediatamente encima de su campo.
-- **Ley de Semejanza**: Todo elemento con la misma función se ve igual en toda la app. Solo existen 3 roles de botón: Primario (1 solo por vista), Secundario y Destructivo.
-- **Ley de Continuidad y Cierre**: En listas o carruseles horizontales, la última tarjeta debe quedar **cortada a la mitad** en el borde de la pantalla para comunicar que se puede deslizar, eliminando textos redundantes como "ver más".
-- **Jerarquía Visual (Tamaño, Color, Espacio)**:
-  - Lo más importante es lo más grande y contrasta más.
-  - El botón primario es el foco visual principal.
-  - El color jamás es el único transmisor de estado: los errores siempre llevan texto explicativo e icono.
-- **Patrones de Lectura**:
-  - **Patrón en F** en listados (búsqueda, categorías): datos clave alineados a la izquierda y arriba en la tarjeta.
-  - **Patrón en Z** en pantallas de acción (Home, perfil, confirmación): arriba-izq logo/título, arriba-der perfil/mensajes, centro contenido contextual, abajo el botón de acción principal.
+## 4. Espaciado Gestalt & Principios Visuales
+- **Proximidad**: Elementos de una misma card muy cercanos (`gap-1.5`); separación amplia entre tarjetas distintas (`gap-4` o `mb-6`). Labels pegadas inmediatamente sobre su input.
+- **Semejanza**: Solo 3 roles de botón en toda la app: Primario (1 solo por vista), Secundario y Destructivo.
+- **Continuidad y Cierre**: En carruseles horizontales, la última tarjeta queda cortada al 50% en el margen derecho para inducir el scroll táctil sin necesidad de poner "ver más".
+- **Patrones de Lectura**: Patrón en F para listados (búsqueda); Patrón en Z para pantallas de acción (Home).
 
 ---
 
-## 5. Principios de UX Writing & Accesibilidad Humana
-
-- **Tono**: Empático, cercano, directo, humilde y sin tecnicismos corporativos.
-- **Verbos de Acción Concretos**: En lugar de "Enviar" o "Continuar", usar:
-  - *"Llamar al plomero"*
-  - *"Ver oficios cercanos"*
-  - *"Guardar mi oficio"*
-  - *"Contactar a Carlos"*
-- **Mensajes de Error Amigables**: En lugar de códigos de error, usar explicaciones cotidianas:
-  - *"Tu internet está un poco lento. Volvé a intentarlo en un ratito."*
-  - *"El correo necesita un @ para ser válido."*
-- **Estados Vacíos Empáticos (Empty States)**:
-  - *"Todavía no hay carpinteros en esta zona. ¡Contale a tu carpintero de confianza para que se sume!"*
-- **Áreas Táctiles (Touch Targets)**: Mínimo de **44x44px** a **48x48px** con padding suficiente para dedos gruesos o uso en la vía pública.
-- **Etiquetado Obligatorio de Iconos**: Todo ícono debe estar acompañado obligatoriamente de texto explícito (evitar metáforas aisladas como disquetes o hamburguesas solas).
+## 5. Reglas de Accesibilidad WCAG AA
+- **Contraste Mínimo**: 4.5:1 para texto regular (emplear variantes oscuras de texto para success y danger).
+- **Áreas Táctiles (Touch Targets)**: Altura mínima de `h-11` a `h-12` (44px a 48px).
+- **Etiquetado Obligatorio**: Todo ícono debe ir acompañado por texto explícito (prohibidos íconos solos).
+- **Teclado**: Operable al 100% con `Tab` y `Enter`. Modales con trampa de foco y escape (`Esc`).

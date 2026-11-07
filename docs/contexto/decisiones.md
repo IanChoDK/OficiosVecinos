@@ -1,67 +1,40 @@
 # Registro de Decisiones de Arquitectura (ADR) - OficiosVecinos
 
-Este documento registra formalmente las decisiones técnicas, estructurales y de diseño que guían el proyecto **OficiosVecinos**.
+Registro cronológico estricto de decisiones técnicas y acuerdos de diseño del proyecto.
+
+> **REGLA DE GUARDIA Y CONTROL**:
+> Si una instrucción implica un cambio importante o estructural (arquitectura fundamental, paleta semántica, cambio de framework o borrado de archivos), **el agente DEBE pedir autorización explícita antes de ejecutarlo**. Una vez aprobado y ejecutado, debe registrarse inmediatamente aquí.
 
 ---
 
-## ADR-001: Adopción del Sistema Operativo de Ingeniería Gentle-AI
-- **Fecha**: 2026-11-07
-- **Estado**: Aceptado
-- **Contexto**: Se requiere un marco estructurado que garantice velocidad de entrega, accesibilidad y consistencia técnica sin sobreingeniería.
-- **Decisión**: Integrar las 6 reglas de Gentle-AI en `.agents/rules/antigravity_rules.md` y centralizar el Master Context en `docs/contexto/`.
-- **Consecuencias**: Toda tarea mayor a 2 archivos sigue el ciclo SDD (Explore ➔ Propose ➔ Tasks ➔ Apply ➔ Verify).
+### [ADR-001] · [2026-11-07 00:05] — Adopción de Gentle-AI y Master Context
+- **Contexto**: Necesidad de un marco ágil que garantice accesibilidad y consistencia técnica.
+- **Decisión**: Integrar las 6 reglas de Gentle-AI (`.agents/rules/antigravity_rules.md`) y centralizar el contexto en `docs/contexto/`.
 
----
+### [ADR-002] · [2026-11-07 00:05] — Stack Tecnológico: Next.js 16, React 19 y Tailwind CSS v4
+- **Contexto**: Crear una app mobile-first ultraliviana para smartphones de gama baja.
+- **Decisión**: Utilizar Next.js 16 con App Router (SPA reactiva), Turbopack, TypeScript y Tailwind CSS v4.
 
-## ADR-002: Stack Tecnológico: Next.js 16 (Turbopack), React 19 y Tailwind CSS v4
-- **Fecha**: 2026-11-07
-- **Estado**: Aceptado
-- **Contexto**: La aplicación debe ser ultrarrápida, liviana para celulares de gama baja en redes móviles 3G/4G, y de mantenimiento sencillo.
-- **Decisión**: Utilizar Next.js 16 con App Router, compilación acelerada por Turbopack, React 19, TypeScript estricto y Tailwind CSS v4 con arquitectura de tokens.
-- **Consecuencias**: Cero overhead de librerías CSS pesadas; rendimiento y renderizado óptimo en clientes móviles.
+### [ADR-003] · [2026-11-07 00:30] — Paleta Semántica y Contraste WCAG AA en Modo Claro
+- **Contexto**: El éxito `#00C8FF` y el peligro `#FF0025` no alcanzan el ratio 4.5:1 sobre blanco.
+- **Decisión**: Crear tokens semánticos y variantes oscuras (`success-text` `#006B8A`, `danger-text` `#B30018`) para textos legibles, reservando los tonos vibrantes para bordes e iconos. Prohibir colores hex sueltos.
 
----
+### [ADR-004] · [2026-11-07 00:30] — Arquitectura de Información Dual por Card Sorting
+- **Contexto**: Modelos mentales divergentes entre el vecino que busca y el técnico que ofrece.
+- **Decisión**: Estructurar dos interfaces especializadas (Cliente y Prestador) sobre 3 secciones compartidas: `Página Principal`, `Servicios` y `Mi Perfil`.
 
-## ADR-003: Tokens Semánticos de Color & Accesibilidad WCAG AA
-- **Fecha**: 2026-11-07
-- **Estado**: Aceptado
-- **Contexto**: El público objetivo incluye adultos mayores (ej. Marta, 62 años) y trabajadores en exteriores bajo la luz solar (ej. Carlos, 45 años). Los colores originales de success (`#00C8FF`) y danger (`#FF0025`) no cumplen con el ratio de contraste mínimo 4.5:1 sobre fondos claros.
-- **Decisión**:
-  - Definir tokens estrictos de Tailwind (`primary`, `primary-dark`, `secondary`, `success`, `danger`, `warning`).
-  - Prohibir colores hexadecimales sueltos en el código.
-  - Utilizar variantes oscuras de alto contraste para textos de error y éxito sobre fondos claros, reservando los tonos brillantes únicamente para bordes e iconos.
+### [ADR-005] · [2026-11-07 00:30] — Mapeo Atómico con Frames de Stitch
+- **Contexto**: La especificación gráfica y flujos residen en los wireframes de Stitch.
+- **Decisión**: Construir la UI siguiendo Diseño Atómico (Átomos, Moléculas, Organismos) desacoplados, listos para conectarse a las pantallas de Stitch.
 
----
+### [ADR-006] · [2026-11-07 00:30] — Contratación Directa Barrial vs. Carrito de Compras
+- **Contexto**: Usuarios adultos mayores no bancarizados (Marta) y cobro en efectivo.
+- **Decisión**: Descartar checkout y carritos de e-commerce; el botón principal es "Contactar" (llamada o chat directo).
 
-## ADR-004: Dualidad de Interfaz (Cliente y Prestador) basada en Card Sorting
-- **Fecha**: 2026-11-07
-- **Estado**: Aceptado
-- **Contexto**: Clientes y prestadores tienen modelos mentales y necesidades operativas marcadamente distintas.
-- **Decisión**: Estructurar la aplicación en dos vistas principales con tres secciones idénticas en nomenclatura pero especializadas en contenido:
-  - **Página Principal**: Gancho con "Servicios Populares" para clientes; "Crear Servicio" para prestadores.
-  - **Servicios**: "Búsqueda" y "Servicios Locales" para clientes; "Mis Servicios" e "Historial" para prestadores.
-  - **Mi Perfil**: Solicitudes, Mensajes y Ajuste de texto accesible para clientes; Suscripción y Mensajes para prestadores.
+### [ADR-007] · [2026-11-07 00:30] — Calificación Inmediata en 1 Toque (5 Estrellas)
+- **Contexto**: Las reseñas extensas obligatorias reducen la participación de los vecinos.
+- **Decisión**: El flujo de calificación permite valorar con un solo toque sobre 5 estrellas grandes, dejando la redacción de texto como opcional.
 
----
-
-## ADR-005: Contratación Directa sin Carrito de Compras
-- **Fecha**: 2026-11-07
-- **Estado**: Aceptado
-- **Contexto**: Marta no utiliza tarjetas de crédito ni entiende flujos de checkout tipo e-commerce; Carlos necesita llamadas o mensajes directos para coordinar y cobrar en efectivo.
-- **Decisión**: Eliminar el concepto de carrito de compras. El botón principal es "Contactar" o "Llamar al plomero", facilitando la coordinación barrial directa.
-
----
-
-## ADR-006: Affordance Físico sobre Flat Design
-- **Fecha**: 2026-11-07
-- **Estado**: Aceptado
-- **Contexto**: El diseño plano confunde a usuarios poco digitalizados, haciendo que botones parezcan texto estático.
-- **Decisión**: Todos los controles interactivos deben poseer bordes notorios, sombras (`box-shadow`), cambios de color en hover y efecto de hundimiento en active (`scale-95`). Además, todo ícono debe ir acompañado obligatoriamente de su etiqueta de texto.
-
----
-
-## ADR-007: Calificación Inmediata de 1 Solo Toque (5 Estrellas)
-- **Fecha**: 2026-11-07
-- **Estado**: Aceptado
-- **Contexto**: Exigir redactar reseñas largas reduce drásticamente la tasa de retroalimentación de los vecinos.
-- **Decisión**: La pantalla de calificación permite evaluar con un solo toque sobre 5 estrellas grandes, dejando el campo de texto como totalmente opcional.
+### [ADR-008] · [2026-11-07 00:38] — Protocolo de Salvaguarda: Autorización Obligatoria Previa
+- **Contexto**: Evitar regresiones no pactadas en la arquitectura o diseño del producto.
+- **Decisión**: Todo cambio estructural (paleta, framework, eliminación de archivos o arquitectura) exige confirmación explícita previa del usuario antes de ser aplicado y registrado.

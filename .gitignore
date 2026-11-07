@@ -39,3 +39,7 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# external skills library
+.agents/skills/agentic-awesome-skills/
+

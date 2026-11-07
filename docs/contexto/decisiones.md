@@ -38,3 +38,8 @@ Registro cronológico estricto de decisiones técnicas y acuerdos de diseño del
 ### [ADR-008] · [2026-11-07 00:38] — Protocolo de Salvaguarda: Autorización Obligatoria Previa
 - **Contexto**: Evitar regresiones no pactadas en la arquitectura o diseño del producto.
 - **Decisión**: Todo cambio estructural (paleta, framework, eliminación de archivos o arquitectura) exige confirmación explícita previa del usuario antes de ser aplicado y registrado.
+
+### [ADR-009] · [2026-11-07 00:46] — Importación de la Biblioteca Global de Skills
+- **Contexto**: Disponer de un catálogo amplio de habilidades y patrones para consultar bajo demanda sin sobrecargar el contexto activo.
+- **Decisión**: Importar el repositorio `sickn33/agentic-awesome-skills` dentro de `.agents/skills/agentic-awesome-skills/`, manteniendo las 8 skills curadas del proyecto en la raíz de `.agents/skills/`.
+

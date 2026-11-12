@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+
+<html lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport"/>
+<title>Prestador - Solicitud y Datos del Cliente</title>
+<!-- Tailwind CSS v3 with Plugins -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Google Fonts: Plus Jakarta Sans -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind Custom Configuration -->
+<script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'system-ui', '-apple-system', 'sans-serif'],
+          },
+          colors: {
+            app: {
+              bg: '#E2E2E2',
+              card: '#FFFFFF',
+              inputUnderline: '#CBD5E1',
+              badge: '#E5E7EB',
+              btnPrimary: '#F1F1F1',
+              dark: '#1A1A1A'
+            }
+          }
+        }
+      }
+    }
+  </script>
+<!-- Typography and Custom Layout Styles -->
+<style data-purpose="typography">
+    body {
+      font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+      -webkit-tap-highlight-color: transparent;
+    }
+  </style>
+<style data-purpose="mobile-shell">
+    /* iOS frame setup and smooth responsiveness */
+    .ios-scroll {
+      -webkit-overflow-scrolling: touch;
+    }
+  </style>
+</head>
+<body class="bg-stone-900 min-h-screen flex justify-center items-center p-0 md:p-6 antialiased select-none text-slate-800">
+<!-- BEGIN: MobileDeviceContainer -->
+<!-- Container with mobile iOS proportions -->
+<div class="w-full max-w-[420px] h-[100dvh] md:h-[860px] md:max-h-[92vh] bg-[#D4D4D4] md:rounded-[40px] shadow-2xl flex flex-col overflow-hidden relative border-0 md:border-[7px] md:border-stone-800">
+<!-- BEGIN: TopBarAndNavigation -->
+<!-- App Header & Navigation System -->
+<header class="bg-[#D4D4D4] pt-2 pb-2 px-4 shrink-0 border-b border-black/5" data-purpose="app-header">
+<!-- Upper Navigation Row: Logo, Search, Messages, Avatar -->
+<div class="flex items-center justify-between gap-2.5 pt-2 pb-2">
+<!-- Logo / Brand text -->
+<div class="flex flex-col shrink-0 leading-tight">
+<span class="text-[13px] font-bold tracking-tight text-neutral-900">Oficios</span>
+<span class="text-[13px] font-bold tracking-tight text-neutral-900 -mt-1">Vecinos</span>
+</div>
+<!-- Search Pill -->
+<div class="flex-1 max-w-[170px] bg-white rounded-full px-3 py-1 flex items-center justify-between shadow-sm">
+<span class="text-[11px] text-neutral-400 font-medium tracking-wide">Buscar</span>
+<svg class="w-3.5 h-3.5 text-neutral-600 shrink-0" fill="none" stroke="currentColor" stroke-width="2.2" viewbox="0 0 24 24">
+<circle cx="11" cy="11" r="7"></circle>
+<path d="M21 21l-4.35-4.35" stroke-linecap="round"></path>
+</svg>
+</div>
+<!-- Right action icons -->
+<div class="flex items-center gap-2 shrink-0">
+<!-- Chat / Message icon -->
+<button aria-label="Mensajes" class="p-1 rounded-full text-neutral-900 hover:bg-black/5 transition-colors" type="button">
+<svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.8" viewbox="0 0 24 24">
+<path d="M7 8h10M7 12h6m-7 8l2.67-2.67A2 2 0 0 1 10.08 17H19a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h2v3z" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</button>
+<!-- User profile avatar (Header) -->
+<div class="w-8 h-8 rounded-full bg-[#1e232a] flex items-center justify-center text-white shadow-sm ring-1 ring-black/10">
+<svg class="w-5 h-5 text-gray-300" fill="currentColor" viewbox="0 0 24 24">
+<path clip-rule="evenodd" d="M12 2a5 5 0 100 10 5 5 0 000-10zm-7 18a7 7 0 0114 0H5z" fill-rule="evenodd"></path>
+</svg>
+</div>
+</div>
+</div>
+<!-- Secondary Sub-header Row: Back button (<-) -->
+<div class="flex items-center pt-1 pb-1">
+<button aria-label="Volver" class="p-1 text-neutral-800 hover:text-black transition-transform active:scale-90 inline-flex items-center" type="button">
+<svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.5" viewbox="0 0 24 24">
+<path d="M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</button>
+</div>
+</header>
+<!-- END: TopBarAndNavigation -->
+<!-- BEGIN: MainContent -->
+<!-- Content scrollable viewport -->
+<main class="flex-1 overflow-y-auto ios-scroll px-4 pt-1 pb-6 flex flex-col items-center justify-between" data-purpose="client-details-body">
+<!-- Top wrapper containing title and primary info card -->
+<div class="w-full flex flex-col items-center">
+<!-- Title: Datos del cliente -->
+<h1 class="text-[19px] font-bold text-neutral-900 tracking-tight text-center mb-4 mt-1">
+          Datos del cliente
+        </h1>
+<!-- BEGIN: ClientDetailsCard -->
+<!-- White floating card matching wireframe layout -->
+<article class="w-full bg-white rounded-[26px] p-5 pt-6 shadow-sm border border-neutral-100 flex flex-col gap-5">
+<!-- Client Profile Header Block -->
+<header class="flex items-start gap-3.5">
+<!-- Client circular outline avatar -->
+<div class="shrink-0 w-[54px] h-[54px] rounded-full border-[3px] border-neutral-900 flex items-center justify-center p-1 bg-white">
+<svg class="w-full h-full text-neutral-900" fill="currentColor" viewbox="0 0 24 24">
+<path clip-rule="evenodd" d="M12 2a4.5 4.5 0 100 9 4.5 4.5 0 000-9zm-6.5 16a6.5 6.5 0 0113 0H5.5z" fill-rule="evenodd"></path>
+</svg>
+</div>
+<!-- Client Name and Metrics Badges -->
+<div class="flex-1 min-w-0">
+<h2 class="text-[15px] font-bold text-neutral-900 truncate leading-snug">
+                Cliente: Juan Pedernera
+              </h2>
+<!-- Badges Container -->
+<div class="grid grid-cols-2 gap-2 mt-2">
+<!-- Badge: Contrataciones -->
+<div class="bg-[#D9D9D9] rounded-md px-1.5 py-1 text-center">
+<p class="text-[11px] font-bold text-neutral-900 leading-none">5</p>
+<p class="text-[8px] font-medium text-neutral-700 leading-tight mt-0.5">Contrataciones</p>
+</div>
+<!-- Badge: Tiempo usando la app -->
+<div class="bg-[#D9D9D9] rounded-md px-1.5 py-1 text-center">
+<p class="text-[9.5px] font-bold text-neutral-900 leading-none truncate">1 año(s) 2 mes(es)</p>
+<p class="text-[8px] font-medium text-neutral-700 leading-tight mt-0.5">Tiempo usando la app</p>
+</div>
+</div>
+</div>
+</header>
+<!-- Client Detailed Fields Section -->
+<section class="space-y-4 pt-1" data-purpose="client-fields">
+<!-- Field: Nombre -->
+<div class="space-y-1">
+<span class="text-[13px] font-bold text-neutral-900 block tracking-tight">Nombre</span>
+<div class="space-y-1.5 pt-0.5">
+<p class="text-[13px] font-medium text-neutral-700">Juan Pedernera</p>
+<div class="w-full border-b border-neutral-300"></div>
+<div class="w-full border-b border-neutral-300"></div>
+<div class="w-full border-b border-neutral-300"></div>
+</div>
+</div>
+<!-- Field: Direccion -->
+<div class="space-y-1">
+<span class="text-[13px] font-bold text-neutral-900 block tracking-tight">Direccion</span>
+<div class="space-y-1.5 pt-0.5">
+<p class="text-[13px] font-medium text-neutral-700">Calle Falsa 123, Barrio Alberdi</p>
+<div class="w-full border-b border-neutral-300"></div>
+<div class="w-full border-b border-neutral-300"></div>
+<div class="w-full border-b border-neutral-300"></div>
+</div>
+</div>
+<!-- Field: Horarios -->
+<div class="space-y-1">
+<span class="text-[13px] font-bold text-neutral-900 block tracking-tight">Horarios</span>
+<div class="space-y-1.5 pt-0.5">
+<p class="text-[13px] font-medium text-neutral-700">Lunes a Miércoles de 16:00 a 19:00 hs</p>
+<div class="w-full border-b border-neutral-300"></div>
+<div class="w-full border-b border-neutral-300"></div>
+<div class="w-full border-b border-neutral-300"></div>
+</div>
+</div>
+</section>
+</article>
+<!-- END: ClientDetailsCard -->
+</div>
+<!-- BEGIN: ActionArea -->
+<!-- Bottom Primary Action (NO Bottom Navigation Bar) -->
+<footer class="w-full pt-6 pb-2 shrink-0">
+<button class="w-full bg-[#EAEAEA] hover:bg-[#dedede] active:scale-[0.98] transition-all text-neutral-900 font-medium text-[16px] py-3.5 px-6 rounded-2xl shadow-sm text-center border border-black/5 flex items-center justify-center tracking-normal" type="button">
+          Aceptar
+        </button>
+</footer>
+<!-- END: ActionArea -->
+</main>
+<!-- END: MainContent -->
+</div>
+<!-- END: MobileDeviceContainer -->
+</body></html>

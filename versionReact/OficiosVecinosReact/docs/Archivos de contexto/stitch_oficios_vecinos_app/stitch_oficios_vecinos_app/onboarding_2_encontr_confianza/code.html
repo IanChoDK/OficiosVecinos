@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+
+<html lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, viewport-fit=cover" name="viewport"/>
+<title>Oficios Vecinos - Onboarding</title>
+<!-- Google Fonts: Plus Jakarta Sans -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS CDN with plugins -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+          },
+          colors: {
+            brand: {
+              50: '#eff8ff',
+              100: '#dbeefe',
+              500: '#1764ae',
+              600: '#135392',
+              700: '#0e4276',
+              900: '#00112b',
+            }
+          }
+        }
+      }
+    }
+  </script>
+<!-- Custom styles for layout & mobile safe-areas -->
+<style data-purpose="mobile-layout">
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      -webkit-tap-highlight-color: transparent;
+      background-color: #f1f5f9;
+    }
+    .safe-top {
+      padding-top: env(safe-area-inset-top, 16px);
+    }
+    .safe-bottom {
+      padding-bottom: env(safe-area-inset-bottom, 24px);
+    }
+  </style>
+</head>
+<body class="flex items-center justify-center min-h-screen text-slate-800 antialiased p-0 sm:p-4">
+<!-- BEGIN: MobileContainer -->
+<!-- Container framing an authentic iOS mobile device view -->
+<main class="w-full max-w-sm sm:max-w-[400px] h-[100dvh] sm:h-[844px] bg-white sm:rounded-[44px] shadow-2xl flex flex-col justify-between overflow-hidden relative border border-slate-100">
+<!-- BEGIN: TopBar -->
+<!-- Top bar includes iOS notch spacing, brand title, and skip button -->
+<header class="w-full pt-8 px-6 pb-2 safe-top flex items-center justify-between z-10" data-purpose="top-navigation">
+<!-- Brand Logo / Name -->
+<div class="flex flex-col">
+<span class="text-[17px] font-extrabold tracking-tight text-slate-900 leading-tight">Oficios</span>
+<span class="text-[17px] font-extrabold tracking-tight text-brand-500 leading-tight">Vecinos</span>
+</div>
+<!-- Skip Button Pill -->
+<button class="text-xs font-semibold px-4 py-1.5 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-600 active:scale-95 transition-all focus:outline-none" data-purpose="skip-button" type="button">
+        Omitir
+      </button>
+</header>
+<!-- END: TopBar -->
+<!-- BEGIN: IllustrationCard -->
+<!-- Central high-fidelity visual representing trusted neighbors with checks -->
+<section class="flex-1 flex flex-col items-center justify-center px-6 py-4" data-purpose="onboarding-graphic">
+<div class="w-full max-w-[290px] aspect-[4/3] bg-gradient-to-br from-slate-50 to-slate-100/90 rounded-3xl p-5 border border-slate-200/80 shadow-sm flex flex-col justify-center gap-4 relative overflow-hidden">
+<!-- Soft decorative glow -->
+<div class="absolute -top-12 -right-12 w-32 h-32 bg-blue-100 rounded-full blur-2xl opacity-60 pointer-events-none"></div>
+<!-- Row 1: Profile with verified check -->
+<div class="flex items-center gap-3.5 bg-white p-3 rounded-2xl border border-slate-100 shadow-sm" data-purpose="item-row">
+<div class="w-10 h-10 rounded-full bg-slate-900 flex items-center justify-center shrink-0 text-white font-semibold text-xs shadow-inner">
+<svg class="w-5 h-5 text-white/90" fill="currentColor" viewbox="0 0 24 24">
+<path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"></path>
+</svg>
+</div>
+<div class="flex-1 space-y-1.5">
+<div class="w-24 h-2.5 bg-slate-800 rounded-full"></div>
+<div class="w-16 h-2 bg-slate-300 rounded-full"></div>
+</div>
+<div class="w-6 h-6 rounded-full bg-emerald-500/10 flex items-center justify-center shrink-0">
+<svg class="w-4 h-4 text-emerald-600" fill="none" stroke="currentColor" stroke-width="2.5" viewbox="0 0 24 24">
+<path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</div>
+</div>
+<!-- Row 2: Secondary Neighbor Row -->
+<div class="flex items-center gap-3.5 bg-white/90 p-3 rounded-2xl border border-slate-100 shadow-sm" data-purpose="item-row">
+<div class="w-10 h-10 rounded-full border-2 border-slate-300 bg-slate-50 flex items-center justify-center shrink-0">
+<svg class="w-5 h-5 text-slate-400" fill="currentColor" viewbox="0 0 24 24">
+<path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"></path>
+</svg>
+</div>
+<div class="flex-1 space-y-1.5">
+<div class="w-28 h-2.5 bg-slate-400 rounded-full"></div>
+<div class="w-14 h-2 bg-slate-200 rounded-full"></div>
+</div>
+<div class="w-6 h-6 rounded-full bg-emerald-500/10 flex items-center justify-center shrink-0">
+<svg class="w-4 h-4 text-emerald-600" fill="none" stroke="currentColor" stroke-width="2.5" viewbox="0 0 24 24">
+<path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</div>
+</div>
+<!-- Row 3: Tertiary Neighbor Row -->
+<div class="flex items-center gap-3.5 bg-white p-3 rounded-2xl border border-slate-100 shadow-sm" data-purpose="item-row">
+<div class="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center shrink-0 text-white font-semibold text-xs shadow-inner">
+<svg class="w-5 h-5 text-slate-200" fill="currentColor" viewbox="0 0 24 24">
+<path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"></path>
+</svg>
+</div>
+<div class="flex-1 space-y-1.5">
+<div class="w-20 h-2.5 bg-slate-700 rounded-full"></div>
+<div class="w-12 h-2 bg-slate-300 rounded-full"></div>
+</div>
+<div class="w-6 h-6 rounded-full bg-emerald-500/10 flex items-center justify-center shrink-0">
+<svg class="w-4 h-4 text-emerald-600" fill="none" stroke="currentColor" stroke-width="2.5" viewbox="0 0 24 24">
+<path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</div>
+</div>
+</div>
+</section>
+<!-- END: IllustrationCard -->
+<!-- BEGIN: OnboardingContent -->
+<!-- Text area & action triggers -->
+<footer class="w-full px-6 pb-8 safe-bottom flex flex-col items-center text-center gap-6" data-purpose="onboarding-controls">
+<!-- Headings and Description -->
+<div class="space-y-3 px-2">
+<h1 class="text-2xl font-bold tracking-tight text-slate-900 leading-snug">
+          Encontra a alguien de confianza, cerca tuyo
+        </h1>
+<p class="text-[14px] leading-relaxed text-slate-500 font-normal">
+          Plomeros, carpinteros, electricistas y mas. Elegi a un vecino y escribile directo.
+        </p>
+</div>
+<!-- Pagination Dots (Screen 2 is active) -->
+<nav aria-label="Progreso del tutorial" class="flex items-center justify-center gap-2 pt-1" data-purpose="pagination-dots">
+<!-- Dot 1 -->
+<span class="w-2 h-2 rounded-full bg-slate-300 transition-colors"></span>
+<!-- Dot 2 (Active - Column 2) -->
+<span aria-current="step" class="w-2.5 h-2.5 rounded-full bg-slate-900 transition-colors"></span>
+<!-- Dot 3 -->
+<span class="w-2 h-2 rounded-full bg-slate-300 transition-colors"></span>
+<!-- Dot 4 -->
+<span class="w-2 h-2 rounded-full bg-slate-300 transition-colors"></span>
+<!-- Dot 5 -->
+<span class="w-2 h-2 rounded-full bg-slate-300 transition-colors"></span>
+</nav>
+<!-- Primary Action Button -->
+<button class="w-full h-14 bg-brand-500 hover:bg-brand-600 active:bg-brand-700 text-white text-base font-semibold rounded-2xl shadow-lg shadow-brand-500/25 active:scale-[0.98] transition-all flex items-center justify-center focus:outline-none" data-purpose="next-step-button" type="button">
+        Siguiente
+      </button>
+</footer>
+<!-- END: OnboardingContent -->
+</main>
+<!-- END: MobileContainer -->
+</body></html>

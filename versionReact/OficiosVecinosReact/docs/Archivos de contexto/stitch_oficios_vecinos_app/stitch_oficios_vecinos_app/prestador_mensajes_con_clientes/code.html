@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+
+<html lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport"/>
+<title>Oficios Vecinos - Mensaje con Clientes</title>
+<!-- Tailwind CSS v3 -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              DEFAULT: '#1764AE',
+              dark: '#0f467a',
+              light: '#e9f1f8',
+              surface: '#F9F9FA'
+            }
+          },
+          fontFamily: {
+            sans: ['-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'Helvetica', 'Arial', 'sans-serif']
+          }
+        }
+      }
+    }
+  </script>
+<style data-purpose="custom-scroll">
+    /* Ocultar barra de scroll para estética nativa de iOS */
+    .no-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+    .no-scrollbar {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+  </style>
+</head>
+<body class="bg-gray-100 font-sans antialiased text-gray-800 flex justify-center min-h-screen">
+<!-- BEGIN: MobileDeviceContainer -->
+<div class="w-full max-w-md bg-[#F9F9FA] min-h-screen flex flex-col shadow-xl border-x border-gray-200">
+<!-- BEGIN: TopHeader -->
+<!-- Barra superior con marca 'Oficios Vecinos', buscador rápido, icono de mensaje y avatar -->
+<header class="bg-white border-b border-gray-200 px-4 pt-3 pb-3 sticky top-0 z-20" data-purpose="app-header">
+<div class="flex items-center justify-between gap-2">
+<!-- Logo / Nombre de marca -->
+<div class="flex flex-col leading-tight">
+<span class="text-xs font-bold text-gray-900 tracking-tight">Oficios</span>
+<span class="text-xs font-semibold text-[#1764AE] tracking-tight">Vecinos</span>
+</div>
+<!-- Buscador compacto en header tipo wireframe -->
+<div class="flex-1 max-w-[150px] relative">
+<input aria-label="Buscar en la app" class="w-full py-1 pl-3 pr-7 text-xs bg-gray-100 border border-gray-200 rounded-full focus:outline-none focus:border-[#1764AE] text-gray-700 placeholder-gray-400" placeholder="Buscar" type="text"/>
+<button aria-label="Ejecutar búsqueda" class="absolute right-2 top-1/2 -translate-y-1/2 text-gray-400">
+<svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M21 21l-4.35-4.35M16.65 11.65a5 5 0 11-10 0 5 5 0 0110 0z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+</button>
+</div>
+<!-- Acciones rápidas de perfil y notificación -->
+<div class="flex items-center space-x-2">
+<!-- Icono de chat con indicador -->
+<button aria-label="Mensajes" class="relative p-1 text-gray-700 hover:text-[#1764AE] transition-colors">
+<svg class="w-5 h-5" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8"></path>
+</svg>
+<span class="absolute 0 top-0 right-0 w-2 h-2 bg-[#1764AE] rounded-full ring-2 ring-white"></span>
+</button>
+<!-- Avatar del prestador logueado -->
+<div class="w-7 h-7 rounded-full bg-gray-900 border border-gray-300 flex items-center justify-center text-white text-xs font-semibold overflow-hidden" title="Mi perfil">
+<span class="text-[10px]">RP</span>
+</div>
+</div>
+</div>
+</header>
+<!-- END: TopHeader -->
+<!-- BEGIN: BackBar -->
+<!-- Botón de regreso para navegación contextual -->
+<nav class="px-4 py-2 bg-white/80 backdrop-blur border-b border-gray-100 flex items-center" data-purpose="back-navigation">
+<a aria-label="Volver" class="inline-flex items-center text-gray-600 hover:text-[#1764AE] transition-colors p-1 -ml-1 rounded-full" href="#">
+<svg class="w-6 h-6" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M10 19l-7-7m0 0l7-7m-7 7h18" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+</a>
+<span class="text-xs font-medium text-gray-500 ml-2">Panel del Prestador</span>
+</nav>
+<!-- END: BackBar -->
+<!-- BEGIN: MainContent -->
+<main class="flex-1 px-4 py-3 pb-8" data-purpose="chat-inbox">
+<!-- BEGIN: SearchChatInput -->
+<!-- Buscador de chats principal -->
+<div class="relative mb-4">
+<input class="w-full py-2.5 pl-4 pr-10 text-sm bg-white border border-gray-300 rounded-full shadow-sm focus:outline-none focus:ring-2 focus:ring-[#1764AE] focus:border-transparent text-gray-800 placeholder-gray-400" data-purpose="filter-input" id="chat-search" placeholder="Buscar chat" type="text"/>
+<div class="absolute right-3.5 top-1/2 -translate-y-1/2 pointer-events-none text-gray-400">
+<svg class="w-4 h-4" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M21 21l-4.35-4.35M16.65 11.65a5 5 0 11-10 0 5 5 0 0110 0z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+</div>
+</div>
+<!-- END: SearchChatInput -->
+<!-- Subtítulo de sección -->
+<div class="mb-3">
+<h1 class="text-xs font-semibold text-gray-700 tracking-wide uppercase">
+          Mensaje con clientes
+        </h1>
+</div>
+<!-- BEGIN: ConversationsList -->
+<!-- Contenedor vertical con las 7 conversaciones solicitadas -->
+<section aria-label="Lista de chats con clientes" class="space-y-2.5" data-purpose="conversations-wrapper">
+<!-- Fila 1: Juan Pedernera (Activo / Con mensajes no leídos) -->
+<article class="bg-[#6b7280] hover:bg-[#5b6371] text-white p-3 rounded-2xl transition duration-150 shadow-sm flex items-center gap-3 cursor-pointer" data-purpose="chat-item">
+<!-- Avatar del cliente -->
+<div class="w-12 h-12 rounded-full bg-gray-300 flex-shrink-0 border-2 border-white/20 flex items-center justify-center font-bold text-gray-700 text-sm overflow-hidden">
+            JP
+          </div>
+<!-- Detalle de la conversación -->
+<div class="flex-1 min-w-0">
+<div class="flex items-center justify-between mb-0.5">
+<h2 class="text-sm font-semibold truncate text-white">Juan Pedernera</h2>
+<span class="text-[11px] text-gray-200">19:49</span>
+</div>
+<p class="text-xs text-blue-100 font-medium truncate mb-0.5">Carpintería • Restauración mesa roble</p>
+<p class="text-xs text-gray-200 truncate">Hola Roberto, ¿cuándo podrías pasar a verla?</p>
+</div>
+<!-- Badge no leído -->
+<div class="flex flex-col items-end justify-center">
+<span class="w-2.5 h-2.5 bg-[#1764AE] rounded-full border border-white"></span>
+</div>
+</article>
+<!-- Fila 2: Marta Rodríguez -->
+<article class="bg-[#6b7280] hover:bg-[#5b6371] text-white p-3 rounded-2xl transition duration-150 shadow-sm flex items-center gap-3 cursor-pointer" data-purpose="chat-item">
+<div class="w-12 h-12 rounded-full bg-gray-300 flex-shrink-0 border-2 border-white/20 flex items-center justify-center font-bold text-gray-700 text-sm overflow-hidden">
+            MR
+          </div>
+<div class="flex-1 min-w-0">
+<div class="flex items-center justify-between mb-0.5">
+<h2 class="text-sm font-semibold truncate text-white">Marta Rodríguez</h2>
+<span class="text-[11px] text-gray-200">18:15</span>
+</div>
+<p class="text-xs text-blue-100 font-medium truncate mb-0.5">Pintura • Habitación principal</p>
+<p class="text-xs text-gray-200 truncate">Perfecto, ya compré la pintura de color blanco.</p>
+</div>
+<div class="flex flex-col items-end justify-center">
+<span class="w-2.5 h-2.5 bg-[#1764AE] rounded-full border border-white"></span>
+</div>
+</article>
+<!-- Fila 3: Pedro Albarracín -->
+<article class="bg-[#6b7280] hover:bg-[#5b6371] text-white p-3 rounded-2xl transition duration-150 shadow-sm flex items-center gap-3 cursor-pointer" data-purpose="chat-item">
+<div class="w-12 h-12 rounded-full bg-gray-300 flex-shrink-0 border-2 border-white/20 flex items-center justify-center font-bold text-gray-700 text-sm overflow-hidden">
+            PA
+          </div>
+<div class="flex-1 min-w-0">
+<div class="flex items-center justify-between mb-0.5">
+<h2 class="text-sm font-semibold truncate text-white">Pedro Albarracín</h2>
+<span class="text-[11px] text-gray-300">Ayer</span>
+</div>
+<p class="text-xs text-blue-100 font-medium truncate mb-0.5">Electricidad • Arreglo disyuntor</p>
+<p class="text-xs text-gray-300 truncate">Quedó impecable la instalación, muchas gracias!</p>
+</div>
+</article>
+<!-- Fila 4: Jorge Benítez -->
+<article class="bg-[#6b7280] hover:bg-[#5b6371] text-white p-3 rounded-2xl transition duration-150 shadow-sm flex items-center gap-3 cursor-pointer" data-purpose="chat-item">
+<div class="w-12 h-12 rounded-full bg-gray-300 flex-shrink-0 border-2 border-white/20 flex items-center justify-center font-bold text-gray-700 text-sm overflow-hidden">
+            JB
+          </div>
+<div class="flex-1 min-w-0">
+<div class="flex items-center justify-between mb-0.5">
+<h2 class="text-sm font-semibold truncate text-white">Jorge Benítez</h2>
+<span class="text-[11px] text-gray-300">Mar 12</span>
+</div>
+<p class="text-xs text-blue-100 font-medium truncate mb-0.5">Plomería • Reparación de termotanque</p>
+<p class="text-xs text-gray-300 truncate">¿El presupuesto incluye los repuestos nuevos?</p>
+</div>
+</article>
+<!-- Fila 5: Sofía Gómez -->
+<article class="bg-[#6b7280] hover:bg-[#5b6371] text-white p-3 rounded-2xl transition duration-150 shadow-sm flex items-center gap-3 cursor-pointer" data-purpose="chat-item">
+<div class="w-12 h-12 rounded-full bg-gray-300 flex-shrink-0 border-2 border-white/20 flex items-center justify-center font-bold text-gray-700 text-sm overflow-hidden">
+            SG
+          </div>
+<div class="flex-1 min-w-0">
+<div class="flex items-center justify-between mb-0.5">
+<h2 class="text-sm font-semibold truncate text-white">Sofía Gómez</h2>
+<span class="text-[11px] text-gray-300">Lun</span>
+</div>
+<p class="text-xs text-blue-100 font-medium truncate mb-0.5">Jardinería • Poda de cerco</p>
+<p class="text-xs text-gray-300 truncate">Confirmado para este sábado por la mañana.</p>
+</div>
+</article>
+<!-- Fila 6: Lucas Morales -->
+<article class="bg-[#6b7280] hover:bg-[#5b6371] text-white p-3 rounded-2xl transition duration-150 shadow-sm flex items-center gap-3 cursor-pointer" data-purpose="chat-item">
+<div class="w-12 h-12 rounded-full bg-gray-300 flex-shrink-0 border-2 border-white/20 flex items-center justify-center font-bold text-gray-700 text-sm overflow-hidden">
+            LM
+          </div>
+<div class="flex-1 min-w-0">
+<div class="flex items-center justify-between mb-0.5">
+<h2 class="text-sm font-semibold truncate text-white">Lucas Morales</h2>
+<span class="text-[11px] text-gray-300">08/03</span>
+</div>
+<p class="text-xs text-blue-100 font-medium truncate mb-0.5">Herrería • Reja perimetral</p>
+<p class="text-xs text-gray-300 truncate">Te envié las medidas por mail. Saludos.</p>
+</div>
+</article>
+<!-- Fila 7: Clara Varela -->
+<article class="bg-[#6b7280] hover:bg-[#5b6371] text-white p-3 rounded-2xl transition duration-150 shadow-sm flex items-center gap-3 cursor-pointer" data-purpose="chat-item">
+<div class="w-12 h-12 rounded-full bg-gray-300 flex-shrink-0 border-2 border-white/20 flex items-center justify-center font-bold text-gray-700 text-sm overflow-hidden">
+            CV
+          </div>
+<div class="flex-1 min-w-0">
+<div class="flex items-center justify-between mb-0.5">
+<h2 class="text-sm font-semibold truncate text-white">Clara Varela</h2>
+<span class="text-[11px] text-gray-300">03/03</span>
+</div>
+<p class="text-xs text-blue-100 font-medium truncate mb-0.5">Albañilería • Revoque fino exterior</p>
+<p class="text-xs text-gray-300 truncate">Buenísimo, arreglamos para la próxima semana.</p>
+</div>
+</article>
+</section>
+<!-- END: ConversationsList -->
+</main>
+<!-- END: MainContent -->
+</div>
+<!-- END: MobileDeviceContainer -->
+<!-- BEGIN: SearchFilterScript -->
+<script data-purpose="filter-conversations">
+    // Filtro interactivo ligero para buscar conversaciones por nombre o servicio
+    const searchInput = document.getElementById('chat-search');
+    const chatItems = document.querySelectorAll('[data-purpose="chat-item"]');
+
+    if (searchInput) {
+      searchInput.addEventListener('input', (e) => {
+        const query = e.target.value.toLowerCase().trim();
+        chatItems.forEach(item => {
+          const text = item.textContent.toLowerCase();
+          if (text.includes(query)) {
+            item.style.display = 'flex';
+          } else {
+            item.style.display = 'none';
+          }
+        });
+      });
+    }
+  </script>
+<!-- END: SearchFilterScript -->
+</body></html>

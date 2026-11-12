@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+
+<html class="h-full" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport"/>
+<title>Oficios Vecinos - Cambios Guardados con Éxito</title>
+<!-- Tailwind CSS v3 with Plugins -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Tailwind Configuration -->
+<script data-purpose="tailwind-config">
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              primary: '#1764AE',
+              dark: '#00112B',
+              surface: '#F4F6F9',
+              darkCard: '#383C42',
+              accent: '#22C55E'
+            }
+          },
+          fontFamily: {
+            sans: ['-apple-system', 'BlinkMacSystemFont', '"SF Pro Display"', '"Segoe UI"', 'Roboto', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+<!-- Custom Styles -->
+<style data-purpose="custom-layout">
+    /* iOS safe areas and native mobile framing */
+    body {
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      user-select: none;
+    }
+    .safe-top {
+      padding-top: env(safe-area-inset-top, 0px);
+    }
+    .safe-bottom {
+      padding-bottom: env(safe-area-inset-bottom, 0px);
+    }
+  </style>
+</head>
+<body class="bg-gray-100 flex justify-center items-center min-h-screen text-slate-800 antialiased font-sans">
+<!-- BEGIN: MobileDeviceContainer -->
+<!-- Container replicating iOS Mobile Viewport (iPhone Frame) -->
+<div class="w-full max-w-[430px] h-[932px] bg-brand-surface shadow-2xl relative flex flex-col overflow-hidden sm:rounded-[48px] border border-gray-200" data-purpose="mobile-viewport">
+<!-- BEGIN: iOSStatusBar -->
+<div class="w-full pt-3 px-8 flex justify-between items-center text-xs font-semibold text-gray-800 safe-top z-30 select-none">
+<span>9:41</span>
+<!-- Dynamic Island Mockup on iPhone 15/16 Pro -->
+<div class="w-28 h-5 bg-black rounded-full mx-auto -mt-1 hidden xs:block"></div>
+<div class="flex items-center space-x-1.5 text-gray-800">
+<svg class="w-3.5 h-3.5 fill-current" viewbox="0 0 24 24"><path d="M12 3c-4.97 0-9 4.03-9 9 0 2.12.74 4.07 1.97 5.61L4.35 19.4c-.39.39-.39 1.02 0 1.41.39.39 1.02.39 1.41 0l1.79-1.79C9.28 19.78 10.6 20.19 12 20.19c4.97 0 9-4.03 9-9s-4.03-9-9-9z"></path></svg>
+<svg class="w-3.5 h-3.5 fill-current" viewbox="0 0 24 24"><path d="M12 4C7.31 4 3.07 5.9 0 8.98L12 21 24 8.98A16.88 16.88 0 0 0 12 4z"></path></svg>
+<div class="w-5 h-2.5 border border-current rounded-sm p-0.5 flex items-center">
+<div class="h-full w-full bg-current rounded-2xs"></div>
+</div>
+</div>
+</div>
+<!-- END: iOSStatusBar -->
+<!-- BEGIN: MainHeader -->
+<header class="bg-gray-200/90 backdrop-blur-md px-4 py-2.5 border-b border-gray-300 flex flex-col gap-2 z-20">
+<!-- Upper Header: Brand Name, Search & Nav Icons -->
+<div class="flex items-center justify-between gap-2.5">
+<!-- Logo Text -->
+<div class="leading-tight flex-shrink-0">
+<span class="text-[13px] font-bold tracking-tight text-brand-dark block">Oficios</span>
+<span class="text-[13px] font-bold tracking-tight text-brand-dark block -mt-1">Vecinos</span>
+</div>
+<!-- Search Bar -->
+<div class="flex-1 max-w-[200px] relative">
+<div class="relative w-full">
+<input class="w-full bg-white text-xs text-gray-700 rounded-full pl-3 pr-7 py-1.5 border border-gray-300 focus:outline-none shadow-inner" placeholder="Buscar" readonly="" type="text"/>
+<svg class="w-3.5 h-3.5 absolute right-2.5 top-1/2 -translate-y-1/2 text-gray-500" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"></path>
+</svg>
+</div>
+</div>
+<!-- Right Quick Actions: Messages and Profile Avatar -->
+<div class="flex items-center space-x-2">
+<!-- Chat Button -->
+<button aria-label="Mensajes" class="w-8 h-8 rounded-full flex items-center justify-center text-gray-700 hover:bg-gray-300 transition-colors">
+<svg class="w-5 h-5 text-brand-dark" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+</button>
+<!-- User Avatar Placeholder Circle -->
+<div class="w-7 h-7 rounded-full bg-brand-dark text-white flex items-center justify-center text-xs font-bold border-2 border-white shadow-sm overflow-hidden">
+<span class="sr-only">Perfil de Usuario</span>
+            R
+          </div>
+</div>
+</div>
+<!-- Navigation Row with Back Button -->
+<div class="flex items-center">
+<button aria-label="Regresar" class="w-7 h-7 rounded-full bg-white/80 shadow-sm flex items-center justify-center text-brand-dark hover:bg-white transition-all active:scale-95">
+<svg class="w-4 h-4 stroke-[2.5]" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M10 19l-7-7m0 0l7-7m-7 7h18" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</button>
+</div>
+</header>
+<!-- END: MainHeader -->
+<!-- BEGIN: MainContent -->
+<main class="flex-1 px-4 py-4 flex flex-col justify-center overflow-y-auto">
+<!-- Card Container (matches dark tone and layout from wireframe column 4) -->
+<div class="bg-gradient-to-b from-[#4A4E54] to-[#34373B] text-white rounded-3xl p-6 sm:p-8 flex flex-col justify-between items-center text-center shadow-2xl min-h-[580px] border border-gray-600/30 relative overflow-hidden" data-purpose="success-feedback-card">
+<!-- Subtle Background Glow -->
+<div class="absolute -top-16 -right-16 w-48 h-48 bg-brand-primary/20 rounded-full blur-3xl pointer-events-none"></div>
+<div class="absolute -bottom-16 -left-16 w-48 h-48 bg-emerald-500/10 rounded-full blur-3xl pointer-events-none"></div>
+<!-- Upper Spacing / Context Badge -->
+<div class="w-full flex justify-center pt-2">
+<span class="inline-flex items-center px-3 py-1 rounded-full text-[11px] font-medium bg-white/10 text-gray-200 border border-white/10 backdrop-blur-sm">
+            Perfil de Cliente
+          </span>
+</div>
+<!-- Central Content: Success Feedback -->
+<div class="flex flex-col items-center my-auto px-2">
+<!-- Animated Checkmark Icon Wrapper -->
+<div class="w-20 h-20 rounded-full bg-emerald-500/20 border-2 border-emerald-400 flex items-center justify-center mb-6 shadow-lg shadow-emerald-950/40">
+<div class="w-14 h-14 rounded-full bg-emerald-500 flex items-center justify-center text-white shadow-inner">
+<svg class="w-8 h-8 stroke-[3]" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</div>
+</div>
+<!-- Main Title from Wireframe -->
+<h1 class="text-2xl sm:text-[26px] font-black tracking-wider leading-snug uppercase text-white max-w-[280px]">
+            CAMBIOS GUARDADOS CON EXITO!
+          </h1>
+<!-- Descriptive Subtitle -->
+<p class="text-gray-300 text-sm mt-4 max-w-xs leading-relaxed font-normal">
+            Tu información ha sido actualizada exitosamente en el directorio de <span class="text-white font-medium">Oficios Vecinos</span>.
+          </p>
+<!-- Status Pill Details -->
+<div class="mt-6 flex items-center gap-2 px-3.5 py-1.5 rounded-lg bg-black/25 text-xs text-gray-300 border border-white/5">
+<span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+<span>Cambios sincronizados</span>
+</div>
+</div>
+<!-- Action Section: 'Volver' Button (matches wireframe rounded button) -->
+<div class="w-full pt-4 pb-2">
+<button class="w-full max-w-[260px] mx-auto py-3 px-6 rounded-xl bg-gray-300 hover:bg-white text-gray-900 font-bold text-sm tracking-wide transition-all duration-200 shadow-md hover:shadow-lg active:scale-98 flex items-center justify-center space-x-2" type="button">
+<span>Volver</span>
+<svg class="w-4 h-4 text-gray-700" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M14 5l7 7m0 0l-7 7m7-7H3" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+</button>
+</div>
+</div>
+</main>
+<!-- END: MainContent -->
+<!-- BEGIN: iOSHomeIndicator -->
+<div class="w-full pb-2 pt-1 flex justify-center safe-bottom select-none">
+<div class="w-32 h-1 bg-gray-400/60 rounded-full"></div>
+</div>
+<!-- END: iOSHomeIndicator -->
+</div>
+<!-- END: MobileDeviceContainer -->
+</body></html>

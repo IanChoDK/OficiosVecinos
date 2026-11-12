@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+
+<html lang="es"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport"/><meta content="mobile_stack" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{width:100vw;margin:0;padding:0;min-height:100vh;}body{overscroll-behavior-y:none;}.pb-safe{padding-bottom:env(safe-area-inset-bottom,0px);}.pt-safe{padding-top:env(safe-area-inset-top,0px);}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { "colors": { "on-tertiary": "#ffffff", "on-surface-variant": "#414751", "tertiary-fixed-dim": "#ffb95f", "surface-tint": "#0d60a9", "on-secondary-fixed-variant": "#374763", "error-container": "#ffdad6", "on-error": "#ffffff", "on-surface": "#1a1c1d", "on-tertiary-fixed": "#2a1700", "surface-container-low": "#f4f3f4", "secondary-fixed-dim": "#b6c7e9", "tertiary": "#6a4200", "on-primary": "#ffffff", "on-secondary": "#ffffff", "on-primary-fixed": "#001c39", "on-primary-fixed-variant": "#004883", "on-background": "#1a1c1d", "on-tertiary-fixed-variant": "#653e00", "surface-container-lowest": "#ffffff", "surface-bright": "#f9f9fa", "secondary": "#4f5f7c", "inverse-primary": "#a4c9ff", "primary": "#004c8a", "error": "#ba1a1a", "outline": "#727782", "secondary-fixed": "#d6e3ff", "primary-fixed-dim": "#a4c9ff", "background": "#f9f9fa", "outline-variant": "#c1c7d3", "surface-variant": "#e2e2e3", "on-error-container": "#93000a", "secondary-container": "#cadafd", "tertiary-fixed": "#ffddb8", "inverse-surface": "#2f3132", "on-tertiary-container": "#ffd9ae", "primary-fixed": "#d4e3ff", "inverse-on-surface": "#f1f0f1", "on-secondary-fixed": "#091b36", "on-secondary-container": "#4f5f7d", "surface-container": "#eeeeef", "on-primary-container": "#cee0ff", "tertiary-container": "#8b5700", "surface-dim": "#dadadb", "primary-container": "#1764ae", "surface-container-highest": "#e2e2e3", "surface": "#f9f9fa", "surface-container-high": "#e8e8e9" }, "borderRadius": { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" }, "spacing": { "space-md": "1rem", "space-xl": "2rem", "space-sm": "0.5rem", "margin-mobile": "1rem", "space-xs": "0.25rem", "space-lg": "1.5rem", "margin": "1.5rem", "gutter": "1rem", "gutter-mobile": "0.75rem" }, "fontFamily": { "body-md": ["Plus Jakarta Sans"], "headline-xl-mobile": ["Plus Jakarta Sans"], "headline-lg": ["Plus Jakarta Sans"], "label-lg": ["Plus Jakarta Sans"], "headline-lg-mobile": ["Plus Jakarta Sans"], "label-sm": ["Plus Jakarta Sans"], "headline-md": ["Plus Jakarta Sans"], "label-md": ["Plus Jakarta Sans"], "headline-xl": ["Plus Jakarta Sans"], "body-lg": ["Plus Jakarta Sans"], "headline-sm": ["Plus Jakarta Sans"], "body-sm": ["Plus Jakarta Sans"] }, "fontSize": { "body-md": ["15px", { "lineHeight": "22px", "fontWeight": "400" }], "headline-xl-mobile": ["28px", { "lineHeight": "34px", "letterSpacing": "-0.02em", "fontWeight": "800" }], "headline-lg": ["30px", { "lineHeight": "38px", "letterSpacing": "-0.015em", "fontWeight": "700" }], "label-lg": ["15px", { "lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "600" }], "headline-lg-mobile": ["24px", { "lineHeight": "30px", "letterSpacing": "-0.015em", "fontWeight": "700" }], "label-sm": ["11px", { "lineHeight": "14px", "letterSpacing": "0.04em", "fontWeight": "700" }], "headline-md": ["20px", { "lineHeight": "26px", "letterSpacing": "-0.01em", "fontWeight": "700" }], "label-md": ["13px", { "lineHeight": "16px", "letterSpacing": "0.02em", "fontWeight": "600" }], "headline-xl": ["36px", { "lineHeight": "44px", "letterSpacing": "-0.02em", "fontWeight": "800" }], "body-lg": ["17px", { "lineHeight": "26px", "fontWeight": "400" }], "headline-sm": ["17px", { "lineHeight": "22px", "fontWeight": "600" }], "body-sm": ["13px", { "lineHeight": "18px", "fontWeight": "400" }] } } } };</script><style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head><body class="bg-surface-container-low text-on-surface font-body-md flex flex-col min-h-screen"><header class="fixed top-0 inset-x-0 z-50 bg-surface-container-lowest/90 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,17,43,0.04)] pt-safe"><div class="h-16 px-margin-mobile flex items-center justify-between gap-space-sm"><div class="flex items-center gap-space-xs"><button aria-label="Volver o cerrar" class="w-11 h-11 flex items-center justify-center rounded-full text-on-surface-variant hover:bg-surface-container transition-colors" onclick="history.back()" type="button"><span class="material-symbols-outlined text-[22px]">arrow_back</span></button><div class="flex flex-col"><span class="font-label-sm text-label-sm text-primary uppercase tracking-wider">Oficios Vecinos</span><h1 class="font-headline-sm text-headline-sm text-on-surface leading-tight">Detalles Del Servicio</h1></div></div><div class="flex items-center gap-space-xs"><button aria-label="Buscar oficios y servicios" class="w-11 h-11 flex items-center justify-center rounded-full text-on-surface-variant hover:bg-surface-container transition-colors" type="button"><span class="material-symbols-outlined text-[22px]">search</span></button><button aria-label="Mensajes y consultas vecinales" class="w-11 h-11 flex items-center justify-center rounded-full text-on-surface-variant hover:bg-surface-container transition-colors relative" type="button"><span class="material-symbols-outlined text-[22px]">chat</span><span class="absolute top-2.5 right-2.5 w-2 h-2 rounded-full bg-primary-container ring-2 ring-surface-container-lowest"></span></button><div class="relative flex items-center justify-center ml-1" title="Roberto Gómez - Prestador Verificado"><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div><span class="absolute -bottom-0.5 -right-0.5 w-3.5 h-3.5 rounded-full bg-primary-container flex items-center justify-center ring-2 ring-surface-container-lowest"><span class="material-symbols-outlined text-on-primary text-[10px] font-bold">verified</span></span></div></div></div></header><main class="flex-1 flex flex-col relative w-full pt-16 pb-safe bg-surface-container-low"><div class="flex flex-col w-full relative">
+<!-- Base Form: Crea tu servicio (Underlying Form with validation states) -->
+<div class="px-margin-mobile py-space-md space-y-space-md select-none opacity-40 pointer-events-none transition-opacity duration-300" id="form-container">
+<!-- Title Section -->
+<div class="flex items-center justify-between">
+<div>
+<span class="font-label-sm text-label-sm text-primary uppercase tracking-wider font-bold">Publicación Rápida</span>
+<h2 class="font-headline-lg-mobile text-headline-lg-mobile text-on-surface">Crea tu servicio</h2>
+</div>
+<span class="px-space-sm py-1 rounded-full bg-secondary-container text-on-secondary-container font-label-sm text-label-sm flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">bolt</span> Prestador
+      </span>
+</div>
+<!-- Main Form Card -->
+<div class="bg-surface-container-lowest rounded-xl p-space-md shadow-sm space-y-space-md">
+<!-- Input: Título (Highlighting incomplete error state) -->
+<div class="space-y-1">
+<div class="flex justify-between items-center">
+<label class="font-label-md text-label-md text-error font-semibold flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px]">error</span> Título del servicio
+          </label>
+<span class="font-label-sm text-label-sm text-error">Campo obligatorio</span>
+</div>
+<div class="relative">
+<input class="w-full h-[50px] bg-error-container/30 text-on-surface rounded-xl px-space-md text-body-md font-body-md placeholder:text-outline outline-none" placeholder="Ej: Plomería de urgencias 24hs" readonly="" type="text" value=""/>
+</div>
+</div>
+<!-- Input: Monto aproximado -->
+<div class="space-y-1">
+<div class="flex justify-between items-center">
+<label class="font-label-md text-label-md text-on-surface-variant font-medium">Monto base / Visita</label>
+<span class="font-label-sm text-label-sm text-outline">Estimativo</span>
+</div>
+<div class="relative flex items-center">
+<span class="absolute left-space-md text-on-surface-variant font-label-md text-label-md">$</span>
+<input class="w-full h-[50px] bg-surface-container rounded-xl pl-8 pr-space-md text-body-md font-body-md text-on-surface outline-none" readonly="" type="text" value="3.500"/>
+</div>
+</div>
+<!-- Input: Categoría Selector -->
+<div class="space-y-1">
+<label class="font-label-md text-label-md text-on-surface-variant font-medium">Categoría</label>
+<div class="w-full h-[50px] bg-surface-container rounded-xl px-space-md flex items-center justify-between text-body-md font-body-md text-on-surface">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[20px]">plumbing</span>
+<span>Instalaciones Sanitarias &amp; Gas</span>
+</div>
+<span class="material-symbols-outlined text-outline">expand_more</span>
+</div>
+</div>
+<!-- Input: Detalles / Descripción -->
+<div class="space-y-1">
+<label class="font-label-md text-label-md text-on-surface-variant font-medium">Detalles del trabajo</label>
+<div class="w-full h-24 bg-surface-container rounded-xl p-space-sm text-body-md font-body-md text-on-surface-variant">
+          Reparación de cañerías, pérdidas, griferías y bombas de agua en todo el barrio...
+        </div>
+</div>
+<!-- Schedule Section: Días y Horas -->
+<div class="space-y-space-xs pt-1">
+<span class="font-label-md text-label-md text-on-surface-variant font-medium block">Horarios de atención</span>
+<div class="grid grid-cols-5 gap-2">
+<!-- Calendar / Days Box -->
+<div class="col-span-2 bg-surface-container rounded-xl p-space-sm flex flex-col justify-between h-[104px]">
+<span class="font-label-sm text-label-sm text-outline">Días</span>
+<div class="flex items-center justify-center">
+<span class="font-label-md text-label-md text-primary font-bold">Lun - Sáb</span>
+</div>
+<span class="font-label-sm text-label-sm text-center text-outline">6 días / sem</span>
+</div>
+<!-- Time pickers -->
+<div class="col-span-3 space-y-2">
+<div class="w-full h-12 bg-surface-container rounded-xl px-3 flex items-center justify-between text-body-sm font-body-sm text-on-surface">
+<span class="text-outline">Inicio:</span>
+<span class="font-semibold">08:00 hs</span>
+<span class="material-symbols-outlined text-[18px] text-outline">schedule</span>
+</div>
+<div class="w-full h-12 bg-surface-container rounded-xl px-3 flex items-center justify-between text-body-sm font-body-sm text-on-surface">
+<span class="text-outline">Fin:</span>
+<span class="font-semibold">19:30 hs</span>
+<span class="material-symbols-outlined text-[18px] text-outline">schedule</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Action Button inside card -->
+<button class="w-full h-[52px] bg-primary-container text-on-primary rounded-xl font-label-lg text-label-lg flex items-center justify-center gap-2 shadow-sm" type="button">
+<span>Crear servicio</span>
+<span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+</button>
+</div>
+<!-- Neighbor Trust Card -->
+<div class="bg-surface-container-lowest rounded-xl p-space-md flex items-center gap-space-sm shadow-sm">
+<div class="w-10 h-10 rounded-full bg-secondary-container flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-on-secondary-container text-[20px]">verified_user</span>
+</div>
+<div class="flex-1 min-w-0">
+<p class="font-label-md text-label-md text-on-surface font-semibold truncate">Garantía Comunitaria</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant truncate">Los datos serán visibles para vecinos de tu zona.</p>
+</div>
+</div>
+</div>
+<!-- Error Modal Overlay / Scrim Backdrop -->
+<div aria-describedby="modal-desc" aria-labelledby="modal-title" aria-modal="true" class="fixed inset-0 z-50 flex items-center justify-center p-margin-mobile bg-on-primary-fixed/60 backdrop-blur-sm transition-all duration-300" id="error-modal" role="alertdialog">
+<!-- Modal Card (Accede a la suscripción / Error Wireframe 10 Dark Modal) -->
+<div class="w-full max-w-sm bg-inverse-surface text-inverse-on-surface rounded-xl shadow-[0_16px_36px_rgba(0,17,43,0.32)] p-space-lg flex flex-col items-center text-center space-y-space-md animate-in fade-in zoom-in-95 duration-200">
+<!-- Tactile Warning Avatar / Icon -->
+<div class="w-16 h-16 rounded-full bg-error-container text-on-error-container flex items-center justify-center relative shadow-inner">
+<span class="material-symbols-outlined text-[32px] font-variation-fill">report_problem</span>
+<span class="absolute -top-1 -right-1 w-5 h-5 rounded-full bg-error flex items-center justify-center text-on-error">
+<span class="material-symbols-outlined text-[12px] font-bold">priority_high</span>
+</span>
+</div>
+<!-- Text Container matching the Wireframe verbatim -->
+<div class="space-y-space-xs">
+<h3 class="font-headline-sm text-headline-sm text-inverse-on-surface font-bold" id="modal-title">
+          Error al rellenar el formulario
+        </h3>
+<p class="font-body-md text-body-md text-inverse-on-surface/80" id="modal-desc">
+          Verifique los datos ingresados
+        </p>
+</div>
+<!-- Error Checklist Pills to give immediate helpful UX -->
+<div class="w-full bg-inverse-on-surface/10 rounded-xl p-space-sm text-left space-y-2">
+<div class="flex items-center gap-2 text-inverse-on-surface/90 text-body-sm font-body-sm">
+<span class="material-symbols-outlined text-error text-[18px]">cancel</span>
+<span>Falta ingresar el <strong class="text-inverse-on-surface">Título del servicio</strong></span>
+</div>
+<div class="flex items-center gap-2 text-inverse-on-surface/90 text-body-sm font-body-sm">
+<span class="material-symbols-outlined text-tertiary-fixed-dim text-[18px]">check_circle</span>
+<span class="opacity-70">Monto y categoría verificados</span>
+</div>
+</div>
+<!-- Action Button Prominent Pill: CERRAR -->
+<div class="w-full pt-1">
+<button class="w-full h-[52px] bg-surface-container-lowest text-on-surface rounded-full font-label-lg text-label-lg font-bold tracking-wide flex items-center justify-center gap-2 shadow-lg active:scale-95 transition-transform" id="close-modal-btn" onclick="dismissErrorModal()" type="button">
+<span>CERRAR</span>
+<span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+</button>
+</div>
+<!-- Neighborhood Subtext -->
+<div class="flex items-center justify-center gap-1 text-inverse-on-surface/60 font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-[14px]">edit_note</span>
+<span>Modifique los campos marcados en rojo</span>
+</div>
+</div>
+</div>
+<script>
+    function dismissErrorModal() {
+      const modal = document.getElementById('error-modal');
+      const formContainer = document.getElementById('form-container');
+      
+      if (modal && formContainer) {
+        modal.classList.add('opacity-0', 'pointer-events-none');
+        setTimeout(() => {
+          modal.remove();
+          formContainer.classList.remove('opacity-40', 'pointer-events-none');
+          // Focus the missing field directly for frictionless UX
+          const input = formContainer.querySelector('input');
+          if (input) {
+            input.removeAttribute('readonly');
+            input.focus();
+          }
+        }, 200);
+      }
+    }
+  </script>
+</div></main></body></html>

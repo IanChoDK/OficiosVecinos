@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+
+<html lang="es"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport"/><meta content="mobile_stack" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{width:100%;margin:0;padding:0;min-height:100vh;}body{overscroll-behavior-y:none;}.pb-safe{padding-bottom:env(safe-area-inset-bottom,0px);}.pt-safe{padding-top:env(safe-area-inset-top,0px);}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { "colors": { "tertiary": "#6a4200", "on-primary-container": "#cee0ff", "on-tertiary": "#ffffff", "on-primary-fixed-variant": "#004883", "secondary": "#4f5f7c", "primary-container": "#1764ae", "on-secondary-container": "#4f5f7d", "secondary-container": "#cadafd", "on-background": "#1a1c1d", "on-surface-variant": "#414751", "background": "#f9f9fa", "on-primary": "#ffffff", "tertiary-fixed-dim": "#ffb95f", "on-tertiary-fixed-variant": "#653e00", "secondary-fixed-dim": "#b6c7e9", "surface": "#f9f9fa", "primary-fixed": "#d4e3ff", "on-secondary-fixed": "#091b36", "primary-fixed-dim": "#a4c9ff", "surface-container-lowest": "#ffffff", "surface-container-high": "#e8e8e9", "surface-dim": "#dadadb", "primary": "#004c8a", "outline-variant": "#c1c7d3", "on-surface": "#1a1c1d", "surface-tint": "#0d60a9", "error": "#ba1a1a", "on-secondary": "#ffffff", "outline": "#727782", "error-container": "#ffdad6", "on-primary-fixed": "#001c39", "on-secondary-fixed-variant": "#374763", "tertiary-fixed": "#ffddb8", "on-tertiary-fixed": "#2a1700", "on-tertiary-container": "#ffd9ae", "inverse-surface": "#2f3132", "surface-variant": "#e2e2e3", "surface-container-low": "#f4f3f4", "tertiary-container": "#8b5700", "secondary-fixed": "#d6e3ff", "surface-container-highest": "#e2e2e3", "surface-bright": "#f9f9fa", "on-error-container": "#93000a", "inverse-primary": "#a4c9ff", "inverse-on-surface": "#f1f0f1", "surface-container": "#eeeeef", "on-error": "#ffffff" }, "borderRadius": { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" }, "spacing": { "space-md": "1rem", "margin": "1.5rem", "gutter": "1rem", "space-xs": "0.25rem", "space-sm": "0.5rem", "margin-mobile": "1rem", "space-lg": "1.5rem", "gutter-mobile": "0.75rem", "space-xl": "2rem" }, "fontFamily": { "headline-xl-mobile": ["Plus Jakarta Sans"], "headline-sm": ["Plus Jakarta Sans"], "headline-md": ["Plus Jakarta Sans"], "label-lg": ["Plus Jakarta Sans"], "headline-xl": ["Plus Jakarta Sans"], "label-sm": ["Plus Jakarta Sans"], "body-lg": ["Plus Jakarta Sans"], "headline-lg-mobile": ["Plus Jakarta Sans"], "body-sm": ["Plus Jakarta Sans"], "label-md": ["Plus Jakarta Sans"], "headline-lg": ["Plus Jakarta Sans"], "body-md": ["Plus Jakarta Sans"] }, "fontSize": { "headline-xl-mobile": ["28px", { "lineHeight": "34px", "letterSpacing": "-0.02em", "fontWeight": "800" }], "headline-sm": ["17px", { "lineHeight": "22px", "fontWeight": "600" }], "headline-md": ["20px", { "lineHeight": "26px", "letterSpacing": "-0.01em", "fontWeight": "700" }], "label-lg": ["15px", { "lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "600" }], "headline-xl": ["36px", { "lineHeight": "44px", "letterSpacing": "-0.02em", "fontWeight": "800" }], "label-sm": ["11px", { "lineHeight": "14px", "letterSpacing": "0.04em", "fontWeight": "700" }], "body-lg": ["17px", { "lineHeight": "26px", "fontWeight": "400" }], "headline-lg-mobile": ["24px", { "lineHeight": "30px", "letterSpacing": "-0.015em", "fontWeight": "700" }], "body-sm": ["13px", { "lineHeight": "18px", "fontWeight": "400" }], "label-md": ["13px", { "lineHeight": "16px", "letterSpacing": "0.02em", "fontWeight": "600" }], "headline-lg": ["30px", { "lineHeight": "38px", "letterSpacing": "-0.015em", "fontWeight": "700" }], "body-md": ["15px", { "lineHeight": "22px", "fontWeight": "400" }] } } } }</script><style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head><body class="bg-surface font-body-md text-on-surface antialiased flex flex-col min-h-screen"><header class="fixed top-0 inset-x-0 z-50 bg-surface/90 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)] pt-safe"><div class="h-16 px-gutter-mobile flex items-center justify-between gap-space-sm"><div class="flex items-center gap-space-xs min-w-0"><button aria-label="Volver" class="w-11 h-11 -ml-1 rounded-full flex items-center justify-center text-on-surface hover:text-primary hover:bg-surface-container-high transition-colors" onclick="history.back()"><span class="material-symbols-outlined text-[24px]">arrow_back</span></button><img alt="Oficios Vecinos Logo" class="h-7 w-auto object-contain flex-shrink-0 hidden sm:block" src="https://lh3.googleusercontent.com/aida/AEtjO1XbrI60YWXa-ktIjVMbHHCJi1O7MHV13mIydkSFky79b3Bxue2qMkbmfbXz27itEJnID-9YyaXbfTvdmP7jChCQHN1mo1Rk59Pe9FWMbCXVvJvZfWyA80mh3Tb8kUHqlV52HGfbNvAib_KH5QSx9ccSot4JnwUawJS820u6sTL6kB-o2N5Pl1Wc-k7ef-TUXLtv_50dBH7sctThZGIB3-a68gKJljz_e2Or_jZxi1tnXA"/><h1 class="font-headline-sm text-headline-sm text-on-surface truncate">Chat Conversacion</h1></div><div class="flex items-center gap-space-xs flex-shrink-0"><button aria-label="Compartir o acciones" class="w-11 h-11 rounded-full flex items-center justify-center text-on-surface-variant hover:text-primary transition-colors"><span class="material-symbols-outlined text-[22px]">more_vert</span></button><button aria-label="Mi perfil" class="w-11 h-11 rounded-full flex items-center justify-center"><img alt="Profile" class="w-8 h-8 rounded-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDVlJm74zi_sgYgWpjt_z4oSHEHZ2DqI4uHMAlEB9yPmu_C4yFfdDO1w-97cuO3iE2vO_-5rMdDowXVh2aj9f_iO3nfeSyCeeoyWZi2xCdIFa71fThAVy9xAC8K36NAGJ1DYCXDt_HJCfGrKABnlywNB0rPtj9l3OGEIfyq3TmtOmglvFFAHuC-39eP6atH3SQ9simiZTf84p73arWDjKQUPMev_M0rzpjH1taj2Kao"/></button></div></div></header><main class="flex-1 flex flex-col relative w-full pt-16 bg-surface pb-safe"><div class="flex flex-col w-full">
+<!-- Status & Quick Contact Banner (Sticky under shell) -->
+<section class="sticky top-0 z-40 bg-surface/95 backdrop-blur-md px-gutter-mobile py-space-sm shadow-sm transition-all duration-200">
+<div class="flex items-center justify-between bg-surface-container-lowest rounded-xl p-space-sm shadow-sm">
+<div class="flex items-center gap-space-sm min-w-0">
+<div class="relative flex-shrink-0">
+<img class="w-12 h-12 rounded-full object-cover" data-alt="Close up portrait of Roberto Gomez, a friendly 45-year-old certified master plumber wearing navy blue work clothes, warm genuine smile, professional workshop lighting with soft bokeh background in corporate blue tones" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB4m1cFZoxt9ehELwS0uVNwDtu6pSxmWJhmxZfkaTwyx4EKGBgGQTJc1jVrifagZ8bUCTDW3QTcczb0O9Ix3vwcqYP5WNrBHXZCJ36IY2EQkG7v74T24XWTKoKVEjpHtlxAFjsrvYdatm4m7I_8t2zYU4k2yXTL5SXeUse4ebvlT5Ze89ULykgo8TgCOSf0fEUY3_LXjHAFse1moDOdNu7Vtwn8dl-LyBMROFn3KIkA"/>
+<span class="absolute bottom-0 right-0 w-3.5 h-3.5 bg-emerald-500 rounded-full ring-2 ring-surface-container-lowest" title="En línea"></span>
+</div>
+<div class="flex flex-col min-w-0">
+<div class="flex items-center gap-space-xs">
+<span class="font-headline-sm text-headline-sm text-on-surface truncate">Roberto Gómez</span>
+<span class="material-symbols-outlined text-[16px] text-primary" style="font-variation-settings: 'FILL' 1;" title="Profesional Matriculado">verified</span>
+</div>
+<div class="flex items-center gap-space-xs text-on-surface-variant font-label-sm text-label-sm">
+<span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+<span class="text-emerald-700 font-semibold">En línea</span>
+<span>•</span>
+<span class="truncate">Plomería y Gas (Mat. 4812)</span>
+</div>
+</div>
+</div>
+<div class="flex items-center gap-space-xs flex-shrink-0">
+<a aria-label="Llamar a Roberto" class="w-10 h-10 rounded-full bg-surface-container-low flex items-center justify-center text-primary active:scale-95 transition-transform" href="tel:+5491100000000">
+<span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">call</span>
+</a>
+<button aria-label="Ver detalles del servicio" class="w-10 h-10 rounded-full bg-surface-container-low flex items-center justify-center text-on-surface-variant active:scale-95 transition-transform" id="btn-toggle-info">
+<span class="material-symbols-outlined text-[20px]">badge</span>
+</button>
+</div>
+</div>
+<!-- Collapsible Trust Badge Drawer -->
+<div class="hidden mt-space-xs p-space-sm bg-secondary-container rounded-xl transition-all" id="service-info-drawer">
+<div class="flex items-center justify-between text-on-secondary-container font-label-md text-label-md">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-[18px]">verified_user</span>
+<span>Garantía Comunitaria Vecinal</span>
+</div>
+<span class="font-bold text-primary">4.9 ★ (128 trabajos)</span>
+</div>
+</div>
+</section>
+<!-- Conversation Timeline Content Slot -->
+<div class="flex flex-col px-gutter-mobile py-space-md gap-space-md pb-28">
+<!-- Timeline Timestamp Badge -->
+<div class="flex justify-center my-space-xs">
+<span class="px-space-md py-1 bg-surface-container-high text-on-surface-variant font-label-sm text-label-sm rounded-full shadow-sm">
+        Hoy, 10:42 AM • Solicitud de urgencia #PL-209
+      </span>
+</div>
+<!-- Client Bubble: Problem Explanation -->
+<div class="flex flex-col items-end gap-space-xs max-w-[85%] self-end">
+<div class="bg-primary text-on-primary rounded-2xl rounded-tr-sm p-space-md shadow-sm">
+<p class="font-body-md text-body-md">
+          ¡Hola Roberto! Tengo una pérdida de agua bajo la bacha de la cocina que empezó ayer.
+        </p>
+</div>
+<div class="flex items-center gap-1 font-label-sm text-label-sm text-on-surface-variant pr-1">
+<span>10:43 AM</span>
+<span class="material-symbols-outlined text-[14px] text-primary" style="font-variation-settings: 'FILL' 1;">done_all</span>
+</div>
+</div>
+<!-- Client Bubble: Attached Evidence Photo -->
+<div class="flex flex-col items-end gap-space-xs max-w-[85%] self-end">
+<div class="bg-primary-container p-1 rounded-2xl rounded-tr-sm shadow-sm overflow-hidden">
+<div class="relative rounded-xl overflow-hidden bg-surface-container">
+<img class="w-64 h-52 object-cover rounded-xl" data-alt="Close up detailed photograph of a metal flexible braided water pipe under a kitchen sink leaking tiny droplets of clean water onto copper valves, domestic plumbing issue realistic macro shot with sharp natural lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuACXHmHAHJv7T5jgum6AUn-Xein_EsWMPBIwHQgTgZLPiBBCq8djAzwFDughdMoO2y73lGiBQ5mapXVzc_wrNjASa5eVx33EBMNr1yaFKgmWHs8EEgzGA_YSdkDdkMDyQ6KK-M32e53241BHABX0zAcbhqFxDorzjIp3Or-DcA5KZqcoDpc63Wk8Ek741NEBRlQ8dKDRyjcaUw5ontKSrrTR2-T6xTeDqEpYY81pbBd"/>
+<div class="absolute bottom-0 inset-x-0 p-space-sm bg-gradient-to-t from-black/80 to-transparent flex items-center justify-between text-on-primary">
+<span class="font-label-sm text-label-sm flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px]">photo_camera</span>
+              foto_fuga_bacha.jpg
+            </span>
+<span class="font-label-sm text-label-sm bg-white/20 px-2 py-0.5 rounded-full">850 KB</span>
+</div>
+</div>
+</div>
+<div class="flex items-center gap-1 font-label-sm text-label-sm text-on-surface-variant pr-1">
+<span>10:44 AM</span>
+<span class="material-symbols-outlined text-[14px] text-primary" style="font-variation-settings: 'FILL' 1;">done_all</span>
+</div>
+</div>
+<!-- Professional Message Bubble -->
+<div class="flex items-start gap-space-xs max-w-[88%] self-start">
+<img class="w-8 h-8 rounded-full object-cover flex-shrink-0 mt-1" data-alt="Tiny circular avatar thumbnail of plumber Roberto Gomez in uniform against a clean shop wall" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBpTJhgqdz76ZalB0L3SUy5FL54aC4vjsEAOU95ESjpcdDwHfT9-koD8Nyiz9p9VWYBBN45OyXgDPcs3PM7ulJG673d8BubwE74PIEcbkzvLWi-QIUsOX6X6A8TNNTopWBk02HvqOPWbZMS4T83ccZfnczUyqKsAWh7ZgsJzj7myNWa3XifZV45itvJhSdmvbb0UIXku8Fm96KCIJ2XJz3S7Rtb7eOA9M3z7dXagbje"/>
+<div class="flex flex-col gap-space-xs">
+<div class="bg-surface-container-lowest text-on-surface rounded-2xl rounded-tl-sm p-space-md shadow-sm">
+<span class="font-label-sm text-label-sm text-primary font-bold block mb-1">Roberto Gómez</span>
+<p class="font-body-md text-body-md text-on-surface">
+            Hola vecina, qué tal. Sí, parece ser el flexible desgastado. Puedo pasar mañana a primera hora con los repuestos.
+          </p>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant pl-1">10:46 AM</span>
+</div>
+</div>
+<!-- Interactive Formal Quote Widget Card (Level 1 Elevation) -->
+<div class="w-full my-space-xs">
+<div class="bg-surface-container-lowest rounded-2xl p-space-lg shadow-md overflow-hidden relative">
+<!-- Visual Craft Stripe Indicator -->
+<div class="absolute top-0 inset-x-0 h-1.5 bg-primary-container"></div>
+<!-- Quote Header -->
+<div class="flex items-start justify-between gap-space-sm mb-space-md">
+<div class="flex items-center gap-space-sm">
+<div class="w-12 h-12 rounded-xl bg-primary-fixed flex items-center justify-center text-primary flex-shrink-0">
+<span class="material-symbols-outlined text-[26px]">receipt_long</span>
+</div>
+<div class="min-w-0">
+<div class="flex items-center gap-1">
+<span class="font-label-sm text-label-sm px-2 py-0.5 rounded-full bg-tertiary-fixed text-on-tertiary-fixed font-bold tracking-wide uppercase">Oficial</span>
+<span class="font-label-sm text-label-sm px-2 py-0.5 rounded-full bg-secondary-container text-on-secondary-container font-semibold" id="quote-badge">Pendiente</span>
+</div>
+<h2 class="font-headline-md text-headline-md text-on-surface truncate mt-0.5">Presupuesto de Visita y Reparación</h2>
+</div>
+</div>
+</div>
+<!-- Service Specs Breakdown -->
+<div class="bg-surface-container-low rounded-xl p-space-md mb-space-md space-y-space-sm">
+<div class="flex items-center justify-between font-body-md text-body-md">
+<div class="flex items-center gap-space-xs text-on-surface">
+<span class="material-symbols-outlined text-[18px] text-primary">plumbing</span>
+<span>Cambio de flexible + sellado de bacha</span>
+</div>
+<span class="font-semibold text-on-surface">$15.000</span>
+</div>
+<div class="flex items-center justify-between font-body-md text-body-md">
+<div class="flex items-center gap-space-xs text-on-surface">
+<span class="material-symbols-outlined text-[18px] text-secondary">handyman</span>
+<span>Materiales selladores y arandelas</span>
+</div>
+<span class="font-semibold text-on-surface">$4.000</span>
+</div>
+<!-- Total Calculation Row -->
+<div class="pt-space-sm mt-space-xs bg-surface-container-high/60 -mx-space-md px-space-md py-space-sm rounded-lg flex items-baseline justify-between">
+<div>
+<span class="font-label-md text-label-md text-on-surface-variant uppercase">Monto Total Estimado</span>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Incluye mano de obra y garantía por 30 días</p>
+</div>
+<span class="font-headline-lg-mobile text-headline-lg-mobile font-extrabold text-primary">$19.000</span>
+</div>
+</div>
+<!-- Appointment Scheduling Info Pill -->
+<div class="flex items-center gap-space-sm bg-surface-container-high px-space-md py-space-sm rounded-xl mb-space-md text-on-surface">
+<span class="material-symbols-outlined text-[20px] text-tertiary">calendar_clock</span>
+<div class="flex flex-col min-w-0 font-body-sm text-body-sm">
+<span class="font-semibold text-on-surface">Franja sugerida: Mañana entre 08:30 y 10:00 hs</span>
+<span class="text-on-surface-variant truncate">Calle Almirante Brown 1420, Dpto 3B</span>
+</div>
+</div>
+<!-- Action CTA Buttons Slot -->
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-space-sm" id="quote-action-container">
+<button class="w-full h-[52px] rounded-xl bg-surface-container-high text-on-surface font-label-lg text-label-lg active:scale-95 transition-all flex items-center justify-center gap-space-xs hover:bg-surface-container-highest" id="btn-request-adjustment" type="button">
+<span class="material-symbols-outlined text-[20px]">tune</span>
+<span>Solicitar Ajuste</span>
+</button>
+<button class="w-full h-[52px] rounded-xl bg-primary text-on-primary font-label-lg text-label-lg font-bold shadow-md hover:bg-primary-container active:scale-95 transition-all flex items-center justify-center gap-space-xs" id="btn-accept-quote" type="button">
+<span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<span>Aceptar Presupuesto</span>
+</button>
+</div>
+<!-- Dynamic Success State (Hidden by default) -->
+<div class="hidden p-space-md bg-secondary-container rounded-xl flex items-center gap-space-sm text-on-secondary-container" id="quote-accepted-banner">
+<div class="w-10 h-10 rounded-full bg-primary flex items-center justify-center text-on-primary flex-shrink-0">
+<span class="material-symbols-outlined text-[22px]">check</span>
+</div>
+<div>
+<p class="font-label-lg text-label-lg font-bold">¡Presupuesto confirmado con éxito!</p>
+<p class="font-body-sm text-body-sm">Se reservó el turno para mañana a las 08:30 hs. El pago se efectúa contra conformidad del servicio.</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Suggested Quick Replies Chips -->
+<div class="flex items-center gap-space-xs overflow-x-auto py-space-xs no-scrollbar">
+<button class="quick-chip flex-shrink-0 bg-surface-container-lowest text-on-surface font-label-md text-label-md px-space-md py-2 rounded-full shadow-sm active:bg-primary active:text-on-primary transition-all">
+        👍 Perfecto, gracias
+      </button>
+<button class="quick-chip flex-shrink-0 bg-surface-container-lowest text-on-surface font-label-md text-label-md px-space-md py-2 rounded-full shadow-sm active:bg-primary active:text-on-primary transition-all">
+        ¿Aceptás Mercado Pago?
+      </button>
+<button class="quick-chip flex-shrink-0 bg-surface-container-lowest text-on-surface font-label-md text-label-md px-space-md py-2 rounded-full shadow-sm active:bg-primary active:text-on-primary transition-all">
+        ¿Traés factura C?
+      </button>
+</div>
+</div>
+<!-- Persistent Floating Bottom Composer Bar -->
+<section class="fixed bottom-0 inset-x-0 z-40 bg-surface/90 backdrop-blur-xl px-gutter-mobile py-space-sm shadow-[0_-4px_16px_rgba(0,17,43,0.06)] pb-safe">
+<form class="flex items-center gap-space-xs max-w-xl mx-auto" id="chat-input-form" onsubmit="event.preventDefault();">
+<!-- Attach media actions -->
+<div class="flex items-center gap-1">
+<button aria-label="Adjuntar foto o archivo" class="w-11 h-11 rounded-full bg-surface-container flex items-center justify-center text-on-surface-variant hover:text-primary active:scale-90 transition-transform" type="button">
+<span class="material-symbols-outlined text-[22px]">add_a_photo</span>
+</button>
+<button aria-label="Adjuntar audio" class="w-11 h-11 rounded-full bg-surface-container flex items-center justify-center text-on-surface-variant hover:text-primary active:scale-90 transition-transform hidden sm:flex" type="button">
+<span class="material-symbols-outlined text-[22px]">mic</span>
+</button>
+</div>
+<!-- Text Input field -->
+<div class="flex-1 relative flex items-center">
+<input class="w-full h-[50px] bg-surface-container-lowest text-on-surface rounded-full px-space-md pr-10 text-body-md font-body-md placeholder:text-outline focus:outline-none shadow-sm transition-all" id="chat-message-input" placeholder="Escribe un mensaje al profesional..." type="text"/>
+<button aria-label="Insertar emoticones" class="absolute right-3 text-outline hover:text-primary" type="button">
+<span class="material-symbols-outlined text-[20px]">sentiment_satisfied</span>
+</button>
+</div>
+<!-- Circular Primary Action Submit Button (#1764AE) -->
+<button aria-label="Enviar mensaje" class="w-[50px] h-[50px] rounded-full bg-primary-container text-on-primary flex items-center justify-center shadow-md active:scale-95 hover:brightness-110 transition-all flex-shrink-0" id="btn-send-message" type="button">
+<span class="material-symbols-outlined text-[22px] -ml-0.5">send</span>
+</button>
+</form>
+</section>
+</div>
+<script>
+  // Micro-interactions and state handling
+  document.addEventListener('DOMContentLoaded', () => {
+    const btnAccept = document.getElementById('btn-accept-quote');
+    const btnAdjust = document.getElementById('btn-request-adjustment');
+    const quoteBadge = document.getElementById('quote-badge');
+    const actionContainer = document.getElementById('quote-action-container');
+    const acceptedBanner = document.getElementById('quote-accepted-banner');
+    const infoToggle = document.getElementById('btn-toggle-info');
+    const infoDrawer = document.getElementById('service-info-drawer');
+    const inputField = document.getElementById('chat-message-input');
+    const btnSend = document.getElementById('btn-send-message');
+    const quickChips = document.querySelectorAll('.quick-chip');
+
+    // Toggle service verification credentials
+    if (infoToggle && infoDrawer) {
+      infoToggle.addEventListener('click', () => {
+        infoDrawer.classList.toggle('hidden');
+      });
+    }
+
+    // Accept formal quote micro-flow
+    if (btnAccept) {
+      btnAccept.addEventListener('click', () => {
+        actionContainer.classList.add('hidden');
+        acceptedBanner.classList.remove('hidden');
+        quoteBadge.textContent = 'Confirmado';
+        quoteBadge.className = 'font-label-sm text-label-sm px-2 py-0.5 rounded-full bg-emerald-100 text-emerald-800 font-bold';
+      });
+    }
+
+    // Request quote adjustment
+    if (btnAdjust) {
+      btnAdjust.addEventListener('click', () => {
+        inputField.value = 'Roberto, ¿sería posible desglosar el costo de los materiales selladores o usar una marca específica?';
+        inputField.focus();
+      });
+    }
+
+    // Quick chips autofill
+    quickChips.forEach(chip => {
+      chip.addEventListener('click', () => {
+        inputField.value = chip.textContent.trim();
+        inputField.focus();
+      });
+    });
+
+    // Send button click action
+    if (btnSend) {
+      btnSend.addEventListener('click', () => {
+        if (inputField.value.trim().length > 0) {
+          inputField.value = '';
+          inputField.placeholder = 'Mensaje enviado. Escribe otro mensaje...';
+          setTimeout(() => {
+            inputField.placeholder = 'Escribe un mensaje al profesional...';
+          }, 3000);
+        }
+      });
+    }
+  });
+</script></main></body></html>

@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+
+<html class="h-full bg-slate-50" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport"/>
+<title>Oficios Vecinos - Confirmación Exitosa</title>
+<!-- Tailwind CSS CDN -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Tailwind Configuration -->
+<script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              navy: '#00112B',
+              blue: '#1764AE',
+              'blue-hover': '#125291',
+              light: '#F8FAFC',
+              border: '#E2E2E3',
+              success: '#10B981',
+              'success-light': '#ECFDF5'
+            }
+          },
+          fontFamily: {
+            sans: ['-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'Helvetica', 'Arial', 'sans-serif']
+          },
+          boxShadow: {
+            'card': '0 10px 25px -5px rgba(0, 17, 43, 0.06), 0 8px 10px -6px rgba(0, 17, 43, 0.04)',
+            'btn': '0 4px 14px 0 rgba(23, 100, 174, 0.35)'
+          }
+        }
+      }
+    }
+  </script>
+<!-- Custom styles for iOS look and keyframe animations -->
+<style data-purpose="custom-animations">
+    @keyframes checkmarkPop {
+      0% {
+        transform: scale(0.6);
+        opacity: 0;
+      }
+      60% {
+        transform: scale(1.15);
+      }
+      100% {
+        transform: scale(1);
+        opacity: 1;
+      }
+    }
+    
+    @keyframes ripple {
+      0% {
+        box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.35);
+      }
+      70% {
+        box-shadow: 0 0 0 18px rgba(16, 185, 129, 0);
+      }
+      100% {
+        box-shadow: 0 0 0 0 rgba(16, 185, 129, 0);
+      }
+    }
+
+    .animate-check-pop {
+      animation: checkmarkPop 0.55s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+    }
+
+    .animate-ripple {
+      animation: ripple 2.2s infinite;
+    }
+  </style>
+</head>
+<body class="h-full flex flex-col justify-between font-sans text-slate-800 antialiased select-none pb-[env(safe-area-inset-bottom)]">
+<!-- BEGIN: MainHeader -->
+<header class="sticky top-0 z-30 bg-white/95 backdrop-blur-md border-b border-[#E2E2E3] pt-[env(safe-area-inset-top)] px-4 py-2.5 transition-all">
+<div class="max-w-md mx-auto flex items-center justify-between gap-2.5">
+<!-- Brand Logo / Title -->
+<a class="flex flex-col leading-none shrink-0" data-purpose="brand-link" href="#">
+<span class="text-sm font-black tracking-tight text-[#00112B]">Oficios</span>
+<span class="text-xs font-semibold tracking-wide text-[#1764AE]">Vecinos</span>
+</a>
+<!-- Compact Search Bar matching wireframe -->
+<div class="relative flex-1 max-w-[190px]">
+<div class="absolute inset-y-0 right-0 flex items-center pr-2.5 pointer-events-none text-slate-400">
+<svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M21 21l-4.35-4.35m0 0A7.5 7.5 0 1010.5 18a7.5 7.5 0 006.15-2.85z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"></path>
+</svg>
+</div>
+<input class="w-full text-xs bg-slate-100/80 hover:bg-slate-100 text-slate-800 placeholder-slate-400 pl-3 pr-8 py-1.5 rounded-full border border-slate-200 focus:outline-none focus:ring-1.5 focus:ring-[#1764AE] focus:bg-white transition-all" placeholder="Buscar..." type="text"/>
+</div>
+<!-- Action Button / User Context -->
+<button class="text-xs font-medium bg-[#00112B] text-white px-3 py-1.5 rounded-full hover:bg-slate-800 active:scale-95 transition-all shrink-0" data-purpose="header-action-button" type="button">
+        Mi Cuenta
+      </button>
+</div>
+</header>
+<!-- END: MainHeader -->
+<!-- BEGIN: MainContent -->
+<main class="flex-1 max-w-md w-full mx-auto px-4 py-6 flex flex-col justify-center items-center">
+<!-- Success Status Card -->
+<section class="w-full bg-white rounded-3xl p-7 border border-[#E2E2E3] shadow-card text-center flex flex-col items-center relative overflow-hidden" data-purpose="success-status-card">
+<!-- Top Decorative Accent -->
+<div class="absolute top-0 inset-x-0 h-1.5 bg-gradient-to-r from-[#1764AE] via-[#10B981] to-[#1764AE]"></div>
+<!-- Pill Badge: Context Subtitle -->
+<div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#ECFDF5] border border-emerald-200 text-emerald-800 text-[11px] font-semibold uppercase tracking-wider mb-5">
+<span class="w-1.5 h-1.5 rounded-full bg-[#10B981] animate-pulse"></span>
+<span>Sesión iniciada correctamente</span>
+</div>
+<!-- Main Headline from Wireframe -->
+<h1 class="text-2xl font-bold tracking-tight text-[#00112B] mb-2">
+        ¡Registro exitoso!
+      </h1>
+<p class="text-sm text-slate-500 max-w-xs mb-8">
+        Te damos la bienvenida a la comunidad barrial de profesionales y vecinos de confianza.
+      </p>
+<!-- Center Iconic Checkmark Container -->
+<div class="my-2 relative flex items-center justify-center">
+<!-- Background Ambient Glow -->
+<div class="absolute w-28 h-28 rounded-full bg-emerald-100/60 blur-xl"></div>
+<!-- Animated Main Circle with Checkmark -->
+<div class="relative w-24 h-24 rounded-full bg-gradient-to-tr from-emerald-600 to-[#10B981] flex items-center justify-center text-white shadow-lg animate-check-pop animate-ripple" data-purpose="success-checkmark-circle">
+<svg class="w-12 h-12 stroke-[3] transform drop-shadow-sm" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M4.5 12.75l6 6 9-13.5" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</div>
+</div>
+<!-- Account Summary info pills -->
+<div class="w-full bg-slate-50 border border-slate-100 rounded-2xl p-4 mt-8 space-y-2 text-left">
+<div class="flex items-center justify-between text-xs">
+<span class="text-slate-500">Perfil verificado</span>
+<span class="font-semibold text-emerald-600 flex items-center gap-1">
+<svg class="w-3.5 h-3.5" fill="currentColor" viewbox="0 0 20 20">
+<path clip-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" fill-rule="evenodd"></path>
+</svg>
+            Listo para conectar
+          </span>
+</div>
+<div class="flex items-center justify-between text-xs">
+<span class="text-slate-500">Comunidad activa</span>
+<span class="font-medium text-[#00112B]">Zona Norte / Cercanía</span>
+</div>
+</div>
+</section>
+<!-- BEGIN: PrimaryActions -->
+<!-- Primary Bottom Navigation and Alternative CTA -->
+<div class="w-full mt-6 space-y-3" data-purpose="primary-action-controls">
+<!-- Main Action: Volver al inicio / Iniciar Sesion -->
+<a class="w-full flex items-center justify-center gap-2 py-3.5 px-6 rounded-2xl bg-[#1764AE] hover:bg-[#125291] active:scale-[0.98] text-white font-semibold text-base shadow-btn transition-all duration-150 text-center" data-purpose="btn-main-action" href="#">
+<svg class="w-5 h-5 text-white/90" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+<span>Volver al inicio</span>
+</a>
+<!-- Secondary alternative link button -->
+<a class="w-full flex items-center justify-center py-3 px-6 rounded-2xl bg-white border border-[#E2E2E3] hover:bg-slate-50 active:scale-[0.98] text-[#00112B] font-medium text-sm transition-all text-center" data-purpose="btn-secondary-action" href="#">
+<span>Ir a mi panel de oficios</span>
+</a>
+</div>
+<!-- END: PrimaryActions -->
+</main>
+<!-- END: MainContent -->
+<!-- BEGIN: PageFooter -->
+<!-- iOS-inspired Home Indicator Area & Footer support -->
+<footer class="w-full max-w-md mx-auto px-4 pb-3 pt-1 text-center">
+<p class="text-xs text-slate-400">
+      ¿Necesitás asistencia? <a class="text-[#1764AE] hover:underline font-medium" href="#">Contactar soporte</a>
+</p>
+<!-- Home Bar Indicator -->
+<div class="w-32 h-1 bg-slate-300 rounded-full mx-auto mt-3"></div>
+</footer>
+<!-- END: PageFooter -->
+</body></html>

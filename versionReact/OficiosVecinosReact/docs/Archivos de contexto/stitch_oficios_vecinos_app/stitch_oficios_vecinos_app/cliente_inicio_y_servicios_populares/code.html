@@ -1,0 +1,311 @@
+<!DOCTYPE html><html lang="es"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport">
+<title>Oficios Vecinos - Inicio Cliente</title>
+<!-- Tailwind CSS v3 CDN with plugins -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Google Fonts: Plus Jakarta Sans -->
+<link href="https://fonts.googleapis.com" rel="preconnect">
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet">
+<!-- Tailwind Configuration -->
+<script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              primary: '#1764ae',
+              primaryHover: '#13508d',
+              dark: '#00112b',
+              surface: '#ffffff',
+              background: '#f4f3f4',
+              secondaryBg: '#e2e2e3',
+              muted: '#6b7280',
+              accent: '#ffb703'
+            }
+          },
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+          },
+          boxShadow: {
+            'card': '0 2px 10px rgba(0, 17, 43, 0.05)',
+            'floating': '0 8px 24px rgba(0, 17, 43, 0.12)'
+          }
+        }
+      }
+    }
+  </script>
+<!-- Custom CSS for iOS App Shell styling -->
+<style data-purpose="app-shell">
+    body {
+      -webkit-tap-highlight-color: transparent;
+      user-select: none;
+      background-color: #e5e7eb;
+    }
+    .safe-top {
+      padding-top: env(safe-area-inset-top, 12px);
+    }
+    .safe-bottom {
+      padding-bottom: env(safe-area-inset-bottom, 20px);
+    }
+    .no-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+    .no-scrollbar {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+  </style>
+</head>
+<body class="min-h-screen flex items-center justify-center font-sans antialiased p-0 sm:p-4 text-brand-dark">
+<!-- Mobile Viewport Wrapper -->
+<div class="w-full max-w-[420px] bg-brand-background min-h-screen sm:min-h-[880px] sm:max-h-[920px] sm:rounded-[40px] shadow-2xl overflow-y-auto no-scrollbar flex flex-col relative border border-gray-200/80">
+<!-- BEGIN: TopBar -->
+<header class="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-gray-200/80 px-4 pt-3 pb-3 safe-top shadow-sm">
+<!-- iOS Status Bar Placeholder -->
+<div class="flex justify-between items-center text-xs font-semibold text-brand-dark px-1 mb-2.5">
+<span class="">09:41</span>
+<div class="flex items-center gap-1.5">
+<!-- Signal Icon -->
+<svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24">
+<path d="M12 3c-4.97 0-9 4.03-9 9 0 2.12.74 4.07 1.97 5.61L12 22l7.03-4.39C20.26 16.07 21 14.12 21 12c0-4.97-4.03-9-9-9z"></path>
+</svg>
+<!-- Wifi -->
+<svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24">
+<path d="M12 4C7.31 4 3.07 5.9 0 8.98L12 21 24 8.98C20.93 5.9 16.69 4 12 4z"></path>
+</svg>
+<!-- Battery -->
+<svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+<path d="M16 6H4c-1.1 0-2 .9-2 2v8c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2v-1h2c.55 0 1-.45 1-1v-4c0-.55-.45-1-1-1h-2V8c0-1.1-.9-2-2-2z"></path>
+</svg>
+</div>
+</div>
+<!-- Main Navigation Header Bar -->
+<div class="flex items-center justify-between gap-2.5">
+<!-- Logo / App Name -->
+<div class="flex items-center gap-1.5 flex-shrink-0">
+<div class="w-8 h-8 rounded-xl bg-brand-primary flex items-center justify-center text-white font-black text-sm shadow-sm">
+            OV
+          </div>
+<div class="flex flex-col">
+<span class="text-xs font-bold tracking-tight text-brand-dark leading-tight">Oficios</span>
+<span class="text-[11px] font-semibold text-brand-primary leading-none">Vecinos</span>
+</div>
+</div>
+<!-- Integrated Search Bar -->
+<div class="flex-1 relative">
+<input class="w-full bg-brand-background border border-gray-200 text-xs rounded-full py-1.5 pl-7 pr-3 focus:outline-none focus:ring-1 focus:ring-brand-primary focus:border-brand-primary text-brand-dark placeholder-gray-400" placeholder="Buscar..." type="text">
+<svg class="w-3.5 h-3.5 text-gray-400 absolute left-2.5 top-1/2 -translate-y-1/2" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
+<circle cx="11" cy="11" r="7"></circle>
+<path d="m21 21-4.35-4.35" stroke-linecap="round"></path>
+</svg>
+</div>
+<!-- Actions: Chat & Profile Avatar -->
+<div class="flex items-center gap-2 flex-shrink-0">
+<!-- Chat Button with Notification Indicator -->
+<button aria-label="Mensajes" class="w-8 h-8 rounded-full bg-brand-background hover:bg-brand-secondaryBg border border-gray-200 flex items-center justify-center text-brand-dark relative transition-colors">
+<svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+<path d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+<span class="absolute 1 top-0.5 right-0.5 w-2 h-2 bg-emerald-500 rounded-full border-2 border-white"></span>
+</button>
+<!-- User Avatar -->
+<div class="w-8 h-8 rounded-full bg-brand-primary/10 border border-brand-primary/30 overflow-hidden flex items-center justify-center">
+<img alt="Avatar Usuario" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA-X0XFHnjU8UeJMqkVOftqOJVH9TRuvZdglDVfBtjSn9BF4RIk3M-uQT32tGZ5uDEgOtj7tVDYAE-jnyin0VSpZapnTeDkPQzEGgciTT97yPp2Yu_Yg5QsC9YZmakhgdJR5aCWCDyOS2RbIgXGkA_rwxEgMQCrKmn1JKO71rCocK3FNGwwLFpoB1KlYmF6gREHvZiKyO2ml4_D1krhNDNUursbmFkuh5s1Jikz0JlX">
+</div>
+</div>
+</div>
+</header>
+<!-- END: TopBar -->
+<!-- BEGIN: MainContent -->
+<main class="flex-1 px-4 py-3 space-y-4">
+<!-- Hero Banner / Destacado de Cliente -->
+<section class="relative overflow-hidden rounded-2xl bg-gradient-to-r from-brand-primary to-[#2a7fd0] text-white p-4 shadow-md">
+<div class="relative z-10 max-w-[70%]">
+<span class="inline-block px-2 py-0.5 rounded-full text-[10px] font-bold uppercase tracking-wider bg-white/20 text-white backdrop-blur-sm mb-1.5">
+            Comunidad Local
+          </span>
+<h1 class="text-base font-bold leading-tight mb-1">
+            Encontrá profesionales de confianza en tu barrio
+          </h1>
+<p class="text-xs text-white/80 line-clamp-1 mb-2.5">
+            Plomería, gas, electricidad, pintura y más.
+          </p>
+<a class="inline-flex items-center text-xs font-semibold bg-white text-brand-primary px-3 py-1.5 rounded-lg shadow-sm hover:bg-gray-100 transition-colors" href="#buscar">
+            Pedir presupuesto
+          </a>
+</div>
+<!-- Decorative Vector Badge -->
+<div class="absolute -right-4 -bottom-4 w-28 h-28 bg-white/10 rounded-full flex items-center justify-center">
+<svg class="w-16 h-16 text-white/30" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+<path d="M11.42 15.17L17.25 21A2.652 2.652 0 0021 17.25l-5.877-5.877M11.42 15.17l2.496-3.03c.317-.384.74-.626 1.208-.766M11.42 15.17l-4.655 5.653a2.54 2.54 0 01-3.593 0 2.54 2.54 0 010-3.593l5.653-4.655m3.03-2.496l-3.03-2.496M17.25 21l-3.03-2.496" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</div>
+</section>
+<!-- BEGIN: FilterTabsAndLocation -->
+<!-- Controles de filtrado y selector de ubicación (Fiel al Wireframe de Columna 2) -->
+<section class="flex items-center justify-between gap-2 pt-0.5">
+<!-- Tabs Izquierda: Local / Mas -->
+<div class="flex items-center bg-brand-secondaryBg/80 p-0.5 rounded-full border border-gray-200">
+<button class="px-3.5 py-1 text-xs font-bold rounded-full bg-brand-primary text-white shadow-sm transition-colors">
+            Local
+          </button>
+<button class="px-3.5 py-1 text-xs font-semibold rounded-full text-brand-dark hover:text-brand-primary transition-colors">
+            Más
+          </button>
+</div>
+<!-- Botón Ubicación con Indicador -->
+<button class="inline-flex items-center gap-1.5 bg-brand-secondaryBg hover:bg-gray-200/90 text-brand-dark px-3 py-1 rounded-full text-xs font-semibold border border-gray-300 transition-colors">
+<span class="">Ubicación</span>
+<svg class="w-3.5 h-3.5 text-brand-primary" fill="currentColor" viewBox="0 0 24 24">
+<path clip-rule="evenodd" d="M11.54 22.351A24.25 24.25 0 013.9 11.442C2.69 9.385 2 7.143 2 5a3 3 0 013-3h14a3 3 0 013 3c0 2.143-.69 4.385-1.9 6.442a24.25 24.25 0 01-7.64 10.909 1.25 1.25 0 01-1.92 0zM12 11a3 3 0 100-6 3 3 0 000 6z" fill-rule="evenodd"></path>
+</svg>
+</button>
+</section>
+<!-- END: FilterTabsAndLocation -->
+<!-- BEGIN: PopularServicesSection -->
+<section class="space-y-3">
+<!-- Título de Sección -->
+<div class="flex items-center justify-between">
+<h2 class="text-sm font-bold text-brand-dark uppercase tracking-wide">
+            Populares
+          </h2>
+<a class="text-xs font-semibold text-brand-primary hover:underline" href="#">
+            Ver todos
+          </a>
+</div>
+<!-- 2-Column Grid (Cards de Proveedor - Servicio) -->
+<div class="grid grid-cols-2 gap-3" data-purpose="services-grid">
+<!-- Card 1: Electricista -->
+<article class="bg-white rounded-2xl p-2.5 shadow-card border border-gray-100 flex flex-col hover:shadow-md transition-shadow">
+<div class="relative w-full h-28 rounded-xl overflow-hidden mb-2 bg-gray-100">
+<img alt="Carlos Gómez - Electricista Matriculado" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAChQDFoRiZCLTuXIrhr68PYaqteaf4FFT7-jZrglwR5_Qh6UKOHWSQwVZL-5bzIy6ootfeQNDQkxDKX8R1bxO_ZIOR4NLr1Yb4JVUsxCnlSVb3nq7YoxRKDEHN6EYkM_dxCOWnmljDnca-pQRFcqZU0TJr9FLgKkvYJwb25NjjPwvuPz_EKPXiIPWY0D621XqHyq1R5lCChzLM3WQKaRqLdMavpfRHHurBjUhZ3bcv">
+<span class="absolute top-1.5 left-1.5 bg-emerald-600/90 text-white text-[10px] font-bold px-1.5 py-0.5 rounded backdrop-blur-xs">
+                Cerca
+              </span>
+</div>
+<div class="flex flex-col flex-1 justify-between">
+<div>
+<p class="text-[11px] text-gray-500 font-medium">Electricista</p>
+<h3 class="text-xs font-bold text-brand-dark leading-snug line-clamp-1">
+                  Carlos Gómez
+                </h3>
+<div class="flex items-center gap-1 mt-1 text-[11px] text-brand-accent">
+<span class="">★</span>
+<span class="font-bold text-brand-dark text-[11px]">4.9</span>
+<span class="text-gray-400 text-[10px]">(38)</span>
+</div>
+</div>
+<div class="mt-2 pt-1.5 border-t border-gray-100 flex items-center justify-between text-[11px]">
+<span class="text-gray-500">Desde</span>
+<span class="font-bold text-brand-primary">$4.500</span>
+</div>
+</div>
+</article>
+<!-- Card 2: Plomería -->
+<article class="bg-white rounded-2xl p-2.5 shadow-card border border-gray-100 flex flex-col hover:shadow-md transition-shadow">
+<div class="relative w-full h-28 rounded-xl overflow-hidden mb-2 bg-gray-100">
+<img alt="Marcos R. - Plomería Integral" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDdih_1mmBb2SruIUHpUyzIRb7RmcrfJhr_JPdda3_ufbFKTeIA_Jk0hd-t053Tx2ANee7QElK6-eAK7KW1ga_aANtsRbhsc0HeH5YXXKnIEUb40yQ5K8nPryTizelLfqlC26WTT6tbA14tB2mAROxx4bBSEMUIDndQz8aFonQ69nlkf9YjSq8ZUSaLgbOAJv3E018nt-0cH2E-IuxQ7ng0KnrVBrZY8zjOW2HwFVW0">
+<span class="absolute top-1.5 left-1.5 bg-emerald-600/90 text-white text-[10px] font-bold px-1.5 py-0.5 rounded backdrop-blur-xs">
+                Cerca
+              </span>
+</div>
+<div class="flex flex-col flex-1 justify-between">
+<div>
+<p class="text-[11px] text-gray-500 font-medium">Plomería &amp; Gas</p>
+<h3 class="text-xs font-bold text-brand-dark leading-snug line-clamp-1">
+                  Marcos Rivas
+                </h3>
+<div class="flex items-center gap-1 mt-1 text-[11px] text-brand-accent">
+<span class="">★</span>
+<span class="font-bold text-brand-dark text-[11px]">4.8</span>
+<span class="text-gray-400 text-[10px]">(52)</span>
+</div>
+</div>
+<div class="mt-2 pt-1.5 border-t border-gray-100 flex items-center justify-between text-[11px]">
+<span class="text-gray-500">Desde</span>
+<span class="font-bold text-brand-primary">$5.000</span>
+</div>
+</div>
+</article>
+<!-- Card 3: Pintor de Obra -->
+<article class="bg-white rounded-2xl p-2.5 shadow-card border border-gray-100 flex flex-col hover:shadow-md transition-shadow">
+<div class="relative w-full h-28 rounded-xl overflow-hidden mb-2 bg-gray-100">
+<img alt="Esteban Pinturas" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCWxtE6h92SG6jpKpejKvMplcI9qgVWe5Dx0kZUhPZBqRdkFP12J0nQ-D11TljUI5iKu84EBIXhxEIdKKdHIa6O2qjgmkJUVz2_ZAOijQtkzFp5EbH-8HsX8NGOzT3mYpILJD6ctIeLrj5xXFBG4PE2TmbBgjRwBFUJH-B57H3lJJiaemWrC0mi2oLrFPyeHotzJ2XrG-D6KwSOkwfrQiUKKPKKkI_zD4k7ULtwV7Jm">
+</div>
+<div class="flex flex-col flex-1 justify-between">
+<div>
+<p class="text-[11px] text-gray-500 font-medium">Pintura &amp; Acabados</p>
+<h3 class="text-xs font-bold text-brand-dark leading-snug line-clamp-1">
+                  Pinturas Esteban
+                </h3>
+<div class="flex items-center gap-1 mt-1 text-[11px] text-brand-accent">
+<span class="">★</span>
+<span class="font-bold text-brand-dark text-[11px]">5.0</span>
+<span class="text-gray-400 text-[10px]">(24)</span>
+</div>
+</div>
+<div class="mt-2 pt-1.5 border-t border-gray-100 flex items-center justify-between text-[11px]">
+<span class="text-gray-500">Desde</span>
+<span class="font-bold text-brand-primary">$6.200</span>
+</div>
+</div>
+</article>
+<!-- Card 4: Cerrajería -->
+<article class="bg-white rounded-2xl p-2.5 shadow-card border border-gray-100 flex flex-col hover:shadow-md transition-shadow">
+<div class="relative w-full h-28 rounded-xl overflow-hidden mb-2 bg-gray-100">
+<img alt="Cerrajería Rápida 24hs" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDPjmYiMQNsYCw5GPnf3Z9tXhFZybc43ptCDJs46fiD49RyVyJCHEkqh9tl-wA8d9OsbbSNHxTs18GvAOUDoHhrnsFkXMeQNEIdkB4SP90evF5_YcSbkcIuxMHVtiM1IdbXTWsxcgvbdf99mTcQNVz2KOTP9nvbWZflmkbyJSFYncNmmWXMkLCj9Cf0VQyyLGty1FarRa6cRrx-7rZPTGNJbyfwruH9BoVl5iOyWbFr">
+<span class="absolute top-1.5 left-1.5 bg-blue-600/90 text-white text-[10px] font-bold px-1.5 py-0.5 rounded backdrop-blur-xs">
+                24hs
+              </span>
+</div>
+<div class="flex flex-col flex-1 justify-between">
+<div>
+<p class="text-[11px] text-gray-500 font-medium">Cerrajería</p>
+<h3 class="text-xs font-bold text-brand-dark leading-snug line-clamp-1">
+                  Cerrajería 24hs
+                </h3>
+<div class="flex items-center gap-1 mt-1 text-[11px] text-brand-accent">
+<span class="">★</span>
+<span class="font-bold text-brand-dark text-[11px]">4.7</span>
+<span class="text-gray-400 text-[10px]">(19)</span>
+</div>
+</div>
+<div class="mt-2 pt-1.5 border-t border-gray-100 flex items-center justify-between text-[11px]">
+<span class="text-gray-500">Desde</span>
+<span class="font-bold text-brand-primary">$3.800</span>
+</div>
+</div>
+</article>
+</div>
+</section>
+<!-- END: PopularServicesSection -->
+<!-- BEGIN: BottomActionButtons -->
+<!-- Botones de llamada a la acción principales reproducidos del wireframe de inicio -->
+<section class="space-y-2.5 pt-2 pb-1" data-purpose="quick-actions">
+<!-- Botón primario de servicios populares -->
+<button class="w-full bg-brand-primary hover:bg-brand-primaryHover active:scale-[0.99] text-white font-bold text-sm py-3 px-4 rounded-xl shadow-md transition-all flex items-center justify-center gap-2">
+<svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+<path d="M13 10V3L4 14h7v7l9-11h-7z" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+<span class="">Servicios más populares</span>
+</button>
+<!-- Botón secundario buscar servicio -->
+<button class="w-full bg-brand-secondaryBg hover:bg-gray-300 active:scale-[0.99] text-brand-dark font-bold text-sm py-3 px-4 rounded-xl transition-all flex items-center justify-center gap-2 border border-gray-300" id="buscar">
+<svg class="w-4 h-4 text-brand-dark" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+<path d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+<span class="">Buscar servicio</span>
+</button>
+</section>
+<!-- END: BottomActionButtons -->
+</main>
+<!-- END: MainContent -->
+<!-- BEGIN: MobileBottomNavigation -->
+
+<!-- END: MobileBottomNavigation -->
+</div>
+
+
+</body></html>

@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+
+<html lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport"/>
+<title>Oficios Vecinos - Error en la solicitud</title>
+<!-- Tailwind CSS v3 with Plugins -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            appBg: '#F3F4F6',
+            cardBg: '#D9D9D9',
+            cardBgSubtle: '#E2E4E8',
+            btnDark: '#4A4D53',
+            btnHover: '#373A40',
+            btnGray: '#666970',
+            textPrimary: '#1E2024'
+          },
+          fontFamily: {
+            sans: ['-apple-system', 'BlinkMacSystemFont', '"SF Pro Text"', '"SF Pro Display"', 'Segoe UI', 'Roboto', 'Helvetica', 'Arial', 'sans-serif']
+          }
+        }
+      }
+    }
+  </script>
+<style data-purpose="base-layout">
+    /* iOS Safe Area handling */
+    body {
+      -webkit-tap-highlight-color: transparent;
+      user-select: none;
+    }
+    .safe-top {
+      padding-top: env(safe-area-inset-top, 0px);
+    }
+    .safe-bottom {
+      padding-bottom: env(safe-area-inset-bottom, 16px);
+    }
+  </style>
+</head>
+<body class="bg-gray-100 flex justify-center items-center min-h-screen text-slate-800 antialiased p-0 sm:p-4">
+<!-- Mobile Canvas Device Container -->
+<div class="w-full max-w-[428px] h-screen sm:h-[926px] bg-[#F7F8F9] flex flex-col justify-between shadow-2xl relative overflow-hidden sm:rounded-[44px] border-0 sm:border-[8px] sm:border-slate-800">
+<!-- Top Area Wrapper (iOS Status Bar + Header) -->
+<div class="w-full bg-white z-20 shadow-sm">
+<!-- BEGIN: iOSStatusBar -->
+<div class="safe-top h-11 px-7 pt-3 flex justify-between items-center text-xs font-semibold tracking-tight text-slate-900 select-none">
+<span>9:41</span>
+<div class="flex items-center space-x-2">
+<!-- Signal Icon -->
+<svg class="w-4 h-3.5 fill-current" viewbox="0 0 17 12">
+<rect height="4" rx="0.8" width="2.5" x="0" y="8"></rect>
+<rect height="6.5" rx="0.8" width="2.5" x="4.5" y="5.5"></rect>
+<rect height="9" rx="0.8" width="2.5" x="9" y="3"></rect>
+<rect height="11.5" rx="0.8" width="2.5" x="13.5" y="0.5"></rect>
+</svg>
+<!-- Wifi Icon -->
+<svg class="w-4 h-3.5 fill-current" viewbox="0 0 16 12">
+<path d="M8 2.5C10.7 2.5 13.1 3.6 14.8 5.4L16 4.1C13.9 2 11.1 0.7 8 0.7C4.9 0.7 2.1 2 0 4.1L1.2 5.4C2.9 3.6 5.3 2.5 8 2.5ZM8 6.5C9.7 6.5 11.2 7.2 12.3 8.3L13.5 7C12.1 5.6 10.1 4.7 8 4.7C5.9 4.7 3.9 5.6 2.5 7L3.7 8.3C4.8 7.2 6.3 6.5 8 6.5ZM8 10C8.7 10 9.2 10.5 9.2 11.2C9.2 11.9 8.7 12.4 8 12.4C7.3 12.4 6.8 11.9 6.8 11.2C6.8 10.5 7.3 10 8 10Z"></path>
+</svg>
+<!-- Battery Icon -->
+<div class="w-6 h-3 border border-slate-900 rounded-[3px] p-[1px] flex items-center relative">
+<div class="h-full w-4 bg-slate-900 rounded-[1.5px]"></div>
+<div class="absolute -right-1 top-1 w-0.5 h-1 bg-slate-900 rounded-r-xs"></div>
+</div>
+</div>
+</div>
+<!-- END: iOSStatusBar -->
+<!-- BEGIN: MainHeader -->
+<header class="px-4 py-2.5 flex items-center justify-between border-b border-gray-100" data-purpose="app-header">
+<!-- Logo / Brand Title -->
+<div class="flex flex-col">
+<span class="text-xs font-bold text-slate-800 leading-tight tracking-tight">Oficios</span>
+<span class="text-xs font-bold text-slate-800 leading-tight tracking-tight -mt-0.5">Vecinos</span>
+</div>
+<!-- Search Bar Input Capsule -->
+<div class="flex-1 mx-3" data-purpose="search-input-container">
+<div class="relative flex items-center">
+<input class="w-full h-8 pl-3 pr-8 text-xs bg-white border border-gray-300 rounded-full focus:outline-none focus:border-gray-500 placeholder-gray-400 shadow-inner" placeholder="Buscar" readonly="" type="text"/>
+<button aria-label="Buscar" class="absolute right-2.5 text-gray-500 hover:text-gray-700" type="button">
+<svg class="w-3.5 h-3.5 stroke-current" fill="none" stroke-width="2.5" viewbox="0 0 24 24">
+<circle cx="11" cy="11" r="7"></circle>
+<line x1="21" x2="16.65" y1="21" y2="16.65"></line>
+</svg>
+</button>
+</div>
+</div>
+<!-- Action Icons: Chat and Profile Avatar -->
+<div class="flex items-center space-x-2.5">
+<!-- Chat Button -->
+<button aria-label="Mensajes" class="text-slate-800 hover:opacity-75 transition-opacity" type="button">
+<svg class="w-5 h-5 fill-current" viewbox="0 0 24 24">
+<path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H5.17L4 17.17V4h16v12z"></path>
+</svg>
+</button>
+<!-- User Profile Avatar Pill -->
+<button aria-label="Perfil de usuario" class="w-6 h-6 rounded-full bg-slate-900 border border-slate-700 flex items-center justify-center focus:ring-2 focus:ring-slate-400" type="button">
+<svg class="w-3.5 h-3.5 text-white fill-current" viewbox="0 0 24 24">
+<path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"></path>
+</svg>
+</button>
+</div>
+</header>
+<!-- END: MainHeader -->
+</div>
+<!-- BEGIN: MainContent -->
+<main class="flex-1 px-5 py-4 flex flex-col justify-between overflow-y-auto" data-purpose="screen-content">
+<!-- Central Card Section (Error Notification Box) -->
+<section class="w-full bg-[#D7D9DE] rounded-[28px] p-6 sm:p-7 flex flex-col items-center justify-center text-center shadow-sm min-h-[460px] flex-grow my-auto" data-purpose="error-status-card">
+<!-- Error Heading -->
+<h1 class="text-xl sm:text-2xl font-bold text-slate-900 tracking-tight leading-snug max-w-[240px]">
+          Ups, algo fallo reintentalo
+        </h1>
+<!-- Failure Status Icon (Circle with Cross) -->
+<div class="my-8 flex items-center justify-center" data-purpose="status-icon">
+<div class="w-20 h-20 sm:w-22 sm:h-22 rounded-full bg-[#18191C] flex items-center justify-center shadow-md transform active:scale-95 transition-transform">
+<svg class="w-9 h-9 text-white stroke-white" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="3" viewbox="0 0 24 24">
+<line x1="18" x2="6" y1="6" y2="18"></line>
+<line x1="6" x2="18" y1="6" y2="18"></line>
+</svg>
+</div>
+</div>
+<!-- Explanatory Details -->
+<p class="text-xs sm:text-sm text-slate-600 font-normal leading-relaxed max-w-[270px] mb-8">
+          No pudimos procesar tu solicitud en este momento. Por favor revisa tu conexión o intenta nuevamente.
+        </p>
+<!-- Secondary Button: Back to Form -->
+<button class="w-full max-w-[220px] py-3 px-5 bg-[#52565E] hover:bg-[#43464D] active:bg-[#32353A] text-white text-xs sm:text-sm font-medium rounded-full shadow-sm transition-all focus:outline-none focus:ring-2 focus:ring-slate-400" data-purpose="action-retry-button" onclick="history.back()" type="button">
+          Volver al formulario
+        </button>
+</section>
+<!-- Bottom Action Section -->
+<footer class="w-full pt-4 pb-2 flex flex-col items-center safe-bottom" data-purpose="navigation-footer">
+<!-- Main Home Return Button -->
+<button class="w-full py-3.5 px-6 bg-[#4A4D53] hover:bg-[#3D4046] active:bg-[#2C2E33] text-white text-sm sm:text-base font-semibold rounded-full shadow-md transition-all duration-150 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-slate-600" data-purpose="return-home-button" type="button">
+          Volver al inicio
+        </button>
+<!-- iOS Home Indicator -->
+<div class="w-32 h-1 bg-slate-300 rounded-full mt-4 -mb-1 opacity-70"></div>
+</footer>
+</main>
+<!-- END: MainContent -->
+</div>
+</body></html>

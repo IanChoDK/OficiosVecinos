@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+
+<html lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport"/>
+<title>Oficios Vecinos - Solicitud Enviada</title>
+<!-- Tailwind CSS CDN with forms plugin -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Tailwind Configuration for custom brand tokens -->
+<script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              blue: '#1764ae',
+              dark: '#00112b',
+              navy: '#0b2545',
+              surface: '#f4f6f9'
+            },
+            accent: {
+              emerald: '#10B981'
+            }
+          },
+          fontFamily: {
+            sans: ['-apple-system', 'BlinkMacSystemFont', '"Segoe UI"', 'Roboto', 'Helvetica', 'Arial', 'sans-serif']
+          }
+        }
+      }
+    }
+  </script>
+<!-- Custom styles for iOS standalone feel & layout adjustments -->
+<style data-purpose="mobile-layout">
+    body {
+      -webkit-tap-highlight-color: transparent;
+      overscroll-behavior-y: none;
+    }
+    .safe-top {
+      padding-top: env(safe-area-inset-top, 0px);
+    }
+    .safe-bottom {
+      padding-bottom: env(safe-area-inset-bottom, 16px);
+    }
+  </style>
+</head>
+<body class="bg-gray-100 text-gray-800 antialiased min-h-screen flex flex-col justify-between selection:bg-brand-blue selection:text-white font-sans">
+<!-- BEGIN: ApplicationHeader -->
+<!-- Top navigation bar matching Oficios Vecinos standard layout -->
+<header class="bg-white border-b border-gray-200 sticky top-0 z-30 shadow-xs safe-top">
+<div class="px-4 py-3 flex items-center justify-between gap-3 max-w-md mx-auto">
+<!-- Brand Name Logo -->
+<a aria-label="Ir al inicio de Oficios Vecinos" class="flex flex-col flex-shrink-0 text-left focus:outline-none" href="#">
+<span class="text-base font-extrabold tracking-tight text-brand-dark leading-tight">Oficios</span>
+<span class="text-xs font-bold tracking-wider text-brand-blue uppercase -mt-0.5">Vecinos</span>
+</a>
+<!-- Compact Search Bar matching wireframe structure -->
+<div class="relative flex-1 max-w-[170px]" data-purpose="quick-search">
+<input aria-label="Buscar servicios u oficios" class="w-full h-8 pl-3 pr-7 bg-gray-100 border-none rounded-full text-xs text-gray-700 placeholder-gray-400 focus:bg-white focus:ring-2 focus:ring-brand-blue transition-all" placeholder="Buscar" type="search"/>
+<svg class="w-3.5 h-3.5 text-gray-400 absolute right-2.5 top-1/2 -translate-y-1/2 pointer-events-none" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M21 21l-4.35-4.35M17 11a6 6 0 11-12 0 6 6 0 0112 0z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"></path>
+</svg>
+</div>
+<!-- Action Icons: Chat message notification & User Avatar -->
+<div class="flex items-center gap-2 flex-shrink-0">
+<!-- Messages button -->
+<button aria-label="Mensajes" class="p-1.5 text-gray-600 hover:text-brand-blue rounded-full hover:bg-gray-100 transition-colors focus:outline-none" type="button">
+<svg class="w-5 h-5" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+</button>
+<!-- User Avatar Circle -->
+<div aria-label="Perfil del usuario" class="w-8 h-8 rounded-full bg-brand-dark flex items-center justify-center text-white text-xs font-semibold ring-2 ring-brand-blue/20" role="img">
+<span>JP</span>
+</div>
+</div>
+</div>
+</header>
+<!-- END: ApplicationHeader -->
+<!-- BEGIN: MainContent -->
+<!-- Central success screen matching Column 8 from UX flow -->
+<main class="flex-1 flex flex-col items-center justify-center px-4 py-6 w-full max-w-md mx-auto">
+<!-- Card container for confirmation status -->
+<article class="w-full bg-white rounded-3xl p-6 sm:p-8 shadow-sm border border-gray-100 flex flex-col items-center text-center transition-transform" data-purpose="success-card">
+<!-- Visual Status Icon -->
+<div class="mb-5 relative" data-purpose="status-icon-wrapper">
+<div class="w-20 h-20 rounded-full bg-emerald-50 border-4 border-emerald-100 flex items-center justify-center shadow-inner">
+<svg class="w-10 h-10 text-accent-emerald animate-[scaleIn_0.3s_ease-out]" fill="none" stroke="currentColor" stroke-width="3" viewbox="0 0 24 24">
+<path d="M4.5 12.75l6 6 9-13.5" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</div>
+<!-- Pulse effect ring indicator -->
+<span class="absolute -top-1 -right-1 flex h-4 w-4">
+<span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+<span class="relative inline-flex rounded-full h-4 w-4 bg-accent-emerald"></span>
+</span>
+</div>
+<!-- Main Headline from Wireframe -->
+<h1 class="text-2xl font-black text-brand-dark tracking-tight leading-snug mb-2">
+        Solicitud enviada<br/><span class="text-brand-blue">Correctamente</span>
+</h1>
+<!-- Status Explanation Text -->
+<p class="text-sm text-gray-500 leading-relaxed mb-6 px-1">
+        El prestador ha recibido tu pedido y se pondrá en contacto a la brevedad para coordinar la visita.
+      </p>
+<!-- Tracking order details panel -->
+<div class="w-full bg-gray-50 rounded-2xl p-4 border border-gray-100 mb-2 space-y-2.5 text-left text-xs">
+<div class="flex items-center justify-between pb-2 border-b border-gray-200/60">
+<span class="text-gray-400 font-medium">Nº de Solicitud</span>
+<span class="font-mono font-bold text-brand-dark bg-white px-2 py-0.5 rounded border border-gray-200">#OV-94821</span>
+</div>
+<div class="flex items-center justify-between">
+<span class="text-gray-400 font-medium">Estado</span>
+<span class="inline-flex items-center gap-1.5 font-semibold text-emerald-600">
+<span class="w-2 h-2 rounded-full bg-accent-emerald"></span>
+            En revisión por el técnico
+          </span>
+</div>
+<div class="flex items-center justify-between">
+<span class="text-gray-400 font-medium">Tiempo estimado</span>
+<span class="font-semibold text-gray-700">Menos de 30 min</span>
+</div>
+</div>
+</article>
+</main>
+<!-- END: MainContent -->
+<!-- BEGIN: BottomNavigationCTA -->
+<!-- Fixed sticky footer with primary action matching wireframe "Volver al inicio" button -->
+<footer class="w-full bg-white/90 backdrop-blur-md border-t border-gray-200 px-4 py-3 safe-bottom sticky bottom-0 z-20">
+<div class="max-w-md mx-auto w-full">
+<a class="w-full h-12 bg-brand-dark hover:bg-brand-navy active:scale-[0.99] text-white font-semibold text-sm rounded-xl flex items-center justify-center gap-2 shadow-md hover:shadow-lg transition-all focus:outline-none focus:ring-4 focus:ring-brand-blue/30" data-purpose="primary-action-home" href="#" role="button">
+<span>Volver al inicio</span>
+<svg class="w-4 h-4 text-gray-300" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+</a>
+</div>
+</footer>
+<!-- END: BottomNavigationCTA -->
+</body></html>

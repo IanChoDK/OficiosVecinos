@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+
+<html lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport"/>
+<title>Oficios Vecinos - Perfil Profesional</title>
+<!-- Tailwind CSS CDN v3 con plugins -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Phosphor Icons para íconos limpios estilo app móvil -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+<script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              DEFAULT: '#1764ae',
+              dark: '#00112b',
+              light: '#f0f6fc',
+              blueHover: '#135390'
+            }
+          },
+          fontFamily: {
+            sans: ['-apple-system', 'BlinkMacSystemFont', '"SF Pro Display"', '"Segoe UI"', 'Roboto', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+<style data-purpose="custom-scroll-and-app">
+    /* Ocultar barra de desplazamiento manteniendo funcionalidad táctil */
+    .no-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+    .no-scrollbar {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+    body {
+      -webkit-tap-highlight-color: transparent;
+      user-select: none;
+    }
+  </style>
+</head>
+<body class="bg-slate-100 flex justify-center items-center min-h-screen text-slate-800 antialiased font-sans">
+<!-- BEGIN: MobileDeviceContainer -->
+<!-- Contenedor con aspecto de dispositivo iOS (iPhone 14/15 frame) -->
+<div class="w-full max-w-[420px] h-[890px] max-h-screen bg-white shadow-2xl relative flex flex-col overflow-hidden sm:rounded-[44px] sm:border-[8px] sm:border-slate-800" data-purpose="mobile-viewport">
+<!-- BEGIN: iOSStatusBar -->
+<header class="w-full pt-3 px-7 flex justify-between items-center text-xs font-semibold z-30 select-none bg-white/80 backdrop-blur-md" data-purpose="ios-status-bar">
+<span class="text-slate-900 font-bold tracking-tight">9:41</span>
+<!-- Dynamic Island / Cámara notch en dispositivos simulados -->
+<div class="w-20 h-4 bg-slate-900 rounded-full mx-auto hidden sm:block"></div>
+<div class="flex items-center space-x-1.5 text-slate-900">
+<i class="fa-solid fa-signal text-[10px]"></i>
+<i class="fa-solid fa-wifi text-[10px]"></i>
+<i class="fa-solid fa-battery-full text-xs"></i>
+</div>
+</header>
+<!-- END: iOSStatusBar -->
+<!-- BEGIN: TopNavigationBar -->
+<!-- Barra superior idéntica al wireframe con botón volver, logo, buscador, chat y avatar -->
+<nav class="w-full px-4 py-2.5 bg-white border-b border-slate-100 flex items-center justify-between gap-2.5 z-20" data-purpose="top-navigation">
+<!-- Botón Volver (<-) -->
+<button aria-label="Volver" class="w-9 h-9 rounded-full flex items-center justify-center text-slate-700 hover:bg-slate-100 active:scale-95 transition-all">
+<i class="fa-solid fa-arrow-left text-base"></i>
+</button>
+<!-- Identificador de marca / Nombre de app -->
+<div class="flex flex-col">
+<span class="text-xs font-bold leading-none text-brand-dark tracking-tight">Oficios</span>
+<span class="text-[10px] font-semibold text-brand tracking-normal">Vecinos</span>
+</div>
+<!-- Barra de búsqueda compacta -->
+<div class="flex-1 max-w-[150px] relative">
+<input class="w-full h-8 pl-3 pr-7 py-1 text-xs bg-slate-100 border border-slate-200 rounded-full focus:outline-none focus:border-brand focus:ring-1 focus:ring-brand placeholder-slate-400" placeholder="Buscar..." type="text"/>
+<i class="fa-solid fa-magnifying-glass absolute right-2.5 top-2.5 text-[11px] text-slate-400"></i>
+</div>
+<!-- Iconos de acción: Chat y Perfil -->
+<div class="flex items-center gap-2">
+<button aria-label="Mensajes" class="relative text-slate-600 hover:text-brand transition-colors p-1">
+<i class="fa-regular fa-comment-dots text-lg"></i>
+<span class="absolute top-0 right-0 w-2 h-2 bg-brand rounded-full"></span>
+</button>
+<button aria-label="Mi cuenta" class="w-7 h-7 rounded-full bg-brand-dark text-white flex items-center justify-center text-[11px] font-medium shadow-sm">
+<i class="fa-solid fa-user"></i>
+</button>
+</div>
+</nav>
+<!-- END: TopNavigationBar -->
+<!-- BEGIN: MainContentArea -->
+<!-- Área scrollable con ficha técnica completa y fotos de servicio -->
+<main class="flex-1 overflow-y-auto no-scrollbar pb-32" data-purpose="profile-detail-scroll">
+<!-- Portada / Carrusel de fotos de trabajos del proveedor -->
+<section class="relative w-full h-64 bg-slate-200 overflow-hidden" data-purpose="media-gallery">
+<img alt="Trabajos realizados de plomería e instalaciones" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBB_xajlf7DYV4KibmjNEDu286kSzGscgVXp0VjgDRw_vFAdyoHumBXR_EBANnmEWKPsaUFEn5euuwUrznjE6sWgWR2DYtXl6WxPIzBB60o7QbBD6kEPomhXO2_NC15NDowRQgQSDxHM3gwPKC6YrJmDbUEeZJpxvCWjBykstKItHrmqcJm0wsMtqAM2IxzEQLEvHIW88OTvKKJ9ZTXaQql55LcQp4x-cfIFD0nrrRN"/>
+<!-- Insignia de Verificación Oficial en el barrio -->
+<div class="absolute top-3 left-3 bg-white/95 backdrop-blur-md px-2.5 py-1 rounded-full flex items-center gap-1.5 shadow-sm">
+<i class="fa-solid fa-certificate text-brand text-xs"></i>
+<span class="text-[11px] font-semibold text-slate-700 tracking-tight">Verificado por Vecinos</span>
+</div>
+<!-- Indicador de fotos (Paginación) -->
+<div class="absolute bottom-3 right-3 bg-slate-950/60 backdrop-blur-md px-2.5 py-0.5 rounded-full text-white text-[10px] font-medium tracking-wide">
+          1 / 6 fotos
+        </div>
+<div class="absolute bottom-3 left-3 flex gap-1">
+<span class="w-4 h-1.5 bg-brand rounded-full shadow-sm"></span>
+<span class="w-1.5 h-1.5 bg-white/70 rounded-full"></span>
+<span class="w-1.5 h-1.5 bg-white/70 rounded-full"></span>
+</div>
+</section>
+<!-- Contenedor de detalles del Profesional -->
+<section class="px-5 pt-4 pb-2 bg-white" data-purpose="provider-core-info">
+<!-- Título principal y Calificación según wireframe (Proveedor - Servicio) -->
+<div class="flex items-start justify-between gap-2 border-b border-slate-100 pb-3">
+<div>
+<h1 class="text-xl font-bold text-brand-dark tracking-tight leading-snug">
+              Roberto Gómez
+            </h1>
+<p class="text-sm font-semibold text-brand flex items-center gap-1.5 mt-0.5">
+<span>Plomería &amp; Gasista Matriculado</span>
+<span class="w-1 h-1 bg-slate-300 rounded-full"></span>
+<span class="text-xs text-slate-500 font-normal">Reparaciones</span>
+</p>
+</div>
+<!-- Estrellas de Calificación wireframe: ★★★★★ -->
+<div class="flex flex-col items-end">
+<div class="flex items-center text-amber-400 text-sm">
+<i class="fa-solid fa-star"></i>
+<i class="fa-solid fa-star"></i>
+<i class="fa-solid fa-star"></i>
+<i class="fa-solid fa-star"></i>
+<i class="fa-solid fa-star-half-stroke"></i>
+</div>
+<span class="text-xs font-bold text-slate-700 mt-0.5">4.9 <span class="text-slate-400 font-normal">(42 res.)</span></span>
+</div>
+</div>
+<!-- Metadatos rápidos: Zona, Respuesta, Disponibilidad -->
+<div class="grid grid-cols-3 gap-2 py-3 border-b border-slate-100 text-center">
+<div class="p-2 rounded-xl bg-slate-50 border border-slate-100">
+<i class="fa-solid fa-location-dot text-brand text-xs block mb-1"></i>
+<span class="text-[10px] text-slate-500 block">Cobertura</span>
+<span class="text-[11px] font-semibold text-slate-800">A 1.8 km</span>
+</div>
+<div class="p-2 rounded-xl bg-slate-50 border border-slate-100">
+<i class="fa-solid fa-clock text-emerald-600 text-xs block mb-1"></i>
+<span class="text-[10px] text-slate-500 block">Responde</span>
+<span class="text-[11px] font-semibold text-slate-800">&lt; 15 min</span>
+</div>
+<div class="p-2 rounded-xl bg-slate-50 border border-slate-100">
+<i class="fa-solid fa-shield-check text-brand text-xs block mb-1"></i>
+<span class="text-[10px] text-slate-500 block">Garantía</span>
+<span class="text-[11px] font-semibold text-slate-800">100% Barrial</span>
+</div>
+</div>
+<!-- Bloque de Descripción descriptiva del servicio (Segun wireframe: "Informacion, ejemplo de informacion, el servicio es tal") -->
+<article class="py-4 border-b border-slate-100" data-purpose="service-description">
+<h2 class="text-xs font-bold uppercase tracking-wider text-slate-400 mb-2">Información del Servicio</h2>
+<p class="text-sm text-slate-600 leading-relaxed font-normal">
+            Especialista en detección de fugas, colocación de griferías, desagües, termosolares y destapaciones con maquinaria especializada. Más de 12 años de trayectoria resolviendo emergencias domiciliarias en toda la zona barrial con tarifas transparentes y presupuestos exactos sin sorpresas.
+          </p>
+<ul class="mt-3 space-y-1.5 text-xs text-slate-600">
+<li class="flex items-center gap-2">
+<i class="fa-solid fa-circle-check text-emerald-500 text-[11px]"></i>
+<span>Herramientas propias y repuestos de primera marca</span>
+</li>
+<li class="flex items-center gap-2">
+<i class="fa-solid fa-circle-check text-emerald-500 text-[11px]"></i>
+<span>Presupuesto sin cargo a vecinos del barrio</span>
+</li>
+</ul>
+</article>
+<!-- Tarifas de referencia transparentes -->
+<section class="py-3" data-purpose="service-pricing">
+<div class="flex items-baseline justify-between">
+<span class="text-xs font-medium text-slate-500">Tarifa visita / diagnóstico</span>
+<span class="text-base font-extrabold text-brand-dark">$4.500 <span class="text-[10px] font-normal text-slate-400">ARS</span></span>
+</div>
+<p class="text-[11px] text-slate-400 mt-0.5">* Descontable si se aprueba el presupuesto en el momento.</p>
+</section>
+</section>
+</main>
+<!-- END: MainContentArea -->
+<!-- BEGIN: FixedBottomInteractionPanel -->
+<!-- Contenedor inferior fijo: Campo de chat rápido + Botón "Seleccionar profesional" -->
+<aside class="absolute bottom-0 left-0 right-0 bg-white/95 backdrop-blur-md border-t border-slate-200 px-4 pt-2.5 pb-6 shadow-[0_-8px_20px_rgba(0,0,0,0.06)] z-30" data-purpose="floating-action-footer">
+<!-- Barra de Consulta Rápida (Wireframe: "Enviar mensaje" con botón icono avión) -->
+<form class="relative mb-2.5" data-purpose="quick-chat-form" onsubmit="event.preventDefault();">
+<input class="w-full h-11 pl-4 pr-12 text-xs bg-slate-50 border border-slate-200 rounded-full focus:outline-none focus:border-brand focus:ring-1 focus:ring-brand text-slate-800 placeholder-slate-400 shadow-inner" placeholder="Enviar mensaje o consulta rápida..." type="text"/>
+<button aria-label="Enviar mensaje" class="absolute right-1.5 top-1.5 w-8 h-8 rounded-full bg-brand text-white flex items-center justify-center hover:bg-brand-blueHover active:scale-95 transition-all shadow-sm" type="submit">
+<i class="fa-solid fa-paper-plane text-xs transform -translate-x-0.5 translate-y-0.5"></i>
+</button>
+</form>
+<!-- Botón de Acción Principal (Wireframe: "Seleccionar profesional") -->
+<button class="w-full h-12 bg-brand hover:bg-brand-blueHover active:scale-[0.99] text-white font-semibold text-sm rounded-2xl flex items-center justify-center gap-2 shadow-lg shadow-brand/25 transition-all" data-purpose="select-pro-button" type="button">
+<span>Seleccionar profesional</span>
+<i class="fa-solid fa-chevron-right text-xs opacity-80"></i>
+</button>
+<!-- iOS Home Bar Indicator -->
+<div class="w-32 h-1 bg-slate-300 rounded-full mx-auto mt-3"></div>
+</aside>
+<!-- END: FixedBottomInteractionPanel -->
+</div>
+<!-- END: MobileDeviceContainer -->
+</body></html>

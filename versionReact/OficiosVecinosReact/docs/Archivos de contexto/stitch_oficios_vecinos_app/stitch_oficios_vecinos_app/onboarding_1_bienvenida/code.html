@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+
+<html lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport"/>
+<title>Oficios Vecinos - Bienvenida</title>
+<!-- Google Fonts: Plus Jakarta Sans -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS CDN with forms and container queries plugins -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Tailwind CSS Configuration -->
+<script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              DEFAULT: '#1764ae',
+              dark: '#00112b',
+              light: '#f4f3f4',
+              surface: '#f9f9fa',
+              accent: '#237bd4'
+            }
+          },
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+<!-- Custom styles for iOS simulation and safe areas -->
+<style data-purpose="app-shell-styles">
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      background-color: #e5e7eb;
+    }
+
+    /* Screen aspect ratio simulation for preview containers */
+    .mobile-screen {
+      width: 100%;
+      max-width: 412px;
+      min-height: 100dvh;
+      box-shadow: 0 25px 50px -12px rgba(0, 17, 43, 0.15);
+    }
+  </style>
+</head>
+<body class="flex items-center justify-center min-h-screen p-0 sm:py-6 sm:px-4">
+<!-- BEGIN: MobileContainer -->
+<!-- Main iOS mobile frame wrapper -->
+<main class="mobile-screen bg-[#f4f3f4] relative flex flex-col justify-between overflow-hidden sm:rounded-[44px] sm:border-[8px] sm:border-[#00112b]/10 select-none">
+<!-- BEGIN: StatusBar -->
+<!-- Simulated iOS Status Bar -->
+<header class="w-full pt-3 px-7 flex justify-between items-center text-brand-dark z-20" data-purpose="status-bar">
+<!-- Time display -->
+<span class="text-[15px] font-semibold tracking-tight">9:41</span>
+<!-- System status icons -->
+<div class="flex items-center space-x-2 text-[14px]">
+<!-- Cellular Signal Icon -->
+<svg aria-hidden="true" class="w-4 h-4 fill-current" viewbox="0 0 24 24">
+<path d="M12 3c-4.97 0-9 4.03-9 9 0 2.12.74 4.07 1.97 5.61L4.35 18.25A10.93 10.93 0 0 1 1 12C1 5.92 5.92 1 12 1s11 4.92 11 11c0 2.37-.75 4.56-2.03 6.36l-.61-.63A8.96 8.96 0 0 0 21 12c0-4.97-4.03-9-9-9z" opacity="0.3"></path>
+<circle cx="12" cy="12" r="2"></circle>
+<path d="M12 6a6 6 0 0 0-6 6c0 1.34.44 2.58 1.19 3.57l1.45-1.45A3.98 3.98 0 0 1 8 12a4 4 0 0 1 8 0c0 .87-.28 1.68-.76 2.34l1.43 1.43A5.96 5.96 0 0 0 18 12a6 6 0 0 0-6-6z"></path>
+</svg>
+<!-- Wi-Fi Icon -->
+<svg aria-hidden="true" class="w-4 h-4 fill-current" viewbox="0 0 24 24">
+<path d="M12 4C7.31 4 3.07 5.9 0 8.98L12 21 24 8.98A17.92 17.92 0 0 0 12 4zm0 3.5c3.55 0 6.78 1.41 9.17 3.71L12 19.38 2.83 11.21C5.22 8.91 8.45 7.5 12 7.5z"></path>
+</svg>
+<!-- iOS Battery Icon -->
+<div class="w-6 h-3 border-[1.5px] border-brand-dark rounded-[4px] p-[1.5px] flex items-center relative ml-0.5">
+<div class="h-full w-full bg-brand-dark rounded-[1px]"></div>
+<div class="absolute -right-[3px] top-1/2 -translate-y-1/2 w-[2px] h-[4px] bg-brand-dark rounded-r-[1px]"></div>
+</div>
+</div>
+</header>
+<!-- END: StatusBar -->
+<!-- BEGIN: MainContent -->
+<!-- Centered Brand Identity Container corresponding to wireframe screen 1 -->
+<section class="flex-1 flex flex-col items-center justify-center px-8 text-center" data-purpose="welcome-branding">
+<!-- Brand Logo / Emblem Container -->
+<div class="relative mb-8 group" data-purpose="logo-container">
+<!-- Subtle back glow -->
+<div class="absolute inset-0 bg-[#1764ae] opacity-15 rounded-full blur-xl transform scale-110"></div>
+<!-- Primary Round Logo -->
+<div class="relative w-36 h-36 rounded-full bg-[#1764ae] text-white flex flex-col items-center justify-center shadow-2xl shadow-[#1764ae]/30 border-4 border-white transition-transform duration-300 active:scale-95">
+<!-- House & Neighbor/Handshake Minimalist Icon -->
+<svg aria-hidden="true" class="w-14 h-14 mb-1 text-white" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24">
+<!-- Roof / House outline -->
+<path d="M3 10.5L12 3l9 7.5"></path>
+<path d="M5 9v11a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V9"></path>
+<!-- Helping tools / Two interconnected figures -->
+<circle cx="9" cy="14" r="1.5"></circle>
+<circle cx="15" cy="14" r="1.5"></circle>
+<path d="M8 18c0-1.1.9-2 2-2h4c1.1 0 2 .9 2 2"></path>
+</svg>
+<span class="text-[11px] font-bold tracking-wider uppercase opacity-90">Oficios</span>
+</div>
+</div>
+<!-- Typography Block -->
+<div class="space-y-2.5 max-w-xs" data-purpose="text-content">
+<!-- Main title matching wireframe: 'Oficios vecinos' -->
+<h1 class="text-3xl font-extrabold text-[#00112b] tracking-tight leading-tight">
+          Oficios vecinos
+        </h1>
+<!-- Subtitle/Motto matching wireframe: 'Vecinos que se ayudan' -->
+<p class="text-base font-medium text-[#00112b]/70 tracking-normal">
+          Vecinos que se ayudan
+        </p>
+</div>
+</section>
+<!-- END: MainContent -->
+<!-- BEGIN: OnboardingPagination -->
+<!-- Progress Indicator Dots (Pantalla 1 activa) -->
+<footer class="w-full pb-10 pt-4 flex flex-col items-center justify-center" data-purpose="pagination-footer">
+<div aria-label="Progreso de bienvenida" class="flex items-center gap-2" role="tablist">
+<!-- Step 1 (Active) -->
+<span aria-current="step" aria-label="Paso 1 activo" class="w-6 h-2 rounded-full bg-[#1764ae] transition-all duration-300"></span>
+<!-- Step 2 (Inactive) -->
+<span aria-label="Paso 2" class="w-2 h-2 rounded-full bg-[#00112b]/20"></span>
+<!-- Step 3 (Inactive) -->
+<span aria-label="Paso 3" class="w-2 h-2 rounded-full bg-[#00112b]/20"></span>
+</div>
+<!-- Simulated iOS Home Indicator bar -->
+<div aria-hidden="true" class="w-32 h-1 bg-[#00112b]/20 rounded-full mt-7"></div>
+</footer>
+<!-- END: OnboardingPagination -->
+</main>
+<!-- END: MobileContainer -->
+</body></html>

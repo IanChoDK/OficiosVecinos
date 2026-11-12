@@ -1,0 +1,1379 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+  <title>Oficios Vecinos - Red de Oficios Barriales de Río Cuarto</title>
+  
+  <!-- Tipografía: Roboto & Roboto Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@500;700&family=Roboto:wght@400;500;700;900&display=swap" rel="stylesheet">
+  
+  <!-- Iconografía Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  
+  <!-- Tailwind CSS CDN v3 -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: '#1764AE',
+            'primary-dark': '#00112B',
+            secondary: '#E2E2E3',
+            'success-text': '#006B8A',
+            'danger-text': '#990014',
+            warning: '#D97706',
+            surface: '#F9F9FA'
+          },
+          fontFamily: {
+            sans: ['Roboto', 'sans-serif'],
+            mono: ['Roboto Mono', 'monospace']
+          }
+        }
+      }
+    }
+  </script>
+  
+  <!-- Hoja de Estilos del Sistema de Diseño (5 Estados, WCAG AA, Stitch) -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="antialiased select-none">
+
+  <!-- Shell Móvil de Alta Fidelidad -->
+  <div class="app-container" id="app-shell" role="region" aria-label="Aplicación Oficios Vecinos">
+    
+    <!-- Barra de Estado Simulada (iOS / Android) -->
+    <header class="w-full bg-[#EAEAEA] px-5 pt-3 pb-1 flex justify-between items-center text-xs font-semibold text-slate-800 select-none z-40 border-b border-slate-200" aria-hidden="true">
+      <span class="font-bold tracking-tight" id="clock-display">09:41</span>
+      <div class="flex items-center gap-2">
+        <i class="fa-solid fa-signal text-[11px]" title="Señal"></i>
+        <i class="fa-solid fa-wifi text-[11px]" title="WiFi"></i>
+        <i class="fa-solid fa-battery-full text-xs" title="Batería 100%"></i>
+      </div>
+    </header>
+
+    <!-- Barra de Navegación Superior Global (Header) -->
+    <nav class="w-full bg-[#FFFFFF] px-4 py-2.5 sticky top-0 z-40 flex items-center justify-between gap-2.5 shadow-sm border-b border-slate-200" aria-label="Navegación principal">
+      <!-- Marca y Logo con bajada Río Cuarto -->
+      <a href="#home" class="flex flex-col leading-none focus-visible:outline-2 focus-visible:outline-[#1764AE] rounded-sm" aria-label="Oficios Vecinos - Ir al Inicio">
+        <span class="text-sm font-black text-[#00112B] uppercase tracking-wider font-mono">Oficios</span>
+        <span class="text-xs font-bold text-[#1764AE] uppercase tracking-wider font-mono -mt-0.5">Vecinos</span>
+      </a>
+
+      <!-- Buscador Rápido de Cabecera -->
+      <div class="flex-1 max-w-[150px] relative">
+        <label for="header-search" class="sr-only">Buscar oficio o trabajador en Río Cuarto</label>
+        <input type="text" id="header-search" class="w-full bg-slate-100 text-slate-800 placeholder-slate-400 text-xs py-1.5 pl-3 pr-7 rounded-full border border-slate-300 focus:outline-none focus:ring-2 focus:ring-[#1764AE]" placeholder="Buscar oficio...">
+        <button type="button" id="header-search-btn" class="absolute right-2 top-1/2 -translate-y-1/2 text-slate-500 hover:text-[#1764AE] p-1" aria-label="Ejecutar búsqueda">
+          <i class="fa-solid fa-magnifying-glass text-xs"></i>
+        </button>
+      </div>
+
+      <!-- Acciones de Cabecera: Mensajes, Perfil y Selector de Rol -->
+      <div class="flex items-center gap-1.5">
+        <a href="#chat" id="nav-btn-chat" class="relative p-2 text-slate-700 hover:text-[#1764AE] rounded-full hover:bg-slate-100 min-w-[44px] min-h-[44px] flex items-center justify-center" aria-label="Ver mis mensajes (1 no leído)">
+          <i class="fa-regular fa-comment-dots text-lg"></i>
+          <span class="absolute top-1.5 right-1.5 w-2.5 h-2.5 bg-emerald-500 rounded-full ring-2 ring-white" aria-hidden="true"></span>
+        </a>
+
+        <a href="#perfil" id="user-avatar-pill" class="w-9 h-9 rounded-full bg-[#00112B] text-white flex items-center justify-center font-bold text-xs shadow-sm hover:bg-[#1764AE] transition-colors" aria-label="Mi Perfil">
+          <span id="user-initials">MV</span>
+        </a>
+
+        <!-- Conmutador Rápido de Rol (Vecino <-> Prestador) -->
+        <button type="button" id="toggle-role-btn" class="text-[10px] font-bold px-2 py-1 bg-[#1764AE] text-white rounded-md shadow-xs hover:bg-[#00112B] transition-colors whitespace-nowrap min-h-[36px]" aria-label="Cambiar entre modo vecino y modo prestador" title="Cambiar modo de usuario">
+          <span id="role-label">Vecino</span>
+        </button>
+      </div>
+    </nav>
+
+    <!-- ====================================================================
+         CONTENIDO PRINCIPAL: Vistas SPA (Router de Clientes y Prestador)
+         ==================================================================== -->
+    <main class="flex-1 w-full pb-24" id="main-content" tabindex="-1">
+      
+      <!-- ------------------------------------------------------------------
+           VISTA 1: Inicio Cliente (Home Vecino) [#home]
+           ------------------------------------------------------------------ -->
+      <section id="view-home" class="spa-view w-full flex flex-col" aria-label="Pantalla de Inicio de Vecino">
+        
+        <!-- Hero Banner con Credenciales Comunitarias en Río Cuarto -->
+        <div class="relative w-full bg-gradient-to-br from-[#1E293B] via-[#0F172A] to-[#00112B] text-white p-5 pt-6 shadow-md overflow-hidden">
+          <div class="flex items-center justify-between mb-3">
+            <span class="inline-flex items-center gap-1.5 bg-white/15 backdrop-blur-md px-3 py-1 rounded-full text-xs font-bold text-sky-300">
+              <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" aria-hidden="true"></span>
+              Río Cuarto • Red Barrial Verificada
+            </span>
+            <span class="text-xs text-slate-300 flex items-center gap-1">
+              <i class="fa-solid fa-star text-amber-400"></i> +1.200 riocuartenses conformes
+            </span>
+          </div>
+
+          <h1 class="text-2xl font-bold tracking-tight leading-tight text-white mb-2 font-mono">
+            Soluciones de confianza para tu hogar en Río Cuarto.
+          </h1>
+          <p class="text-xs text-slate-200 leading-relaxed mb-4">
+            Conectá directo con plomeros, electricistas y gasistas recomendados por vecinos de Centro, Banda Norte, Alberdi y más.
+          </p>
+
+          <div class="pt-3 border-t border-white/15 flex items-center justify-between text-xs text-slate-300">
+            <span class="flex items-center gap-1.5"><i class="fa-solid fa-circle-check text-emerald-400"></i> Sin intermediarios caros</span>
+            <span class="flex items-center gap-1.5"><i class="fa-solid fa-handshake text-emerald-400"></i> Pago en mano acordado</span>
+          </div>
+        </div>
+
+        <!-- Bloque de Servicios Más Populares -->
+        <div class="px-4 mt-5">
+          <div class="bg-[#DADDE2] rounded-2xl p-4 shadow-sm border border-slate-300">
+            <button type="button" id="btn-servicios-populares" class="btn-primary w-full py-4 text-base font-bold shadow-md flex items-center justify-center gap-2 mb-3" aria-label="Ver todos los servicios populares de Río Cuarto">
+              <span>Servicios más populares</span>
+              <i class="fa-solid fa-arrow-right text-sm"></i>
+            </button>
+            <p class="text-center text-xs text-slate-600 font-medium mb-3">
+              Tocá un rubro para ver quién está libre hoy cerca tuyo:
+            </p>
+
+            <!-- Grilla Rápida de Categorías con Icono + Texto Obligatorio -->
+            <div class="grid grid-cols-4 gap-2 pt-1" role="list">
+              <button type="button" class="category-btn flex flex-col items-center p-2 rounded-xl bg-white hover:bg-slate-50 border border-slate-200 transition-transform active:scale-95" data-category="Plomería">
+                <div class="w-11 h-11 rounded-lg bg-sky-100 text-[#1764AE] flex items-center justify-center text-xl mb-1">
+                  <i class="fa-solid fa-faucet-drip"></i>
+                </div>
+                <span class="text-xs font-bold text-slate-800">Plomería</span>
+              </button>
+
+              <button type="button" class="category-btn flex flex-col items-center p-2 rounded-xl bg-white hover:bg-slate-50 border border-slate-200 transition-transform active:scale-95" data-category="Electricidad">
+                <div class="w-11 h-11 rounded-lg bg-amber-100 text-amber-700 flex items-center justify-center text-xl mb-1">
+                  <i class="fa-solid fa-bolt"></i>
+                </div>
+                <span class="text-xs font-bold text-slate-800">Electricidad</span>
+              </button>
+
+              <button type="button" class="category-btn flex flex-col items-center p-2 rounded-xl bg-white hover:bg-slate-50 border border-slate-200 transition-transform active:scale-95" data-category="Gas">
+                <div class="w-11 h-11 rounded-lg bg-orange-100 text-orange-700 flex items-center justify-center text-xl mb-1">
+                  <i class="fa-solid fa-fire-burner"></i>
+                </div>
+                <span class="text-xs font-bold text-slate-800">Gas</span>
+              </button>
+
+              <button type="button" class="category-btn flex flex-col items-center p-2 rounded-xl bg-white hover:bg-slate-50 border border-slate-200 transition-transform active:scale-95" data-category="Cerrajería">
+                <div class="w-11 h-11 rounded-lg bg-emerald-100 text-emerald-700 flex items-center justify-center text-xl mb-1">
+                  <i class="fa-solid fa-key"></i>
+                </div>
+                <span class="text-xs font-bold text-slate-800">Cerrajería</span>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Sección de Profesionales Destacados con Ley de Continuidad (Carrusel al 50%) -->
+        <div class="px-4 mt-6">
+          <div class="flex items-center justify-between mb-3">
+            <h2 class="text-lg font-bold text-[#00112B] font-mono">Oficios en tu zona de Río Cuarto</h2>
+            <a href="#explorar" class="text-xs font-bold text-[#1764AE] hover:underline flex items-center gap-1">
+              Ver todos <i class="fa-solid fa-chevron-right text-[10px]"></i>
+            </a>
+          </div>
+
+          <!-- Carrusel Continuo con la última tarjeta visible al 50% -->
+          <div class="carousel-continuity" id="featured-carousel" role="region" aria-label="Carrusel de profesionales destacados de Río Cuarto">
+            <!-- Inyectado dinámicamente por app.js -->
+          </div>
+        </div>
+
+        <!-- Banner de Confianza Barrial -->
+        <div class="px-4 mt-4">
+          <div class="bg-blue-50 border border-blue-200 rounded-xl p-3.5 flex items-center gap-3">
+            <div class="w-10 h-10 rounded-full bg-[#1764AE] text-white flex items-center justify-center shrink-0">
+              <i class="fa-solid fa-shield-halved text-lg"></i>
+            </div>
+            <div>
+              <p class="text-xs font-bold text-[#00112B]">Comunidad barrial de Río Cuarto protegida</p>
+              <p class="text-xs text-slate-600">Sin comisiones bancarias ni cobros con tarjeta por solicitar presupuesto.</p>
+            </div>
+          </div>
+        </div>
+
+      </section>
+
+      <!-- ------------------------------------------------------------------
+           VISTA 1B: Home Prestador (Dashboard) [#home-prestador]
+           ------------------------------------------------------------------ -->
+      <section id="view-home-prestador" class="spa-view w-full flex flex-col hidden" aria-label="Panel principal del Prestador">
+
+        <!-- Hero Banner Prestador -->
+        <div class="relative w-full bg-gradient-to-br from-[#1E293B] via-[#0F172A] to-[#00112B] text-white p-5 pt-6 shadow-md overflow-hidden">
+          <div class="flex items-center justify-between mb-3">
+            <span class="inline-flex items-center gap-1.5 bg-white/15 backdrop-blur-md px-3 py-1 rounded-full text-xs font-bold text-sky-300">
+              <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" aria-hidden="true"></span>
+              Modo Prestador • Río Cuarto
+            </span>
+          </div>
+          <h1 class="text-2xl font-bold tracking-tight leading-tight text-white mb-2 font-mono">
+            Tu panel de servicios
+          </h1>
+          <p class="text-xs text-slate-200 leading-relaxed">
+            Gestioná tus servicios publicados y ofrecé nuevos trabajos a los vecinos de Río Cuarto.
+          </p>
+        </div>
+
+        <!-- Botones de Acción Principal -->
+        <div class="p-4 space-y-3">
+          <button type="button" class="btn-primary w-full py-4 text-base font-bold shadow-md flex items-center justify-center gap-2" aria-label="Ofrecer un nuevo servicio" onclick="window.location.hash='#prestador-crear-servicio'">
+            <i class="fa-solid fa-plus-circle"></i>
+            <span>Ofrecer un servicio</span>
+          </button>
+          <button type="button" class="btn-secondary w-full py-4 text-base font-bold shadow-md flex items-center justify-center gap-2" aria-label="Ver mis servicios publicados" onclick="window.location.hash='#prestador-servicios'">
+            <i class="fa-solid fa-list-check"></i>
+            <span>Mis servicios publicados</span>
+          </button>
+        </div>
+
+      <div class="p-4 space-y-3">        
+        <h2 class="text-sm font-bold text-[#00112B] font-mono uppercase tracking-wide mb-3">
+          Servicios más solicitados
+        </h2>
+
+        <!-- Grilla de 2 Columnas de Tarjetas de Servicios de Stitch -->
+        <div class="grid grid-cols-2 gap-3 mb-6" id="provider-services-grid">
+          <!-- Card 1: Electricista -->
+          <article class="card-service-dark">
+            <div>
+              <div class="flex items-center justify-between mb-1">
+                <span class="text-[10px] font-bold uppercase tracking-wider bg-white/20 px-1.5 py-0.5 rounded text-amber-300">Oficio</span>
+                <i class="fa-solid fa-bolt text-xs text-amber-300"></i>
+              </div>
+              <h3 class="font-bold text-sm tracking-tight text-white mb-1">Electricista</h3>
+              <div class="flex items-center text-amber-400 text-xs mb-1" title="5 de 5 estrellas">
+                ★★★★★
+              </div>
+            </div>
+            <a href="#detalle-solicitud" class="inline-flex items-center text-xs font-bold text-sky-200 hover:text-white mt-2">
+              <span>Detalle</span>
+              <i class="fa-solid fa-arrow-right text-[10px] ml-1"></i>
+            </a>
+          </article>
+
+          <!-- Card 2: Plomero -->
+          <article class="card-service-dark">
+            <div>
+              <div class="flex items-center justify-between mb-1">
+                <span class="text-[10px] font-bold uppercase tracking-wider bg-white/20 px-1.5 py-0.5 rounded text-sky-200">Urgencias</span>
+                <i class="fa-solid fa-faucet-drip text-xs text-sky-200"></i>
+              </div>
+              <h3 class="font-bold text-sm tracking-tight text-white mb-1">Plomería</h3>
+              <div class="flex items-center text-amber-400 text-xs mb-1" title="5 de 5 estrellas">
+                ★★★★★
+              </div>
+            </div>
+            <a href="#detalle-solicitud" class="inline-flex items-center text-xs font-bold text-sky-200 hover:text-white mt-2">
+              <span>Detalle</span>
+              <i class="fa-solid fa-arrow-right text-[10px] ml-1"></i>
+            </a>
+          </article>
+
+          <!-- Card 3: Carpintero -->
+          <article class="card-service-dark">
+            <div>
+              <div class="flex items-center justify-between mb-1">
+                <span class="text-[10px] font-bold uppercase tracking-wider bg-white/20 px-1.5 py-0.5 rounded text-emerald-200">Taller</span>
+                <i class="fa-solid fa-hammer text-xs text-emerald-200"></i>
+              </div>
+              <h3 class="font-bold text-sm tracking-tight text-white mb-1">Carpintería</h3>
+              <div class="flex items-center text-amber-400 text-xs mb-1" title="5 de 5 estrellas">
+                ★★★★★
+              </div>
+            </div>
+            <a href="#detalle-solicitud" class="inline-flex items-center text-xs font-bold text-sky-200 hover:text-white mt-2">
+              <span>Detalle</span>
+              <i class="fa-solid fa-arrow-right text-[10px] ml-1"></i>
+            </a>
+          </article>
+
+          <!-- Card 4: Sodero / Reparto -->
+          <article class="card-service-dark">
+            <div>
+              <div class="flex items-center justify-between mb-1">
+                <span class="text-[10px] font-bold uppercase tracking-wider bg-white/20 px-1.5 py-0.5 rounded text-purple-200">Reparto</span>
+                <i class="fa-solid fa-bottle-water text-xs text-purple-200"></i>
+              </div>
+              <h3 class="font-bold text-sm tracking-tight text-white mb-1">Sodero</h3>
+              <div class="flex items-center text-amber-400 text-xs mb-1" title="5 de 5 estrellas">
+                ★★★★★
+              </div>
+            </div>
+            <a href="#detalle-solicitud" class="inline-flex items-center text-xs font-bold text-sky-200 hover:text-white mt-2">
+              <span>Detalle</span>
+              <i class="fa-solid fa-arrow-right text-[10px] ml-1"></i>
+            </a>
+          </article>
+        </div>
+
+      </div>
+
+
+      </section>
+
+      <!-- ------------------------------------------------------------------
+           VISTA 2: Explorar / Feed de Oficios [#explorar]
+           ------------------------------------------------------------------ -->
+      <section id="view-explorar" class="spa-view w-full px-4 pt-4 hidden" aria-label="Búsqueda y listado de oficios en Río Cuarto">
+        
+        <!-- Selector de Barrio Activo en Río Cuarto -->
+        <div class="flex items-center justify-between gap-2 mb-3">
+          <div class="flex items-center gap-2 bg-white px-3 py-2 rounded-full border border-slate-300 shadow-xs flex-1">
+            <i class="fa-solid fa-location-dot text-[#1764AE] text-base"></i>
+            <div class="flex flex-col min-w-0">
+              <span class="text-[10px] font-bold text-slate-500 uppercase tracking-wide">Barrio de Río Cuarto</span>
+              <select id="select-barrio" class="bg-transparent font-bold text-xs text-[#00112B] focus:outline-none cursor-pointer" aria-label="Seleccionar barrio de Río Cuarto">
+                <option value="Todos">Todos los barrios</option>
+                <option value="Centro" selected>Centro (Plaza Roca / Sobremonte)</option>
+                <option value="Banda Norte">Banda Norte</option>
+                <option value="Alberdi">Alberdi (Av. Sabattini)</option>
+                <option value="Castelli">Castelli 1 y 2</option>
+                <option value="Las Ferias">Las Ferias</option>
+                <option value="Bimaco">Bimaco</option>
+                <option value="Universidad">Golf / Universidad (UNRC)</option>
+              </select>
+            </div>
+          </div>
+
+          <button type="button" id="btn-open-filter-modal" class="btn-secondary px-3 py-2 text-xs flex items-center gap-1.5 min-h-[44px]" aria-label="Abrir filtros de búsqueda">
+            <i class="fa-solid fa-sliders text-sm"></i>
+            <span>Filtros</span>
+          </button>
+        </div>
+
+        <!-- Buscador en Tiempo Real -->
+        <div class="relative w-full mb-4">
+          <label for="feed-search-input" class="sr-only">Buscar por nombre o arreglo necesario en Río Cuarto</label>
+          <input type="search" id="feed-search-input" class="form-input pl-10 pr-10" placeholder="¿Qué necesitas arreglar? (ej. caño, térmica, cerradura)">
+          <i class="fa-solid fa-magnifying-glass absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-400 pointer-events-none"></i>
+          <button type="button" id="clear-search-btn" class="absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-600 hidden p-1" aria-label="Limpiar búsqueda">
+            <i class="fa-solid fa-circle-xmark"></i>
+          </button>
+        </div>
+
+        <!-- Carrusel de Filtros por Rubro -->
+        <div class="carousel-continuity mb-4" id="category-pills-bar" role="toolbar" aria-label="Filtro de rubros">
+          <!-- Inyectado dinámicamente -->
+        </div>
+
+        <!-- Lista de Resultados de Profesionales (Patrón F) -->
+        <div class="space-y-3 mb-6" id="professionals-feed-list" role="feed" aria-label="Listado de profesionales">
+          <!-- Inyectado dinámicamente -->
+        </div>
+
+      </section>
+
+      <!-- ------------------------------------------------------------------
+           VISTA 3: Detalle del Profesional (Perfil Roberto Gómez) [#profesional]
+           ------------------------------------------------------------------ -->
+      <section id="view-profesional" class="spa-view w-full hidden" aria-label="Perfil del Profesional">
+        
+        <!-- Barra de Retorno y Título -->
+        <div class="bg-white px-4 py-3 border-b border-slate-200 flex items-center justify-between sticky top-14 z-30">
+          <button type="button" class="btn-back flex items-center gap-2 text-sm font-bold text-slate-700 hover:text-[#1764AE] min-h-[44px]" aria-label="Volver atrás">
+            <i class="fa-solid fa-arrow-left"></i>
+            <span>Volver atrás</span>
+          </button>
+          <span class="text-xs font-semibold text-slate-500" id="prof-mat-badge">Matrícula Verificada</span>
+        </div>
+
+        <!-- Portada / Foto de Trabajo -->
+        <div class="relative w-full h-52 bg-slate-800 overflow-hidden">
+          <img id="prof-cover-img" src="https://images.unsplash.com/photo-1581244277943-fe4a9c777189?w=800&auto=format&fit=crop&q=80" alt="Trabajo de plomería profesional" class="w-full h-full object-cover">
+          <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent"></div>
+          <div class="absolute bottom-3 left-4 right-4 flex items-center justify-between text-white">
+            <span class="inline-flex items-center gap-1.5 bg-emerald-600 text-white text-xs font-bold px-2.5 py-1 rounded-full shadow-xs">
+              <i class="fa-solid fa-certificate"></i> Verificado por Vecinos
+            </span>
+            <span class="text-xs bg-black/50 px-2 py-0.5 rounded-md backdrop-blur-xs font-mono" id="prof-zone-badge">Centro, Río Cuarto</span>
+          </div>
+        </div>
+
+        <!-- Datos Clave del Profesional -->
+        <div class="p-4 bg-white border-b border-slate-200">
+          <div class="flex items-start gap-3 mb-3">
+            <img id="prof-avatar-img" src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=160&auto=format&fit=crop&q=80" alt="Foto de Roberto Gómez" class="w-16 h-16 rounded-2xl object-cover border-2 border-white shadow-md">
+            <div class="flex-1 min-w-0">
+              <h1 class="text-xl font-bold text-[#00112B] font-mono" id="prof-name">Roberto Gómez</h1>
+              <p class="text-sm font-semibold text-[#1764AE]" id="prof-category">Plomería y Gas Natural</p>
+              <div class="flex items-center gap-1.5 mt-1 text-xs text-slate-600">
+                <i class="fa-solid fa-star text-amber-500"></i>
+                <span class="font-bold text-slate-900" id="prof-rating">4.9</span>
+                <span>(128 opiniones en Río Cuarto)</span>
+              </div>
+            </div>
+          </div>
+
+          <p class="text-xs text-slate-700 leading-relaxed mb-4" id="prof-bio">
+            Técnico matriculado en Río Cuarto con más de 20 años de experiencia. Reparación de pérdidas de agua, destapes, colocación de griferías, calefones y termotanques. Presupuesto sin cargo en Banda Norte, Centro y Alberdi.
+          </p>
+
+          <!-- Botones de Contacto Rápido -->
+          <div class="grid grid-cols-2 gap-2 mb-2">
+            <a id="prof-phone-link" href="tel:+5493584445555" class="btn-secondary text-xs font-bold justify-center" aria-label="Llamar por teléfono al plomero">
+              <i class="fa-solid fa-phone text-[#1764AE]"></i>
+              <span>Llamar directo</span>
+            </a>
+            <button type="button" id="prof-open-chat-btn" class="btn-secondary text-xs font-bold justify-center" aria-label="Mandar mensaje por chat">
+              <i class="fa-regular fa-comment-dots text-[#1764AE]"></i>
+              <span>Enviar mensaje</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Sección de Reseñas de Vecinos -->
+        <div class="p-4 bg-slate-50">
+          <div class="flex items-center justify-between mb-3">
+            <h2 class="text-base font-bold text-[#00112B] font-mono">Opiniones de vecinos</h2>
+            <button type="button" id="btn-dejar-resena" class="text-xs font-bold text-[#1764AE] hover:underline" aria-label="Dejar una calificación">
+              Calificar trabajo
+            </button>
+          </div>
+
+          <div class="space-y-2.5" id="prof-reviews-list">
+            <!-- Review Card 1 -->
+            <article class="bg-white p-3 rounded-xl border border-slate-200 shadow-xs">
+              <div class="flex items-center justify-between mb-1">
+                <span class="text-xs font-bold text-slate-900">Marta S. (Vecina de Centro, Río Cuarto)</span>
+                <span class="text-xs text-amber-500 font-bold">★★★★★</span>
+              </div>
+              <p class="text-xs text-slate-600 leading-normal">
+                "Vino a las 2 horas de llamarlo por una fuga en la cocina en calle Sobremonte. Muy educado, prolijo y cobró lo justo en efectivo. Lo recomiendo a todo el barrio."
+              </p>
+            </article>
+
+            <!-- Review Card 2 -->
+            <article class="bg-white p-3 rounded-xl border border-slate-200 shadow-xs">
+              <div class="flex items-center justify-between mb-1">
+                <span class="text-xs font-bold text-slate-900">Esteban R. (Vecino de Banda Norte)</span>
+                <span class="text-xs text-amber-500 font-bold">★★★★★</span>
+              </div>
+              <p class="text-xs text-slate-600 leading-normal">
+                "Excelente trabajo instalando el termotanque en Marcelo T. de Alvear. Me explicó todo lo que hizo con total honestidad."
+              </p>
+            </article>
+          </div>
+        </div>
+
+        <!-- Botón Gigante de Contratación (CTA Inferior Fijo en Vista) -->
+        <div class="p-4 bg-white border-t border-slate-200 mt-2">
+          <button type="button" id="btn-iniciar-contratacion" class="btn-primary w-full py-4 text-base font-bold shadow-lg" aria-label="Solicitar servicio a domicilio a Roberto">
+            <i class="fa-solid fa-calendar-check"></i>
+            <span>Pedir visita a domicilio</span>
+          </button>
+        </div>
+
+      </section>
+
+      <!-- ------------------------------------------------------------------
+           VISTA 4: Formulario de Contratación Simplificado [#contratar]
+           ------------------------------------------------------------------ -->
+      <section id="view-contratar" class="spa-view w-full px-4 pt-4 hidden" aria-label="Formulario de Solicitud de Servicio">
+        
+        <div class="flex items-center gap-2 mb-4 pb-2 border-b border-slate-200">
+          <button type="button" class="btn-back text-sm font-bold text-slate-700 min-h-[44px] flex items-center gap-1.5" aria-label="Volver atrás">
+            <i class="fa-solid fa-arrow-left"></i>
+            <span>Atrás</span>
+          </button>
+          <h1 class="text-base font-bold text-[#00112B] font-mono">Pedir servicio a domicilio</h1>
+        </div>
+
+        <!-- Resumen del Profesional Seleccionado -->
+        <div class="bg-blue-50 border border-blue-200 rounded-xl p-3 flex items-center gap-3 mb-4">
+          <img id="form-prof-avatar" src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=100&auto=format&fit=crop&q=80" alt="Avatar profesional" class="w-12 h-12 rounded-xl object-cover">
+          <div>
+            <p class="text-xs font-bold text-[#00112B]" id="form-prof-name">Roberto Gómez</p>
+            <p class="text-xs text-[#1764AE] font-semibold" id="form-prof-rubro">Plomería y Gas Natural</p>
+            <p class="text-[11px] text-slate-600">Río Cuarto, Córdoba • Presupuesto sin cargo</p>
+          </div>
+        </div>
+
+        <form id="hire-service-form" novalidate>
+          
+          <!-- Campo 1: ¿Qué problema tenés? -->
+          <div class="form-group">
+            <label for="input-problem" class="form-label">
+              <i class="fa-solid fa-wrench text-[#1764AE]"></i>
+              <span>¿Qué problema tenés en tu casa? *</span>
+            </label>
+            <textarea id="input-problem" class="form-input min-h-[90px]" placeholder="Ej: Pérdida de agua debajo de la bacha de la cocina que empezó ayer..." required aria-describedby="problem-error"></textarea>
+            <div id="problem-error" class="form-feedback error" role="alert"></div>
+          </div>
+
+          <!-- Campo 2: Dirección en Río Cuarto -->
+          <div class="form-group">
+            <label for="input-address" class="form-label">
+              <i class="fa-solid fa-house text-[#1764AE]"></i>
+              <span>Dirección y barrio en Río Cuarto *</span>
+            </label>
+            <input type="text" id="input-address" class="form-input" autocomplete="street-address" placeholder="Ej: Sobremonte 450, Centro, Río Cuarto" required value="Sobremonte 450, Centro, Río Cuarto" aria-describedby="address-error">
+            <div id="address-error" class="form-feedback error" role="alert"></div>
+          </div>
+
+          <!-- Campo 3: Teléfono de Contacto Directo -->
+          <div class="form-group">
+            <label for="input-phone" class="form-label">
+              <i class="fa-solid fa-phone text-[#1764AE]"></i>
+              <span>Tu número de teléfono o WhatsApp *</span>
+            </label>
+            <input type="tel" id="input-phone" class="form-input" autocomplete="tel" placeholder="Ej: 358 456-7890" required value="358 456-7890" aria-describedby="phone-error">
+            <div id="phone-error" class="form-feedback error" role="alert"></div>
+          </div>
+
+          <!-- Campo 4: Cuándo podés recibirlo -->
+          <div class="form-group">
+            <label for="select-urgency" class="form-label">
+              <i class="fa-regular fa-clock text-[#1764AE]"></i>
+              <span>¿Cuándo preferís que pase?</span>
+            </label>
+            <select id="select-urgency" class="form-input cursor-pointer">
+              <option value="Urgente hoy">Urgente hoy si es posible</option>
+              <option value="Mañana a la mañana" selected>Mañana a primera hora</option>
+              <option value="Fin de semana">El fin de semana</option>
+              <option value="A coordinar">A coordinar por mensaje</option>
+            </select>
+          </div>
+
+          <!-- Selector de Método de Pago -->
+          <div class="form-group mb-5">
+            <label for="select-payment-method" class="form-label">
+              <i class="fa-solid fa-credit-card text-[#1764AE]"></i>
+              <span>Método de pago *</span>
+            </label>
+            <select id="select-payment-method" class="form-input" aria-label="Método de pago">
+              <option value="Mercado Pago">Mercado Pago</option>
+              <option value="Banco">Banco</option>
+            </select>
+            <div id="payment-error" class="form-feedback error" role="alert"></div>
+          </div>
+
+          <!-- Botón de Envío -->
+          <button type="submit" id="btn-submit-hire" class="btn-primary w-full py-4 text-base font-bold shadow-md" aria-label="Enviar pedido de servicio a Roberto">
+            <i class="fa-solid fa-paper-plane"></i>
+            <span>Enviar solicitud al plomero</span>
+          </button>
+        </form>
+
+      </section>
+
+      <!-- ------------------------------------------------------------------
+           VISTA 5: Chat & Presupuesto Interactivo [#chat]
+           ------------------------------------------------------------------ -->
+      <section id="view-chat" class="spa-view w-full flex flex-col hidden" aria-label="Chat directo con el profesional">
+        
+        <!-- Header del Chat con Foto y Llamada Directa -->
+        <div class="bg-white px-4 py-2.5 border-b border-slate-200 sticky top-14 z-30 flex items-center justify-between shadow-xs">
+          <div class="flex items-center gap-2.5">
+            <button type="button" class="btn-back text-slate-700 hover:text-[#1764AE] p-1.5" aria-label="Volver atrás">
+              <i class="fa-solid fa-arrow-left text-base"></i>
+            </button>
+            <div class="relative">
+              <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=80&auto=format&fit=crop&q=80" alt="Roberto Gómez" class="w-10 h-10 rounded-full object-cover">
+              <span class="absolute bottom-0 right-0 w-3 h-3 bg-emerald-500 rounded-full ring-2 ring-white" title="En línea"></span>
+            </div>
+            <div>
+              <p class="text-xs font-bold text-[#00112B] leading-tight">Roberto Gómez</p>
+              <p class="text-[11px] text-emerald-700 font-semibold flex items-center gap-1">
+                <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span> En línea • Río Cuarto
+              </p>
+            </div>
+          </div>
+
+          <div class="flex items-center gap-1">
+            <a href="tel:+5493584445555" class="w-10 h-10 rounded-full bg-slate-100 flex items-center justify-center text-[#1764AE] hover:bg-slate-200 min-w-[44px] min-h-[44px]" aria-label="Llamar a Roberto por teléfono">
+              <i class="fa-solid fa-phone"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Historial de Conversación -->
+        <div class="flex-1 p-4 space-y-3 overflow-y-auto" id="chat-messages-container" role="log" aria-live="polite">
+          
+          <div class="flex justify-center my-1">
+            <span class="text-[11px] font-semibold bg-slate-200 text-slate-700 px-3 py-1 rounded-full">
+              Hoy • Conversación iniciada en Río Cuarto
+            </span>
+          </div>
+
+          <!-- Mensaje Vecino -->
+          <div class="flex flex-col items-end">
+            <div class="bg-[#1764AE] text-white p-3 rounded-2xl rounded-tr-xs max-w-[85%] shadow-xs">
+              <p class="text-xs leading-relaxed">
+                ¡Hola Roberto! Tengo una pérdida de agua abajo de la bacha en calle Sobremonte 450. ¿Podrías pasar a revisarla?
+              </p>
+            </div>
+            <span class="text-[10px] text-slate-500 mt-1 pr-1">10:42 AM <i class="fa-solid fa-check-double text-blue-500"></i></span>
+          </div>
+
+          <!-- Mensaje Prestador -->
+          <div class="flex flex-col items-start">
+            <div class="bg-white border border-slate-200 text-slate-800 p-3 rounded-2xl rounded-tl-xs max-w-[85%] shadow-xs">
+              <p class="text-xs font-bold text-[#1764AE] mb-1">Roberto Gómez</p>
+              <p class="text-xs leading-relaxed">
+                Hola vecina, ¿cómo estás? Sí, estuve viendo el mensaje. Parece el flexible desgastado. Mañana a las 9:00 hs paso con los repuestos por tu casa en Centro.
+              </p>
+            </div>
+            <span class="text-[10px] text-slate-500 mt-1 pl-1">10:44 AM</span>
+          </div>
+
+          <!-- Tarjeta de Presupuesto Barrial -->
+          <div class="bg-amber-50 border-2 border-amber-300 rounded-2xl p-3.5 my-2 shadow-sm">
+            <div class="flex items-center justify-between mb-2 pb-2 border-b border-amber-200">
+              <span class="text-xs font-bold text-amber-900 flex items-center gap-1.5">
+                <i class="fa-solid fa-file-invoice-dollar text-amber-600"></i> Presupuesto Estimado
+              </span>
+              <span class="text-xs font-mono font-bold text-slate-900">$15.000 ARS</span>
+            </div>
+            <p class="text-xs text-slate-700 mb-3">
+              Incluye cambio de flexible metálico y prueba de presión en Río Cuarto. Pago en efectivo al terminar el trabajo.
+            </p>
+            <button type="button" id="btn-accept-budget" class="btn-primary w-full py-2.5 text-xs font-bold" aria-label="Aceptar presupuesto estimado de 15000 pesos">
+              <i class="fa-solid fa-check"></i>
+              <span>Aceptar este presupuesto</span>
+            </button>
+          </div>
+
+        </div>
+
+        <!-- Barra de Entrada de Mensaje -->
+        <div class="p-3 bg-white border-t border-slate-200 sticky bottom-16 z-30">
+          <form id="chat-input-form" class="flex items-center gap-2">
+            <label for="chat-message-input" class="sr-only">Escribir un mensaje para Roberto</label>
+            <input type="text" id="chat-message-input" class="form-input flex-1 min-h-[44px] py-2 text-xs" placeholder="Escribí tu mensaje aquí...">
+            <button type="submit" class="btn-primary min-w-[44px] min-h-[44px] px-3 rounded-xl" aria-label="Enviar mensaje">
+              <i class="fa-solid fa-paper-plane"></i>
+            </button>
+          </form>
+        </div>
+
+      </section>
+
+      <!-- ------------------------------------------------------------------
+           VISTA 6: Calificación de 1 Toque (5 Estrellas) [#calificar]
+           ------------------------------------------------------------------ -->
+      <section id="view-calificar" class="spa-view w-full px-4 pt-4 hidden" aria-label="Calificar servicio realizado">
+        
+        <div class="flex items-center gap-2 mb-4 pb-2 border-b border-slate-200">
+          <button type="button" class="btn-back text-sm font-bold text-slate-700 min-h-[44px] flex items-center gap-1.5" aria-label="Volver atrás">
+            <i class="fa-solid fa-arrow-left"></i>
+            <span>Atrás</span>
+          </button>
+          <h1 class="text-base font-bold text-[#00112B] font-mono">Calificar el trabajo</h1>
+        </div>
+
+        <div class="bg-white rounded-2xl p-5 border border-slate-200 shadow-sm text-center">
+          <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=120&auto=format&fit=crop&q=80" alt="Roberto Gómez" class="w-16 h-16 rounded-full object-cover mx-auto mb-2 border-2 border-[#1764AE]">
+          <h2 class="text-lg font-bold text-[#00112B] font-mono">Roberto Gómez</h2>
+          <p class="text-xs text-[#1764AE] font-semibold mb-3">Arreglo de bacha en Centro, Río Cuarto</p>
+
+          <p class="text-xs text-slate-600 mb-2">
+            Tocá las estrellas según tu experiencia con el trabajo:
+          </p>
+
+          <!-- Grupo de 5 Estrellas Táctiles Grandes de 1 Solo Toque -->
+          <div class="star-rating-group" role="radiogroup" aria-label="Calificación de 1 a 5 estrellas">
+            <button type="button" class="star-btn" data-value="1" role="radio" aria-checked="false" aria-label="1 estrella - Regular">★</button>
+            <button type="button" class="star-btn" data-value="2" role="radio" aria-checked="false" aria-label="2 estrellas - Aceptable">★</button>
+            <button type="button" class="star-btn" data-value="3" role="radio" aria-checked="false" aria-label="3 estrellas - Bueno">★</button>
+            <button type="button" class="star-btn" data-value="4" role="radio" aria-checked="false" aria-label="4 estrellas - Muy bueno">★</button>
+            <button type="button" class="star-btn active" data-value="5" role="radio" aria-checked="true" aria-label="5 estrellas - Excelente">★</button>
+          </div>
+          <p id="star-rating-feedback" class="text-xs font-bold text-amber-600 mb-4">5 de 5 estrellas (Excelente)</p>
+
+          <!-- Comentario Opcional -->
+          <div class="form-group text-left">
+            <label for="rating-comment" class="form-label">
+              <span>¿Querés contar algo más? (Opcional)</span>
+            </label>
+            <textarea id="rating-comment" class="form-input min-h-[80px]" placeholder="Ej: Vino puntual a mi casa en Río Cuarto, resolvió rápido y fue muy amable..."></textarea>
+          </div>
+
+          <button type="button" id="btn-save-rating" class="btn-primary w-full py-4 text-base font-bold shadow-md" aria-label="Guardar calificación">
+            <i class="fa-solid fa-floppy-disk"></i>
+            <span>Guardar mi calificación</span>
+          </button>
+        </div>
+
+      </section>
+
+      <!-- ------------------------------------------------------------------
+           VISTA 7: Mi Perfil (Cliente) [#perfil]
+           ------------------------------------------------------------------ -->
+      <section id="view-perfil" class="spa-view w-full px-4 pt-4 hidden" aria-label="Perfil y configuración">
+        
+        <h1 class="text-xl font-bold text-[#00112B] font-mono mb-4">Mi Perfil y Ajustes</h1>
+
+        <!-- Tarjeta de Usuario con botón a Mis Datos -->
+        <div class="bg-white rounded-2xl p-4 border border-slate-200 shadow-sm flex items-center justify-between mb-4">
+          <div class="flex items-center gap-3.5">
+            <div class="w-14 h-14 rounded-full bg-[#00112B] text-white flex items-center justify-center font-bold text-lg" id="profile-avatar-display">
+              MV
+            </div>
+            <div>
+              <h2 class="text-base font-bold text-[#00112B]" id="profile-name-display">Marta Vecina</h2>
+              <p class="text-xs text-slate-500" id="profile-zone-display">Centro, Río Cuarto • Vecina verificada</p>
+              <span class="inline-block mt-1 text-[11px] font-bold text-[#1764AE] bg-blue-50 px-2 py-0.5 rounded-md" id="profile-role-badge">
+                Cuenta Cliente
+              </span>
+            </div>
+          </div>
+          <a href="#mis-datos" class="btn-secondary text-xs font-bold px-3 py-2 min-h-[40px] flex items-center gap-1" aria-label="Editar mis datos personales">
+            <i class="fa-solid fa-pen-to-square text-slate-600"></i>
+            <span>Editar</span>
+          </a>
+        </div>
+
+        <!-- Módulo de Accesibilidad: Escala de Texto -->
+        <div class="bg-white rounded-2xl p-4 border border-slate-200 shadow-sm mb-4">
+          <div class="flex items-center justify-between">
+            <div class="pr-2">
+              <label for="accessible-text-toggle" class="text-sm font-bold text-[#00112B] block cursor-pointer">
+                <i class="fa-solid fa-text-height text-[#1764AE] mr-1"></i>
+                Tamaño de texto accesible
+              </label>
+              <p class="text-xs text-slate-500 mt-0.5">
+                Aumenta el tamaño de letra de toda la aplicación para leer más cómodo.
+              </p>
+            </div>
+            <label class="toggle-accessible" for="accessible-text-toggle" aria-label="Activar tamaño de texto accesible">
+              <input type="checkbox" id="accessible-text-toggle">
+              <span class="toggle-slider"></span>
+            </label>
+          </div>
+        </div>
+
+        <!-- Mis Solicitudes de Servicio (con enlace a detalle) -->
+        <div class="mb-4">
+          <div class="flex items-center justify-between mb-2.5">
+            <h2 class="text-sm font-bold text-[#00112B] font-mono uppercase tracking-wide">
+              Mis solicitudes de servicio
+            </h2>
+            <span class="text-xs text-slate-400">Tocá una para ver el detalle</span>
+          </div>
+          <div class="space-y-2.5" id="user-requests-list">
+            <!-- Inyectado dinámicamente -->
+          </div>
+        </div>
+
+      </section>
+
+      <!-- ------------------------------------------------------------------
+           VISTA 8: Pantalla de Mis Datos (Cliente / Prestador) [#mis-datos]
+           ------------------------------------------------------------------ -->
+      <section id="view-mis-datos" class="spa-view w-full px-4 pt-4 hidden" aria-label="Editar Mis Datos">
+        
+        <div class="flex items-center gap-2 mb-4 pb-2 border-b border-slate-200">
+          <button type="button" class="btn-back text-sm font-bold text-slate-700 min-h-[44px] flex items-center gap-1.5" aria-label="Volver al perfil">
+            <i class="fa-solid fa-arrow-left"></i>
+            <span>Volver al perfil</span>
+          </button>
+          <h1 class="text-base font-bold text-[#00112B] font-mono">Mis Datos Personales</h1>
+        </div>
+
+        <div class="bg-white rounded-2xl p-5 border border-slate-200 shadow-sm mb-5">
+          <!-- Avatar con botón de cámara (diseño Stitch) -->
+          <div class="flex flex-col items-center mb-6">
+            <div class="relative group cursor-pointer">
+              <div class="w-24 h-24 rounded-full bg-[#00112B] text-white flex items-center justify-center text-3xl font-bold border-4 border-slate-100 shadow-md overflow-hidden">
+                <i class="fa-solid fa-user text-slate-300"></i>
+              </div>
+              <button type="button" class="absolute bottom-0 right-0 bg-[#1764AE] text-white p-2 rounded-full border-2 border-white shadow-md hover:bg-[#00112B] transition-colors" aria-label="Cambiar foto de perfil">
+                <i class="fa-solid fa-camera text-xs"></i>
+              </button>
+            </div>
+            <p class="text-[11px] text-slate-500 mt-2">Tocá la cámara para actualizar tu foto</p>
+          </div>
+
+          <form id="edit-user-data-form" novalidate>
+            <div class="form-group">
+              <label for="input-edit-nombre" class="form-label">
+                <span>Nombre completo:</span>
+              </label>
+              <input type="text" id="input-edit-nombre" class="form-input" value="Marta Vecina" required>
+            </div>
+
+            <div class="form-group">
+              <label for="input-edit-email" class="form-label">
+                <span>Correo electrónico:</span>
+              </label>
+              <input type="email" id="input-edit-email" class="form-input" value="marta.vecina@email.com" required>
+            </div>
+
+            <div class="form-group">
+              <label for="input-edit-telefono" class="form-label">
+                <span>Teléfono de contacto / WhatsApp:</span>
+              </label>
+              <input type="tel" id="input-edit-telefono" class="form-input" value="358 456-7890" required>
+            </div>
+
+            <div class="form-group">
+              <label for="input-edit-direccion" class="form-label">
+                <span>Dirección y Barrio en Río Cuarto:</span>
+              </label>
+              <input type="text" id="input-edit-direccion" class="form-input" value="Sobremonte 450, Centro, Río Cuarto" required>
+            </div>
+
+            <p class="text-[11px] text-slate-500 text-center mb-4">
+              Los cambios se actualizarán de forma inmediata en tus solicitudes vigentes en Río Cuarto.
+            </p>
+
+            <button type="submit" class="btn-primary w-full py-3.5 text-sm font-bold shadow-md">
+              <i class="fa-solid fa-check"></i>
+              <span>Guardar cambios</span>
+            </button>
+          </form>
+        </div>
+
+      </section>
+
+      <!-- ------------------------------------------------------------------
+           VISTA 9: Detalle de Solicitud / Servicio Contratado [#detalle-solicitud]
+           ------------------------------------------------------------------ -->
+      <section id="view-detalle-solicitud" class="spa-view w-full px-4 pt-4 hidden" aria-label="Detalle de Solicitud">
+        
+        <div class="flex items-center justify-between pb-2 mb-3 border-b border-slate-200">
+          <button type="button" class="btn-back text-sm font-bold text-slate-700 min-h-[44px] flex items-center gap-1.5" aria-label="Volver atrás">
+            <i class="fa-solid fa-arrow-left"></i>
+            <span>Volver</span>
+          </button>
+          <h1 class="text-base font-bold text-[#00112B] font-mono">Detalle de Solicitud</h1>
+          <button type="button" class="w-8 h-8 rounded-full bg-slate-100 text-slate-500 hover:text-red-600 flex items-center justify-center p-1" title="Cancelar solicitud" onclick="alert('¿Deseas cancelar esta solicitud?')">
+            <i class="fa-solid fa-trash-can text-sm"></i>
+          </button>
+        </div>
+
+        <div class="text-center mb-3">
+          <p class="text-xs font-semibold text-slate-500 uppercase tracking-wide" id="solicitud-code-badge">
+            PEDIDO: Plomería - Roberto Gómez
+          </p>
+        </div>
+
+        <article class="bg-white rounded-2xl p-4 shadow-sm border border-slate-200 mb-4">
+          <div class="flex items-start justify-between gap-3">
+            <div class="flex items-center gap-3">
+              <img id="solicitud-avatar" src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=100&auto=format&fit=crop&q=80" alt="Roberto Gómez" class="w-12 h-12 rounded-full object-cover border-2 border-[#1764AE]">
+              <div>
+                <h2 class="font-bold text-sm text-[#00112B]" id="solicitud-name">Roberto Gómez</h2>
+                <div class="flex items-center gap-1 text-xs text-slate-500 mt-0.5">
+                  <i class="fa-solid fa-location-dot text-red-500 text-[11px]"></i>
+                  <span id="solicitud-address">La Rioja 555, Centro, Río Cuarto</span>
+                </div>
+              </div>
+            </div>
+            <span id="solicitud-status-badge" class="inline-flex items-center px-2.5 py-1 rounded-full text-[10px] font-bold tracking-wider bg-emerald-100 text-emerald-800 uppercase shadow-2xs">
+              ACEPTADA
+            </span>
+          </div>
+
+          <div class="my-3 border-t border-slate-100"></div>
+
+          <div class="space-y-2.5">
+            <div class="flex items-center justify-between">
+              <h3 class="text-xs font-bold text-[#00112B] uppercase tracking-wide">Horarios y Coordinación</h3>
+              <span class="text-[11px] text-[#1764AE] font-semibold flex items-center gap-1">
+                <i class="fa-solid fa-clock"></i> Confirmado
+              </span>
+            </div>
+
+            <div class="p-3 bg-slate-50 rounded-xl border border-slate-100 space-y-1">
+              <div class="flex items-center gap-2">
+                <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
+                <p class="text-xs font-semibold text-slate-800">
+                  Visita coordinada: Jueves a primera hora
+                </p>
+              </div>
+              <p class="text-[11px] text-slate-500 pl-4">
+                Franja estimada: 09:00 a 10:30 hs en Río Cuarto
+              </p>
+            </div>
+
+            <div class="p-3 bg-blue-50/70 rounded-xl border border-blue-100 flex items-start gap-2">
+              <i class="fa-solid fa-circle-info text-[#1764AE] mt-0.5 text-xs"></i>
+              <p class="text-[11px] text-slate-700 leading-relaxed" id="solicitud-desc-text">
+                El profesional ha aceptado tu solicitud de servicio. Ya podés coordinar los detalles finales por mensaje directo o llamarlo por teléfono.
+              </p>
+            </div>
+          </div>
+        </article>
+
+        <div class="space-y-2 mb-6">
+          <a href="#chat" class="btn-primary w-full py-3.5 text-sm font-bold flex items-center justify-center gap-2 shadow-md">
+            <i class="fa-regular fa-comment-dots text-base"></i>
+            <span>Ir al chat con el trabajador</span>
+          </a>
+
+          <a href="#calificar" class="btn-secondary w-full py-3 text-xs font-bold flex items-center justify-center gap-1.5">
+            <i class="fa-solid fa-star text-amber-500"></i>
+            <span>Calificar este servicio</span>
+          </a>
+        </div>
+
+      </section>
+
+      <!-- ------------------------------------------------------------------
+           VISTA 10: Inicio Prestador (Carlos - Modo Oficio) [#prestador]
+           ------------------------------------------------------------------ -->
+      <section id="view-prestador" class="spa-view w-full px-4 pt-4 hidden" aria-label="Panel de Gestión de Prestador">
+        
+        <div class="bg-gradient-to-r from-[#00112B] to-[#1764AE] text-white rounded-2xl p-5 mb-5 shadow-md">
+          <span class="text-[11px] font-bold uppercase tracking-wider text-sky-200">Panel del Prestador • Río Cuarto</span>
+          <h1 class="text-xl font-bold font-mono mt-1">¡Hola, Carlos!</h1>
+          <p class="text-xs text-slate-200 mt-1">
+            Electricista y Plomero Independiente • Banda Norte y Centro, Río Cuarto
+          </p>
+        </div>
+
+        <!-- Solicitudes Recibidas de Vecinos en Río Cuarto -->
+        <div class="mb-5">
+          <h2 class="text-sm font-bold text-[#00112B] font-mono uppercase tracking-wide mb-2.5">
+            Solicitudes pendientes de vecinos
+          </h2>
+
+          <div class="space-y-3" id="provider-incoming-requests">
+            <!-- Tarjeta Solicitud 1 -->
+            <article class="bg-white p-4 rounded-2xl border border-slate-200 shadow-xs">
+              <div class="flex items-center justify-between mb-2">
+                <span class="text-xs font-bold text-[#1764AE]">Urgente Hoy • Plomería</span>
+                <span class="text-[11px] font-bold bg-amber-100 text-amber-800 px-2 py-0.5 rounded-full">Pendiente</span>
+              </div>
+              <h3 class="text-sm font-bold text-[#00112B]">Marta V. - Pérdida de agua bajo la bacha</h3>
+              <p class="text-xs text-slate-600 mt-1">Sobremonte 450, Centro (a 5 cuadras de tu taller en Río Cuarto)</p>
+              
+              <div class="grid grid-cols-2 gap-2 mt-3 pt-2 border-t border-slate-100">
+                <button type="button" class="btn-secondary text-xs font-bold py-2" onclick="alert('Solicitud rechazada cordialmente.')">
+                  Rechazar
+                </button>
+                <button type="button" class="btn-primary text-xs font-bold py-2" onclick="alert('¡Trabajo aceptado! Se habilitó el chat directo con Marta.')">
+                  Aceptar trabajo
+                </button>
+              </div>
+            </article>
+          </div>
+        </div>
+
+        <!-- Acceso Rápido Inferior de Prestador (según Stitch) -->
+        <div class="space-y-2 mb-6">
+          <a href="#prestador-suscripcion" class="btn-secondary w-full py-3 text-xs font-bold flex items-center justify-center gap-2">
+            <i class="fa-solid fa-crown text-amber-500"></i>
+            <span>Gestionar mi Suscripción PRO</span>
+          </a>
+
+          <a href="#mis-datos" class="btn-secondary w-full py-3 text-xs font-bold flex items-center justify-center gap-2">
+            <i class="fa-solid fa-id-card text-slate-600"></i>
+            <span>Mis Datos de Prestador</span>
+          </a>
+        </div>
+
+      </section>
+
+      <!-- ------------------------------------------------------------------
+           VISTA 11: Formulario "Ofrecer un Nuevo Servicio" [#prestador-crear-servicio]
+           ------------------------------------------------------------------ -->
+      <section id="view-prestador-crear-servicio" class="spa-view w-full px-4 pt-4 hidden" aria-label="Crear Servicio Prestador">
+        
+        <div class="flex items-center gap-2 mb-3 pb-2 border-b border-slate-200">
+          <a href="#prestador" class="text-sm font-bold text-slate-700 min-h-[44px] flex items-center gap-1.5" aria-label="Volver a gestión">
+            <i class="fa-solid fa-arrow-left"></i>
+            <span>Gestión</span>
+          </a>
+          <h1 class="text-base font-bold text-[#00112B] font-mono">Ofrecer un Nuevo Servicio</h1>
+        </div>
+
+        <!-- Banner de Prestador Recomendado en Río Cuarto -->
+        <div class="bg-white rounded-xl p-3 border border-slate-200 shadow-xs flex items-center justify-between mb-4">
+          <div class="flex items-center gap-2.5">
+            <div class="w-10 h-10 rounded-full bg-blue-100 text-[#1764AE] flex items-center justify-center text-lg">
+              <i class="fa-solid fa-toolbox"></i>
+            </div>
+            <div>
+              <span class="text-[10px] font-bold uppercase text-[#1764AE] tracking-wider">Publicación Barrial</span>
+              <p class="text-xs font-bold text-[#00112B]">Carlos Pérez (Oficio)</p>
+            </div>
+          </div>
+          <span class="text-[11px] font-bold text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded-full">
+            <i class="fa-solid fa-circle-check"></i> Verificado
+          </span>
+        </div>
+
+        <form id="create-service-form" class="space-y-4 mb-6" novalidate>
+          <div class="form-group">
+            <label for="new-service-title" class="form-label">
+              <span>Título del servicio *</span>
+            </label>
+            <input type="text" id="new-service-title" class="form-input" placeholder="Ej: Reparación y Mantenimiento de Aberturas" required value="Instalaciones Eléctricas y Reparaciones de Emergencia">
+          </div>
+
+          <div class="form-group">
+            <label for="new-service-price" class="form-label">
+              <span>Monto / Presupuesto base estimado ($ ARS):</span>
+            </label>
+            <div class="relative">
+              <span class="absolute left-3 top-1/2 -translate-y-1/2 font-bold text-slate-500">$</span>
+              <input type="text" id="new-service-price" class="form-input pl-8" placeholder="15.000 / Visita o diagnóstico" value="12.000">
+            </div>
+            <p class="text-[11px] text-slate-500 mt-1">Podrás ajustar el presupuesto final luego del diagnóstico en el domicilio.</p>
+          </div>
+
+          <div class="form-group">
+            <label for="new-service-category" class="form-label">
+              <span>Categoría del oficio *</span>
+            </label>
+            <select id="new-service-category" class="form-input cursor-pointer">
+              <option value="Electricidad" selected>Electricidad Domiciliaria</option>
+              <option value="Plomería">Plomería & Gas</option>
+              <option value="Carpintería">Carpintería & Mobiliario</option>
+              <option value="Pintura">Pintura & Acabados</option>
+              <option value="Cerrajería">Cerrajería 24hs</option>
+              <option value="Albañilería">Albañilería & Refacciones</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="new-service-details" class="form-label">
+              <span>Detalles y alcance del trabajo:</span>
+            </label>
+            <textarea id="new-service-details" class="form-input min-h-[100px]" placeholder="Describí qué incluye el trabajo, tus herramientas y garantía barrial...">Detección de cortocircuitos, recableado, instalación de térmicas y disyuntores. Trabajo prolijo con garantía de 30 días en Río Cuarto.</textarea>
+          </div>
+
+          <div class="form-group">
+            <label for="new-service-zone" class="form-label">
+              <span>Zonas de cobertura en Río Cuarto:</span>
+            </label>
+            <input type="text" id="new-service-zone" class="form-input" value="Banda Norte, Centro, Alberdi, Castelli">
+          </div>
+
+          <button type="submit" class="btn-primary w-full py-4 text-base font-bold shadow-md">
+            <i class="fa-solid fa-cloud-arrow-up"></i>
+            <span>Publicar servicio en mi barrio</span>
+          </button>
+        </form>
+
+      </section>
+
+      <!-- ------------------------------------------------------------------
+           VISTA 12: Mis Servicios Publicados (Prestador) [#prestador-servicios]
+           ------------------------------------------------------------------ -->
+      <section id="view-prestador-servicios" class="spa-view w-full px-4 pt-4 hidden" aria-label="Servicios Publicados Prestador">
+        
+        <div class="flex items-center gap-2 mb-3 pb-2 border-b border-slate-200">
+          <a href="#prestador" class="text-sm font-bold text-slate-700 min-h-[44px] flex items-center gap-1.5" aria-label="Volver a gestión">
+            <i class="fa-solid fa-arrow-left"></i>
+            <span>Volver</span>
+          </a>
+          <h1 class="text-base font-bold text-[#00112B] font-mono">Mis Servicios Publicados</h1>
+        </div>
+
+        <!-- Banner de Suscripción PRO según Stitch -->
+        <a href="#prestador-suscripcion" class="bg-gradient-to-r from-[#1764AE] via-blue-700 to-[#00112B] text-white py-2.5 px-4 rounded-xl shadow-sm flex items-center justify-between mb-4 block hover:opacity-95 transition-opacity" aria-label="Ver suscripción PRO">
+          <div class="flex items-center gap-2">
+            <i class="fa-solid fa-crown text-amber-300 text-sm"></i>
+            <span class="text-xs font-bold tracking-wider uppercase">ACCEDÉ A LA SUSCRIPCIÓN PRO</span>
+          </div>
+          <span class="text-[11px] font-bold bg-white/20 px-2 py-0.5 rounded-full">
+            PRO <i class="fa-solid fa-chevron-right text-[8px] ml-0.5"></i>
+          </span>
+        </a>
+
+        <!-- Tarjeta del Prestador -->
+        <div class="bg-slate-200/80 rounded-2xl p-4 border border-slate-300 text-center mb-4">
+          <div class="w-20 h-20 rounded-full bg-[#00112B] text-white flex items-center justify-center mx-auto mb-2 text-2xl font-bold border-2 border-white shadow-sm">
+            CP
+          </div>
+          <h2 class="text-base font-bold text-[#00112B]">Carlos Pérez</h2>
+          <p class="text-xs text-slate-500 font-semibold uppercase tracking-wider">Prestador Verificado en Río Cuarto</p>
+        </div>
+
+        <h2 class="text-sm font-bold text-[#00112B] font-mono uppercase tracking-wide mb-3">
+          Servicios publicados
+        </h2>
+
+        <!-- Grilla de 2 Columnas de Tarjetas de Servicios de Stitch -->
+        <div class="grid grid-cols-2 gap-3 mb-6" id="provider-services-grid">
+          <!-- Card 1: Electricista -->
+          <article class="card-service-dark">
+            <div>
+              <div class="flex items-center justify-between mb-1">
+                <span class="text-[10px] font-bold uppercase tracking-wider bg-white/20 px-1.5 py-0.5 rounded text-amber-300">Oficio</span>
+                <i class="fa-solid fa-bolt text-xs text-amber-300"></i>
+              </div>
+              <h3 class="font-bold text-sm tracking-tight text-white mb-1">Electricista</h3>
+              <div class="flex items-center text-amber-400 text-xs mb-1" title="5 de 5 estrellas">
+                ★★★★★
+              </div>
+            </div>
+            <a href="#detalle-solicitud" class="inline-flex items-center text-xs font-bold text-sky-200 hover:text-white mt-2">
+              <span>Detalle</span>
+              <i class="fa-solid fa-arrow-right text-[10px] ml-1"></i>
+            </a>
+          </article>
+
+          <!-- Card 2: Plomero -->
+          <article class="card-service-dark">
+            <div>
+              <div class="flex items-center justify-between mb-1">
+                <span class="text-[10px] font-bold uppercase tracking-wider bg-white/20 px-1.5 py-0.5 rounded text-sky-200">Urgencias</span>
+                <i class="fa-solid fa-faucet-drip text-xs text-sky-200"></i>
+              </div>
+              <h3 class="font-bold text-sm tracking-tight text-white mb-1">Plomería</h3>
+              <div class="flex items-center text-amber-400 text-xs mb-1" title="5 de 5 estrellas">
+                ★★★★★
+              </div>
+            </div>
+            <a href="#detalle-solicitud" class="inline-flex items-center text-xs font-bold text-sky-200 hover:text-white mt-2">
+              <span>Detalle</span>
+              <i class="fa-solid fa-arrow-right text-[10px] ml-1"></i>
+            </a>
+          </article>
+
+          <!-- Card 3: Carpintero -->
+          <article class="card-service-dark">
+            <div>
+              <div class="flex items-center justify-between mb-1">
+                <span class="text-[10px] font-bold uppercase tracking-wider bg-white/20 px-1.5 py-0.5 rounded text-emerald-200">Taller</span>
+                <i class="fa-solid fa-hammer text-xs text-emerald-200"></i>
+              </div>
+              <h3 class="font-bold text-sm tracking-tight text-white mb-1">Carpintería</h3>
+              <div class="flex items-center text-amber-400 text-xs mb-1" title="5 de 5 estrellas">
+                ★★★★★
+              </div>
+            </div>
+            <a href="#detalle-solicitud" class="inline-flex items-center text-xs font-bold text-sky-200 hover:text-white mt-2">
+              <span>Detalle</span>
+              <i class="fa-solid fa-arrow-right text-[10px] ml-1"></i>
+            </a>
+          </article>
+
+          <!-- Card 4: Sodero / Reparto -->
+          <article class="card-service-dark">
+            <div>
+              <div class="flex items-center justify-between mb-1">
+                <span class="text-[10px] font-bold uppercase tracking-wider bg-white/20 px-1.5 py-0.5 rounded text-purple-200">Reparto</span>
+                <i class="fa-solid fa-bottle-water text-xs text-purple-200"></i>
+              </div>
+              <h3 class="font-bold text-sm tracking-tight text-white mb-1">Sodero</h3>
+              <div class="flex items-center text-amber-400 text-xs mb-1" title="5 de 5 estrellas">
+                ★★★★★
+              </div>
+            </div>
+            <a href="#detalle-solicitud" class="inline-flex items-center text-xs font-bold text-sky-200 hover:text-white mt-2">
+              <span>Detalle</span>
+              <i class="fa-solid fa-arrow-right text-[10px] ml-1"></i>
+            </a>
+          </article>
+        </div>
+
+      </section>
+
+      <!-- ------------------------------------------------------------------
+           VISTA 13: Gestión de Suscripción PRO [#prestador-suscripcion]
+           ------------------------------------------------------------------ -->
+      <section id="view-prestador-suscripcion" class="spa-view w-full px-4 pt-4 hidden" aria-label="Suscripción Prestador Pro">
+        
+        <div class="flex items-center gap-2 mb-3 pb-2 border-b border-slate-200">
+          <a href="#prestador" class="text-sm font-bold text-slate-700 min-h-[44px] flex items-center gap-1.5" aria-label="Volver a gestión">
+            <i class="fa-solid fa-arrow-left"></i>
+            <span>Volver</span>
+          </a>
+          <h1 class="text-base font-bold text-[#00112B] font-mono">Planes de Suscripción</h1>
+        </div>
+
+        <!-- Banner Pro Header -->
+        <div class="w-full rounded-2xl bg-gradient-to-r from-amber-700 via-amber-800 to-amber-900 text-white p-4 shadow-md mb-4 flex items-center justify-between">
+          <div class="flex items-center gap-2.5">
+            <div class="w-10 h-10 rounded-xl bg-amber-400 text-amber-950 flex items-center justify-center text-xl font-bold">
+              <i class="fa-solid fa-crown"></i>
+            </div>
+            <div>
+              <span class="text-[10px] font-bold text-amber-300 uppercase tracking-widest">Membresía Oficial</span>
+              <h2 class="text-sm font-bold font-mono">ACCEDÉ A LA SUSCRIPCIÓN PRO</h2>
+            </div>
+          </div>
+          <span class="text-xs font-bold bg-amber-400/20 text-amber-200 px-2.5 py-1 rounded-full border border-amber-300/30">
+            PRO
+          </span>
+        </div>
+
+        <div class="text-center mb-4">
+          <h2 class="text-lg font-bold text-[#00112B] font-mono">Elegí tu Plan Profesional</h2>
+          <p class="text-xs text-slate-600 mt-0.5">Multiplicá tus clientes en Río Cuarto y potenciá tu oficio con respaldo verificado.</p>
+        </div>
+
+        <!-- Toggle Mensual vs Anual -->
+        <div class="bg-slate-200 p-1 rounded-full flex items-center max-w-xs mx-auto mb-4 text-xs font-bold">
+          <button type="button" id="billing-monthly-btn" class="flex-1 py-2 rounded-full bg-[#1764AE] text-white shadow-xs transition-all">
+            Mensual
+          </button>
+          <button type="button" id="billing-annual-btn" class="flex-1 py-2 rounded-full text-slate-700 hover:text-slate-900 transition-all flex items-center justify-center gap-1">
+            <span>Anual</span>
+            <span class="bg-amber-400 text-amber-950 text-[10px] px-1.5 py-0.2 rounded-full font-bold">20% OFF</span>
+          </button>
+        </div>
+
+        <!-- Tarjeta del Plan Vecino Pro (Diseño Stitch) -->
+        <article class="bg-white rounded-2xl p-5 border-2 border-[#1764AE] shadow-md relative mb-6">
+          <span class="absolute -top-3 left-1/2 -translate-x-1/2 px-3 py-0.5 bg-[#1764AE] text-white rounded-full text-[10px] font-bold uppercase tracking-wider shadow-xs">
+            Recomendado de Río Cuarto
+          </span>
+
+          <div class="flex items-baseline justify-between mt-1 mb-2">
+            <div>
+              <span class="text-xs font-bold text-[#1764AE] uppercase tracking-wider">Plan Vecino Pro</span>
+              <div class="flex items-baseline gap-1 mt-0.5">
+                <span class="text-3xl font-black text-[#00112B] font-mono" id="sub-price-display">$4.990</span>
+                <span class="text-xs text-slate-500" id="sub-period-display">/ mes</span>
+              </div>
+            </div>
+            <div class="w-10 h-10 rounded-xl bg-blue-50 text-[#1764AE] flex items-center justify-center text-lg">
+              <i class="fa-solid fa-medal"></i>
+            </div>
+          </div>
+
+          <p class="text-xs text-slate-500 mb-4 pb-3 border-b border-slate-100">
+            Sin compromiso de permanencia. Podés pausar o cancelar cuando quieras.
+          </p>
+
+          <!-- Beneficios -->
+          <ul class="space-y-2.5 text-xs text-slate-700 mb-5" role="list">
+            <li class="flex items-start gap-2">
+              <i class="fa-solid fa-circle-check text-[#1764AE] text-sm mt-0.5 shrink-0"></i>
+              <span><strong>Mayor visibilidad local</strong> en búsquedas de Río Cuarto.</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <i class="fa-solid fa-circle-check text-[#1764AE] text-sm mt-0.5 shrink-0"></i>
+              <span><strong>0% de comisión</strong> por trabajos acordados con el vecino.</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <i class="fa-solid fa-circle-check text-[#1764AE] text-sm mt-0.5 shrink-0"></i>
+              <span>Insignia oficial de <strong>Prestador Destacado</strong> en tu perfil y chat.</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <i class="fa-solid fa-circle-check text-[#1764AE] text-sm mt-0.5 shrink-0"></i>
+              <span><strong>Solicitudes directas ilimitadas</strong> por mensajería interna.</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <i class="fa-solid fa-circle-check text-[#1764AE] text-sm mt-0.5 shrink-0"></i>
+              <span>Soporte prioritario personalizado vía WhatsApp.</span>
+            </li>
+          </ul>
+
+          <button type="button" id="btn-subscribe-pro" class="btn-primary w-full py-3.5 text-sm font-bold shadow-md">
+            <i class="fa-solid fa-crown text-amber-300"></i>
+            <span>Suscribirme al Plan Pro</span>
+          </button>
+        </article>
+
+      </section>
+
+    </main>
+
+    <!-- ====================================================================
+         BARRA DE NAVEGACIÓN INFERIOR (Bottom Tab Bar Móvil)
+         ==================================================================== -->
+    <nav class="fixed bottom-0 max-w-[430px] w-full bg-white border-t border-slate-200 px-3 py-2 z-40 flex items-center justify-around shadow-lg" aria-label="Navegación inferior">
+      <a href="#home" class="bottom-nav-item flex flex-col items-center gap-1 text-slate-600 hover:text-[#1764AE] py-1 px-3 rounded-lg min-w-[56px] min-h-[48px] justify-center transition-colors active text-[#1764AE]" aria-label="Ir a Inicio" data-target="home">
+        <i class="fa-solid fa-house text-lg"></i>
+        <span class="text-[11px] font-bold">Inicio</span>
+      </a>
+
+      <a href="#explorar" class="bottom-nav-item flex flex-col items-center gap-1 text-slate-600 hover:text-[#1764AE] py-1 px-3 rounded-lg min-w-[56px] min-h-[48px] justify-center transition-colors" aria-label="Buscar oficios en Río Cuarto" data-target="explorar">
+        <i class="fa-solid fa-magnifying-glass text-lg"></i>
+        <span class="text-[11px] font-semibold">Buscar</span>
+      </a>
+
+      <a href="#chat" class="bottom-nav-item flex flex-col items-center gap-1 text-slate-600 hover:text-[#1764AE] py-1 px-3 rounded-lg min-w-[56px] min-h-[48px] justify-center transition-colors relative" aria-label="Ir a Mensajes" data-target="chat">
+        <i class="fa-regular fa-comment-dots text-lg"></i>
+        <span class="text-[11px] font-semibold">Mensajes</span>
+        <span class="absolute top-1.5 right-3 w-2 h-2 bg-emerald-500 rounded-full" aria-hidden="true"></span>
+      </a>
+
+      <a href="#perfil" class="bottom-nav-item flex flex-col items-center gap-1 text-slate-600 hover:text-[#1764AE] py-1 px-3 rounded-lg min-w-[56px] min-h-[48px] justify-center transition-colors" aria-label="Ver mi perfil" data-target="perfil">
+        <i class="fa-regular fa-user text-lg"></i>
+        <span class="text-[11px] font-semibold">Perfil</span>
+      </a>
+    </nav>
+
+    <!-- ====================================================================
+         MODALES ACCESIBLES (Focus Trap & Escape)
+         ==================================================================== -->
+
+    <!-- Modal 1: Filtros de Búsqueda Avanzada en Río Cuarto -->
+    <div id="modal-filtros" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="modal-filtros-title">
+      <div class="modal-content" tabindex="-1">
+        <div class="flex items-center justify-between pb-3 border-b border-slate-200 mb-4">
+          <h2 id="modal-filtros-title" class="text-base font-bold text-[#00112B] font-mono">
+            Filtrar profesionales en Río Cuarto
+          </h2>
+          <button type="button" class="btn-close-modal p-2 text-slate-500 hover:text-slate-800 rounded-full min-w-[44px] min-h-[44px]" aria-label="Cerrar filtros">
+            <i class="fa-solid fa-xmark text-lg"></i>
+          </button>
+        </div>
+
+        <div class="space-y-4 mb-5">
+          <div>
+            <label class="form-label" for="filter-disponibilidad">Disponibilidad en Río Cuarto</label>
+            <select id="filter-disponibilidad" class="form-input">
+              <option value="todos">Cualquier momento</option>
+              <option value="hoy">Disponible hoy de urgencia</option>
+              <option value="manana">Disponible mañana</option>
+            </select>
+          </div>
+
+          <div>
+            <label class="form-label">Garantía barrial</label>
+            <label class="flex items-center gap-2 p-2 bg-slate-50 rounded-lg cursor-pointer">
+              <input type="checkbox" id="filter-verificado" checked class="w-5 h-5 accent-[#1764AE]">
+              <span class="text-xs font-bold text-slate-800">Solo profesionales verificados por vecinos</span>
+            </label>
+          </div>
+        </div>
+
+        <div class="flex gap-2">
+          <button type="button" class="btn-secondary flex-1 py-3 text-xs font-bold btn-close-modal">Cancelar</button>
+          <button type="button" id="btn-apply-filters" class="btn-primary flex-1 py-3 text-xs font-bold">Aplicar filtros</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal 2: Solicitud Enviada con Éxito -->
+    <div id="modal-success" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="modal-success-title">
+      <div class="modal-content text-center" tabindex="-1">
+        <div class="w-16 h-16 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center text-3xl mx-auto mb-3">
+          <i class="fa-solid fa-circle-check"></i>
+        </div>
+        <h2 id="modal-success-title" class="text-xl font-bold text-[#00112B] font-mono mb-2">
+          ¡Listo! Solicitud enviada
+        </h2>
+        <p class="text-xs text-slate-600 leading-relaxed mb-5" id="modal-success-desc">
+          Le avisamos al trabajador en Río Cuarto. Te va a responder en breve por mensaje para coordinar la visita.
+        </p>
+
+        <div class="flex flex-col gap-2">
+          <a href="#chat" id="btn-go-to-chat" class="btn-primary w-full py-3.5 text-xs font-bold flex items-center justify-center gap-2">
+            <i class="fa-regular fa-comment-dots"></i>
+            <span>Abrir chat con el trabajador</span>
+          </a>
+          <button type="button" class="btn-secondary w-full py-3 text-xs font-bold btn-close-modal">
+            <span>Volver al inicio</span>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Notificación Toast Dinámica (Accesible con aria-live) -->
+    <aside id="toast" class="toast-notification" role="status" aria-live="polite">
+      <i class="fa-solid fa-circle-check text-emerald-400"></i>
+      <span id="toast-text">Acción completada con éxito.</span>
+    </aside>
+
+  </div>
+
+  <!-- Lógica Reactiva SPA y Persistencia Local-First -->
+  <script src="app.js"></script>
+</body>
+</html>

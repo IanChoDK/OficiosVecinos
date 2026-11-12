@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+
+<html class="h-full bg-slate-100" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport"/>
+<title>Oficios Vecinos - Error al Calificar</title>
+<!-- Google Fonts: Inter -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS v3 with plugins -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              primary: '#1764ae',
+              dark: '#00112b',
+              surface: '#f9f9fa',
+              accent: '#e24d4d'
+            }
+          },
+          fontFamily: {
+            sans: ['Inter', 'system-ui', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+<!-- BEGIN: Base Layout Styles -->
+<style data-purpose="custom-layout">
+    body {
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+    .safe-top {
+      padding-top: env(safe-area-inset-top, 0px);
+    }
+    .safe-bottom {
+      padding-bottom: env(safe-area-inset-bottom, 0px);
+    }
+  </style>
+<!-- END: Base Layout Styles -->
+</head>
+<body class="h-full flex justify-center items-center bg-slate-200 antialiased font-sans">
+<!-- BEGIN: Mobile Container (iOS 390px Viewport) -->
+<div class="relative w-full max-w-[390px] h-[844px] bg-[#f9f9fa] shadow-2xl flex flex-col overflow-hidden text-[#00112b]">
+<!-- BEGIN: iOS Status Bar Mockup -->
+<div class="w-full h-11 px-6 flex justify-between items-end pb-1 text-xs font-semibold select-none z-20 shrink-0">
+<span>9:41</span>
+<div class="flex items-center gap-1.5 text-slate-800">
+<!-- Cellular Icon -->
+<svg class="w-3.5 h-3.5 fill-current" viewbox="0 0 24 24">
+<path d="M2 17h3v4H2v-4zm5-4h3v8H7v-8zm5-4h3v12h-3V9zm5-4h3v16h-3V5z"></path>
+</svg>
+<!-- Wifi Icon -->
+<svg class="w-3.5 h-3.5 fill-current" viewbox="0 0 24 24">
+<path d="M12 4c-5 0-9.27 3.11-11 7.5a1.5 1.5 0 00.32 1.66l9.61 10.15a1.5 1.5 0 002.14 0l9.61-10.15a1.5 1.5 0 00.32-1.66C21.27 7.11 17 4 12 4z"></path>
+</svg>
+<!-- Battery Icon -->
+<div class="w-5 h-2.5 border border-slate-700 rounded-sm p-0.5 flex items-center">
+<div class="h-full w-3/4 bg-slate-800 rounded-2xs"></div>
+</div>
+</div>
+</div>
+<!-- END: iOS Status Bar Mockup -->
+<!-- BEGIN: App Main Header -->
+<header class="px-4 py-2.5 bg-white border-b border-slate-200/80 flex items-center justify-between gap-2 shrink-0 z-10 shadow-sm" data-purpose="main-header">
+<!-- Logo Branding -->
+<div class="flex flex-col">
+<span class="text-sm font-extrabold text-[#1764ae] leading-tight tracking-tight">Oficios</span>
+<span class="text-xs font-semibold text-[#00112b] -mt-1 leading-tight tracking-wider">Vecinos</span>
+</div>
+<!-- Quick Search Bar -->
+<div class="flex-1 max-w-[170px] relative">
+<input class="w-full py-1.5 pl-3 pr-7 text-xs bg-slate-100 rounded-full border border-slate-200 text-slate-400 placeholder-slate-400 focus:outline-none" disabled="" placeholder="Buscar" type="text"/>
+<svg class="w-3.5 h-3.5 absolute right-2.5 top-1/2 -translate-y-1/2 text-slate-400" fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24">
+<circle cx="11" cy="11" r="8"></circle>
+<line x1="21" x2="16.65" y1="21" y2="16.65"></line>
+</svg>
+</div>
+<!-- Icons & User Profile -->
+<div class="flex items-center gap-2">
+<button aria-label="Mensajes" class="p-1.5 text-slate-600 rounded-full hover:bg-slate-100">
+<svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.8" viewbox="0 0 24 24">
+<path d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</button>
+<div class="w-7 h-7 rounded-full bg-[#00112b] text-white flex items-center justify-center font-bold text-xs ring-1 ring-slate-200">
+          U
+        </div>
+</div>
+</header>
+<!-- END: App Main Header -->
+<!-- BEGIN: Sub-Header Navigation & Context -->
+<div class="px-4 py-3 bg-white/70 border-b border-slate-100 flex items-center gap-3 shrink-0" data-purpose="sub-header">
+<button aria-label="Volver" class="p-1 -ml-1 text-slate-700 hover:text-slate-900 rounded-full hover:bg-slate-200/60 transition-colors">
+<svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24">
+<line x1="19" x2="5" y1="12" y2="12"></line>
+<polyline points="12 19 5 12 12 5"></polyline>
+</svg>
+</button>
+<div class="flex flex-col">
+<h1 class="text-sm font-bold text-[#00112b] leading-snug">Proveedor - Servicio</h1>
+<span class="text-[11px] text-slate-500 font-medium">Plomería y Gasista Matriculado</span>
+</div>
+</div>
+<!-- END: Sub-Header Navigation & Context -->
+<!-- BEGIN: Background Content & Error Overlay Area -->
+<main class="relative flex-1 px-4 py-3 overflow-hidden flex flex-col justify-between" data-purpose="page-content">
+<!-- Ghost / Background Review List (Simulating background layer in wireframe) -->
+<section aria-hidden="true" class="opacity-30 select-none pointer-events-none space-y-2.5">
+<h2 class="text-xs font-semibold text-slate-500 uppercase tracking-wider">Reseñas recientes</h2>
+<div class="bg-white p-3 rounded-lg border border-slate-200">
+<div class="flex items-center justify-between mb-1">
+<span class="text-xs font-semibold text-slate-700">Fulano Gómez</span>
+<span class="text-[10px] text-amber-500 font-bold">★ ★ ★ ★ ☆</span>
+</div>
+<p class="text-[11px] text-slate-500 line-clamp-2">Excelente atención, llegó puntual y resolvió el problema en poco tiempo.</p>
+</div>
+</section>
+<!-- BEGIN: Error Modal Card (Central Alert as in Wireframe) -->
+<div class="absolute inset-0 z-30 flex items-center justify-center p-5 bg-[#00112b]/35 backdrop-blur-[2px] transition-all" data-purpose="error-dialog-container" id="error-modal-container">
+<div aria-describedby="dialog-desc" aria-labelledby="dialog-title" aria-modal="true" class="w-full max-w-[330px] bg-white rounded-2xl shadow-2xl border border-slate-100 p-6 flex flex-col items-center text-center animate-[scaleIn_0.2s_ease-out]" role="alertdialog">
+<!-- Warning / Alert Icon Badge -->
+<div class="w-14 h-14 rounded-full bg-red-50 border-4 border-red-100/70 flex items-center justify-center mb-3 text-red-500">
+<svg class="w-7 h-7" fill="none" stroke="currentColor" stroke-width="2.2" viewbox="0 0 24 24">
+<path d="M12 9v4m0 4h.01M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</div>
+<!-- Title: EXACT from wireframe -->
+<h2 class="text-2xl font-black text-[#00112b] tracking-tight mb-2" id="dialog-title">
+            ¡ERROR!
+          </h2>
+<!-- Main Description: EXACT from wireframe -->
+<p class="text-sm font-semibold text-slate-800 leading-snug px-1 mb-2" id="dialog-desc">
+            Para dejar una reseña es necesario utilizar el servicio
+          </p>
+<!-- Secondary Policy Explanation -->
+<p class="text-xs text-slate-500 leading-relaxed px-2 mb-6 font-normal">
+            Solo los vecinos con una contratación confirmada y finalizada pueden calificar para asegurar la confianza de la red barrial.
+          </p>
+<!-- Primary Dismiss Action: "CERRAR" -->
+<button class="w-full py-3 px-4 bg-[#00112b] hover:bg-[#1764ae] active:scale-[0.98] text-white text-sm font-bold tracking-wider rounded-xl shadow-md transition-all uppercase" id="btn-close-modal" type="button">
+            CERRAR
+          </button>
+</div>
+</div>
+<!-- END: Error Modal Card -->
+<!-- Footer Button Behind (Wireframe bottom anchor) -->
+<div class="mt-auto pt-3 shrink-0">
+<button class="w-full py-3.5 bg-slate-200 text-slate-400 font-bold rounded-xl text-sm tracking-wide cursor-not-allowed text-center" disabled="" type="button">
+          Agregar reseña
+        </button>
+</div>
+</main>
+<!-- END: Background Content & Error Overlay Area -->
+<!-- BEGIN: iOS Bottom Home Bar Indicator -->
+<div class="w-full py-2 flex justify-center items-center shrink-0 safe-bottom">
+<div class="w-32 h-1 bg-slate-300 rounded-full"></div>
+</div>
+<!-- END: iOS Bottom Home Bar Indicator -->
+</div>
+<!-- END: Mobile Container -->
+<!-- BEGIN: Interactive Feedback Script -->
+<script data-purpose="interaction-handlers">
+    document.addEventListener('DOMContentLoaded', () => {
+      const closeBtn = document.getElementById('btn-close-modal');
+      const modal = document.getElementById('error-modal-container');
+
+      if (closeBtn && modal) {
+        closeBtn.addEventListener('click', () => {
+          modal.style.transition = 'opacity 0.2s ease, transform 0.2s ease';
+          modal.style.opacity = '0';
+          modal.style.pointerEvents = 'none';
+          setTimeout(() => {
+            modal.style.display = 'none';
+          }, 200);
+        });
+      }
+    });
+  </script>
+<!-- END: Interactive Feedback Script -->
+</body></html>

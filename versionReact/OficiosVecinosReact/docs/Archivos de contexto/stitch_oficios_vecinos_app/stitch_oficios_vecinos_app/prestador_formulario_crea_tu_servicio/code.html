@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+
+<html lang="es"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport"/><meta content="mobile_stack" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{width:100vw;margin:0;padding:0;min-height:100vh;}body{overscroll-behavior-y:none;}.pb-safe{padding-bottom:env(safe-area-inset-bottom,0px);}.pt-safe{padding-top:env(safe-area-inset-top,0px);}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { "colors": { "on-tertiary": "#ffffff", "on-surface-variant": "#414751", "tertiary-fixed-dim": "#ffb95f", "surface-tint": "#0d60a9", "on-secondary-fixed-variant": "#374763", "error-container": "#ffdad6", "on-error": "#ffffff", "on-surface": "#1a1c1d", "on-tertiary-fixed": "#2a1700", "surface-container-low": "#f4f3f4", "secondary-fixed-dim": "#b6c7e9", "tertiary": "#6a4200", "on-primary": "#ffffff", "on-secondary": "#ffffff", "on-primary-fixed": "#001c39", "on-primary-fixed-variant": "#004883", "on-background": "#1a1c1d", "on-tertiary-fixed-variant": "#653e00", "surface-container-lowest": "#ffffff", "surface-bright": "#f9f9fa", "secondary": "#4f5f7c", "inverse-primary": "#a4c9ff", "primary": "#004c8a", "error": "#ba1a1a", "outline": "#727782", "secondary-fixed": "#d6e3ff", "primary-fixed-dim": "#a4c9ff", "background": "#f9f9fa", "outline-variant": "#c1c7d3", "surface-variant": "#e2e2e3", "on-error-container": "#93000a", "secondary-container": "#cadafd", "tertiary-fixed": "#ffddb8", "inverse-surface": "#2f3132", "on-tertiary-container": "#ffd9ae", "primary-fixed": "#d4e3ff", "inverse-on-surface": "#f1f0f1", "on-secondary-fixed": "#091b36", "on-secondary-container": "#4f5f7d", "surface-container": "#eeeeef", "on-primary-container": "#cee0ff", "tertiary-container": "#8b5700", "surface-dim": "#dadadb", "primary-container": "#1764ae", "surface-container-highest": "#e2e2e3", "surface": "#f9f9fa", "surface-container-high": "#e8e8e9" }, "borderRadius": { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" }, "spacing": { "space-md": "1rem", "space-xl": "2rem", "space-sm": "0.5rem", "margin-mobile": "1rem", "space-xs": "0.25rem", "space-lg": "1.5rem", "margin": "1.5rem", "gutter": "1rem", "gutter-mobile": "0.75rem" }, "fontFamily": { "body-md": ["Plus Jakarta Sans"], "headline-xl-mobile": ["Plus Jakarta Sans"], "headline-lg": ["Plus Jakarta Sans"], "label-lg": ["Plus Jakarta Sans"], "headline-lg-mobile": ["Plus Jakarta Sans"], "label-sm": ["Plus Jakarta Sans"], "headline-md": ["Plus Jakarta Sans"], "label-md": ["Plus Jakarta Sans"], "headline-xl": ["Plus Jakarta Sans"], "body-lg": ["Plus Jakarta Sans"], "headline-sm": ["Plus Jakarta Sans"], "body-sm": ["Plus Jakarta Sans"] }, "fontSize": { "body-md": ["15px", { "lineHeight": "22px", "fontWeight": "400" }], "headline-xl-mobile": ["28px", { "lineHeight": "34px", "letterSpacing": "-0.02em", "fontWeight": "800" }], "headline-lg": ["30px", { "lineHeight": "38px", "letterSpacing": "-0.015em", "fontWeight": "700" }], "label-lg": ["15px", { "lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "600" }], "headline-lg-mobile": ["24px", { "lineHeight": "30px", "letterSpacing": "-0.015em", "fontWeight": "700" }], "label-sm": ["11px", { "lineHeight": "14px", "letterSpacing": "0.04em", "fontWeight": "700" }], "headline-md": ["20px", { "lineHeight": "26px", "letterSpacing": "-0.01em", "fontWeight": "700" }], "label-md": ["13px", { "lineHeight": "16px", "letterSpacing": "0.02em", "fontWeight": "600" }], "headline-xl": ["36px", { "lineHeight": "44px", "letterSpacing": "-0.02em", "fontWeight": "800" }], "body-lg": ["17px", { "lineHeight": "26px", "fontWeight": "400" }], "headline-sm": ["17px", { "lineHeight": "22px", "fontWeight": "600" }], "body-sm": ["13px", { "lineHeight": "18px", "fontWeight": "400" }] } } } };</script><style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head><body class="bg-surface-container-low text-on-surface font-body-md flex flex-col min-h-screen"><header class="fixed top-0 inset-x-0 z-50 bg-surface-container-lowest/90 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,17,43,0.04)] pt-safe"><div class="h-16 px-margin-mobile flex items-center justify-between gap-space-sm"><div class="flex items-center gap-space-xs"><button aria-label="Volver o cerrar" class="w-11 h-11 flex items-center justify-center rounded-full text-on-surface-variant hover:bg-surface-container transition-colors" onclick="history.back()" type="button"><span class="material-symbols-outlined text-[22px]">arrow_back</span></button><div class="flex flex-col"><span class="font-label-sm text-label-sm text-primary uppercase tracking-wider">Oficios Vecinos</span><h1 class="font-headline-sm text-headline-sm text-on-surface leading-tight">Detalles Del Servicio</h1></div></div><div class="flex items-center gap-space-xs"><button aria-label="Buscar oficios y servicios" class="w-11 h-11 flex items-center justify-center rounded-full text-on-surface-variant hover:bg-surface-container transition-colors" type="button"><span class="material-symbols-outlined text-[22px]">search</span></button><button aria-label="Mensajes y consultas vecinales" class="w-11 h-11 flex items-center justify-center rounded-full text-on-surface-variant hover:bg-surface-container transition-colors relative" type="button"><span class="material-symbols-outlined text-[22px]">chat</span><span class="absolute top-2.5 right-2.5 w-2 h-2 rounded-full bg-primary-container ring-2 ring-surface-container-lowest"></span></button><div class="relative flex items-center justify-center ml-1" title="Roberto Gómez - Prestador Verificado"><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div><span class="absolute -bottom-0.5 -right-0.5 w-3.5 h-3.5 rounded-full bg-primary-container flex items-center justify-center ring-2 ring-surface-container-lowest"><span class="material-symbols-outlined text-on-primary text-[10px] font-bold">verified</span></span></div></div></div></header><main class="flex-1 flex flex-col relative w-full pt-16 pb-safe bg-surface-container-low"><div class="flex flex-col w-full">
+<!-- Interactive Form Container with Step Indicators & Context -->
+<div class="px-margin-mobile py-space-md flex flex-col gap-space-md max-w-xl mx-auto w-full">
+<!-- Pro Header & Community Assurance Banner -->
+<div class="flex items-center justify-between bg-surface-container-lowest p-space-sm rounded-xl shadow-[0px_4px_12px_rgba(0,17,43,0.04)]">
+<div class="flex items-center gap-space-sm">
+<div class="w-10 h-10 rounded-full bg-primary-fixed flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[22px]">handyman</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-primary uppercase font-bold tracking-wider">Paso 1 de 2 • Publicación</span>
+<span class="font-label-md text-label-md text-on-surface font-semibold">Roberto Gómez (Carpintero)</span>
+</div>
+</div>
+<div class="flex items-center gap-1 bg-surface-container px-2 py-1 rounded-full">
+<span class="material-symbols-outlined text-primary text-[14px]">verified_user</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Barrio Norte</span>
+</div>
+</div>
+<!-- Main Card Container -->
+<div class="bg-surface-container-lowest rounded-xl p-space-md shadow-[0px_4px_16px_rgba(0,17,43,0.05)] flex flex-col gap-space-md">
+<!-- Intro Section -->
+<div class="flex flex-col">
+<h2 class="font-headline-md text-headline-md text-on-surface">Detalla tu propuesta</h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+          Los vecinos de tu zona verán esta publicación con tu sello de prestador recomendado.
+        </p>
+</div>
+<!-- Field: Título del Servicio -->
+<div class="flex flex-col gap-1.5">
+<label class="font-label-md text-label-md text-on-surface font-semibold flex items-center justify-between" for="service-title">
+<span>Título del servicio</span>
+<span class="font-label-sm text-label-sm text-primary">Obligatorio</span>
+</label>
+<div class="relative flex items-center">
+<span class="material-symbols-outlined absolute left-3.5 text-on-surface-variant text-[20px] pointer-events-none">design_services</span>
+<input class="w-full bg-surface-container-low text-on-surface font-body-md text-body-md pl-11 pr-4 py-3 rounded-lg outline-none focus:bg-surface-container-lowest focus:ring-2 focus:ring-primary transition-all duration-150" id="service-title" placeholder="Ej: Reparación y Mantenimiento de Aberturas" type="text" value="Reparación y Mantenimiento de Aberturas"/>
+</div>
+</div>
+<!-- Field: Monto / Tarifa Estimada -->
+<div class="flex flex-col gap-1.5">
+<label class="font-label-md text-label-md text-on-surface font-semibold flex items-center justify-between" for="service-price">
+<span>Monto / Presupuesto base</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Por visita o base</span>
+</label>
+<div class="relative flex items-center">
+<span class="absolute left-3.5 font-headline-sm text-headline-sm font-bold text-primary pointer-events-none">$</span>
+<input class="w-full bg-surface-container-low text-on-surface font-body-md text-body-md pl-9 pr-24 py-3 rounded-lg outline-none focus:bg-surface-container-lowest focus:ring-2 focus:ring-primary transition-all duration-150" id="service-price" placeholder="15.000 / Visita o diagnóstico" type="text" value="15.000"/>
+<span class="absolute right-3 font-label-sm text-label-sm text-on-surface-variant uppercase bg-surface-container px-2 py-1 rounded">ARS</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant text-[12px] flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px] text-tertiary">info</span>
+          Podrás ajustar el presupuesto final luego del diagnóstico en el domicilio.
+        </p>
+</div>
+<!-- Field: Categoría -->
+<div class="flex flex-col gap-1.5">
+<label class="font-label-md text-label-md text-on-surface font-semibold" for="service-category">
+          Categoría del oficio
+        </label>
+<div class="relative flex items-center">
+<span class="material-symbols-outlined absolute left-3.5 text-on-surface-variant text-[20px] pointer-events-none">category</span>
+<select class="w-full bg-surface-container-low text-on-surface font-body-md text-body-md pl-11 pr-10 py-3 rounded-lg outline-none appearance-none focus:bg-surface-container-lowest focus:ring-2 focus:ring-primary transition-all duration-150 cursor-pointer" id="service-category">
+<option selected="" value="carpinteria">Carpintería &amp; Mobiliario</option>
+<option value="plomeria">Plomería &amp; Gas</option>
+<option value="electricidad">Electricidad Domiciliaria</option>
+<option value="pintura">Pintura &amp; Acabados</option>
+<option value="albanileria">Albañilería &amp; Refacciones</option>
+<option value="cerrajeria">Cerrajería 24hs</option>
+</select>
+<span class="material-symbols-outlined absolute right-3 text-on-surface-variant pointer-events-none text-[22px]">expand_more</span>
+</div>
+</div>
+<!-- Field: Detalles del Trabajo -->
+<div class="flex flex-col gap-1.5">
+<div class="flex items-center justify-between">
+<label class="font-label-md text-label-md text-on-surface font-semibold" for="service-details">
+            Detalles y alcance
+          </label>
+<span class="font-label-sm text-label-sm text-on-surface-variant" id="char-counter">165 / 400</span>
+</div>
+<div class="relative">
+<textarea class="w-full bg-surface-container-low text-on-surface font-body-md text-body-md p-3.5 rounded-lg outline-none focus:bg-surface-container-lowest focus:ring-2 focus:ring-primary transition-all duration-150 resize-none" id="service-details" placeholder="Describe qué incluye el trabajo, tus herramientas, garantía vecinal de 30 días y si proporcionas factura..." rows="4">Ajuste de marcos de madera y aluminio, cepillado de puertas que rozan el piso, cambio de bisagras reforzadas y colocación de cerraduras. Trabajo prolijo con garantía de 30 días.</textarea>
+</div>
+</div>
+<!-- Section: Horario & Disponibilidad Barrial -->
+<div class="flex flex-col gap-space-sm bg-surface-container-low p-space-sm rounded-xl">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-primary text-[20px]">calendar_clock</span>
+<span class="font-label-md text-label-md text-on-surface font-bold">Disponibilidad en el barrio</span>
+</div>
+<span class="font-label-sm text-label-sm bg-secondary-fixed text-on-secondary-fixed px-2 py-0.5 rounded-full font-semibold">Semanal</span>
+</div>
+<!-- Días Disponibles (Chips multiselect) -->
+<div class="flex flex-col gap-1">
+<span class="font-label-sm text-label-sm text-on-surface-variant font-semibold">Días disponibles:</span>
+<div class="grid grid-cols-7 gap-1" id="days-selector">
+<button class="day-chip h-10 rounded-lg flex items-center justify-center font-label-md text-label-md transition-colors bg-primary text-on-primary font-bold shadow-sm" data-day="Lun" type="button">L</button>
+<button class="day-chip h-10 rounded-lg flex items-center justify-center font-label-md text-label-md transition-colors bg-primary text-on-primary font-bold shadow-sm" data-day="Mar" type="button">M</button>
+<button class="day-chip h-10 rounded-lg flex items-center justify-center font-label-md text-label-md transition-colors bg-primary text-on-primary font-bold shadow-sm" data-day="Mie" type="button">M</button>
+<button class="day-chip h-10 rounded-lg flex items-center justify-center font-label-md text-label-md transition-colors bg-primary text-on-primary font-bold shadow-sm" data-day="Jue" type="button">J</button>
+<button class="day-chip h-10 rounded-lg flex items-center justify-center font-label-md text-label-md transition-colors bg-primary text-on-primary font-bold shadow-sm" data-day="Vie" type="button">V</button>
+<button class="day-chip h-10 rounded-lg flex items-center justify-center font-label-md text-label-md transition-colors bg-surface-container-lowest text-on-surface-variant font-medium" data-day="Sab" type="button">S</button>
+<button class="day-chip h-10 rounded-lg flex items-center justify-center font-label-md text-label-md transition-colors bg-surface-container-lowest text-on-surface-variant font-medium" data-day="Dom" type="button">D</button>
+</div>
+</div>
+<!-- Horas: Inicio y Fin -->
+<div class="grid grid-cols-2 gap-space-sm pt-1">
+<!-- Inicio -->
+<div class="flex flex-col gap-1">
+<label class="font-label-sm text-label-sm text-on-surface-variant font-medium" for="time-start">Inicio</label>
+<div class="relative flex items-center">
+<select class="w-full bg-surface-container-lowest text-on-surface font-body-md text-body-md px-3 py-2.5 rounded-lg outline-none appearance-none pr-8 cursor-pointer shadow-sm" id="time-start">
+<option value="07:00">07:00 hs</option>
+<option selected="" value="08:00">08:00 hs</option>
+<option value="09:00">09:00 hs</option>
+<option value="10:00">10:00 hs</option>
+</select>
+<span class="material-symbols-outlined absolute right-2 text-on-surface-variant pointer-events-none text-[18px]">schedule</span>
+</div>
+</div>
+<!-- Fin -->
+<div class="flex flex-col gap-1">
+<label class="font-label-sm text-label-sm text-on-surface-variant font-medium" for="time-end">Fin</label>
+<div class="relative flex items-center">
+<select class="w-full bg-surface-container-lowest text-on-surface font-body-md text-body-md px-3 py-2.5 rounded-lg outline-none appearance-none pr-8 cursor-pointer shadow-sm" id="time-end">
+<option value="16:00">16:00 hs</option>
+<option value="17:00">17:00 hs</option>
+<option selected="" value="18:00">18:00 hs</option>
+<option value="20:00">20:00 hs</option>
+</select>
+<span class="material-symbols-outlined absolute right-2 text-on-surface-variant pointer-events-none text-[18px]">schedule</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Trust Checkbox -->
+<label class="flex items-start gap-space-xs cursor-pointer select-none pt-1">
+<input checked="" class="mt-1 w-5 h-5 rounded text-primary focus:ring-0 accent-primary cursor-pointer" type="checkbox"/>
+<span class="font-body-sm text-body-sm text-on-surface-variant leading-snug">
+          Acepto brindar atención puntual y respetar las normas de convivencia vecinal acordadas en la plataforma.
+        </span>
+</label>
+</div>
+<!-- Action Section (Sticky bottom context feel without bottom navbar) -->
+<div class="flex flex-col gap-space-xs pt-space-xs pb-space-lg">
+<button class="w-full min-h-[52px] bg-primary-container text-on-primary font-label-lg text-label-lg rounded-xl flex items-center justify-center gap-space-xs shadow-[0px_6px_20px_rgba(23,100,174,0.3)] active:scale-[0.98] transition-all" id="btn-submit-service" type="button">
+<span class="material-symbols-outlined text-[20px]">add_circle</span>
+<span>Crear servicio</span>
+</button>
+<div class="flex items-center justify-center gap-1.5 py-1 text-on-surface-variant">
+<span class="material-symbols-outlined text-[16px] text-tertiary">shield</span>
+<span class="font-body-sm text-body-sm text-[12px]">Publicación inmediata y visible en un radio de 5 km</span>
+</div>
+</div>
+</div>
+<!-- Interactive Error Dialog Mockup (Toggled if validation fails or for demo wireframe completeness) -->
+<div class="fixed inset-0 z-50 bg-[#00112B]/60 backdrop-blur-sm flex items-center justify-center p-margin-mobile hidden" id="error-dialog">
+<div class="bg-surface-container-lowest rounded-xl p-space-lg w-full max-w-sm flex flex-col items-center text-center shadow-[0px_16px_36px_rgba(0,17,43,0.25)]">
+<div class="w-14 h-14 rounded-full bg-error-container text-on-error-container flex items-center justify-center mb-space-sm">
+<span class="material-symbols-outlined text-[32px]">warning</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface mb-1">Error al rellenar el formulario</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-space-md">
+        Verifique los datos ingresados antes de continuar. Asegúrese de incluir un precio y descripción válida.
+      </p>
+<button class="w-full min-h-[48px] bg-on-surface text-surface-container-lowest font-label-md text-label-md rounded-lg uppercase tracking-wider font-bold hover:opacity-90 active:scale-95 transition-all" id="btn-close-error" type="button">
+        Cerrar
+      </button>
+</div>
+</div>
+<!-- Microinteraction Script for Days & Submissions -->
+<script>
+    (function() {
+      // Toggle selector de días de la semana
+      const dayChips = document.querySelectorAll('.day-chip');
+      dayChips.forEach(chip => {
+        chip.addEventListener('click', () => {
+          const isSelected = chip.classList.contains('bg-primary');
+          if (isSelected) {
+            chip.classList.remove('bg-primary', 'text-on-primary', 'font-bold', 'shadow-sm');
+            chip.classList.add('bg-surface-container-lowest', 'text-on-surface-variant', 'font-medium');
+          } else {
+            chip.classList.remove('bg-surface-container-lowest', 'text-on-surface-variant', 'font-medium');
+            chip.classList.add('bg-primary', 'text-on-primary', 'font-bold', 'shadow-sm');
+          }
+        });
+      });
+
+      // Character counter for details textarea
+      const detailsInput = document.getElementById('service-details');
+      const counterEl = document.getElementById('char-counter');
+      if (detailsInput && counterEl) {
+        detailsInput.addEventListener('input', (e) => {
+          const len = e.target.value.length;
+          counterEl.textContent = `${len} / 400`;
+        });
+      }
+
+      // Dialog toggle behavior for robust wireframe recreation
+      const submitBtn = document.getElementById('btn-submit-service');
+      const errorDialog = document.getElementById('error-dialog');
+      const closeErrorBtn = document.getElementById('btn-close-error');
+      const titleInput = document.getElementById('service-title');
+
+      if (submitBtn && errorDialog && closeErrorBtn) {
+        submitBtn.addEventListener('click', () => {
+          if (!titleInput.value.trim()) {
+            errorDialog.classList.remove('hidden');
+          } else {
+            // Animación sutil de éxito o redirección simulada
+            submitBtn.innerHTML = '<span class="material-symbols-outlined text-[20px] animate-spin">refresh</span> Guardando servicio...';
+            setTimeout(() => {
+              submitBtn.innerHTML = '<span class="material-symbols-outlined text-[20px]">check_circle</span> Publicado con éxito';
+              submitBtn.classList.replace('bg-primary-container', 'bg-tertiary-container');
+            }, 800);
+          }
+        });
+
+        closeErrorBtn.addEventListener('click', () => {
+          errorDialog.classList.add('hidden');
+        });
+      }
+    })();
+  </script>
+</div></main></body></html>

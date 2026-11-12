@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+
+<html lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport"/>
+<title>Registrate - Oficios Vecinos</title>
+<!-- Tailwind CSS CDN with Forms & Container Queries -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Font Google: Plus Jakarta Sans -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind Configuration -->
+<script data-purpose="tailwind-config">
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              dark: '#00112B',
+              primary: '#1764AE',
+              primaryHover: '#125291',
+              lightGray: '#F4F5F7',
+              borderGray: '#E2E2E3',
+              cardBg: '#ECEEF2',
+              muted: '#64748B'
+            }
+          },
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+<!-- Custom Styles for iOS Mobile Look & Smooth Focus -->
+<style data-purpose="custom-styling">
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      -webkit-font-smoothing: antialiased;
+      -webkit-tap-highlight-color: transparent;
+      background-color: #F8F9FA;
+    }
+    .custom-input:focus-within {
+      border-color: #1764AE;
+      box-shadow: 0 0 0 3px rgba(23, 100, 174, 0.15);
+    }
+  </style>
+</head>
+<body class="min-h-screen bg-slate-50 flex justify-center items-start text-brand-dark selection:bg-brand-primary selection:text-white">
+<!-- BEGIN: MobileContainer -->
+<!-- Container optimized for iOS mobile screen dimensions -->
+<div class="w-full max-w-md min-h-screen bg-white flex flex-col shadow-xl relative border-x border-brand-borderGray" data-purpose="mobile-screen-wrapper">
+<!-- BEGIN: MainHeader -->
+<!-- Encabezado superior con marca, barra de búsqueda y botón Iniciar sesión -->
+<header class="w-full pt-4 pb-3 px-3.5 bg-white border-b border-brand-borderGray flex items-center justify-between gap-1.5 sticky top-0 z-20" data-purpose="app-header">
+<!-- Marca / Logo -->
+<a aria-label="Inicio Oficios Vecinos" class="flex flex-col leading-none shrink-0 group focus:outline-none" href="#">
+<span class="text-xs font-bold text-brand-dark tracking-tight leading-3 group-hover:text-brand-primary transition-colors">Oficios</span>
+<span class="text-[11px] font-semibold text-brand-muted tracking-normal leading-3">Vecinos</span>
+</a>
+<!-- Barra de búsqueda comprimida -->
+<div class="flex-1 max-w-[170px] relative" data-purpose="search-bar">
+<label class="sr-only" for="search-input">Buscar oficios</label>
+<input class="w-full h-7 pl-3 pr-7 text-xs bg-brand-lightGray border border-brand-borderGray rounded-full text-brand-dark placeholder-slate-400 focus:outline-none focus:ring-1 focus:ring-brand-primary focus:border-brand-primary py-0" id="search-input" placeholder="Buscar" type="text"/>
+<div class="absolute inset-y-0 right-0 flex items-center pr-2.5 pointer-events-none text-slate-400">
+<!-- Icono de Lupa -->
+<svg class="w-3.5 h-3.5 stroke-current" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" viewbox="0 0 24 24">
+<circle cx="11" cy="11" r="8"></circle>
+<line x1="21" x2="16.65" y1="21" y2="16.65"></line>
+</svg>
+</div>
+</div>
+<!-- Botón secundario Iniciar sesión en cabecera -->
+<a class="shrink-0 text-[11px] font-semibold text-white bg-slate-700 hover:bg-brand-primary px-2.5 py-1.5 rounded-full transition-colors duration-150 whitespace-nowrap shadow-sm" data-purpose="header-login-btn" href="#">
+        Iniciar sesion
+      </a>
+</header>
+<!-- END: MainHeader -->
+<!-- BEGIN: MainContent -->
+<!-- Contenido principal y formulario de Registro -->
+<main class="flex-1 px-4 py-4 flex flex-col justify-start" data-purpose="registration-flow">
+<!-- BEGIN: RegistrationCard -->
+<!-- Tarjeta envolvente del formulario que reproduce la caja gris del wireframe -->
+<section class="w-full bg-[#E9ECEF] border border-[#DEE2E6] rounded-2xl p-4 shadow-sm" data-purpose="form-card">
+<!-- Título de la tarjeta -->
+<h1 class="text-center text-lg font-bold text-brand-dark tracking-tight mb-4">
+          Registrate
+        </h1>
+<!-- Formulario de campos -->
+<form action="#" class="space-y-2.5" data-purpose="signup-form" method="POST" onsubmit="event.preventDefault();">
+<!-- Campo: Nombre Completo -->
+<div class="flex flex-col gap-1">
+<div class="custom-input relative flex items-center bg-white rounded-lg border border-brand-borderGray shadow-2xs px-3 h-10 transition duration-150">
+<!-- Icono de herramienta / llave inglesa -->
+<span class="text-slate-400 mr-2 shrink-0">
+<svg class="w-4 h-4 stroke-current" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24">
+<path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"></path>
+</svg>
+</span>
+<input class="w-full text-xs font-medium text-brand-dark placeholder-slate-500 bg-transparent border-none p-0 focus:ring-0" id="full-name" name="fullName" placeholder="Nombre completo:" required="" type="text"/>
+</div>
+</div>
+<!-- Campo: Email -->
+<div class="flex flex-col gap-1">
+<div class="custom-input relative flex items-center bg-white rounded-lg border border-brand-borderGray shadow-2xs px-3 h-10 transition duration-150">
+<!-- Icono de sobre / correo -->
+<span class="text-slate-400 mr-2 shrink-0">
+<svg class="w-4 h-4 stroke-current" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24">
+<path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+<polyline points="22,6 12,13 2,6"></polyline>
+</svg>
+</span>
+<input class="w-full text-xs font-medium text-brand-dark placeholder-slate-500 bg-transparent border-none p-0 focus:ring-0" id="email-address" name="email" placeholder="Email:" required="" type="email"/>
+</div>
+</div>
+<!-- Campo: Contraseña -->
+<div class="flex flex-col gap-1">
+<div class="custom-input relative flex items-center bg-white rounded-lg border border-brand-borderGray shadow-2xs px-3 h-10 transition duration-150">
+<!-- Icono de llave -->
+<span class="text-slate-400 mr-2 shrink-0">
+<svg class="w-4 h-4 stroke-current" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24">
+<path d="M21 2l-2 2m-1.5 1.5L16 7l-1.5-1.5L13 7l-1.5-1.5L10 7M7 10a5 5 0 1 1-5 5 5 5 0 0 1 5-5z"></path>
+</svg>
+</span>
+<input class="w-full text-xs font-medium text-brand-dark placeholder-slate-500 bg-transparent border-none p-0 focus:ring-0" id="password" name="password" placeholder="Contrasena:" required="" type="password"/>
+</div>
+</div>
+<!-- Campo: Repetir Contraseña -->
+<div class="flex flex-col gap-1">
+<div class="custom-input relative flex items-center bg-white rounded-lg border border-brand-borderGray shadow-2xs px-3 h-10 transition duration-150">
+<!-- Icono de llave de confirmación -->
+<span class="text-slate-400 mr-2 shrink-0">
+<svg class="w-4 h-4 stroke-current" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24">
+<path d="M21 2l-2 2m-1.5 1.5L16 7l-1.5-1.5L13 7l-1.5-1.5L10 7M7 10a5 5 0 1 1-5 5 5 5 0 0 1 5-5z"></path>
+</svg>
+</span>
+<input class="w-full text-xs font-medium text-brand-dark placeholder-slate-500 bg-transparent border-none p-0 focus:ring-0" id="confirm-password" name="confirmPassword" placeholder="Repetir contrasena:" required="" type="password"/>
+</div>
+</div>
+<!-- Selección de Tipo de Usuario -->
+<div class="pt-2" data-purpose="user-type-selection">
+<p class="text-xs font-bold text-brand-dark mb-2.5">
+              Que tipo usuario sos?
+            </p>
+<div class="space-y-2">
+<!-- Opción: Cliente -->
+<label class="flex items-center gap-2.5 cursor-pointer select-none group">
+<input checked="" class="w-4 h-4 text-brand-primary border-slate-300 focus:ring-brand-primary focus:ring-offset-0 focus:ring-1 rounded transition" name="userType" type="radio" value="cliente"/>
+<span class="text-xs font-medium text-slate-800 group-hover:text-brand-primary transition-colors">Cliente</span>
+</label>
+<!-- Opción: Prestador -->
+<label class="flex items-center gap-2.5 cursor-pointer select-none group">
+<input class="w-4 h-4 text-brand-primary border-slate-300 focus:ring-brand-primary focus:ring-offset-0 focus:ring-1 rounded transition" name="userType" type="radio" value="prestador"/>
+<span class="text-xs font-medium text-slate-800 group-hover:text-brand-primary transition-colors">Prestador</span>
+</label>
+</div>
+</div>
+</form>
+</section>
+<!-- END: RegistrationCard -->
+<!-- BEGIN: ActionSection -->
+<!-- Botón de envío fuera de la tarjeta según el wireframe -->
+<div class="mt-4 flex flex-col items-center gap-3 w-full" data-purpose="form-actions">
+<button class="w-3/4 max-w-xs h-11 bg-brand-primary hover:bg-brand-primaryHover active:scale-[0.98] text-white font-semibold text-sm rounded-xl shadow-md transition-all duration-150 flex items-center justify-center tracking-wide" data-purpose="submit-button" type="button">
+          Crear cuenta
+        </button>
+<!-- Divisor sutil con punto (como se aprecia en el wireframe debajo de los botones principales) -->
+<div class="flex items-center justify-center w-3/4 my-1 opacity-60">
+<div class="h-px bg-slate-300 flex-1"></div>
+<div class="w-2 h-2 rounded-full border border-slate-400 mx-2"></div>
+<div class="h-px bg-slate-300 flex-1"></div>
+</div>
+<!-- Enlace a Iniciar Sesión para usuarios existentes -->
+<div class="text-center" data-purpose="login-link-container">
+<p class="text-xs text-brand-muted font-medium">
+            Ya tienes una cuenta? 
+            <a class="font-bold text-brand-dark hover:text-brand-primary hover:underline transition-colors ml-0.5" href="#">
+              Inicia sesion
+            </a>
+</p>
+</div>
+</div>
+<!-- END: ActionSection -->
+</main>
+<!-- END: MainContent -->
+<!-- BEGIN: BottomBarIOS -->
+<!-- Indicador de barra de inicio tipo iOS para fidelidad mobile -->
+<div class="w-full pb-2 pt-1 flex justify-center mt-auto" data-purpose="ios-home-indicator">
+<div class="w-32 h-1 bg-slate-300 rounded-full"></div>
+</div>
+<!-- END: BottomBarIOS -->
+</div>
+<!-- END: MobileContainer -->
+</body></html>

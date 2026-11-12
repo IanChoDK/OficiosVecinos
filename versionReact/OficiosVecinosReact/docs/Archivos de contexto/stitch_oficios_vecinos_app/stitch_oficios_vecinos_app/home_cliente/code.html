@@ -1,0 +1,229 @@
+<!DOCTYPE html><html class="h-full bg-slate-100" lang="es"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport">
+<title>Oficios Vecinos - Inicio Cliente</title>
+<!-- Google Fonts: Plus Jakarta Sans -->
+<link href="https://fonts.googleapis.com" rel="preconnect">
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet">
+<!-- Tailwind CSS v3 CDN with forms & container queries -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Tailwind Configuration -->
+<script data-purpose="tailwind-config">
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+          },
+          colors: {
+            brand: {
+              navy: '#00112B',
+              blue: '#1764AE',
+              blueDark: '#10497F',
+              accent: '#2563EB',
+              emerald: '#10B981',
+              cardBg: '#E7E9ED',
+              cardInner: '#505662',
+              surface: '#F4F3F4',
+              surfaceBright: '#F9F9FA',
+              lightGray: '#DADADB'
+            }
+          },
+          boxShadow: {
+            soft: '0 4px 20px -2px rgba(0, 17, 43, 0.06)',
+            elevation: '0 10px 25px -3px rgba(0, 17, 43, 0.08), 0 4px 6px -4px rgba(0, 17, 43, 0.04)'
+          }
+        }
+      }
+    };
+  </script>
+<style data-purpose="custom-layout">
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      -webkit-tap-highlight-color: transparent;
+      user-select: none;
+    }
+    /* Estilo para simular bordes de app móvil de borde a borde */
+    .mobile-screen-container {
+      max-width: 430px;
+      min-height: 100vh;
+      margin: 0 auto;
+      background-color: #F9F9FA;
+    }
+  </style>
+</head>
+<body class="bg-slate-200 text-slate-800 antialiased flex justify-center items-start min-h-screen">
+<!-- BEGIN: MobileDeviceFrame -->
+<div class="mobile-screen-container w-full bg-[#f9f9fa] shadow-2xl relative flex flex-col justify-between overflow-x-hidden min-h-screen pb-8">
+<!-- BEGIN: TopContainer -->
+<div class="w-full flex flex-col">
+<!-- BEGIN: IOSStatusBar -->
+<div class="w-full h-11 px-7 flex justify-between items-center text-xs font-semibold text-slate-900 select-none pt-2 z-20">
+<span class="">9:41</span>
+<div class="flex items-center gap-1.5">
+<!-- Signal Icon -->
+<svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24">
+<path d="M12 3c-4.97 0-9 4.03-9 9 0 2.12.74 4.07 1.97 5.61L4.35 18.25C2.89 16.51 2 14.36 2 12 2 6.48 6.48 2 12 2s10 4.48 10 10c0 2.36-.89 4.51-2.35 6.25l-.62-.64C20.26 16.07 21 14.12 21 12c0-4.97-4.03-9-9-9zm0 4c-2.76 0-5 2.24-5 5 0 1.25.46 2.39 1.21 3.29l.66-.66C8.32 13.97 8 13.03 8 12c0-2.21 1.79-4 4-4s4 1.79 4 4c0 1.03-.32 1.97-.87 2.63l.66.66c.75-.9 1.21-2.04 1.21-3.29 0-2.76-2.24-5-5-5zm0 8c-.55 0-1 .45-1 1s.45 1 1 1 1-.45 1-1-.45-1-1-1z"></path>
+</svg>
+<!-- Wifi Icon -->
+<svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24">
+<path d="M12 4C7.31 4 3.07 5.9 0 8.98L12 21 24 8.98A16.88 16.88 0 0012 4zm0 3c3.83 0 7.34 1.45 10.02 3.86L12 18.88 1.98 10.86C4.66 8.45 8.17 7 12 7z"></path>
+</svg>
+<!-- Battery Icon -->
+<div class="w-5 h-2.5 border border-slate-800 rounded-sm p-0.5 flex items-center">
+<div class="h-full w-full bg-slate-900 rounded-[1px]"></div>
+</div>
+</div>
+</div>
+<!-- END: IOSStatusBar -->
+<!-- BEGIN: NavigationHeader -->
+<header class="w-full bg-[#EAEAEA] border-b border-[#dadadb] px-3.5 py-3 sticky top-0 z-30 flex items-center justify-between gap-2 shadow-sm" data-purpose="main-header">
+<!-- Logo / Marca -->
+<div class="flex-shrink-0 flex items-center" data-purpose="brand-logo">
+<a class="flex flex-col leading-none tracking-tight" href="#">
+<span class="text-[14px] font-extrabold text-[#00112B] uppercase tracking-wider">Oficios</span>
+<span class="text-[13px] font-black text-[#1764AE] uppercase tracking-wider -mt-0.5">Vecinos</span>
+</a>
+</div>
+<!-- Search Bar -->
+<div class="flex-1 max-w-[170px]" data-purpose="search-box">
+<div class="relative flex items-center">
+<input class="w-full bg-white text-slate-800 placeholder-slate-400 text-xs font-medium pl-3 pr-7 py-1.5 rounded-full border border-slate-300 focus:outline-none focus:ring-1 focus:ring-[#1764AE] focus:border-[#1764AE] transition-all shadow-inner" placeholder="Buscar" type="text">
+<button aria-label="Buscar" class="absolute right-2 text-slate-500 hover:text-[#1764AE] transition-colors" type="button">
+<svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+<path d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</button>
+</div>
+</div>
+<!-- Quick Login Button -->
+<div class="flex-shrink-0" data-purpose="header-auth-action"><div class="flex items-center gap-2"><button aria-label="Mensajes" class="relative p-1.5 text-slate-600 hover:text-[#1764AE] transition-colors rounded-full hover:bg-white/70" type="button"><svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M8.625 12a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0H8.25m4.125 0a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0H12m4.125 0a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0h-.375M21 12c0 4.556-4.03 8.25-9 8.25a9.764 9.764 0 01-2.555-.337A5.972 5.972 0 015.41 20.97a.75.75 0 01-.974-.94 5.962 5.962 0 011.026-2.502C3.906 16.095 3 14.16 3 12c0-4.556 4.03-8.25 9-8.25s9 3.694 9 8.25z" stroke-linecap="round" stroke-linejoin="round"></path></svg><span class="absolute top-1 right-1 w-2 h-2 rounded-full bg-[#10B981]"></span></button><a aria-label="Perfil del cliente" class="w-8 h-8 rounded-full bg-[#1764AE] text-white flex items-center justify-center font-bold text-xs shadow-xs hover:bg-[#10497F] transition-all" href="#"><span class="leading-none">CL</span></a></div></div>
+</header>
+<!-- END: NavigationHeader -->
+<!-- BEGIN: HeroBannerSection -->
+<section class="w-full relative overflow-hidden" data-purpose="hero-banner">
+<!-- Visual Container replicating wireframe's cross placeholder with High Fidelity artwork -->
+<div class="relative w-full h-80 sm:h-96 bg-gradient-to-br from-[#CBD5E1] via-[#B9C4D0] to-[#A0AFBE] flex flex-col justify-end p-5 overflow-hidden">
+<!-- Background Subtle Patterns & Accents -->
+<div class="absolute inset-0 opacity-15">
+<svg class="w-full h-full" viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
+<line stroke="#00112B" stroke-width="1.5" x1="0" x2="400" y1="0" y2="400"></line>
+<line stroke="#00112B" stroke-width="1.5" x1="400" x2="0" y1="0" y2="400"></line>
+</svg>
+</div>
+<!-- Decorative Gradient Overlays -->
+<div class="absolute inset-0 bg-gradient-to-t from-[#00112B]/85 via-[#00112B]/40 to-transparent"></div>
+<!-- Floating Badges / Trust Markers -->
+<div class="relative z-10 mb-auto pt-2 flex items-center justify-between">
+<span class="inline-flex items-center gap-1.5 bg-white/90 backdrop-blur-md px-2.5 py-1 rounded-full text-[11px] font-bold text-[#1764AE] shadow-sm">
+<span class="w-2 h-2 rounded-full bg-[#10B981] animate-pulse"></span>
+              Red Barrial Verificada
+            </span>
+<span class="inline-flex items-center gap-1 bg-[#00112B]/70 backdrop-blur-sm px-2.5 py-1 rounded-full text-[10px] font-medium text-white/90">
+<svg class="w-3 h-3 text-amber-400 fill-current" viewBox="0 0 20 20">
+<path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+</svg>
+              +1,200 vecinos conformes
+            </span>
+</div>
+<!-- Hero Headline & Value Proposition -->
+<div class="relative z-10 text-white space-y-2 mt-4">
+<h1 class="text-2xl font-black tracking-tight leading-tight drop-shadow-sm">
+              Soluciones de confianza para tu hogar.
+            </h1>
+<p class="text-xs text-slate-200 line-clamp-2 max-w-[90%] leading-relaxed font-normal">
+              Conectá de forma segura con plomeros, electricistas, gasistas y carpinteros recomendados por vecinos de tu misma zona.
+            </p>
+</div>
+<!-- Bottom Micro Tagline -->
+<div class="relative z-10 mt-3 pt-2.5 border-t border-white/20 flex items-center justify-between text-[11px] text-white/80 font-medium">
+<span class="flex items-center gap-1">
+<svg class="w-3.5 h-3.5 text-[#10B981]" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+<path d="M4.5 12.75l6 6 9-13.5" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+              Sin intermediarios caros
+            </span>
+<span class="flex items-center gap-1">
+<svg class="w-3.5 h-3.5 text-[#10B981]" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+<path d="M4.5 12.75l6 6 9-13.5" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+              Presupuestos ágiles
+            </span>
+</div>
+</div>
+</section>
+<!-- END: HeroBannerSection -->
+<!-- BEGIN: PopularServicesSection -->
+<!-- Representa el contenedor redondeado del wireframe con el botón "Servicios mas populares" -->
+<section class="px-5 mt-6" data-purpose="popular-services-block">
+<div class="bg-[#DADDE2] rounded-3xl p-4 sm:p-5 shadow-sm border border-slate-300 flex flex-col items-center justify-center">
+<!-- Botón / Card Principal de Servicios Populares -->
+<button class="w-full bg-[#6C727D] hover:bg-[#5E646E] text-white py-4 px-6 rounded-2xl shadow-md transition-all duration-200 active:scale-[0.98] flex flex-col items-center justify-center text-center group" type="button">
+<span class="text-base sm:text-lg font-bold tracking-tight text-white group-hover:text-slate-100 flex items-center gap-2">
+              Servicios mas populares
+              <svg class="w-4 h-4 text-white/80 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+<path d="M8.25 4.5l7.5 7.5-7.5 7.5" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</span>
+<span class="text-[11px] text-slate-200 font-medium mt-0.5">
+              Plomería • Electricidad • Pintura • Cerrajería
+            </span>
+</button>
+<!-- Quick Service Badges (Valor agregado de alta fidelidad dentro del contenedor) -->
+<div class="w-full grid grid-cols-4 gap-2 mt-3 pt-2">
+<!-- Badge 1: Plomería -->
+<div class="flex flex-col items-center text-center">
+<div class="w-10 h-10 rounded-xl bg-white/70 flex items-center justify-center text-[#1764AE] shadow-xs hover:bg-white transition-colors cursor-pointer">
+<svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.75" viewBox="0 0 24 24">
+<path d="M19.5 12c0-1.232-.046-2.453-.138-3.662a4.006 4.006 0 00-3.7-3.7 48.678 48.678 0 00-7.324 0 4.006 4.006 0 00-3.7 3.7c-.017.22-.032.441-.046.662M19.5 12l3-3m-3 3l-3-3m-12 3c0 1.232.046 2.453.138 3.662a4.006 4.006 0 003.7 3.7 48.656 48.656 0 007.324 0 4.006 4.006 0 003.7-3.7c.017-.22.032-.441.046-.662M4.5 12l3 3m-3-3l-3 3" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</div>
+<span class="text-[10px] font-semibold text-slate-700 mt-1">Plomería</span>
+</div>
+<!-- Badge 2: Electricidad -->
+<div class="flex flex-col items-center text-center">
+<div class="w-10 h-10 rounded-xl bg-white/70 flex items-center justify-center text-amber-600 shadow-xs hover:bg-white transition-colors cursor-pointer">
+<svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.75" viewBox="0 0 24 24">
+<path d="M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</div>
+<span class="text-[10px] font-semibold text-slate-700 mt-1">Luz</span>
+</div>
+<!-- Badge 3: Pintura -->
+<div class="flex flex-col items-center text-center">
+<div class="w-10 h-10 rounded-xl bg-white/70 flex items-center justify-center text-emerald-600 shadow-xs hover:bg-white transition-colors cursor-pointer">
+<svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.75" viewBox="0 0 24 24">
+<path d="M9.53 16.122a3 3 0 00-5.78 1.128 2.25 2.25 0 01-2.4 2.245 4.5 4.5 0 008.4-2.245c0-.399-.078-.78-.22-1.128zm0 0a15.998 15.998 0 003.388-1.62m-5.043-.025a15.994 15.994 0 011.622-3.395m3.42 3.42a15.995 15.995 0 004.764-4.648l3.876-5.814a1.151 1.151 0 00-1.597-1.597L14.146 6.32a15.996 15.996 0 00-4.649 4.763m3.42 3.42a6.776 6.776 0 00-3.42-3.42" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</div>
+<span class="text-[10px] font-semibold text-slate-700 mt-1">Pintura</span>
+</div>
+<!-- Badge 4: Carpintería -->
+<div class="flex flex-col items-center text-center">
+<div class="w-10 h-10 rounded-xl bg-white/70 flex items-center justify-center text-stone-700 shadow-xs hover:bg-white transition-colors cursor-pointer">
+<svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.75" viewBox="0 0 24 24">
+<path d="M11.42 15.17L17.25 21A2.652 2.652 0 0021 17.25l-5.877-5.877M11.42 15.17l2.496-3.03c.317-.384.74-.626 1.208-.766M11.42 15.17l-4.655 5.653a2.548 2.548 0 11-3.586-3.586l6.837-5.63m5.108-.233c.55-.164 1.163-.188 1.743-.14a4.5 4.5 0 004.486-6.32l-3.27 3.27a1.5 1.5 0 01-2.122-2.122l3.27-3.27a4.5 4.5 0 00-6.32 4.486c.048.58.024 1.193-.14 1.743" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</div>
+<span class="text-[10px] font-semibold text-slate-700 mt-1">Madera</span>
+</div>
+</div>
+</div>
+</section>
+<!-- END: PopularServicesSection -->
+</div>
+<!-- END: TopContainer -->
+<!-- BEGIN: MainActionSection -->
+<!-- Representa el bloque inferior del wireframe con el gran botón "Iniciar sesion" -->
+<section class="px-5 mt-6 w-full" data-purpose="primary-auth-cta"><div class="mt-4 flex items-center justify-center gap-1.5 text-center text-slate-400 text-[11px]"><svg class="w-3.5 h-3.5 text-emerald-600" fill="currentColor" viewBox="0 0 20 20"><path clip-rule="evenodd" d="M10 1.944A11.954 11.954 0 012.166 5C2.056 5.649 2 6.319 2 7c0 5.225 3.34 9.67 8 11.317C14.66 16.67 18 12.225 18 7c0-.682-.057-1.35-.166-2.001A11.954 11.954 0 0110 1.944zM11 14a1 1 0 11-2 0 1 1 0 012 0zm0-7a1 1 0 10-2 0v3a1 1 0 102 0V7z" fill-rule="evenodd"></path></svg><span class="">Comunidad barrial protegida • Sin comisiones abusivas</span></div></section>
+<!-- END: MainActionSection -->
+<!-- Dynamic Home Indicator Bar for iOS -->
+<div class="w-full flex justify-center mt-3 pt-2">
+<div class="w-32 h-1 bg-slate-300 rounded-full"></div>
+</div>
+</div>
+<!-- END: MobileDeviceFrame -->
+
+
+</body></html>

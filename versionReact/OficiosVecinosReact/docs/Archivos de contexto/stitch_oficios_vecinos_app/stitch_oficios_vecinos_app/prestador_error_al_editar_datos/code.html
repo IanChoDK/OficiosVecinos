@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+
+<html lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport"/>
+<title>Error al Editar Datos - Oficios Vecinos</title>
+<!-- Tailwind CSS v3 CDN with plugins -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              grayHeader: '#d6d6d6',
+              grayBackBar: '#adadad',
+              cardDark: '#595959',
+              btnPill: '#b9b9b9',
+              darkCircle: '#1e1e1e',
+              inputBg: '#ffffff',
+            }
+          },
+          fontFamily: {
+            sans: ['-apple-system', 'BlinkMacSystemFont', '"Segoe UI"', 'Roboto', 'Helvetica', 'Arial', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+<!-- Custom Styles for iOS safe areas and native look -->
+<style data-purpose="custom-layout">
+    body {
+      -webkit-tap-highlight-color: transparent;
+      user-select: none;
+    }
+    .safe-top {
+      padding-top: env(safe-area-inset-top, 0px);
+    }
+    .safe-bottom {
+      padding-bottom: env(safe-area-inset-bottom, 16px);
+    }
+  </style>
+</head>
+<body class="bg-gray-100 flex justify-center min-h-screen font-sans text-neutral-800 antialiased">
+<!-- Mobile iOS Frame Container -->
+<div class="w-full max-w-[420px] bg-white min-h-screen flex flex-col shadow-2xl relative select-none">
+<!-- BEGIN: Header -->
+<header class="w-full bg-brand-grayHeader safe-top" data-purpose="top-navigation-header">
+<!-- Main Search & User Bar -->
+<div class="px-3.5 pt-3 pb-2 flex items-center justify-between gap-2">
+<!-- Logo -->
+<a aria-label="Inicio Oficios Vecinos" class="flex flex-col leading-tight cursor-pointer shrink-0" href="#">
+<span class="text-[13px] font-bold tracking-tight text-neutral-900 leading-none">Oficios</span>
+<span class="text-[13px] font-bold tracking-tight text-neutral-900 leading-none mt-0.5">Vecinos</span>
+</a>
+<!-- Search Bar Input -->
+<div class="flex-1 max-w-[170px] relative">
+<input class="w-full h-7 pl-3 pr-7 bg-white rounded-full text-xs text-neutral-600 placeholder-neutral-400 border-none focus:ring-1 focus:ring-neutral-400 py-0" placeholder="Buscar" readonly="" type="text"/>
+<svg class="w-3.5 h-3.5 text-neutral-600 absolute right-2.5 top-1/2 -translate-y-1/2" fill="none" stroke="currentColor" stroke-width="2.2" viewbox="0 0 24 24">
+<path d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</div>
+<!-- Chat and User Avatar Icons -->
+<div class="flex items-center gap-2.5 shrink-0">
+<!-- Chat Button -->
+<button aria-label="Mensajes" class="text-neutral-900 hover:text-black p-0.5 focus:outline-none" type="button">
+<svg class="w-6 h-6 stroke-[1.8]" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M8.625 12a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm0 0H8.25m4.125 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm0 0H12m4.125 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm0 0h-.375M21 12c0 4.556-4.03 8.25-9 8.25a9.764 9.764 0 0 1-2.555-.337A5.972 5.972 0 0 1 5.41 20.97a.75.75 0 0 1-.974-.943 5.377 5.377 0 0 0 .736-2.573C3.292 15.937 2 13.992 2 12c0-4.556 4.03-8.25 9-8.25s9 3.694 9 8.25Z" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</button>
+<!-- Avatar Icon -->
+<div aria-label="Foto de perfil" class="w-7 h-7 rounded-full bg-brand-darkCircle shrink-0" role="img"></div>
+</div>
+</div>
+<!-- Secondary Sub-header: Back Arrow Strip -->
+<div class="bg-brand-grayBackBar px-3 py-1.5 flex items-center">
+<button aria-label="Volver atrás" class="w-6 h-6 rounded-full flex items-center justify-center text-neutral-800 hover:bg-black/10 transition-colors" onclick="history.back()" type="button">
+<svg class="w-4 h-4 stroke-[2.5]" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M10.5 19.5 3 12m0 0 7.5-7.5M3 12h18" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</button>
+</div>
+</header>
+<!-- END: Header -->
+<!-- BEGIN: MainContent -->
+<main class="flex-1 flex flex-col px-4 pt-3 pb-6 safe-bottom">
+<!-- Error Feedback Card Container -->
+<section class="flex-1 w-full bg-brand-cardDark rounded-2xl p-6 sm:p-8 flex flex-col items-center justify-between text-white shadow-md min-h-[510px]" data-purpose="error-feedback-container">
+<!-- Top Spacer & Error Status Header -->
+<div class="w-full flex flex-col items-center pt-8">
+<!-- Warning / Retry Status Icon -->
+<div class="mb-5 flex items-center justify-center w-16 h-16 rounded-full bg-white/10 text-white/95 border border-white/20">
+<svg class="w-9 h-9 stroke-[2]" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126ZM12 15.75h.007v.008H12v-.008Z" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</div>
+<!-- Main Headline in uppercase as requested -->
+<h1 class="text-xl sm:text-2xl font-normal tracking-wide text-center leading-snug max-w-[270px] uppercase">
+            Error al editar datos
+          </h1>
+<!-- Secondary Subtitle / Action prompt -->
+<h2 class="text-lg sm:text-xl font-normal mt-7 text-center text-neutral-100">
+            Reintente
+          </h2>
+<!-- Descriptive Helpful Error Message -->
+<p class="text-xs sm:text-sm font-light text-neutral-300 text-center mt-3 max-w-[250px] leading-relaxed">
+            No se pudieron guardar las modificaciones en este momento. Por favor verifica tu conexión y vuelve a intentarlo.
+          </p>
+</div>
+<!-- Action Button Container -->
+<div class="w-full flex justify-center pb-4 pt-8">
+<button class="w-44 py-2 bg-brand-btnPill text-neutral-800 text-sm font-medium rounded-full shadow-sm hover:bg-neutral-300 active:scale-[0.98] transition-all text-center tracking-normal" data-purpose="action-return-button" onclick="history.back()" type="button">
+            Volver
+          </button>
+</div>
+</section>
+</main>
+<!-- END: MainContent -->
+</div>
+</body></html>

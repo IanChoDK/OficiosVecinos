@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+
+<html lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport"/>
+<title>Oficios Vecinos - Datos de Solicitud</title>
+<!-- Tailwind CSS CDN -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Tailwind Configuration -->
+<script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              DEFAULT: '#1764ae',
+              dark: '#114d87',
+              light: '#eaf2fa',
+              accent: '#f39200'
+            }
+          },
+          fontFamily: {
+            sans: ['-apple-system', 'BlinkMacSystemFont', '"SF Pro Text"', '"SF Pro Display"', 'Helvetica Neue', 'Arial', 'sans-serif']
+          }
+        }
+      }
+    };
+  </script>
+<!-- Custom Stylesheet for Mobile Look & Feel -->
+<style data-purpose="mobile-layout">
+    body {
+      -webkit-tap-highlight-color: transparent;
+      background-color: #f1f4f8;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    }
+    .safe-top {
+      padding-top: env(safe-area-inset-top, 0px);
+    }
+    .safe-bottom {
+      padding-bottom: env(safe-area-inset-bottom, 16px);
+    }
+  </style>
+</head>
+<body class="p-0 sm:p-4 text-slate-800 antialiased selection:bg-blue-100 selection:text-brand">
+<!-- BEGIN: PhoneContainer -->
+<!-- Container with typical mobile iOS portrait viewport proportions -->
+<div class="w-full max-w-md bg-white min-h-screen sm:min-h-[844px] sm:max-h-[900px] flex flex-col sm:rounded-[36px] sm:shadow-2xl overflow-hidden sm:border sm:border-slate-200 relative">
+<!-- BEGIN: TopBar -->
+<!-- Status & Brand Bar replicating the Oficios Vecinos top header -->
+<header class="bg-white border-b border-slate-100 sticky top-0 z-30 pt-2 safe-top">
+<!-- Top Row: Logo, Search Bar, Chat & Profile Avatar -->
+<div class="px-3 py-2 flex items-center justify-between gap-2">
+<a aria-label="Ir a inicio" class="flex flex-col leading-tight shrink-0 focus:outline-none" href="#">
+<span class="font-extrabold text-base tracking-tight text-slate-900 leading-none">Oficios</span>
+<span class="text-xs font-semibold tracking-wider text-brand uppercase leading-none">Vecinos</span>
+</a>
+<!-- Search input box in header -->
+<div class="relative flex-1 max-w-[210px]">
+<input class="w-full h-8 pl-3 pr-7 text-xs bg-slate-100 border border-transparent rounded-full focus:bg-white focus:border-brand focus:ring-1 focus:ring-brand placeholder:text-slate-400 outline-none transition" placeholder="Buscar..." type="text"/>
+<button aria-label="Buscar" class="absolute right-2 top-1/2 -translate-y-1/2 text-slate-400 hover:text-brand" type="button">
+<svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M21 21l-4.35-4.35M17 11a6 6 0 11-12 0 6 6 0 0112 0z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"></path>
+</svg>
+</button>
+</div>
+<!-- Notification / Chat icon & User Profile icon -->
+<div class="flex items-center gap-1.5 shrink-0">
+<button aria-label="Mensajes" class="w-8 h-8 rounded-full flex items-center justify-center text-slate-600 hover:bg-slate-100 transition" type="button">
+<svg class="w-5 h-5" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8"></path>
+</svg>
+</button>
+<div aria-label="Perfil de usuario" class="w-7 h-7 rounded-full bg-slate-800 text-white flex items-center justify-center font-bold text-xs ring-2 ring-slate-100">
+            JP
+          </div>
+</div>
+</div>
+<!-- Navigation & Step Banner -->
+<div class="px-3 py-2 flex items-center border-t border-slate-50 bg-slate-50/70">
+<button aria-label="Volver atrás" class="p-1 -ml-1 text-slate-600 hover:text-slate-900 rounded-full hover:bg-slate-200/60 active:scale-95 transition" type="button">
+<svg class="w-5 h-5" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M10 19l-7-7m0 0l7-7m-7 7h18" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"></path>
+</svg>
+</button>
+<span class="text-xs font-semibold text-slate-500 ml-2 tracking-wide">Paso 2 de 4: Datos de contratación</span>
+</div>
+</header>
+<!-- END: TopBar -->
+<!-- BEGIN: MainContent -->
+<main class="flex-1 overflow-y-auto px-5 py-4 pb-28">
+<!-- Headline & Context -->
+<section class="mb-5">
+<h1 class="text-xl font-bold text-slate-900 leading-snug">Ingresá tus datos para el servicio</h1>
+<p class="text-xs text-slate-500 mt-1">El profesional utilizará esta información para coordinar la visita y armar el presupuesto.</p>
+</section>
+<!-- BEGIN: ServiceRequestForm -->
+<form class="space-y-4" id="service-request-form" onsubmit="event.preventDefault();">
+<!-- Field 1: Nombre -->
+<div data-purpose="field-group">
+<label class="block text-xs font-semibold uppercase tracking-wider text-slate-700 mb-1.5" for="nombre">
+            Nombre completo <span class="text-rose-500">*</span>
+</label>
+<div class="relative">
+<input class="w-full h-11 px-3.5 bg-slate-50 border border-slate-300 rounded-xl text-sm font-medium text-slate-800 placeholder:text-slate-400 focus:bg-white focus:border-brand focus:ring-2 focus:ring-brand/20 transition outline-none" id="nombre" name="nombre" placeholder="Ej. Juan Pérez" required="" type="text" value="Juanito Pérez"/>
+<span class="absolute right-3.5 top-1/2 -translate-y-1/2 text-slate-400 pointer-events-none">
+<svg class="w-4 h-4" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7 7z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+</span>
+</div>
+</div>
+<!-- Field 2: Dirección -->
+<div data-purpose="field-group">
+<label class="block text-xs font-semibold uppercase tracking-wider text-slate-700 mb-1.5" for="direccion">
+            Dirección del domicilio <span class="text-rose-500">*</span>
+</label>
+<div class="relative">
+<input class="w-full h-11 px-3.5 bg-slate-50 border border-slate-300 rounded-xl text-sm font-medium text-slate-800 placeholder:text-slate-400 focus:bg-white focus:border-brand focus:ring-2 focus:ring-brand/20 transition outline-none" id="direccion" name="direccion" placeholder="Ej. Calle Falsa 123, Río Cuarto" required="" type="text" value="Calle Falsa 123"/>
+<span class="absolute right-3.5 top-1/2 -translate-y-1/2 text-slate-400 pointer-events-none">
+<svg class="w-4 h-4" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+<path d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+</span>
+</div>
+<p class="text-[11px] text-slate-400 mt-1 pl-1">Barrio Alberdi / Microcentro</p>
+</div>
+<!-- Field 3: Horario disponible -->
+<div data-purpose="field-group">
+<label class="block text-xs font-semibold uppercase tracking-wider text-slate-700 mb-1.5" for="horario">
+            Horario disponible <span class="text-rose-500">*</span>
+</label>
+<div class="relative">
+<input class="w-full h-11 px-3.5 bg-slate-50 border border-slate-300 rounded-xl text-sm font-medium text-slate-800 placeholder:text-slate-400 focus:bg-white focus:border-brand focus:ring-2 focus:ring-brand/20 transition outline-none" id="horario" name="horario" placeholder="Ej. 17:30 - 20:30 hs" required="" type="text" value="17:30 - 20:30 hs"/>
+<span class="absolute right-3.5 top-1/2 -translate-y-1/2 text-slate-400 pointer-events-none">
+<svg class="w-4 h-4" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+</span>
+</div>
+</div>
+<!-- Quick Selector Chips for Availability -->
+<div class="flex items-center gap-1.5 pt-0.5">
+<button class="text-[11px] font-medium bg-slate-100 hover:bg-slate-200 text-slate-700 px-2.5 py-1 rounded-full transition" onclick="document.getElementById('horario').value='09:00 - 13:00 hs'" type="button">Mañana</button>
+<button class="text-[11px] font-medium bg-slate-100 hover:bg-slate-200 text-slate-700 px-2.5 py-1 rounded-full transition" onclick="document.getElementById('horario').value='14:00 - 18:00 hs'" type="button">Tarde</button>
+<button class="text-[11px] font-medium bg-blue-50 text-brand border border-blue-200 px-2.5 py-1 rounded-full transition" onclick="document.getElementById('horario').value='17:30 - 20:30 hs'" type="button">Vespertino</button>
+</div>
+<!-- Field 4: Detalle adicional opcional -->
+<div class="pt-1" data-purpose="field-group">
+<label class="block text-xs font-semibold uppercase tracking-wider text-slate-700 mb-1.5" for="detalle">
+            Detalle del trabajo o urgencia <span class="text-slate-400 font-normal lowercase">(opcional)</span>
+</label>
+<textarea class="w-full px-3.5 py-2.5 bg-slate-50 border border-slate-300 rounded-xl text-sm font-medium text-slate-800 placeholder:text-slate-400 focus:bg-white focus:border-brand focus:ring-2 focus:ring-brand/20 transition outline-none resize-none" id="detalle" name="detalle" placeholder="Breve descripción de la reparación o tarea a realizar..." rows="3">Reparación de pérdida de agua en bajo mesada de cocina.</textarea>
+</div>
+</form>
+<!-- END: ServiceRequestForm -->
+<!-- Trust & Security Notice Banner -->
+<section class="mt-5 p-3 rounded-xl bg-blue-50/70 border border-blue-100 flex items-start gap-2.5 text-slate-600">
+<svg class="w-4 h-4 text-brand shrink-0 mt-0.5" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+<p class="text-[11px] leading-relaxed">
+          Tus datos personales están protegidos y solo se compartirán con el prestador seleccionado tras la confirmación de la cita.
+        </p>
+</section>
+</main>
+<!-- END: MainContent -->
+<!-- BEGIN: StickyFooterAction -->
+<!-- Fixed Action Bar with Confirm Button -->
+<footer class="absolute bottom-0 left-0 right-0 bg-white/95 backdrop-blur-md border-t border-slate-200 p-4 safe-bottom z-20">
+<button class="w-full h-12 bg-brand hover:bg-brand-dark active:scale-[0.99] text-white font-semibold rounded-xl text-sm shadow-md shadow-brand/25 transition duration-150 flex items-center justify-center gap-2" onclick="alert('Datos confirmados correctamente. Redirigiendo a selección de método de pago...');" type="button">
+<span>Confirmar datos</span>
+<svg class="w-4 h-4" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M14 5l7 7m0 0l-7 7m7-7H3" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+</button>
+</footer>
+<!-- END: StickyFooterAction -->
+</div>
+<!-- END: PhoneContainer -->
+</body></html>

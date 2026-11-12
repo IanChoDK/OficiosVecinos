@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+
+<html class="h-full bg-slate-100" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport"/>
+<title>Oficios Vecinos - Datos del Cliente</title>
+<!-- Tailwind CSS v3 with Forms & Container Plugins -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Google Fonts: Plus Jakarta Sans -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind Configuration -->
+<script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+          },
+          colors: {
+            brand: {
+              primary: '#1764AE',
+              primaryHover: '#13528f',
+              dark: '#00112B',
+              border: '#E2E2E3',
+              surface: '#F8FAFC',
+            }
+          },
+          boxShadow: {
+            card: '0 4px 20px -2px rgba(0, 17, 43, 0.06)',
+            modal: '0 20px 40px -6px rgba(0, 17, 43, 0.22)',
+          }
+        }
+      }
+    }
+  </script>
+<!-- Custom Styles for iOS Look & Feel -->
+<style data-purpose="ios-optimizations">
+    /* Prevent rubber-band effect while keeping natural touch feel */
+    body {
+      -webkit-tap-highlight-color: transparent;
+      user-select: none;
+    }
+    input, textarea, button {
+      user-select: auto;
+    }
+    .safe-top {
+      padding-top: env(safe-area-inset-top, 14px);
+    }
+    .safe-bottom {
+      padding-bottom: env(safe-area-inset-bottom, 20px);
+    }
+  </style>
+</head>
+<body class="h-full text-brand-dark font-sans flex items-center justify-center p-0 md:p-6 bg-slate-900/90">
+<!-- BEGIN: PhoneFrameContainer -->
+<!-- Constrained mobile iOS container to match design mockups -->
+<div class="w-full max-w-[412px] h-full md:h-[870px] bg-white flex flex-col relative overflow-hidden shadow-2xl md:rounded-[44px] border-0 md:border-[7px] border-slate-800" data-purpose="mobile-viewport">
+<!-- BEGIN: TopAppHeader -->
+<header class="bg-white border-b border-brand-border safe-top px-4 pt-3 pb-3 shrink-0 z-10" data-purpose="main-header">
+<!-- iOS Status Bar Placeholder -->
+<div class="h-5 flex justify-between items-center px-1 mb-2 text-xs font-semibold text-brand-dark/70 tracking-tight">
+<span>9:41</span>
+<div class="flex items-center space-x-1.5">
+<svg class="w-3.5 h-3.5 fill-current" viewbox="0 0 24 24"><path d="M12 3c-4.97 0-9 4.03-9 9 0 2.12.74 4.07 1.97 5.61L4.35 19.4c-.39.39-.39 1.02 0 1.41.39.39 1.02.39 1.41 0l1.9-1.9C9.22 19.64 10.56 20 12 20c4.97 0 9-4.03 9-9s-4.03-9-9-9zm0 15c-3.31 0-6-2.69-6-6s2.69-6 6-6 6 2.69 6 6-2.69 6-6 6z"></path></svg>
+<svg class="w-3 h-3 fill-current" viewbox="0 0 24 24"><path d="M12 4C7.31 4 3.07 5.9 0 8.98L12 21 24 8.98C20.93 5.9 16.69 4 12 4z"></path></svg>
+<div class="w-5 h-2.5 border border-current rounded-sm p-0.5 flex items-center">
+<div class="h-full w-full bg-current rounded-xs"></div>
+</div>
+</div>
+</div>
+<!-- App Bar & Global Search (Exact to wireframe) -->
+<div class="flex items-center justify-between gap-2.5">
+<div class="shrink-0">
+<span class="text-sm font-extrabold tracking-tight text-brand-dark block leading-tight">Oficios<br/><span class="text-brand-primary">Vecinos</span></span>
+</div>
+<!-- Search bar inside header -->
+<div class="relative flex-1 max-w-[190px]">
+<input aria-label="Buscar en la aplicación" class="w-full h-8 pl-3 pr-7 text-xs bg-slate-100 border-none rounded-full text-brand-dark placeholder-slate-400 focus:ring-1 focus:ring-brand-primary focus:bg-white transition" placeholder="Buscar" type="text"/>
+<svg class="w-3.5 h-3.5 absolute right-2.5 top-2.5 text-slate-400 pointer-events-none" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"></path>
+</svg>
+</div>
+<!-- Chat Icon & Profile Bubble -->
+<div class="flex items-center space-x-2 shrink-0">
+<button aria-label="Mensajes" class="w-8 h-8 rounded-full flex items-center justify-center text-brand-dark hover:bg-slate-100 transition relative" type="button">
+<svg class="w-5 h-5" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+<span class="absolute top-1 right-1 w-2 h-2 bg-brand-primary rounded-full ring-2 ring-white"></span>
+</button>
+<div class="w-8 h-8 rounded-full bg-brand-dark text-white flex items-center justify-center font-bold text-xs ring-2 ring-slate-100 cursor-pointer">
+            R
+          </div>
+</div>
+</div>
+</header>
+<!-- END: TopAppHeader -->
+<!-- BEGIN: NavigationSubHeader -->
+<!-- Screen Navigation Header with back button & Title -->
+<nav aria-label="Navegación secundaria" class="flex items-center justify-between px-4 py-2.5 bg-white border-b border-slate-100">
+<button aria-label="Volver al listado de solicitudes" class="w-9 h-9 -ml-1 rounded-full flex items-center justify-center text-brand-dark active:bg-slate-100 transition" onclick="history.back()" type="button">
+<svg class="w-5 h-5" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M15 19l-7-7 7-7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"></path>
+</svg>
+</button>
+<h1 class="text-base font-bold text-brand-dark tracking-tight text-center flex-1">
+        Datos del cliente
+      </h1>
+<!-- Balanced spacer -->
+<div class="w-9 h-9"></div>
+</nav>
+<!-- END: NavigationSubHeader -->
+<!-- BEGIN: MainContentSection -->
+<main class="flex-1 overflow-y-auto px-4 py-4 flex flex-col justify-between space-y-4" data-purpose="client-details-body">
+<div class="space-y-4">
+<!-- BEGIN: ClientProfileCard -->
+<section aria-labelledby="client-info-heading" class="bg-white rounded-2xl border border-brand-border p-4 shadow-sm" data-purpose="client-card">
+<div class="flex items-center gap-3.5 mb-3.5">
+<!-- Client Avatar with Verified Badge -->
+<div class="relative shrink-0">
+<img alt="Foto de Juan Pedernera" class="w-14 h-14 rounded-full object-cover border-2 border-brand-primary/20 bg-slate-100" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCpQNP1lhE_3O9xKkr4HJNAomdMXQnJH4hdQT6B8VpmpFh6r4iYqeX_N2-CyaSJr1V4ocZ7kY78aeq6ZRnm57PELtVqKlVL1bAzxpe07rE91pCZ5ocTUfr4m62tbAZ-YSBr-grcX9_Q0ml3fAnWU6v7fczpa7_3ddvaAvINmrk6__N7GUQHyaKTD5C788gbkXULrTlf3a1u1H_TBojKdwvhR0lM4fF8ZUL2WZwTfv2A"/>
+<span class="absolute -bottom-0.5 -right-0.5 bg-brand-primary text-white p-0.5 rounded-full ring-2 ring-white" title="Usuario Verificado">
+<svg class="w-3 h-3" fill="currentColor" viewbox="0 0 20 20">
+<path clip-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" fill-rule="evenodd"></path>
+</svg>
+</span>
+</div>
+<!-- Client Identification -->
+<div class="min-w-0 flex-1">
+<span class="text-[11px] font-semibold uppercase tracking-wider text-brand-primary">Solicitante</span>
+<h2 class="text-base font-extrabold text-brand-dark truncate leading-tight" id="client-info-heading">
+                Juan Pedernera
+              </h2>
+<p class="text-xs text-slate-500 flex items-center gap-1 mt-0.5">
+<span class="inline-block w-1.5 h-1.5 rounded-full bg-emerald-500"></span> Activo ahora
+              </p>
+</div>
+</div>
+<!-- Badges / Metrics Pills from wireframe: "5 Contrataciones" & "1 año(s) 2 mes(es)" -->
+<div class="grid grid-cols-2 gap-2 pt-2 border-t border-slate-100" data-purpose="reputation-metrics">
+<div class="bg-slate-50 border border-slate-200/80 rounded-xl p-2 text-center">
+<span class="block text-base font-extrabold text-brand-primary leading-none">5</span>
+<span class="text-[10px] font-medium text-slate-500 mt-1 block">Contrataciones</span>
+</div>
+<div class="bg-slate-50 border border-slate-200/80 rounded-xl p-2 text-center">
+<span class="block text-xs font-bold text-brand-dark leading-none">1 año 2 meses</span>
+<span class="text-[10px] font-medium text-slate-500 mt-1 block">Tiempo en la app</span>
+</div>
+</div>
+</section>
+<!-- END: ClientProfileCard -->
+<!-- BEGIN: DetailsFieldsList -->
+<!-- Fields structure faithful to wireframe line inputs: Nombre, Direccion, Horarios -->
+<section aria-label="Detalles de contacto y horario" class="bg-white rounded-2xl border border-brand-border p-4 shadow-sm space-y-4">
+<!-- Field: Nombre -->
+<div class="space-y-1">
+<label class="text-[11px] font-bold text-slate-400 uppercase tracking-wider block">
+              Nombre Completo
+            </label>
+<div class="pb-2 border-b border-slate-200 flex items-center justify-between">
+<span class="text-sm font-semibold text-brand-dark">Juan Pedernera</span>
+<svg class="w-4 h-4 text-slate-400" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+</div>
+</div>
+<!-- Field: Dirección & Proximidad -->
+<div class="space-y-1">
+<div class="flex items-center justify-between">
+<label class="text-[11px] font-bold text-slate-400 uppercase tracking-wider block">
+                Dirección
+              </label>
+<span class="text-[10px] font-bold text-brand-primary bg-blue-50 px-2 py-0.5 rounded-full border border-blue-100">
+                a ~850 m de ti
+              </span>
+</div>
+<div class="pb-2 border-b border-slate-200 flex items-center justify-between">
+<span class="text-sm font-semibold text-brand-dark">Calle Falsa 123, Barrio Alberdi</span>
+<svg class="w-4 h-4 text-slate-400 shrink-0 ml-2" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+<path d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+</div>
+</div>
+<!-- Field: Horarios Disponibles -->
+<div class="space-y-1">
+<label class="text-[11px] font-bold text-slate-400 uppercase tracking-wider block">
+              Horarios disponibles para visita
+            </label>
+<div class="pb-2 border-b border-slate-200 flex items-center justify-between">
+<span class="text-sm font-semibold text-brand-dark">Lunes a Miércoles de 16:00 a 19:00 hs</span>
+<svg class="w-4 h-4 text-slate-400 shrink-0 ml-2" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+</div>
+</div>
+<!-- Additional contextual badge for request requirements -->
+<div class="bg-amber-50 border border-amber-200 rounded-xl p-3 flex items-start gap-2.5">
+<svg class="w-4 h-4 text-amber-600 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+<p class="text-xs text-amber-900 leading-relaxed">
+              Solicitud de carpintería: <strong class="font-semibold text-amber-950">"Necesita 3 mesas de roble"</strong>.
+            </p>
+</div>
+</section>
+<!-- END: DetailsFieldsList -->
+</div>
+<!-- BEGIN: BottomActionArea -->
+<!-- Primary Pill CTA Button "Aceptar" from Wireframe Screen 4 -->
+<footer class="pt-2 pb-3 safe-bottom shrink-0" data-purpose="primary-action-wrapper">
+<button class="w-full h-12 rounded-full bg-[#1764AE] hover:bg-[#13528f] active:scale-[0.98] text-white font-bold text-base shadow-md shadow-brand-primary/25 transition duration-150 flex items-center justify-center tracking-wide" id="btn-open-confirm" type="button">
+          Aceptar
+        </button>
+</footer>
+<!-- END: BottomActionArea -->
+</main>
+<!-- END: MainContentSection -->
+<!-- BEGIN: ConfirmationModalDialog -->
+<!-- Modal matching Screen 5 of Wireframe: "¿Esta seguro que desea aceptar este trabajo?" -->
+<div aria-labelledby="modal-title" aria-modal="true" class="absolute inset-0 bg-brand-dark/60 backdrop-blur-xs flex items-center justify-center p-4 z-50 transition-opacity duration-200 opacity-100" data-purpose="acceptance-confirmation-modal" id="modal-confirm" role="dialog">
+<div class="w-full max-w-[340px] bg-white rounded-3xl p-6 shadow-modal border border-slate-100 flex flex-col items-center text-center transform transition-transform duration-200 scale-100">
+<!-- Icon badge -->
+<div class="w-12 h-12 rounded-full bg-blue-50 text-brand-primary flex items-center justify-center mb-4">
+<svg class="w-6 h-6" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+</div>
+<!-- Wireframe Title -->
+<h3 class="text-lg font-extrabold text-brand-dark leading-snug tracking-tight mb-2" id="modal-title">
+          ¿Está seguro que desea aceptar este trabajo?
+        </h3>
+<!-- Wireframe Description -->
+<p class="text-xs text-slate-500 leading-relaxed mb-6 px-1">
+          Será redirigido hacia un chat para comunicarse directamente con el cliente.
+        </p>
+<!-- Wireframe Dual Pill Action Buttons: [ ✓ SI ] and [ NO ✕ ] -->
+<div class="w-full flex items-center gap-3">
+<!-- Button SI: Proceed with accepting -->
+<button class="flex-1 h-11 rounded-full bg-slate-200 hover:bg-slate-300 active:bg-slate-400 text-brand-dark font-bold text-sm flex items-center justify-center gap-1.5 transition" id="btn-confirm-yes" type="button">
+<span>✓</span>
+<span>Sí</span>
+</button>
+<!-- Button NO: Cancel and return back to list (annotated in wireframe arrow) -->
+<button class="flex-1 h-11 rounded-full bg-slate-100 hover:bg-slate-200 active:bg-slate-300 text-slate-700 font-bold text-sm flex items-center justify-center gap-1.5 transition border border-slate-200" id="btn-confirm-no" type="button">
+<span>NO</span>
+<span>✕</span>
+</button>
+</div>
+</div>
+</div>
+<!-- END: ConfirmationModalDialog -->
+</div>
+<!-- END: PhoneFrameContainer -->
+<!-- BEGIN: InteractiveHandlers -->
+<script data-purpose="modal-toggle-logic">
+    // Logic to toggle and demonstrate acceptance flow
+    const modalConfirm = document.getElementById('modal-confirm');
+    const btnOpenConfirm = document.getElementById('btn-open-confirm');
+    const btnConfirmNo = document.getElementById('btn-confirm-no');
+    const btnConfirmYes = document.getElementById('btn-confirm-yes');
+
+    // Function to close modal
+    function closeModal() {
+      modalConfirm.classList.add('hidden');
+    }
+
+    // Function to open modal
+    function openModal() {
+      modalConfirm.classList.remove('hidden');
+    }
+
+    // Wire up events
+    btnOpenConfirm.addEventListener('click', openModal);
+    btnConfirmNo.addEventListener('click', closeModal);
+
+    // Confirmation action (redirect simulated)
+    btnConfirmYes.addEventListener('click', () => {
+      alert('¡Trabajo aceptado! Abriendo conversación con Juan Pedernera...');
+      closeModal();
+    });
+  </script>
+<!-- END: InteractiveHandlers -->
+</body></html>

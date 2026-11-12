@@ -1,0 +1,530 @@
+/* ==========================================================================
+   OficiosVecinos - Hoja de Estilos del Sistema de Diseño (Gentle-AI)
+   Tokens, 5 Estados de Componentes, Accesibilidad WCAG AA y Escala Modular
+   Adaptado a Río Cuarto, Córdoba y Diseños de Stitch
+   ========================================================================== */
+
+/* Variables y Tokens Semánticos */
+:root {
+  --color-primary: #1764AE;
+  --color-primary-dark: #00112B;
+  --color-secondary: #E2E2E3;
+  --color-success: #00C8FF;
+  --color-success-text: #006B8A;
+  --color-danger: #FF0025;
+  --color-danger-text: #990014;
+  --color-warning: #D97706;
+  --color-surface: #F9F9FA;
+  --color-surface-container: #EEEEEF;
+  --color-card-bg: #FFFFFF;
+  --color-border: #D1D5DB;
+
+  /* Escala Tipográfica Normal */
+  --font-h1: 1.5rem;      /* 24px */
+  --font-h2: 1.125rem;    /* 18px */
+  --font-body: 1rem;      /* 16px */
+  --font-detail: 0.75rem; /* 12px */
+  --line-height-base: 1.5;
+}
+
+/* Modo Accesible (activado por toggle en el perfil) */
+body.accessible-text {
+  --font-h1: 2.25rem;     /* 36px */
+  --font-h2: 1.5rem;      /* 24px */
+  --font-body: 1.25rem;   /* 20px */
+  --font-detail: 1rem;    /* 16px */
+  --line-height-base: 1.6;
+}
+
+/* Reset y Base */
+* {
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Roboto', system-ui, -apple-system, sans-serif;
+  background-color: #CBD5E1; /* Fondo exterior para centrar el shell en desktop */
+  color: #1A1C1D;
+  line-height: var(--line-height-base);
+  font-size: var(--font-body);
+}
+
+h1, h2, h3, .font-mono-heading {
+  font-family: 'Roboto Mono', monospace;
+  margin: 0;
+}
+
+h1 {
+  font-size: var(--font-h1);
+  line-height: 1.2;
+}
+
+h2 {
+  font-size: var(--font-h2);
+  line-height: 1.3;
+}
+
+p, span, label, input, button, textarea {
+  font-size: var(--font-body);
+}
+
+.text-detail {
+  font-size: var(--font-detail);
+}
+
+/* Shell Móvil de Alta Fidelidad (Stitch App Container) */
+.app-container {
+  width: 100%;
+  max-width: 430px;
+  min-height: 100vh;
+  margin: 0 auto;
+  background-color: var(--color-surface);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 20px 40px -15px rgba(0, 17, 43, 0.25);
+  overflow-x: hidden;
+}
+
+/* ==========================================================================
+   LOS 5 ESTADOS DE COMPONENTES INTERACTIVOS (Affordance Física)
+   ========================================================================== */
+
+/* 1. Botón Primario (Primary CTA) */
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  background-color: var(--color-primary);
+  color: #FFFFFF;
+  font-weight: 700;
+  border: 2px solid transparent;
+  border-radius: 1rem;
+  padding: 0.75rem 1.25rem;
+  min-height: 48px;
+  min-width: 48px;
+  box-shadow: 0 4px 6px -1px rgba(23, 100, 174, 0.25), 0 2px 4px -2px rgba(23, 100, 174, 0.2);
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  text-decoration: none;
+}
+
+/* Hover */
+.btn-primary:hover:not(:disabled) {
+  background-color: var(--color-primary-dark);
+  box-shadow: 0 6px 12px -2px rgba(0, 17, 43, 0.35);
+  transform: translateY(-1px);
+}
+
+/* Active (Hundimiento físico) */
+.btn-primary:active:not(:disabled) {
+  transform: scale(0.96) translateY(1px);
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.25);
+}
+
+/* Focus / Focus-visible WCAG AA */
+.btn-primary:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+/* Disabled */
+.btn-primary:disabled,
+.btn-primary[aria-disabled="true"] {
+  background-color: var(--color-secondary);
+  color: #6B7280;
+  cursor: not-allowed;
+  box-shadow: none;
+  transform: none;
+  pointer-events: none;
+  border-color: #D1D5DB;
+}
+
+/* 2. Botón Secundario */
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  background-color: var(--color-surface);
+  color: var(--color-primary-dark);
+  font-weight: 600;
+  border: 1.5px solid #CBD5E1;
+  border-radius: 1rem;
+  padding: 0.75rem 1.25rem;
+  min-height: 48px;
+  min-width: 48px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  text-decoration: none;
+}
+
+.btn-secondary:hover:not(:disabled) {
+  background-color: #E2E8F0;
+  border-color: #94A3B8;
+  transform: translateY(-1px);
+}
+
+.btn-secondary:active:not(:disabled) {
+  transform: scale(0.96);
+  background-color: #CBD5E1;
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.btn-secondary:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+.btn-secondary:disabled,
+.btn-secondary[aria-disabled="true"] {
+  background-color: var(--color-secondary);
+  color: #9CA3AF;
+  border-color: transparent;
+  cursor: not-allowed;
+  box-shadow: none;
+  pointer-events: none;
+}
+
+/* 3. Botón Destructivo (Danger) */
+.btn-danger {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  background-color: #FEF2F2;
+  color: var(--color-danger-text);
+  font-weight: 700;
+  border: 1.5px solid #FCA5A5;
+  border-radius: 1rem;
+  padding: 0.75rem 1.25rem;
+  min-height: 48px;
+  min-width: 48px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.btn-danger:hover:not(:disabled) {
+  background-color: var(--color-danger-text);
+  color: #FFFFFF;
+  border-color: var(--color-danger-text);
+}
+
+.btn-danger:active:not(:disabled) {
+  transform: scale(0.96);
+}
+
+.btn-danger:focus-visible {
+  outline: 2px solid var(--color-danger-text);
+  outline-offset: 2px;
+}
+
+.btn-danger:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+/* 4. Inputs y Formularios Accesibles */
+.form-group {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1.25rem;
+}
+
+.form-label {
+  font-size: var(--font-detail);
+  font-weight: 700;
+  color: var(--color-primary-dark);
+  margin-bottom: 0.35rem;
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.form-input {
+  width: 100%;
+  font-size: var(--font-body);
+  padding: 0.75rem 1rem;
+  min-height: 48px;
+  background-color: #FFFFFF;
+  border: 1.5px solid #CBD5E1;
+  border-radius: 0.75rem;
+  color: #1A1C1D;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.form-input:hover {
+  border-color: #94A3B8;
+}
+
+.form-input:focus {
+  outline: none;
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px rgba(23, 100, 174, 0.2);
+}
+
+.form-input.is-invalid {
+  border-color: var(--color-danger);
+  background-color: #FFF5F5;
+}
+
+.form-input.is-invalid:focus {
+  box-shadow: 0 0 0 3px rgba(255, 0, 37, 0.2);
+}
+
+.form-input:disabled {
+  background-color: var(--color-secondary);
+  color: #6B7280;
+  cursor: not-allowed;
+}
+
+.form-feedback {
+  font-size: var(--font-detail);
+  margin-top: 0.35rem;
+  font-weight: 600;
+  min-height: 1.25rem;
+}
+
+.form-feedback.error {
+  color: var(--color-danger-text);
+}
+
+.form-feedback.success {
+  color: var(--color-success-text);
+}
+
+/* 5. Tarjetas Clickeables (Cards con Affordance Física) */
+.card-clickable {
+  background-color: var(--color-card-bg);
+  border: 1.5px solid #E2E8F0;
+  border-radius: 1.25rem;
+  padding: 1rem;
+  box-shadow: 0 4px 12px -2px rgba(0, 17, 43, 0.06);
+  cursor: pointer;
+  transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.2s, border-color 0.2s;
+  position: relative;
+  overflow: hidden;
+}
+
+.card-clickable:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px -3px rgba(0, 17, 43, 0.12);
+  border-color: #CBD5E1;
+}
+
+.card-clickable:active {
+  transform: scale(0.98);
+  box-shadow: 0 2px 6px rgba(0, 17, 43, 0.08);
+}
+
+.card-clickable:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+/* Tarjetas oscuras de servicios de Stitch (para Prestador) */
+.card-service-dark {
+  background-color: #555A5F;
+  color: #FFFFFF;
+  border-radius: 1rem;
+  padding: 1rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: background-color 0.2s, transform 0.2s;
+}
+
+.card-service-dark:hover {
+  background-color: #484D52;
+  transform: translateY(-2px);
+}
+
+/* Ley de Continuidad: carrusel cortado al 50% */
+.carousel-continuity {
+  display: flex;
+  gap: 0.75rem;
+  overflow-x: auto;
+  padding: 0.5rem 1.25rem 1rem 1.25rem;
+  margin-left: -1.25rem;
+  margin-right: -1.25rem;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+}
+
+.carousel-continuity::-webkit-scrollbar {
+  display: none;
+}
+
+.carousel-continuity > * {
+  scroll-snap-align: start;
+  flex-shrink: 0;
+}
+
+/* Modales y Overlays con Focus Trap */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 17, 43, 0.65);
+  backdrop-filter: blur(4px);
+  z-index: 100;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+.modal-overlay.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.modal-content {
+  background-color: #FFFFFF;
+  width: 100%;
+  max-width: 430px;
+  border-top-left-radius: 1.75rem;
+  border-top-right-radius: 1.75rem;
+  padding: 1.5rem;
+  box-shadow: 0 -10px 30px rgba(0, 0, 0, 0.2);
+  transform: translateY(100%);
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  max-height: 85vh;
+  overflow-y: auto;
+}
+
+.modal-overlay.active .modal-content {
+  transform: translateY(0);
+}
+
+/* Toggle Switch Accesible */
+.toggle-accessible {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  cursor: pointer;
+  min-height: 48px;
+}
+
+.toggle-accessible input {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.toggle-slider {
+  width: 52px;
+  height: 28px;
+  background-color: var(--color-secondary);
+  border-radius: 9999px;
+  transition: background-color 0.25s;
+  position: relative;
+  border: 1px solid #CBD5E1;
+}
+
+.toggle-slider::before {
+  content: "";
+  position: absolute;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background-color: #FFFFFF;
+  top: 2px;
+  left: 2px;
+  transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.toggle-accessible input:checked + .toggle-slider {
+  background-color: var(--color-primary);
+  border-color: var(--color-primary);
+}
+
+.toggle-accessible input:checked + .toggle-slider::before {
+  transform: translateX(24px);
+}
+
+.toggle-accessible input:focus-visible + .toggle-slider {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+/* Calificación con 5 Estrellas Grandes */
+.star-rating-group {
+  display: flex;
+  gap: 0.5rem;
+  justify-content: center;
+  margin: 1rem 0;
+}
+
+.star-btn {
+  background: none;
+  border: none;
+  font-size: 2.25rem;
+  color: #D1D5DB;
+  cursor: pointer;
+  padding: 0.25rem;
+  min-width: 48px;
+  min-height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: color 0.15s, transform 0.15s;
+}
+
+.star-btn:hover,
+.star-btn.active {
+  color: #F59E0B;
+  transform: scale(1.15);
+}
+
+.star-btn:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+  border-radius: 0.5rem;
+}
+
+/* Notificación Toast accesible */
+.toast-notification {
+  position: fixed;
+  bottom: 80px;
+  left: 50%;
+  transform: translateX(-50%) translateY(100px);
+  background-color: var(--color-primary-dark);
+  color: #FFFFFF;
+  padding: 0.85rem 1.25rem;
+  border-radius: 1rem;
+  font-weight: 600;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
+  z-index: 150;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  opacity: 0;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  max-width: 90%;
+}
+
+.toast-notification.show {
+  transform: translateX(-50%) translateY(0);
+  opacity: 1;
+}
+
+/* Respeto estricto a movimiento reducido */
+@media (prefers-reduced-motion: reduce) {
+  *, ::before, ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

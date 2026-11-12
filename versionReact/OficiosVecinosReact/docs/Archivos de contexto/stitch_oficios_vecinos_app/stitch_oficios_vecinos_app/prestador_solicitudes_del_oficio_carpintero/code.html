@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+
+<html lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport"/>
+<title>Oficios Vecinos - Solicitudes Carpintero</title>
+<!-- Fonts: Plus Jakarta Sans -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS v3 -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              primary: '#1764AE',
+              dark: '#00112B',
+              bg: '#EBECEE',
+              cardBg: '#FFFFFF',
+              surface: '#F9F9FA',
+              border: '#E2E2E5'
+            }
+          },
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+          },
+          boxShadow: {
+            'card-soft': '0 2px 8px -2px rgba(0, 17, 43, 0.05), 0 1px 4px -1px rgba(0, 17, 43, 0.03)',
+            'btn-capsule': '0 4px 12px rgba(23, 100, 174, 0.12)'
+          }
+        }
+      }
+    }
+  </script>
+<style data-purpose="custom-scroll-and-resets">
+    /* Prevent rubber-band effect while keeping smooth scroll */
+    body {
+      -webkit-tap-highlight-color: transparent;
+      background-color: #EBECEE;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+    }
+    .hide-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+    .hide-scrollbar {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+  </style>
+</head>
+<body class="text-brand-dark min-h-screen flex justify-center items-start antialiased selection:bg-brand-primary/20">
+<!-- BEGIN: MobileFrame -->
+<!-- Constrained container matching iOS viewport ergonomics (e.g. iPhone 14/15 Pro) -->
+<main class="w-full max-w-[430px] min-h-screen bg-[#EBECEE] flex flex-col relative shadow-2xl mx-auto overflow-hidden">
+<!-- BEGIN: TopBarNav -->
+<header class="sticky top-0 z-30 bg-[#EBECEE]/95 backdrop-blur-md px-4 pt-3 pb-2 border-b border-gray-200/70" data-purpose="main-header">
+<!-- Status Bar Spacer for iOS notch/island -->
+<div class="h-6 w-full flex items-center justify-between text-xs font-semibold px-2 text-brand-dark/70 mb-1">
+<span>9:41</span>
+<div class="flex items-center space-x-1.5">
+<svg class="w-3.5 h-3.5 fill-current" viewbox="0 0 24 24"><path d="M12 3c-4.97 0-9 4.03-9 9 0 2.12.74 4.07 1.97 5.61L4.35 19.4c-.39.39-.39 1.02 0 1.41.39.39 1.02.39 1.41 0l1.9-1.9C9.36 19.64 10.63 20 12 20c4.97 0 9-4.03 9-9s-4.03-9-9-9zm0 15c-3.31 0-6-2.69-6-6s2.69-6 6-6 6 2.69 6 6-2.69 6-6 6z"></path></svg>
+<svg class="w-3.5 h-3.5 fill-current" viewbox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14H9V8h2v8zm4 0h-2V8h2v8z"></path></svg>
+<div class="w-5 h-2.5 border border-brand-dark/70 rounded-sm p-0.5 flex items-center">
+<div class="h-full w-full bg-brand-dark/70 rounded-2xs"></div>
+</div>
+</div>
+</div>
+<!-- App Header Bar -->
+<div class="flex items-center justify-between gap-2.5">
+<!-- Logo / App Name -->
+<div class="flex flex-col leading-none shrink-0" data-purpose="app-branding">
+<span class="font-bold text-[15px] tracking-tight text-brand-dark">Oficios</span>
+<span class="font-bold text-[15px] tracking-tight text-brand-primary -mt-0.5">Vecinos</span>
+</div>
+<!-- Inline Quick Search -->
+<div class="relative flex-1 min-w-[130px] max-w-[190px]" data-purpose="quick-search">
+<input class="w-full h-8 pl-3 pr-7 bg-white/90 border border-gray-300 rounded-full text-xs placeholder:text-gray-400 focus:outline-none focus:ring-1 focus:ring-brand-primary focus:border-brand-primary transition-all shadow-sm" placeholder="Buscar oficio" type="text"/>
+<button aria-label="Buscar" class="absolute right-2.5 top-1/2 -translate-y-1/2 text-gray-500 hover:text-brand-dark" type="button">
+<svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2.2" viewbox="0 0 24 24">
+<path d="m21 21-4.35-4.35m0 0A7.5 7.5 0 1 0 5.65 5.65a7.5 7.5 0 0 0 10.7 10.7z" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</button>
+</div>
+<!-- Actions: Chat & Profile Avatar -->
+<div class="flex items-center space-x-2 shrink-0" data-purpose="header-actions">
+<button aria-label="Mensajes" class="relative p-1.5 rounded-full text-brand-dark hover:bg-black/5 transition" type="button">
+<svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.8" viewbox="0 0 24 24">
+<path d="M8.625 12a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm0 0H8.25m4.125 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm0 0H12m4.125 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm0 0h-.375M21 12c0 4.556-4.03 8.25-9 8.25a9.764 9.764 0 0 1-2.555-.337A5.972 5.972 0 0 1 5.41 20.97a.75.75 0 0 1-.974-.94 5.942 5.942 0 0 0 .806-2.575C3.766 16.036 3 14.123 3 12c0-4.556 4.03-8.25 9-8.25s9 3.694 9 8.25Z" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+<span class="absolute top-1 right-1 w-2 h-2 bg-brand-primary rounded-full ring-2 ring-[#EBECEE]"></span>
+</button>
+<button aria-label="Perfil" class="w-8 h-8 rounded-full bg-brand-dark flex items-center justify-center text-white ring-2 ring-white/60 shadow-sm active:scale-95 transition-transform" type="button">
+<svg class="w-4 h-4 text-white" fill="currentColor" viewbox="0 0 24 24">
+<path clip-rule="evenodd" d="M7.5 6a4.5 4.5 0 1 1 9 0 4.5 4.5 0 0 1-9 0ZM3.751 20.105a8.25 8.25 0 0 1 16.498 0 .75.75 0 0 1-.437.695A18.683 18.683 0 0 1 12 22.5c-2.786 0-5.433-.608-7.812-1.7a.75.75 0 0 1-.437-.695Z" fill-rule="evenodd"></path>
+</svg>
+</button>
+</div>
+</div>
+</header>
+<!-- END: TopBarNav -->
+<!-- BEGIN: SubHeaderNav -->
+<section class="px-5 pt-3 pb-2 flex items-center justify-between" data-purpose="screen-subheader">
+<button aria-label="Regresar" class="w-8 h-8 -ml-1.5 flex items-center justify-center rounded-full text-brand-dark hover:bg-black/5 active:bg-black/10 transition" type="button">
+<svg class="w-5 h-5 stroke-[2.2]" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M10.5 19.5 3 12m0 0 7.5-7.5M3 12h18" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</button>
+<!-- Category / Craft Title -->
+<h1 class="text-base font-bold tracking-tight text-brand-dark text-center flex-1 pr-6">
+        Carpintero
+      </h1>
+</section>
+<!-- END: SubHeaderNav -->
+<!-- BEGIN: RequestsListContent -->
+<section class="flex-1 px-4 py-2 flex flex-col gap-3 overflow-y-auto hide-scrollbar pb-6" data-purpose="solicitudes-list">
+<!-- Card 1: Juan -->
+<article class="w-full bg-white rounded-2xl p-4 shadow-card-soft border border-brand-border flex flex-col items-center justify-center text-center transition-transform hover:-translate-y-0.5" data-purpose="request-item">
+<p class="text-[14px] font-semibold text-brand-dark leading-snug mb-3">
+          Juan necesita 3 mesas de roble
+        </p>
+<a class="inline-flex items-center gap-1.5 text-xs font-semibold text-brand-dark hover:text-brand-primary active:opacity-75 transition-colors py-0.5 px-2 rounded-md hover:bg-slate-50" data-purpose="action-view-ad" href="#">
+<svg class="w-4 h-4 text-brand-dark shrink-0" fill="currentColor" viewbox="0 0 20 20">
+<path clip-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a.75.75 0 000 1.5h.253a.25.25 0 01.244.304l-.459 2.066A1.75 1.75 0 0010.747 15H11a.75.75 0 000-1.5h-.253a.25.25 0 01-.244-.304l.459-2.066A1.75 1.75 0 009.253 9H9z" fill-rule="evenodd"></path>
+</svg>
+<span>Ver anuncio</span>
+</a>
+</article>
+<!-- Card 2: Pedro -->
+<article class="w-full bg-white rounded-2xl p-4 shadow-card-soft border border-brand-border flex flex-col items-center justify-center text-center transition-transform hover:-translate-y-0.5" data-purpose="request-item">
+<p class="text-[14px] font-semibold text-brand-dark leading-snug mb-3">
+          Pedro necesita 2 sillas de roble
+        </p>
+<a class="inline-flex items-center gap-1.5 text-xs font-semibold text-brand-dark hover:text-brand-primary active:opacity-75 transition-colors py-0.5 px-2 rounded-md hover:bg-slate-50" data-purpose="action-view-ad" href="#">
+<svg class="w-4 h-4 text-brand-dark shrink-0" fill="currentColor" viewbox="0 0 20 20">
+<path clip-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a.75.75 0 000 1.5h.253a.25.25 0 01.244.304l-.459 2.066A1.75 1.75 0 0010.747 15H11a.75.75 0 000-1.5h-.253a.25.25 0 01-.244-.304l.459-2.066A1.75 1.75 0 009.253 9H9z" fill-rule="evenodd"></path>
+</svg>
+<span>Ver anuncio</span>
+</a>
+</article>
+<!-- Card 3: Jorge -->
+<article class="w-full bg-white rounded-2xl p-4 shadow-card-soft border border-brand-border flex flex-col items-center justify-center text-center transition-transform hover:-translate-y-0.5" data-purpose="request-item">
+<p class="text-[14px] font-semibold text-brand-dark leading-snug mb-3">
+          Jorge necesita un perchero de cedro
+        </p>
+<a class="inline-flex items-center gap-1.5 text-xs font-semibold text-brand-dark hover:text-brand-primary active:opacity-75 transition-colors py-0.5 px-2 rounded-md hover:bg-slate-50" data-purpose="action-view-ad" href="#">
+<svg class="w-4 h-4 text-brand-dark shrink-0" fill="currentColor" viewbox="0 0 20 20">
+<path clip-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a.75.75 0 000 1.5h.253a.25.25 0 01.244.304l-.459 2.066A1.75 1.75 0 0010.747 15H11a.75.75 0 000-1.5h-.253a.25.25 0 01-.244-.304l.459-2.066A1.75 1.75 0 009.253 9H9z" fill-rule="evenodd"></path>
+</svg>
+<span>Ver anuncio</span>
+</a>
+</article>
+<!-- Card 4: Autorizado con certificación -->
+<article class="w-full bg-white rounded-2xl p-4 shadow-card-soft border border-brand-border flex flex-col items-center justify-center text-center transition-transform hover:-translate-y-0.5" data-purpose="request-item">
+<p class="text-[14px] font-semibold text-brand-dark leading-snug mb-3 px-2">
+          Se necesita carpintero autorizado con certificacion.
+        </p>
+<a class="inline-flex items-center gap-1.5 text-xs font-semibold text-brand-dark hover:text-brand-primary active:opacity-75 transition-colors py-0.5 px-2 rounded-md hover:bg-slate-50" data-purpose="action-view-ad" href="#">
+<svg class="w-4 h-4 text-brand-dark shrink-0" fill="currentColor" viewbox="0 0 20 20">
+<path clip-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a.75.75 0 000 1.5h.253a.25.25 0 01.244.304l-.459 2.066A1.75 1.75 0 0010.747 15H11a.75.75 0 000-1.5h-.253a.25.25 0 01-.244-.304l.459-2.066A1.75 1.75 0 009.253 9H9z" fill-rule="evenodd"></path>
+</svg>
+<span>Ver anuncio</span>
+</a>
+</article>
+<!-- Card 5: Jesica -->
+<article class="w-full bg-white rounded-2xl p-4 shadow-card-soft border border-brand-border flex flex-col items-center justify-center text-center transition-transform hover:-translate-y-0.5" data-purpose="request-item">
+<p class="text-[14px] font-semibold text-brand-dark leading-snug mb-3 px-1">
+          Jesica necesita servicios en general para su departamento
+        </p>
+<a class="inline-flex items-center gap-1.5 text-xs font-semibold text-brand-dark hover:text-brand-primary active:opacity-75 transition-colors py-0.5 px-2 rounded-md hover:bg-slate-50" data-purpose="action-view-ad" href="#">
+<svg class="w-4 h-4 text-brand-dark shrink-0" fill="currentColor" viewbox="0 0 20 20">
+<path clip-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a.75.75 0 000 1.5h.253a.25.25 0 01.244.304l-.459 2.066A1.75 1.75 0 0010.747 15H11a.75.75 0 000-1.5h-.253a.25.25 0 01-.244-.304l.459-2.066A1.75 1.75 0 009.253 9H9z" fill-rule="evenodd"></path>
+</svg>
+<span>Ver anuncio</span>
+</a>
+</article>
+</section>
+<!-- END: RequestsListContent -->
+<!-- BEGIN: BottomActionSection -->
+<!-- Sticky bottom bar holding the "Ofrecer nuevo servicio" capsule button (NO bottom tab navigation) -->
+<footer class="w-full p-4 pb-8 bg-gradient-to-t from-[#EBECEE] via-[#EBECEE]/90 to-transparent flex flex-col items-center justify-center shrink-0" data-purpose="footer-action">
+<button class="w-[200px] py-2.5 px-4 bg-[#DCDFE3] hover:bg-[#D0D4DA] active:scale-95 text-brand-dark font-semibold text-xs tracking-wide rounded-full text-center transition-all shadow-sm border border-black/5" type="button">
+        Ofrecer nuevo servicio
+      </button>
+<!-- iOS Home Indicator -->
+<div class="w-32 h-1 bg-brand-dark/25 rounded-full mt-5 mx-auto"></div>
+</footer>
+<!-- END: BottomActionSection -->
+</main>
+<!-- END: MobileFrame -->
+</body></html>

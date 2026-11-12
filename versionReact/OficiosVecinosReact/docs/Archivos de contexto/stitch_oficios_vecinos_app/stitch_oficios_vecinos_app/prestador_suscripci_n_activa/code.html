@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+
+<html lang="es"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport"/><meta content="mobile_stack" name="shell-type"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { "colors": { "error": "#ba1a1a", "on-tertiary-fixed": "#2a1700", "inverse-surface": "#2f3132", "on-secondary": "#ffffff", "secondary-fixed": "#d6e3ff", "primary": "#004c8a", "tertiary-container": "#8b5700", "on-tertiary": "#ffffff", "primary-container": "#1764ae", "tertiary-fixed-dim": "#ffb95f", "on-primary-fixed": "#001c39", "primary-fixed": "#d4e3ff", "surface-dim": "#dadadb", "secondary-container": "#cadafd", "on-error-container": "#93000a", "on-background": "#1a1c1d", "surface-tint": "#0d60a9", "surface-container": "#eeeeef", "tertiary-fixed": "#ffddb8", "secondary-fixed-dim": "#b6c7e9", "on-tertiary-container": "#ffd9ae", "on-primary": "#ffffff", "error-container": "#ffdad6", "surface-container-highest": "#e2e2e3", "inverse-on-surface": "#f1f0f1", "primary-fixed-dim": "#a4c9ff", "on-secondary-fixed": "#091b36", "surface-variant": "#e2e2e3", "surface-container-high": "#e8e8e9", "on-primary-container": "#cee0ff", "on-tertiary-fixed-variant": "#653e00", "surface-bright": "#f9f9fa", "tertiary": "#6a4200", "inverse-primary": "#a4c9ff", "on-error": "#ffffff", "secondary": "#4f5f7c", "background": "#f9f9fa", "on-surface-variant": "#414751", "surface": "#f9f9fa", "on-surface": "#1a1c1d", "surface-container-lowest": "#ffffff", "on-primary-fixed-variant": "#004883", "on-secondary-fixed-variant": "#374763", "outline": "#727782", "outline-variant": "#c1c7d3", "on-secondary-container": "#4f5f7d", "surface-container-low": "#f4f3f4" }, "borderRadius": { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" }, "spacing": { "space-lg": "1.5rem", "space-xs": "0.25rem", "margin": "1.5rem", "gutter": "1rem", "margin-mobile": "1rem", "space-sm": "0.5rem", "gutter-mobile": "0.75rem", "space-md": "1rem", "space-xl": "2rem" }, "fontFamily": { "body-sm": ["Plus Jakarta Sans"], "headline-xl-mobile": ["Plus Jakarta Sans"], "headline-sm": ["Plus Jakarta Sans"], "headline-xl": ["Plus Jakarta Sans"], "label-lg": ["Plus Jakarta Sans"], "headline-lg": ["Plus Jakarta Sans"], "headline-lg-mobile": ["Plus Jakarta Sans"], "body-lg": ["Plus Jakarta Sans"], "body-md": ["Plus Jakarta Sans"], "label-md": ["Plus Jakarta Sans"], "label-sm": ["Plus Jakarta Sans"], "headline-md": ["Plus Jakarta Sans"] }, "fontSize": { "body-sm": ["13px", { "lineHeight": "18px", "fontWeight": "400" }], "headline-xl-mobile": ["28px", { "lineHeight": "34px", "letterSpacing": "-0.02em", "fontWeight": "800" }], "headline-sm": ["17px", { "lineHeight": "22px", "fontWeight": "600" }], "headline-xl": ["36px", { "lineHeight": "44px", "letterSpacing": "-0.02em", "fontWeight": "800" }], "label-lg": ["15px", { "lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "600" }], "headline-lg": ["30px", { "lineHeight": "38px", "letterSpacing": "-0.015em", "fontWeight": "700" }], "headline-lg-mobile": ["24px", { "lineHeight": "30px", "letterSpacing": "-0.015em", "fontWeight": "700" }], "body-lg": ["17px", { "lineHeight": "26px", "fontWeight": "400" }], "body-md": ["15px", { "lineHeight": "22px", "fontWeight": "400" }], "label-md": ["13px", { "lineHeight": "16px", "letterSpacing": "0.02em", "fontWeight": "600" }], "label-sm": ["11px", { "lineHeight": "14px", "letterSpacing": "0.04em", "fontWeight": "700" }], "headline-md": ["20px", { "lineHeight": "26px", "letterSpacing": "-0.01em", "fontWeight": "700" }] } } } }</script><style>@layer base { html, body { width: 100vw; margin: 0; padding: 0; min-height: 100%; background-color: #f9f9fa; } body { overscroll-behavior-y: none; } .pb-safe { padding-bottom: env(safe-area-inset-bottom, 0px); } .pt-safe { padding-top: env(safe-area-inset-top, 0px); } main > :first-child { margin-top: 0 !important; } main > :last-child { margin-bottom: 0 !important; } } ::-webkit-scrollbar { display: none; }</style><style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head><body class="bg-surface font-body-md text-body-md text-on-surface flex flex-col min-h-screen"><header class="fixed top-0 w-full z-50 pt-safe bg-surface/85 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="h-16 px-margin-mobile flex items-center justify-between"><div class="flex items-center gap-space-sm"><button aria-label="Volver" class="w-11 h-11 -ml-space-xs flex items-center justify-center rounded-full text-on-surface hover:bg-surface-container transition-colors" onclick="history.back()" type="button"><span class="material-symbols-outlined text-[24px]">arrow_back</span></button><div class="flex flex-col"><span class="font-label-sm text-label-sm text-primary uppercase tracking-wider leading-none">Prestador</span><h1 class="font-headline-sm text-headline-sm text-on-surface truncate">Detalle De Solicitud</h1></div></div><div class="flex items-center gap-space-xs"><button aria-label="Buscar solicitudes" class="w-11 h-11 flex items-center justify-center rounded-full text-on-surface hover:bg-surface-container transition-colors" type="button"><span class="material-symbols-outlined text-[22px]">search</span></button><a aria-label="Mensajes y notificaciones" class="relative w-11 h-11 flex items-center justify-center rounded-full text-on-surface hover:bg-surface-container transition-colors" data-path="mensajes-chat" href="#"><span class="material-symbols-outlined text-[22px]">chat_bubble</span><span class="absolute top-2.5 right-2.5 w-2 h-2 rounded-full bg-error ring-2 ring-surface"></span></a><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center ml-space-xs"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></header><main class="flex flex-col relative w-full pt-16 pb-safe bg-surface min-h-screen"><div class="flex flex-col w-full pb-10">
+<div class="px-margin-mobile pt-space-md flex flex-col gap-space-lg">
+<!-- Hero / Celebration Visual Element -->
+<div class="relative w-full rounded-xl overflow-hidden bg-primary-container text-on-primary p-space-lg shadow-md flex flex-col items-center text-center">
+<!-- Decorative background glow and texture -->
+<div class="absolute -right-8 -top-8 w-36 h-36 rounded-full bg-secondary-fixed opacity-10 blur-2xl pointer-events-none"></div>
+<div class="absolute -left-8 -bottom-8 w-32 h-32 rounded-full bg-tertiary-fixed opacity-15 blur-xl pointer-events-none"></div>
+<!-- Icon Badge with Delight Ring -->
+<div class="relative flex items-center justify-center mb-space-sm">
+<div class="w-16 h-16 rounded-full bg-surface-container-lowest/15 flex items-center justify-center backdrop-blur-md shadow-sm">
+<span class="material-symbols-outlined text-[36px] text-tertiary-fixed" style="font-variation-settings: 'FILL' 1;">workspace_premium</span>
+</div>
+<span class="absolute -bottom-1 -right-1 flex h-5 w-5">
+<span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-tertiary-fixed opacity-75"></span>
+<span class="relative inline-flex rounded-full h-5 w-5 bg-tertiary-fixed items-center justify-center text-on-tertiary-fixed">
+<span class="material-symbols-outlined text-[14px]">check</span>
+</span>
+</span>
+</div>
+<!-- Subscription Status Headline -->
+<div class="inline-flex items-center gap-space-xs px-space-sm py-1 rounded-full bg-surface-container-lowest/20 backdrop-blur-sm mb-space-xs">
+<span class="w-2 h-2 rounded-full bg-tertiary-fixed animate-pulse"></span>
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-surface-container-lowest">SUSCRIPCIÓN ACTIVA</span>
+</div>
+<h2 class="font-headline-lg-mobile text-headline-lg-mobile text-on-primary">Actualmente está suscrito</h2>
+<p class="font-body-sm text-body-sm text-on-primary-container mt-1">Membresía Profesional Oficios Vecinos • Renovación automática</p>
+</div>
+<!-- Active Subscription Details & Benefits Card -->
+<div class="bg-surface-container-lowest rounded-xl p-space-lg shadow-sm flex flex-col gap-space-md">
+<!-- Subscription Metainfo Header -->
+<div class="flex items-center justify-between pb-space-xs">
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-secondary uppercase tracking-wider">Plan Activo</span>
+<span class="font-headline-sm text-headline-sm text-on-surface">Plan Maestro Pro</span>
+</div>
+<div class="text-right flex flex-col items-end">
+<span class="font-label-sm text-label-sm text-secondary">Próximo cobro</span>
+<span class="font-label-md text-label-md text-primary">15 Oct, 2024</span>
+</div>
+</div>
+<!-- Divider -->
+<div class="w-full h-px bg-surface-container"></div>
+<!-- Section Title -->
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-primary text-[20px]" style="font-variation-settings: 'FILL' 1;">verified</span>
+<h3 class="font-label-lg text-label-lg text-on-surface">Tus beneficios son:</h3>
+</div>
+<!-- Benefits List -->
+<div class="flex flex-col gap-space-sm">
+<!-- Benefit 1 -->
+<div class="flex items-start gap-space-sm p-space-sm rounded-lg bg-surface-container-low transition-colors hover:bg-surface-container">
+<div class="w-9 h-9 rounded-full bg-secondary-fixed flex items-center justify-center shrink-0 mt-0.5">
+<span class="material-symbols-outlined text-[20px] text-on-secondary-fixed">visibility</span>
+</div>
+<div class="flex flex-col min-w-0">
+<span class="font-label-md text-label-md text-on-surface">Mayor visibilidad</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Tu perfil destaca en los primeros resultados de búsqueda de tu vecindario.</span>
+</div>
+</div>
+<!-- Benefit 2 -->
+<div class="flex items-start gap-space-sm p-space-sm rounded-lg bg-surface-container-low transition-colors hover:bg-surface-container">
+<div class="w-9 h-9 rounded-full bg-tertiary-fixed flex items-center justify-center shrink-0 mt-0.5">
+<span class="material-symbols-outlined text-[20px] text-on-tertiary-fixed">percent</span>
+</div>
+<div class="flex flex-col min-w-0">
+<span class="font-label-md text-label-md text-on-surface">Comisión del 0% de la app</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Conserva el 100% del pago acordado en todos tus servicios ofrecidos.</span>
+</div>
+</div>
+<!-- Benefit 3 -->
+<div class="flex items-start gap-space-sm p-space-sm rounded-lg bg-surface-container-low transition-colors hover:bg-surface-container">
+<div class="w-9 h-9 rounded-full bg-primary-fixed flex items-center justify-center shrink-0 mt-0.5">
+<span class="material-symbols-outlined text-[20px] text-on-primary-fixed">support_agent</span>
+</div>
+<div class="flex flex-col min-w-0">
+<span class="font-label-md text-label-md text-on-surface">Soporte prioritario y contacto directo</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Línea prioritaria 24/7 y mensajería inmediata sin intermediarios con clientes.</span>
+</div>
+</div>
+</div>
+<!-- Neighbor Trust Guarantee Pill -->
+<div class="flex items-center gap-space-sm px-space-md py-space-sm rounded-lg bg-surface-container mt-space-xs">
+<span class="material-symbols-outlined text-secondary text-[22px]">format_image_left</span>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Protegido por la garantía de confianza barrial entre vecinos.</p>
+</div>
+<!-- Card Action Button -->
+<div class="pt-space-sm flex flex-col items-center gap-space-xs">
+<button class="w-full h-[52px] rounded-xl bg-surface-container-high text-on-surface-variant font-label-lg text-label-lg flex items-center justify-center gap-space-xs hover:bg-surface-dim active:scale-[0.98] transition-all" id="btn-cancel-modal" type="button">
+<span class="material-symbols-outlined text-[20px]">cancel</span>
+<span>Cancelar suscripción</span>
+</button>
+<span class="font-label-sm text-label-sm text-secondary">Podrás seguir usando tus beneficios hasta el fin del ciclo</span>
+</div>
+</div>
+<!-- Community Proof / Guild Insights Widget -->
+<div class="bg-surface-container-lowest rounded-xl p-space-md shadow-sm flex items-center gap-space-md">
+<div class="w-12 h-12 rounded-xl bg-surface-container-high flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-primary text-[26px]">handshake</span>
+</div>
+<div class="flex flex-col min-w-0">
+<span class="font-label-md text-label-md text-on-surface">Comunidad Activa</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant truncate">Más de 480 vecinos han contratado especialistas este mes.</span>
+</div>
+</div>
+</div>
+<!-- Cancellation Warning Dialog (Hidden by Default) -->
+<div class="fixed inset-0 z-50 bg-inverse-surface/50 backdrop-blur-sm hidden items-end sm:items-center justify-center p-space-md" id="cancel-dialog">
+<div class="w-full max-w-sm bg-surface-container-lowest rounded-xl p-space-lg shadow-xl flex flex-col gap-space-md animate-in fade-in duration-200">
+<div class="w-12 h-12 rounded-full bg-error-container text-on-error-container flex items-center justify-center">
+<span class="material-symbols-outlined text-[26px]">warning</span>
+</div>
+<div class="flex flex-col gap-1">
+<h4 class="font-headline-sm text-headline-sm text-on-surface">¿Deseas cancelar tu suscripción?</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Perderás la visibilidad prioritaria en búsquedas vecinales y la tarifa de 0% de comisión al terminar tu ciclo actual.</p>
+</div>
+<div class="flex flex-col gap-space-xs pt-space-xs">
+<button class="w-full h-12 rounded-full bg-primary text-on-primary font-label-lg text-label-lg active:scale-95 transition-transform" id="btn-keep-sub" type="button">
+          Mantener mi suscripción
+        </button>
+<button class="w-full h-12 rounded-full bg-surface-container text-error font-label-md text-label-md hover:bg-error-container hover:text-on-error-container transition-colors" id="btn-confirm-cancel" type="button">
+          Confirmar cancelación
+        </button>
+</div>
+</div>
+</div>
+</div>
+<script>
+  (function() {
+    const cancelModal = document.getElementById('cancel-dialog');
+    const openBtn = document.getElementById('btn-cancel-modal');
+    const keepBtn = document.getElementById('btn-keep-sub');
+    const confirmBtn = document.getElementById('btn-confirm-cancel');
+
+    if (openBtn && cancelModal) {
+      openBtn.addEventListener('click', () => {
+        cancelModal.classList.remove('hidden');
+        cancelModal.classList.add('flex');
+      });
+    }
+
+    if (keepBtn && cancelModal) {
+      keepBtn.addEventListener('click', () => {
+        cancelModal.classList.add('hidden');
+        cancelModal.classList.remove('flex');
+      });
+    }
+
+    if (confirmBtn && cancelModal) {
+      confirmBtn.addEventListener('click', () => {
+        cancelModal.classList.add('hidden');
+        cancelModal.classList.remove('flex');
+        alert('Tu solicitud de cancelación ha sido procesada.');
+      });
+    }
+  })();
+</script></main></body></html>

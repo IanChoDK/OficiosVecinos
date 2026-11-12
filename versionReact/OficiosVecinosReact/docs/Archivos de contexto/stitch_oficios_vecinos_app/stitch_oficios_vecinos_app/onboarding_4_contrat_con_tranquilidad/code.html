@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+
+<html lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport"/>
+<title>Oficios Vecinos - Onboarding</title>
+<!-- Tailwind CSS CDN with plugins -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Google Fonts: Plus Jakarta Sans -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<!-- BEGIN: Tailwind Configuration -->
+<script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'system-ui', '-apple-system', 'sans-serif'],
+          },
+          colors: {
+            app: {
+              bg: '#EDEDED',
+              card: '#FFFFFF',
+              dark: '#1E1E1E',
+              subtle: '#525252',
+              pill: '#525252',
+              surface: '#DCDCDC',
+              accent: '#3B82F6',
+              star: '#F59E0B'
+            }
+          }
+        }
+      }
+    }
+  </script>
+<!-- END: Tailwind Configuration -->
+<!-- BEGIN: Custom Styles -->
+<style data-purpose="mobile-ios-layout">
+    body {
+      font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+      -webkit-font-smoothing: antialiased;
+      -webkit-tap-highlight-color: transparent;
+      user-select: none;
+    }
+    
+    /* Support for iOS Safe Areas */
+    .pt-safe {
+      padding-top: env(safe-area-inset-top, 16px);
+    }
+    .pb-safe {
+      padding-bottom: env(safe-area-inset-bottom, 20px);
+    }
+  </style>
+<!-- END: Custom Styles -->
+</head>
+<body class="bg-neutral-800 text-neutral-900 flex justify-center items-center min-h-screen p-0 sm:p-4">
+<!-- BEGIN: MobileDeviceFrame -->
+<div class="w-full max-w-[393px] h-[852px] bg-[#EDEDED] relative flex flex-col justify-between overflow-hidden shadow-2xl sm:rounded-[44px] border border-neutral-300">
+<!-- BEGIN: TopBarSection -->
+<header class="w-full pt-safe px-6 pt-5 pb-3 flex items-center justify-between z-10" data-purpose="screen-header">
+<!-- Brand Logo / Name -->
+<div class="flex flex-col leading-tight">
+<span class="text-base font-bold text-neutral-900 tracking-tight leading-4">Oficios</span>
+<span class="text-base font-bold text-neutral-900 tracking-tight leading-4">Vecinos</span>
+</div>
+<!-- Skip Button -->
+<button class="bg-[#525252] hover:bg-[#404040] active:scale-95 transition-all text-white text-xs font-semibold px-4 py-1.5 rounded-lg shadow-sm" data-purpose="skip-button" type="button">
+        Omitir
+      </button>
+</header>
+<!-- END: TopBarSection -->
+<!-- BEGIN: MainContentSection -->
+<main class="flex-1 flex flex-col items-center justify-center px-6 w-full max-w-sm mx-auto" data-purpose="onboarding-step-body">
+<!-- Central Graphic Illustration Container -->
+<div class="w-full aspect-square max-w-[280px] bg-white rounded-3xl p-6 shadow-sm border border-neutral-200/80 flex flex-col items-center justify-center gap-6 mb-7" data-purpose="visual-illustration">
+<!-- Review Rating Stars -->
+<div class="flex items-center justify-center gap-1.5 w-full" data-purpose="rating-stars">
+<!-- Star 1 -->
+<svg class="w-8 h-8 text-neutral-800 fill-transparent stroke-neutral-800 stroke-[1.8]" stroke-linecap="round" stroke-linejoin="round" viewbox="0 0 24 24">
+<polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+</svg>
+<!-- Star 2 -->
+<svg class="w-8 h-8 text-neutral-800 fill-transparent stroke-neutral-800 stroke-[1.8]" stroke-linecap="round" stroke-linejoin="round" viewbox="0 0 24 24">
+<polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+</svg>
+<!-- Star 3 -->
+<svg class="w-8 h-8 text-neutral-800 fill-transparent stroke-neutral-800 stroke-[1.8]" stroke-linecap="round" stroke-linejoin="round" viewbox="0 0 24 24">
+<polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+</svg>
+<!-- Star 4 -->
+<svg class="w-8 h-8 text-neutral-800 fill-transparent stroke-neutral-800 stroke-[1.8]" stroke-linecap="round" stroke-linejoin="round" viewbox="0 0 24 24">
+<polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+</svg>
+<!-- Star 5 -->
+<svg class="w-8 h-8 text-neutral-800 fill-transparent stroke-neutral-800 stroke-[1.8]" stroke-linecap="round" stroke-linejoin="round" viewbox="0 0 24 24">
+<polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+</svg>
+</div>
+<!-- Feedback / Comment Card Simulation -->
+<div class="w-full bg-[#D1D5DB] rounded-2xl p-5 flex flex-col justify-center gap-3 h-24 shadow-inner" data-purpose="review-card-representation">
+<!-- Text Skeleton Line 1 -->
+<div class="w-11/12 h-2.5 bg-neutral-800 rounded-full"></div>
+<!-- Text Skeleton Line 2 -->
+<div class="w-3/4 h-2.5 bg-neutral-800 rounded-full"></div>
+</div>
+</div>
+<!-- Text Container: Title & Description -->
+<div class="text-center flex flex-col items-center max-w-[310px]">
+<h1 class="text-xl sm:text-[22px] font-extrabold text-neutral-900 tracking-tight leading-snug mb-3">
+          Contrata con tranquilidad
+        </h1>
+<p class="text-xs sm:text-[13px] font-medium text-neutral-700 leading-relaxed text-balance">
+          Aceptamos medios de pago tanto virtual como efectivo, y podes leer resenas de otros vecinos.
+        </p>
+</div>
+</main>
+<!-- END: MainContentSection -->
+<!-- BEGIN: FooterActionSection -->
+<footer class="w-full pb-safe px-6 pb-6 flex flex-col items-center gap-5" data-purpose="screen-footer">
+<!-- Stepper / Pagination Dots (4th Active) -->
+<div aria-label="Paso 4 de 5" class="flex items-center justify-center gap-1.5" data-purpose="pagination-indicator">
+<span class="w-1.5 h-1.5 rounded-full bg-neutral-800"></span>
+<span class="w-1.5 h-1.5 rounded-full bg-neutral-800"></span>
+<span class="w-1.5 h-1.5 rounded-full bg-neutral-800"></span>
+<!-- Active 4th Dot with pill shape -->
+<span class="w-3.5 h-1.5 rounded-full bg-neutral-900"></span>
+<span class="w-1.5 h-1.5 rounded-full bg-neutral-800"></span>
+</div>
+<!-- Action Button -->
+<button class="w-full h-12 bg-[#525252] hover:bg-[#404040] active:scale-[0.99] transition-all text-white font-semibold text-base rounded-xl shadow-md flex items-center justify-center" data-purpose="next-button" type="button">
+        Siguiente
+      </button>
+<!-- Home Indicator bar on modern iOS devices -->
+<div aria-hidden="true" class="w-32 h-1 bg-neutral-400/60 rounded-full mx-auto mt-1"></div>
+</footer>
+<!-- END: FooterActionSection -->
+</div>
+<!-- END: MobileDeviceFrame -->
+</body></html>

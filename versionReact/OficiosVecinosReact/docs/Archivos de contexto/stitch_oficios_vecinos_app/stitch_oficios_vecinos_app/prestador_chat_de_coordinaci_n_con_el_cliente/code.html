@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+
+<html lang="es"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport"/><meta content="mobile_stack" name="shell-type"/><title>Oficios Vecinos</title><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{width:100%;margin:0;padding:0;min-height:100%;}body{overscroll-behavior-y:none;-webkit-tap-highlight-color:transparent;}.pb-safe{padding-bottom:env(safe-area-inset-bottom,0px);}.pt-safe{padding-top:env(safe-area-inset-top,0px);}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { colors: { "on-surface": "#1a1c1d", "on-primary-fixed-variant": "#004883", "on-tertiary-fixed": "#2a1700", "on-secondary": "#ffffff", "on-primary-fixed": "#001c39", "inverse-on-surface": "#f1f0f1", "secondary-container": "#cadafd", "on-background": "#1a1c1d", "surface-variant": "#e2e2e3", "on-error-container": "#93000a", "on-surface-variant": "#414751", "background": "#f9f9fa", "tertiary-fixed-dim": "#ffb95f", "surface-container-high": "#e8e8e9", "surface-container-lowest": "#ffffff", "primary-fixed-dim": "#a4c9ff", "on-secondary-fixed": "#091b36", "error-container": "#ffdad6", "on-tertiary-fixed-variant": "#653e00", "on-secondary-fixed-variant": "#374763", "outline-variant": "#c1c7d3", "on-secondary-container": "#4f5f7d", "primary": "#004c8a", "outline": "#727782", "on-tertiary-container": "#ffd9ae", "secondary": "#4f5f7c", "inverse-primary": "#a4c9ff", "surface": "#f9f9fa", "tertiary-container": "#8b5700", "tertiary-fixed": "#ffddb8", "on-primary": "#ffffff", "surface-tint": "#0d60a9", "surface-container-low": "#f4f3f4", "secondary-fixed-dim": "#b6c7e9", "on-primary-container": "#cee0ff", "secondary-fixed": "#d6e3ff", "surface-container-highest": "#e2e2e3", "on-tertiary": "#ffffff", "primary-container": "#1764ae", "on-error": "#ffffff", "inverse-surface": "#2f3132", "surface-bright": "#f9f9fa", "error": "#ba1a1a", "tertiary": "#6a4200", "surface-container": "#eeeeef", "surface-dim": "#dadadb", "primary-fixed": "#d4e3ff" }, borderRadius: { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" }, spacing: { "space-sm": "0.5rem", "space-md": "1rem", "gutter": "1rem", "margin-mobile": "1rem", "space-lg": "1.5rem", "space-xs": "0.25rem", "space-xl": "2rem", "gutter-mobile": "0.75rem", "margin": "1.5rem" }, fontFamily: { "headline-xl-mobile": ["Plus Jakarta Sans"], "headline-lg-mobile": ["Plus Jakarta Sans"], "headline-xl": ["Plus Jakarta Sans"], "headline-lg": ["Plus Jakarta Sans"], "body-sm": ["Plus Jakarta Sans"], "label-lg": ["Plus Jakarta Sans"], "headline-md": ["Plus Jakarta Sans"], "body-md": ["Plus Jakarta Sans"], "label-md": ["Plus Jakarta Sans"], "body-lg": ["Plus Jakarta Sans"], "label-sm": ["Plus Jakarta Sans"], "headline-sm": ["Plus Jakarta Sans"] }, fontSize: { "headline-xl-mobile": ["28px", { lineHeight: "34px", letterSpacing: "-0.02em", fontWeight: "800" }], "headline-lg-mobile": ["24px", { lineHeight: "30px", letterSpacing: "-0.015em", fontWeight: "700" }], "headline-xl": ["36px", { lineHeight: "44px", letterSpacing: "-0.02em", fontWeight: "800" }], "headline-lg": ["30px", { lineHeight: "38px", letterSpacing: "-0.015em", fontWeight: "700" }], "body-sm": ["13px", { lineHeight: "18px", fontWeight: "400" }], "label-lg": ["15px", { lineHeight: "20px", letterSpacing: "0.01em", fontWeight: "600" }], "headline-md": ["20px", { lineHeight: "26px", letterSpacing: "-0.01em", fontWeight: "700" }], "body-md": ["15px", { lineHeight: "22px", fontWeight: "400" }], "label-md": ["13px", { lineHeight: "16px", letterSpacing: "0.02em", fontWeight: "600" }], "body-lg": ["17px", { lineHeight: "26px", fontWeight: "400" }], "label-sm": ["11px", { lineHeight: "14px", letterSpacing: "0.04em", fontWeight: "700" }], "headline-sm": ["17px", { lineHeight: "22px", fontWeight: "600" }] } } } };</script><style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head><body class="bg-surface font-body-md text-on-surface antialiased flex flex-col min-h-screen"><header class="fixed top-0 inset-x-0 z-50 bg-surface/90 backdrop-blur-xl pt-safe shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="h-28 px-margin-mobile flex flex-col justify-center gap-space-xs"><div class="flex items-center justify-between gap-space-sm"><div class="flex items-center gap-space-xs"><button aria-label="Volver atrás" class="w-11 h-11 flex items-center justify-center rounded-full text-on-surface hover:bg-surface-container active:scale-95 transition-all" onclick="history.back()" type="button"><span class="material-symbols-outlined text-[24px]">arrow_back</span></button><div class="flex flex-col"><span class="font-headline-sm text-headline-sm text-primary tracking-tight leading-none">Oficios Vecinos</span><span class="font-label-sm text-label-sm text-on-surface-variant">Chat Solicitud</span></div></div><div class="flex items-center gap-space-xs"><a aria-label="Mensajes y chats del pedido" class="relative w-11 h-11 flex items-center justify-center rounded-full text-on-surface-variant hover:bg-surface-container active:scale-95 transition-all" data-path="chat-solicitud" href="#"><span class="material-symbols-outlined text-[24px]">chat</span><span class="absolute top-2 right-2 w-2.5 h-2.5 bg-error rounded-full ring-2 ring-surface"></span></a><div class="flex items-center gap-space-xs pl-space-xs"><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center shadow-sm" title="Roberto - Prestador"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div><span class="hidden xs:inline-block font-label-md text-label-md text-on-surface font-semibold">Roberto</span></div></div></div><div class="w-full"><div class="relative flex items-center w-full"><span class="material-symbols-outlined absolute left-3 text-outline text-[20px] pointer-events-none">search</span><input aria-label="Búsqueda rápida" class="w-full h-11 pl-10 pr-space-md bg-surface-container-lowest rounded-xl font-body-sm text-body-sm text-on-surface placeholder:text-outline border-none outline-none focus:ring-2 focus:ring-primary shadow-[0_2px_8px_rgba(0,17,43,0.04)] transition-all" placeholder="Buscar en solicitudes, calles o servicios..." type="search"/></div></div></div></header><main class="flex flex-col relative w-full px-margin-mobile pt-28 pb-safe bg-surface flex-grow"><div class="flex flex-col w-full pb-2">
+<!-- Sub-header de conversación activa -->
+<div class="flex items-center justify-between gap-space-sm py-space-sm mb-space-sm bg-surface-container-lowest rounded-xl p-space-sm shadow-[0_4px_12px_rgba(0,17,43,0.04),0_1px_2px_rgba(0,17,43,0.02)]">
+<div class="flex items-center gap-space-sm min-w-0">
+<button aria-label="Volver atrás" class="w-10 h-10 flex items-center justify-center rounded-full bg-surface-container hover:bg-surface-variant text-on-surface active:scale-95 transition-all" onclick="history.back()" type="button">
+<span class="material-symbols-outlined text-[22px]">arrow_back</span>
+</button>
+<div class="relative shrink-0">
+<div class="w-11 h-11 rounded-full overflow-hidden bg-surface-container shadow-sm">
+<img class="w-full h-full object-cover" data-alt="Portrait of Juan Pedernera, a friendly South American middle-aged homeowner with a warm smile, wearing a casual navy polo shirt, standing in his naturally lit entryway, documentary style, realistic lighting, soft neighborhood colors" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAsFaJ-_ky0530eky-ZqI6CXGJOwnI9xvYDi9JJjL7rAW6-XHu0IY3ZzVo_G13G46rKpJ-pxJzWcxN6Qwok9MogGWkfVvYLQ29X7hOTQc-Nij2bjrt8dCI2238TU_VFuevebLDv7P0nM6ZPgvYzlmO5neEZ4CsbYF5Tv0Wc5fGEOIkJHnlD_12hehhbx051GBv-yGcMNzuszUI7tSxxrygbydxELtT0VxQ7quGJs6Xz"/>
+</div>
+<span class="absolute bottom-0 right-0 w-3 h-3 bg-emerald-500 rounded-full ring-2 ring-surface-container-lowest" title="En línea"></span>
+</div>
+<div class="flex flex-col min-w-0">
+<div class="flex items-center gap-1.5">
+<h2 class="font-headline-sm text-headline-sm text-on-surface truncate leading-tight">Juan Pedernera</h2>
+<span class="inline-flex items-center px-1.5 py-0.5 rounded-full bg-emerald-100 text-[#065f46] font-label-sm text-label-sm shrink-0" title="Identidad vecinal verificada">
+<span class="material-symbols-outlined text-[13px] mr-0.5" style="font-variation-settings: 'FILL' 1;">verified</span>
+            Vecino
+          </span>
+</div>
+<span class="font-body-sm text-body-sm text-emerald-600 flex items-center gap-1 leading-none mt-0.5">
+<span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
+          En línea ahora
+        </span>
+</div>
+</div>
+<div class="flex items-center gap-1 shrink-0">
+<a aria-label="Llamar a Juan Pedernera" class="w-10 h-10 flex items-center justify-center rounded-full bg-primary/10 text-primary hover:bg-primary/20 active:scale-95 transition-all" href="tel:+5491123456789" title="Llamada de coordinación">
+<span class="material-symbols-outlined text-[20px]">call</span>
+</a>
+<button aria-label="Opciones del chat" class="w-10 h-10 flex items-center justify-center rounded-full text-on-surface-variant hover:bg-surface-container active:scale-95 transition-all" type="button">
+<span class="material-symbols-outlined text-[20px]">more_vert</span>
+</button>
+</div>
+</div>
+<!-- Banner anclado del servicio aceptado -->
+<section aria-label="Ficha del servicio acordado" class="mb-space-md">
+<div class="bg-surface-container-lowest rounded-xl p-space-sm shadow-[0_4px_12px_rgba(0,17,43,0.04),0_1px_2px_rgba(0,17,43,0.02)]">
+<div class="flex items-start justify-between gap-space-sm">
+<div class="flex items-center gap-space-xs min-w-0">
+<div class="w-9 h-9 rounded-lg bg-primary-fixed flex items-center justify-center text-primary shrink-0">
+<span class="material-symbols-outlined text-[20px]">handyman</span>
+</div>
+<div class="flex flex-col min-w-0">
+<div class="flex items-center gap-1.5 flex-wrap">
+<span class="font-label-sm text-label-sm text-primary uppercase tracking-wider font-bold">Carpintería</span>
+<span class="text-outline-variant">•</span>
+<span class="font-headline-sm text-headline-sm text-on-surface truncate">Reparación bajo mesada</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant flex items-center gap-1 mt-0.5">
+<span class="material-symbols-outlined text-[16px] text-outline">calendar_today</span>
+              Lunes 18 • 17:00 hs
+              <span class="text-outline-variant">•</span>
+<span class="material-symbols-outlined text-[16px] text-outline">pin_drop</span>
+              A 600m
+            </p>
+</div>
+</div>
+<span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-primary/10 text-primary font-label-sm text-label-sm font-semibold shrink-0">
+<span class="material-symbols-outlined text-[14px]" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+          Aceptado
+        </span>
+</div>
+<!-- Quick action drawer trigger dentro de la card -->
+<div class="mt-space-xs pt-space-xs flex items-center justify-between text-on-surface-variant">
+<span class="font-label-sm text-label-sm text-outline flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">lock</span>
+          Pago asegurado por Oficios Vecinos
+        </span>
+<button class="font-label-sm text-label-sm text-primary font-semibold flex items-center gap-0.5 hover:underline" type="button">
+          Ver detalles
+          <span class="material-symbols-outlined text-[14px]">chevron_right</span>
+</button>
+</div>
+</div>
+</section>
+<!-- Hilo de Mensajes -->
+<div aria-live="polite" class="flex flex-col gap-space-md mb-4" id="chatThread" role="log">
+<!-- Divisor de Fecha -->
+<div class="flex items-center justify-center my-1">
+<span class="px-3 py-1 rounded-full bg-surface-container text-on-surface-variant font-label-sm text-label-sm shadow-sm">
+        Hoy, 15:42
+      </span>
+</div>
+<!-- Mensaje del Sistema Automático -->
+<div class="flex justify-center w-full px-space-xs">
+<div class="max-w-[92%] bg-surface-container rounded-xl p-space-sm flex items-start gap-space-xs text-on-surface-variant shadow-[0_1px_4px_rgba(0,17,43,0.03)]">
+<span class="material-symbols-outlined text-primary text-[20px] shrink-0 mt-0.5" style="font-variation-settings: 'FILL' 1;">verified_user</span>
+<div class="flex flex-col text-left">
+<p class="font-body-sm text-body-sm text-on-surface leading-snug">
+<strong class="font-semibold text-primary">Solicitud aceptada</strong> por Roberto Gómez. Se habilitó el canal de comunicación directa para coordinar detalles de llegada y materiales.
+          </p>
+<span class="font-label-sm text-label-sm text-outline mt-1">Canal seguro y monitoreado</span>
+</div>
+</div>
+</div>
+<!-- Mensaje Entrante (Cliente - Juan) -->
+<div class="flex flex-col items-start max-w-[85%] self-start">
+<div class="flex items-end gap-1.5">
+<div class="w-6 h-6 rounded-full overflow-hidden bg-surface-container shrink-0 mb-1">
+<img class="w-full h-full object-cover" data-alt="Small thumbnail avatar of client Juan, realistic South American neighbor portrait" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA3L94ZilmOvBWpSq0EnPsAs3Ud-c33dYMPwWEgU0aGzr8LsIKWTqNTfgriSZlW-U7OZvfE557Jyf79VAAidezzCoQo-sL9nNBXH-OQB2s06fGqRENAHcqT1w36nS3sLeUdiHdpLixh5DYz3CT6-XdQrHOYqsK34L368Ra09SmL6yckCGggnzqVF6AvOMdb9SFCVOlR3GgKH56Efizp08tE25aPTR9O5kAAHVH_lsv5"/>
+</div>
+<div class="bg-surface-container-lowest rounded-2xl rounded-bl-sm p-space-sm text-on-surface shadow-[0_4px_12px_rgba(0,17,43,0.04),0_1px_2px_rgba(0,17,43,0.02)]">
+<p class="font-body-md text-body-md leading-relaxed text-on-surface">
+            Hola Roberto, ¡muchas gracias por tomar la solicitud tan rápido! ¿Te queda bien pasar a las 17:00 hs puntual? Tengo las bisagras que compré por si sirven.
+          </p>
+<div class="flex items-center justify-end gap-1 mt-1">
+<span class="font-label-sm text-label-sm text-outline">15:44</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Foto adjuntada por el cliente -->
+<div class="flex flex-col items-start max-w-[75%] self-start pl-7">
+<div class="bg-surface-container-lowest rounded-2xl p-1.5 shadow-[0_4px_12px_rgba(0,17,43,0.04),0_1px_2px_rgba(0,17,43,0.02)]">
+<div class="relative w-48 h-32 rounded-xl overflow-hidden bg-surface-container">
+<img class="w-full h-full object-cover" data-alt="Close-up photograph taken on a phone showing a broken kitchen cabinet hinge under a wooden sink counter with replacement metal hinges in their packaging nearby, natural indoor light, realistic homeowner perspective" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBGbmLmbNub3T0Td0-ANqI7lJ3bBNFY1vXejKbkZS7kGdG6kKfHb7wlEYfME3ihVmh6rAWyr6jYnSGTPgTlop5jayOrBK9wiySneSMHpUNqJfRzFVywVAlOve2-_5X3n8ozmvGi7rcnyxu5E7AlPyWzEgBwhxUNa0LNgPgZMgydJurctwinPFGoDik1dx0BG_9DhKi1i2q4-vJQTCbgstATnh9axDp0i09JzYuQpERe"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent flex items-end p-2">
+<span class="text-white font-label-sm text-label-sm">2 bisagras cazoleta 35mm</span>
+</div>
+</div>
+<span class="font-label-sm text-label-sm text-outline block text-right pr-1 pt-1">15:45</span>
+</div>
+</div>
+<!-- Mensaje Saliente (Prestador - Roberto) -->
+<div class="flex flex-col items-end max-w-[85%] self-end">
+<div class="bg-primary-container text-on-primary rounded-2xl rounded-br-sm p-space-sm shadow-[0_4px_14px_rgba(23,100,174,0.25)]">
+<p class="font-body-md text-body-md leading-relaxed text-on-primary">
+          Hola Juan! Perfecto, paso el lunes a las 17 hs. Dejo asentada la visita y llevo mis herramientas de ajuste. Cualquier cosa te escribo por acá.
+        </p>
+<div class="flex items-center justify-end gap-1 mt-1">
+<span class="font-label-sm text-label-sm text-on-primary/80">15:47</span>
+<span class="material-symbols-outlined text-[15px] text-secondary-fixed" title="Leído">done_all</span>
+</div>
+</div>
+</div>
+<!-- Chip de Atajo Rápido para Respuestas del Prestador -->
+<div class="flex items-center gap-2 overflow-x-auto py-1 px-1 no-scrollbar my-1">
+<button class="shrink-0 px-3 py-1.5 rounded-full bg-surface-container-lowest hover:bg-surface-container text-on-surface font-label-md text-label-md shadow-sm active:scale-95 transition-all" onclick="insertQuickReply('¡Ya salí para tu domicilio!')" type="button">
+        🚗 Ya salí para allá
+      </button>
+<button active:scale-95="" bg-surface-container-lowest="" font-label-md="" hover:bg-surface-container="" onclick="insertQuickReply('¿Podrías enviarme una foto más cerca?') class=" px-3="" py-1.5="" rounded-full="" shadow-sm="" shrink-0="" text-label-md="" text-on-surface="" transition-all"="" type="button">
+        📸 Pedir otra foto
+      </button>
+<button class="shrink-0 px-3 py-1.5 rounded-full bg-surface-container-lowest hover:bg-surface-container text-on-surface font-label-md text-label-md shadow-sm active:scale-95 transition-all" onclick="insertQuickReply('Llegué y estoy en la puerta.')" type="button">
+        🔔 Estoy en la puerta
+      </button>
+</div>
+</div>
+<!-- Barra de entrada de texto (Sticky Bottom Chat Input - Sin Bottom Navigation Tabs) -->
+<div class="sticky bottom-2 z-40 bg-surface-container-lowest rounded-2xl p-space-xs shadow-[0_8px_24px_rgba(0,17,43,0.08),0_2px_6px_rgba(0,17,43,0.04)]">
+<form class="flex items-center gap-space-xs" id="chatForm" onsubmit="handleSendMessage(event)">
+<!-- Botón para adjuntar foto de trabajo / presupuesto -->
+<button aria-label="Adjuntar foto o presupuesto" class="w-11 h-11 flex items-center justify-center rounded-xl bg-surface-container hover:bg-surface-variant text-on-surface-variant active:scale-95 transition-all shrink-0" type="button">
+<span class="material-symbols-outlined text-[24px]">add_a_photo</span>
+</button>
+<!-- Input de Texto -->
+<div class="relative flex-grow min-w-0">
+<input aria-label="Escribe un mensaje" autocomplete="off" class="w-full h-11 px-3 bg-surface rounded-xl font-body-md text-body-md text-on-surface placeholder:text-outline border-none outline-none focus:bg-surface-container-lowest focus:ring-2 focus:ring-primary transition-all" id="chatInput" placeholder="Escribe un mensaje a Juan..." type="text"/>
+</div>
+<!-- Botón de Audio Rápido (Alternante) -->
+<button aria-label="Enviar nota de voz" class="w-11 h-11 flex items-center justify-center rounded-xl bg-surface-container hover:bg-surface-variant text-on-surface-variant active:scale-95 transition-all shrink-0" type="button">
+<span class="material-symbols-outlined text-[22px]">mic</span>
+</button>
+<!-- Botón Enviar con flecha azul -->
+<button aria-label="Enviar mensaje" class="w-11 h-11 flex items-center justify-center rounded-xl bg-primary text-on-primary hover:bg-primary-container active:scale-95 shadow-md shadow-primary/25 transition-all shrink-0" id="sendBtn" type="submit">
+<span class="material-symbols-outlined text-[22px]" style="font-variation-settings: 'FILL' 1;">send</span>
+</button>
+</form>
+</div>
+</div>
+<script>
+  function insertQuickReply(text) {
+    const input = document.getElementById('chatInput');
+    if (input) {
+      input.value = text;
+      input.focus();
+    }
+  }
+
+  function handleSendMessage(e) {
+    e.preventDefault();
+    const input = document.getElementById('chatInput');
+    const thread = document.getElementById('chatThread');
+    if (!input || !thread || !input.value.trim()) return;
+
+    const messageText = input.value.trim();
+    const now = new Date();
+    const hours = String(now.getHours()).padStart(2, '0');
+    const minutes = String(now.getMinutes()).padStart(2, '0');
+    const timeString = `${hours}:${minutes}`;
+
+    const newMsgContainer = document.createElement('div');
+    newMsgContainer.className = 'flex flex-col items-end max-w-[85%] self-end animate-fade-in';
+    newMsgContainer.innerHTML = `
+      <div class="bg-primary-container text-on-primary rounded-2xl rounded-br-sm p-space-sm shadow-[0_4px_14px_rgba(23,100,174,0.25)]">
+        <p class="font-body-md text-body-md leading-relaxed text-on-primary">
+          ${escapeHtml(messageText)}
+        </p>
+        <div class="flex items-center justify-end gap-1 mt-1">
+          <span class="font-label-sm text-label-sm text-on-primary/80">${timeString}</span>
+          <span class="material-symbols-outlined text-[15px] text-secondary-fixed">done</span>
+        </div>
+      </div>
+    `;
+
+    thread.appendChild(newMsgContainer);
+    input.value = '';
+    window.scrollTo({
+      top: document.body.scrollHeight,
+      behavior: 'smooth'
+    });
+  }
+
+  function escapeHtml(string) {
+    return String(string).replace(/[&<>"']/g, function (s) {
+      return ({
+        '&': '&amp;',
+        '<': '&lt;',
+        '>': '&gt;',
+        '"': '&quot;',
+        "'": '&#39;'
+      })[s];
+    });
+  }
+</script></main></body></html>

@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+
+<html lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport"/>
+<title>Prestador - Mi Perfil y Servicios Más Solicitados</title>
+<!-- Google Fonts: Plus Jakarta Sans -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<!-- FontAwesome for standard icons -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+<!-- Tailwind CSS CDN with plugins -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              50: '#eef6fc',
+              100: '#d9ecf8',
+              500: '#2783d2',
+              600: '#1764ae',
+              700: '#135392',
+              800: '#104477',
+              900: '#0d3761',
+            },
+            surface: {
+              card: '#d9dcde',
+              button: '#5f6467',
+              buttonHover: '#4e5255'
+            }
+          },
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+<style data-purpose="custom-ios-optimizations">
+    /* iOS friendly scrolling and safe areas */
+    body {
+      -webkit-tap-highlight-color: transparent;
+      user-select: none;
+    }
+    .safe-top {
+      padding-top: env(safe-area-inset-top, 0px);
+    }
+    .safe-bottom {
+      padding-bottom: env(safe-area-inset-bottom, 24px);
+    }
+  </style>
+</head>
+<body class="bg-gray-100 font-sans text-gray-800 antialiased min-h-screen flex justify-center selection:bg-brand-500 selection:text-white">
+<!-- Mobile Screen Container (iPhone frame simulator) -->
+<div class="w-full max-w-[428px] min-h-screen bg-[#eceff1] flex flex-col shadow-2xl relative overflow-x-hidden">
+<!-- BEGIN: TopBar -->
+<header class="bg-white sticky top-0 z-40 border-b border-gray-200 safe-top" data-purpose="top-navigation-bar">
+<div class="px-4 py-2.5 flex items-center justify-between gap-2.5">
+<!-- Logo Text -->
+<a class="flex flex-col leading-tight select-none flex-shrink-0" data-purpose="brand-logo" href="#">
+<span class="text-[14px] font-extrabold text-brand-600 tracking-tight leading-none">Oficios</span>
+<span class="text-[14px] font-bold text-gray-800 tracking-tight leading-none">Vecinos</span>
+</a>
+<!-- Search Input -->
+<div class="relative flex-1 max-w-[170px]" data-purpose="search-container">
+<input aria-label="Buscar en Oficios Vecinos" class="w-full h-8 pl-3 pr-8 rounded-full border border-gray-300 bg-gray-50 text-xs text-gray-700 placeholder-gray-400 focus:outline-none focus:ring-1 focus:ring-brand-600 focus:border-brand-600 transition" placeholder="Buscar" type="text"/>
+<button aria-label="Ejecutar búsqueda" class="absolute right-2.5 top-1/2 -translate-y-1/2 text-gray-400 hover:text-brand-600" type="button">
+<i class="fa-solid fa-magnifying-glass text-[11px]"></i>
+</button>
+</div>
+<!-- Chat Notification and User Avatar -->
+<div class="flex items-center gap-2.5 flex-shrink-0">
+<!-- Chat Button -->
+<button aria-label="Mensajes y consultas" class="relative p-1 text-gray-600 hover:text-brand-600 transition" type="button">
+<i class="fa-regular fa-comment-dots text-lg"></i>
+<span class="absolute top-0.5 right-0.5 w-2 h-2 bg-red-500 rounded-full border border-white"></span>
+</button>
+<!-- Current Active Profile Avatar -->
+<button aria-label="Perfil activo" class="w-8 h-8 rounded-full bg-slate-800 text-white flex items-center justify-center font-bold text-xs ring-2 ring-brand-600/30" type="button">
+<span>R</span>
+</button>
+</div>
+</div>
+</header>
+<!-- END: TopBar -->
+<!-- BEGIN: SubscriptionAnnouncement -->
+<!-- Banner de suscripción prominente y estilizado -->
+<aside class="bg-gradient-to-r from-brand-700 via-brand-600 to-brand-800 text-white py-2 px-4 shadow-sm" data-purpose="subscription-banner">
+<div class="flex items-center justify-between">
+<div class="flex items-center space-x-2">
+<i class="fa-solid fa-crown text-amber-300 text-xs animate-bounce"></i>
+<p class="text-[12px] font-bold tracking-wider uppercase">ACCEDE A LA SUSCRIPCIÓN</p>
+</div>
+<span class="text-[11px] font-medium bg-white/20 px-2 py-0.5 rounded-full text-white backdrop-blur-sm flex items-center gap-1">
+          PRO <i class="fa-solid fa-chevron-right text-[8px]"></i>
+</span>
+</div>
+</aside>
+<!-- END: SubscriptionAnnouncement -->
+<!-- BEGIN: MainContent -->
+<main class="flex-1 px-4 py-4 flex flex-col gap-4 safe-bottom" data-purpose="provider-profile-content">
+<!-- Central Card Container replicating wireframe's rounded light background -->
+<section class="bg-slate-200/85 rounded-3xl p-5 shadow-sm border border-slate-300/70 flex flex-col items-center" data-purpose="profile-card">
+<!-- Professional Avatar with Change Photo Badge -->
+<div class="relative group mt-1" data-purpose="profile-avatar-wrapper">
+<div class="w-24 h-24 rounded-full bg-slate-800 text-white flex items-center justify-center shadow-lg border-2 border-white ring-4 ring-slate-300/60 overflow-hidden cursor-pointer">
+<i class="fa-solid fa-camera text-3xl text-gray-200 transition-transform group-hover:scale-110"></i>
+</div>
+<!-- Upload badge indicator -->
+<span class="absolute bottom-0 right-1 bg-brand-600 text-white p-1.5 rounded-full border-2 border-white shadow hover:bg-brand-700 transition" title="Cambiar foto de perfil">
+<i class="fa-solid fa-plus text-[10px] block w-2.5 h-2.5 text-center leading-[10px]"></i>
+</span>
+</div>
+<!-- Provider Name and Status Badges -->
+<div class="text-center mt-3 mb-5" data-purpose="provider-identity">
+<h1 class="text-xl font-extrabold text-gray-900 tracking-tight flex items-center justify-center gap-1.5">
+            Roberto
+            <i class="fa-solid fa-circle-check text-brand-600 text-sm" title="Prestador verificado"></i>
+</h1>
+<p class="text-xs font-semibold text-gray-500 uppercase tracking-wider mt-0.5">Prestador Calificado</p>
+</div>
+<!-- Section Title: Servicios más solicitados -->
+<div class="w-full text-center mb-3.5" data-purpose="services-header">
+<h2 class="text-base font-bold text-gray-800 tracking-tight">
+            Servicios mas solicitados
+          </h2>
+</div>
+<!-- Services 2-Column Grid -->
+<div class="grid grid-cols-2 gap-3.5 w-full mb-6" data-purpose="services-grid">
+<!-- Card 1: Carpintero -->
+<article class="bg-[#5c6166] text-white rounded-2xl p-3.5 shadow-md flex flex-col justify-between hover:bg-[#52575b] transition">
+<div>
+<div class="flex items-center justify-between mb-1">
+<span class="text-[10px] font-bold uppercase tracking-wider bg-white/15 px-1.5 py-0.5 rounded text-amber-200">Oficio</span>
+<i class="fa-solid fa-hammer text-[11px] text-gray-300"></i>
+</div>
+<h3 class="font-bold text-sm tracking-tight text-white mb-1.5">Carpintero</h3>
+<!-- 5 Stars Rating -->
+<div class="flex items-center text-amber-400 text-xs mb-1" title="5 de 5 estrellas">
+<i class="fa-solid fa-star"></i>
+<i class="fa-solid fa-star"></i>
+<i class="fa-solid fa-star"></i>
+<i class="fa-solid fa-star"></i>
+<i class="fa-solid fa-star"></i>
+</div>
+</div>
+<!-- Detail link -->
+<a class="inline-flex items-center text-xs font-medium text-blue-200 hover:text-white mt-2 group" href="#">
+<span>Detalle</span>
+<i class="fa-solid fa-arrow-right text-[9px] ml-1 transition-transform group-hover:translate-x-0.5"></i>
+</a>
+</article>
+<!-- Card 2: Sodero -->
+<article class="bg-[#5c6166] text-white rounded-2xl p-3.5 shadow-md flex flex-col justify-between hover:bg-[#52575b] transition">
+<div>
+<div class="flex items-center justify-between mb-1">
+<span class="text-[10px] font-bold uppercase tracking-wider bg-white/15 px-1.5 py-0.5 rounded text-sky-200">Reparto</span>
+<i class="fa-solid fa-bottle-water text-[11px] text-gray-300"></i>
+</div>
+<h3 class="font-bold text-sm tracking-tight text-white mb-1.5">Sodero</h3>
+<!-- 5 Stars Rating -->
+<div class="flex items-center text-amber-400 text-xs mb-1" title="5 de 5 estrellas">
+<i class="fa-solid fa-star"></i>
+<i class="fa-solid fa-star"></i>
+<i class="fa-solid fa-star"></i>
+<i class="fa-solid fa-star"></i>
+<i class="fa-solid fa-star"></i>
+</div>
+</div>
+<!-- Detail link -->
+<a class="inline-flex items-center text-xs font-medium text-blue-200 hover:text-white mt-2 group" href="#">
+<span>Detalle</span>
+<i class="fa-solid fa-arrow-right text-[9px] ml-1 transition-transform group-hover:translate-x-0.5"></i>
+</a>
+</article>
+</div>
+<!-- Action Buttons Section conforming strictly with wireframe flow -->
+<div class="w-full space-y-3" data-purpose="profile-action-buttons">
+<!-- Subscripcion Button -->
+<button class="w-full py-3.5 px-4 bg-[#555a5f] hover:bg-[#474c50] active:scale-[0.99] text-white text-base font-semibold rounded-2xl shadow transition duration-150 flex items-center justify-center gap-2" type="button">
+<i class="fa-solid fa-medal text-sm text-amber-300"></i>
+<span>Subscripcion</span>
+</button>
+<!-- Mis Datos Button -->
+<button class="w-full py-3.5 px-4 bg-[#555a5f] hover:bg-[#474c50] active:scale-[0.99] text-white text-base font-semibold rounded-2xl shadow transition duration-150 flex items-center justify-center gap-2" type="button">
+<i class="fa-solid fa-id-card text-sm text-gray-300"></i>
+<span>Mis Datos</span>
+</button>
+</div>
+<!-- Log out Button (Cerrar Sesión) as defined in wireframe -->
+<div class="w-full mt-6" data-purpose="logout-section">
+<button class="w-full py-3 px-6 bg-slate-900 hover:bg-black active:scale-[0.98] text-white text-xs font-extrabold uppercase tracking-widest rounded-full shadow-lg transition duration-150 flex items-center justify-center gap-2" type="button">
+<i class="fa-solid fa-arrow-right-from-bracket text-xs text-red-400"></i>
+<span>CERRAR SESION</span>
+</button>
+</div>
+</section>
+</main>
+<!-- END: MainContent -->
+</div>
+</body></html>

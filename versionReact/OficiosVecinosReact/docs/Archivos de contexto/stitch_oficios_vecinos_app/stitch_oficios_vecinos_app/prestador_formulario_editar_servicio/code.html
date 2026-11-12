@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+
+<html class="h-full bg-slate-100" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport"/>
+<title>Editar Servicio - Oficios Vecinos</title>
+<!-- Google Fonts: Plus Jakarta Sans -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS v3 with Plugins -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Tailwind Configuration -->
+<script data-purpose="tailwind-config">
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              primary: '#1764AE',
+              dark: '#00112B',
+              surface: '#F4F4F5',
+              subtle: '#D9D9D9',
+              neutral: '#A6A6A6'
+            }
+          },
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+<style data-purpose="layout-styles">
+    /* Safe-area padding for mobile viewport */
+    .safe-top {
+      padding-top: env(safe-area-inset-top, 0px);
+    }
+    .safe-bottom {
+      padding-bottom: env(safe-area-inset-bottom, 16px);
+    }
+    /* Hide scrollbars while preserving scroll functionality */
+    .no-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+    .no-scrollbar {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+  </style>
+</head>
+<body class="font-sans antialiased text-[#00112B] min-h-screen bg-[#F0F2F5] flex justify-center selection:bg-blue-200">
+<!-- BEGIN: MobileDeviceContainer -->
+<!-- Container replicating the mobile screen layout from the wireframe reference -->
+<div class="w-full max-w-[430px] min-h-screen bg-[#A8ADB5] flex flex-col relative shadow-2xl safe-top">
+<!-- BEGIN: TopBar -->
+<!-- Main application header containing Logo, Search bar, Message icon, and User avatar -->
+<header class="bg-[#D1D5DB] border-b border-gray-300 px-3.5 py-2.5 flex items-center justify-between gap-2 shadow-sm z-30" data-purpose="top-navigation-bar">
+<!-- Logo / Title -->
+<a class="flex flex-col leading-none shrink-0 group" href="#">
+<span class="text-[13px] font-bold tracking-tight text-[#00112B] group-hover:text-brand-primary transition-colors">Oficios</span>
+<span class="text-[12px] font-semibold text-[#00112B]/90 tracking-tight group-hover:text-brand-primary transition-colors">Vecinos</span>
+</a>
+<!-- Compact Search Bar -->
+<div class="flex-1 max-w-[170px] relative" data-purpose="quick-search-box">
+<input aria-label="Buscar servicios o profesionales" class="w-full h-7 pl-3.5 pr-7 py-0 text-[11px] bg-white rounded-full border border-gray-300 text-gray-700 placeholder-gray-400 focus:outline-none focus:ring-1 focus:ring-brand-primary focus:border-brand-primary" placeholder="Buscar" type="text"/>
+<button aria-label="Ejecutar búsqueda" class="absolute right-2 top-1/2 -translate-y-1/2 text-gray-500 hover:text-gray-700" type="button">
+<svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2.2" viewbox="0 0 24 24">
+<path d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</button>
+</div>
+<!-- Header Action Icons -->
+<div class="flex items-center gap-2 shrink-0">
+<!-- Message / Chat Button -->
+<button aria-label="Mensajes y consultas" class="w-8 h-8 rounded-full flex items-center justify-center text-gray-800 hover:bg-gray-200/80 transition-colors" type="button">
+<svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24">
+<path d="M8.625 12a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm0 0H8.25m4.125 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm0 0H12m4.125 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm0 0h-.375M21 12c0 4.556-4.03 8.25-9 8.25a9.764 9.764 0 0 1-2.555-.337A5.972 5.972 0 0 1 5.41 20.97a.75.75 0 0 1-.974-.948 4.72 4.72 0 0 0 .736-2.163C3.684 16.442 3 14.343 3 12c0-4.556 4.03-8.25 9-8.25s9 3.694 9 8.25Z" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</button>
+<!-- User Profile Avatar -->
+<button aria-label="Perfil de usuario" class="w-7 h-7 rounded-full bg-[#182333] border border-gray-400 text-white flex items-center justify-center font-bold text-xs hover:ring-2 hover:ring-brand-primary" type="button">
+          R
+        </button>
+</div>
+</header>
+<!-- END: TopBar -->
+<!-- BEGIN: SubHeaderControls -->
+<!-- Action bar with Back button and Delete Service action directly beneath the TopBar -->
+<div class="px-4 py-2.5 bg-[#9EA4AD] border-b border-[#8C939E] flex items-center justify-between" data-purpose="service-actions-header">
+<!-- Back Button -->
+<button aria-label="Volver a lista de servicios" class="p-1 rounded-full text-[#111827] hover:bg-black/10 active:scale-95 transition-transform" id="btn-back" type="button">
+<svg class="w-6 h-6 stroke-[2.5]" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M10.5 19.5 3 12m0 0 7.5-7.5M3 12h18" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</button>
+<!-- Delete Service Button (Trash Icon) -->
+<button aria-label="Eliminar este servicio" class="p-1 rounded-full text-[#111827] hover:text-red-700 hover:bg-black/10 active:scale-95 transition-all" id="btn-delete" type="button">
+<svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24">
+<path d="m14.74 9-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 0 1-2.244 2.077H8.084a2.25 2.25 0 0 1-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 0 0-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 0 1 3.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 0 0-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 0 0-7.5 0" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</button>
+</div>
+<!-- END: SubHeaderControls -->
+<!-- BEGIN: MainContent -->
+<!-- Scrollable container for the form matching Screen 3 proportions -->
+<main class="flex-1 flex flex-col overflow-y-auto no-scrollbar pb-6" data-purpose="edit-service-form-view">
+<!-- BEGIN: ServicePhotoUploadSection -->
+<!-- Large White Card Area for Service Image Upload with Central Prominent Camera -->
+<section class="bg-white border-b border-gray-300 p-6 flex flex-col items-center justify-center min-h-[300px]" data-purpose="service-photo-container">
+<label class="w-full max-w-[280px] aspect-[4/3] rounded-2xl border-2 border-dashed border-gray-300 hover:border-brand-primary bg-gray-50 flex flex-col items-center justify-center cursor-pointer transition-all hover:bg-blue-50/40 group relative overflow-hidden" for="service-image-input">
+<!-- Large Wireframe Camera Icon (Matches Screen 3 exact visual) -->
+<div class="text-gray-800 group-hover:scale-105 group-hover:text-brand-primary transition-all duration-200">
+<svg class="w-28 h-28 stroke-[1.4]" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M6.827 6.175A2.31 2.31 0 0 1 5.186 7.23c-.38.054-.757.112-1.134.175C2.999 7.58 2.25 8.507 2.25 9.574V18a2.25 2.25 0 0 0 2.25 2.25h15A2.25 2.25 0 0 0 21.75 18V9.574c0-1.067-.75-1.994-1.802-2.169a47.865 47.865 0 0 0-1.134-.175 2.31 2.31 0 0 1-1.64-1.055l-.822-1.316a2.192 2.192 0 0 0-1.736-1.039 48.774 48.774 0 0 0-5.232 0 2.192 2.192 0 0 0-1.736 1.039l-.821 1.316Z" stroke-linecap="round" stroke-linejoin="round"></path>
+<path d="M16.5 12.75a4.5 4.5 0 1 1-9 0 4.5 4.5 0 0 1 9 0ZM18.75 10.5h.008v.008h-.008V10.5Z" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</div>
+<span class="mt-2 text-xs font-semibold text-gray-600 group-hover:text-brand-primary">
+            Cambiar o subir foto del servicio
+          </span>
+<span class="text-[10px] text-gray-400">JPG, PNG hasta 5MB</span>
+<!-- Hidden File Input -->
+<input accept="image/*" class="sr-only" id="service-image-input" type="file"/>
+</label>
+</section>
+<!-- END: ServicePhotoUploadSection -->
+<!-- BEGIN: ServiceDetailsEditSection -->
+<!-- Lower container in grey tint with the editable service labels and save action -->
+<section class="p-5 flex-1 flex flex-col justify-between space-y-5" data-purpose="service-editable-fields">
+<div class="space-y-4">
+<!-- Service Title / Proveedor - Servicio Field -->
+<div class="space-y-1.5" data-purpose="field-title">
+<div class="flex items-center justify-between">
+<label class="text-sm font-bold text-[#00112B] flex items-center gap-1.5" for="service-title">
+                Proveedor - Servicio
+                <!-- Edit Pencil Icon (Indicator) -->
+<svg class="w-4 h-4 text-gray-700" fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24">
+<path d="m16.862 4.487 1.687-1.688a1.875 1.875 0 1 1 2.652 2.652L10.582 16.07a4.5 4.5 0 0 1-1.897 1.13L6 18l.8-2.685a4.5 4.5 0 0 1 1.13-1.897l8.932-8.931Zm0 0L19.5 7.125M18 14v4.75A2.25 2.25 0 0 1 15.75 21H5.25A2.25 2.25 0 0 1 3 18.75V8.25A2.25 2.25 0 0 1 5.25 6H10" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</label>
+<span class="text-[11px] font-medium text-gray-600">Editable</span>
+</div>
+<div class="relative">
+<input class="w-full bg-white/95 rounded-xl border border-gray-300 py-2.5 px-3.5 text-sm font-semibold text-gray-900 focus:bg-white focus:outline-none focus:ring-2 focus:ring-brand-primary focus:border-brand-primary shadow-sm" id="service-title" name="service_title" type="text" value="Carpintero - Muebles y Reparaciones"/>
+</div>
+</div>
+<!-- Description / Info Field -->
+<div class="space-y-1.5" data-purpose="field-description">
+<div class="flex items-center justify-between">
+<label class="text-xs font-bold text-[#00112B] flex items-center gap-1.5" for="service-description">
+                Información, ejemplo de información, el servicio es tal
+                <svg class="w-3.5 h-3.5 text-gray-700" fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24">
+<path d="m16.862 4.487 1.687-1.688a1.875 1.875 0 1 1 2.652 2.652L10.582 16.07a4.5 4.5 0 0 1-1.897 1.13L6 18l.8-2.685a4.5 4.5 0 0 1 1.13-1.897l8.932-8.931Zm0 0L19.5 7.125M18 14v4.75A2.25 2.25 0 0 1 15.75 21H5.25A2.25 2.25 0 0 1 3 18.75V8.25A2.25 2.25 0 0 1 5.25 6H10" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</label>
+</div>
+<textarea class="w-full bg-white/95 rounded-xl border border-gray-300 p-3 text-xs leading-relaxed text-gray-800 focus:bg-white focus:outline-none focus:ring-2 focus:ring-brand-primary focus:border-brand-primary shadow-sm resize-none" id="service-description" name="service_description" rows="3">Trabajos a medida en madera, reparación de aberturas, colocación de muebles de cocina y restauración. Presupuestos sin cargo en el barrio.</textarea>
+</div>
+<!-- Additional Metadata Grid: Monto / Horario (Complementing service edit flow) -->
+<div class="grid grid-cols-2 gap-3 pt-1" data-purpose="metadata-fields">
+<div class="space-y-1">
+<label class="text-[11px] font-bold text-[#00112B]" for="service-price">Tarifa aprox. / Monto</label>
+<input class="w-full bg-white/95 rounded-lg border border-gray-300 py-1.5 px-2.5 text-xs text-gray-800 focus:ring-1 focus:ring-brand-primary" id="service-price" type="text" value="$15.000 / Visita"/>
+</div>
+<div class="space-y-1">
+<label class="text-[11px] font-bold text-[#00112B]" for="service-hours">Horario de atención</label>
+<input class="w-full bg-white/95 rounded-lg border border-gray-300 py-1.5 px-2.5 text-xs text-gray-800 focus:ring-1 focus:ring-brand-primary" id="service-hours" type="text" value="Lun a Vie 8:00 - 18:00"/>
+</div>
+</div>
+</div>
+<!-- BEGIN: ActionButton -->
+<!-- Primary Submit Button 'Guardar cambios' matching Screen 3 layout -->
+<div class="pt-4 flex justify-center w-full" data-purpose="form-submission-container">
+<button class="w-full max-w-[240px] py-3 px-6 bg-[#E5E7EB] hover:bg-[#D1D5DB] active:bg-[#9CA3AF] text-[#00112B] font-bold text-sm rounded-2xl shadow border border-gray-400/60 transition-all active:scale-[0.98] text-center" id="btn-save" type="button">
+            Guardar cambios
+          </button>
+</div>
+<!-- END: ActionButton -->
+</section>
+<!-- END: ServiceDetailsEditSection -->
+</main>
+<!-- END: MainContent -->
+<!-- Modal confirmation for Delete Action (Hidden by default) -->
+<div class="hidden fixed inset-0 z-50 bg-black/60 backdrop-blur-sm flex items-center justify-center p-4" id="delete-modal">
+<div class="bg-white rounded-2xl p-5 max-w-xs w-full shadow-2xl space-y-4 text-center">
+<div class="w-12 h-12 rounded-full bg-red-100 text-red-600 flex items-center justify-center mx-auto">
+<svg class="w-6 h-6" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+</div>
+<div>
+<h3 class="font-bold text-gray-900 text-base">¿Eliminar servicio?</h3>
+<p class="text-xs text-gray-500 mt-1">Esta acción no se puede deshacer y el servicio ya no estará disponible para vecinos.</p>
+</div>
+<div class="flex gap-2">
+<button class="flex-1 py-2 rounded-xl bg-gray-100 text-gray-700 font-semibold text-xs hover:bg-gray-200" id="btn-cancel-delete" type="button">Cancelar</button>
+<button class="flex-1 py-2 rounded-xl bg-red-600 text-white font-semibold text-xs hover:bg-red-700" id="btn-confirm-delete" type="button">Eliminar</button>
+</div>
+</div>
+</div>
+<!-- Notification Toast for Save Action -->
+<div class="fixed bottom-6 left-1/2 -translate-x-1/2 bg-[#00112B] text-white px-4 py-2.5 rounded-full text-xs font-medium shadow-lg flex items-center gap-2 opacity-0 pointer-events-none transition-opacity duration-300 z-50" id="toast-success">
+<svg class="w-4 h-4 text-green-400" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"></path></svg>
+<span>Cambios guardados con éxito</span>
+</div>
+</div>
+<!-- END: MobileDeviceContainer -->
+<!-- BEGIN: InteractiveHandlers -->
+<script data-purpose="ui-interactions">
+    // Simple interactions for modal and feedback
+    const btnDelete = document.getElementById('btn-delete');
+    const deleteModal = document.getElementById('delete-modal');
+    const btnCancelDelete = document.getElementById('btn-cancel-delete');
+    const btnConfirmDelete = document.getElementById('btn-confirm-delete');
+    const btnSave = document.getElementById('btn-save');
+    const toast = document.getElementById('toast-success');
+    const btnBack = document.getElementById('btn-back');
+
+    // Toggle delete modal
+    btnDelete?.addEventListener('click', () => {
+      deleteModal?.classList.remove('hidden');
+    });
+
+    btnCancelDelete?.addEventListener('click', () => {
+      deleteModal?.classList.add('hidden');
+    });
+
+    btnConfirmDelete?.addEventListener('click', () => {
+      deleteModal?.classList.add('hidden');
+      alert('Servicio eliminado.');
+    });
+
+    // Save feedback
+    btnSave?.addEventListener('click', () => {
+      // Show feedback toast
+      toast?.classList.remove('opacity-0', 'pointer-events-none');
+      setTimeout(() => {
+        toast?.classList.add('opacity-0', 'pointer-events-none');
+      }, 2500);
+    });
+
+    // Back button
+    btnBack?.addEventListener('click', () => {
+      window.history.length > 1 ? window.history.back() : console.log('Navegar a lista');
+    });
+  </script>
+<!-- END: InteractiveHandlers -->
+</body></html>

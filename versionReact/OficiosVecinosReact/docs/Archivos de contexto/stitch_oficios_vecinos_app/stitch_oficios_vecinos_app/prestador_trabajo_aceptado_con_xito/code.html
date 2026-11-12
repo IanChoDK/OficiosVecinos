@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+
+<html class="h-full bg-slate-100" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport"/>
+<title>Oficios Vecinos - Solicitud Aceptada</title>
+<!-- Tailwind CSS CDN -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Google Fonts: Plus Jakarta Sans -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind Config -->
+<script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              DEFAULT: '#1764AE',
+              dark: '#0e4377',
+              navy: '#00112B',
+              surface: '#F4F3F4',
+              soft: '#EBF3FB'
+            }
+          },
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+          },
+          boxShadow: {
+            'card': '0 8px 30px rgba(0, 17, 43, 0.06)',
+            'btn': '0 4px 14px rgba(23, 100, 174, 0.35)',
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="h-full font-sans antialiased bg-slate-100 text-[#00112B] flex justify-center items-start sm:py-6">
+<!-- BEGIN: MobileDeviceFrame -->
+<main class="w-full max-w-[420px] min-h-screen sm:min-h-[852px] sm:max-h-[852px] bg-white sm:rounded-[44px] shadow-2xl flex flex-col overflow-hidden relative border border-slate-200/80">
+<!-- BEGIN: iOSStatusBar -->
+<div class="w-full pt-3 px-7 pb-2 flex justify-between items-center bg-white z-20 shrink-0 select-none">
+<span class="text-xs font-bold tracking-tight text-[#00112B]">9:41</span>
+<div class="flex items-center space-x-1.5 text-[#00112B]">
+<!-- Signal icon -->
+<svg class="w-3.5 h-3.5 fill-current" viewbox="0 0 24 24"><path d="M12 3c-4.97 0-9 4.03-9 9 0 2.12.74 4.07 1.97 5.61L12 22l7.03-4.39C20.26 16.07 21 14.12 21 12c0-4.97-4.03-9-9-9z" opacity="0.2"></path><path d="M18.36 5.64c-3.52-3.52-9.21-3.52-12.72 0l1.41 1.41c2.73-2.73 7.17-2.73 9.9 0l1.41-1.41zM5.64 8.46l1.41 1.41c1.95-1.95 5.12-1.95 7.07 0l1.41-1.41c-2.73-2.73-7.16-2.73-9.89 0zm2.83 2.83c.78-.78 2.05-.78 2.83 0l1.41-1.41c-1.56-1.56-4.1-1.56-5.66 0l1.42 1.41zM12 14c-.55 0-1 .45-1 1s.45 1 1 1 1-.45 1-1-.45-1-1-1z"></path></svg>
+<!-- Wifi icon -->
+<svg class="w-3.5 h-3.5 fill-current" viewbox="0 0 24 24"><path d="M12 4C7.31 4 3.07 5.9 0 8.98L12 21 24 8.98A16.88 16.88 0 0 0 12 4zm0 3.32c3.55 0 6.78 1.42 9.17 3.73L12 19.3 2.83 11.05A12.87 12.87 0 0 1 12 7.32z"></path></svg>
+<!-- Battery icon -->
+<svg class="w-4 h-4 fill-current" viewbox="0 0 24 24"><path d="M17 6H4c-1.1 0-2 .9-2 2v8c0 1.1.9 2 2 2h13c1.1 0 2-.9 2-2v-1.5h1c.55 0 1-.45 1-1v-3c0-.55-.45-1-1-1h-1V8c0-1.1-.9-2-2-2zm0 10H4V8h13v8z"></path></svg>
+</div>
+</div>
+<!-- END: iOSStatusBar -->
+<!-- BEGIN: MainHeader -->
+<header class="w-full px-4 py-2.5 bg-white border-b border-slate-100 flex items-center justify-between gap-2.5 shrink-0 z-10" data-purpose="app-header">
+<!-- Logo Branding -->
+<div class="flex flex-col shrink-0">
+<span class="text-[13px] font-extrabold leading-tight tracking-tight text-[#00112B]">Oficios</span>
+<span class="text-[11px] font-semibold leading-tight text-slate-500">Vecinos</span>
+</div>
+<!-- Quick Search Bar (matches wireframe top bar) -->
+<div class="flex-1 max-w-[170px] relative">
+<input aria-label="Buscar en la app" class="w-full h-8 pl-3 pr-7 bg-slate-100 text-xs rounded-full border-none placeholder-slate-400 focus:outline-none cursor-default" disabled="" placeholder="Buscar" type="text"/>
+<svg class="w-3.5 h-3.5 text-slate-400 absolute right-2.5 top-2.5" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<circle cx="11" cy="11" r="7" stroke-width="2.2"></circle>
+<path d="M20 20l-3.5-3.5" stroke-linecap="round" stroke-width="2.2"></path>
+</svg>
+</div>
+<!-- Action Items: Chat & User Profile -->
+<div class="flex items-center space-x-2 shrink-0">
+<!-- Chat icon button -->
+<button aria-label="Mensajes" class="w-8 h-8 rounded-full flex items-center justify-center text-slate-700 bg-slate-100 hover:bg-slate-200 transition-colors" type="button">
+<svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24">
+<path d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</button>
+<!-- User Profile Avatar Pill -->
+<div class="w-8 h-8 rounded-full bg-[#00112B] flex items-center justify-center text-white text-xs font-semibold ring-2 ring-slate-100">
+          RP
+        </div>
+</div>
+</header>
+<!-- END: MainHeader -->
+<!-- BEGIN: ScreenContent -->
+<div class="flex-1 px-4 py-4 flex flex-col justify-between overflow-y-auto">
+<!-- BEGIN: ConfirmationCard -->
+<section class="w-full flex-1 min-h-[460px] bg-brand-surface rounded-3xl p-6 flex flex-col items-center justify-between border border-slate-200/60 shadow-inner relative overflow-hidden" data-purpose="success-feedback-container">
+<!-- Subtle background accent circle -->
+<div class="absolute -top-12 -right-12 w-48 h-48 bg-white/40 rounded-full blur-2xl pointer-events-none"></div>
+<!-- Top Title & Subtext -->
+<div class="w-full text-center pt-3 z-10">
+<span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[11px] font-semibold bg-emerald-100 text-emerald-800 mb-3 tracking-wide uppercase">
+<span class="w-1.5 h-1.5 rounded-full bg-emerald-600 animate-pulse"></span>
+            Solicitud confirmada
+          </span>
+<h1 class="text-2xl font-bold text-[#00112B] tracking-tight leading-snug px-2">
+            Has aceptado el trabajo correctamente
+          </h1>
+<p class="text-xs text-slate-600 mt-2.5 max-w-[270px] mx-auto leading-relaxed">
+            Se ha notificado al vecino <strong class="text-[#00112B] font-semibold">Juan Pedernera</strong>. El canal directo para coordinar entrega y visita ya está habilitado.
+          </p>
+</div>
+<!-- Central Checkmark Badge (Wireframe 6th Screen Focal Point) -->
+<div class="my-auto py-6 flex flex-col items-center justify-center z-10" data-purpose="status-icon">
+<div class="relative flex items-center justify-center">
+<!-- Ambient ring pulse -->
+<div class="w-28 h-28 rounded-full bg-slate-900/10 absolute -inset-2"></div>
+<!-- Main solid circle matching the wireframe black sphere -->
+<div class="w-24 h-24 rounded-full bg-[#00112B] text-white flex items-center justify-center shadow-xl ring-4 ring-white">
+<svg class="w-12 h-12 stroke-white" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="3.2" viewbox="0 0 24 24">
+<path d="M5 13l4 4L19 7"></path>
+</svg>
+</div>
+</div>
+<span class="text-[11px] font-medium text-slate-500 mt-3 tracking-wide uppercase">Asignado a tu agenda</span>
+</div>
+<!-- Compact Work Summary Box -->
+<div class="w-full bg-white rounded-2xl p-3.5 shadow-sm border border-slate-200/70 z-10 flex items-center justify-between">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-xl bg-brand-soft text-[#1764AE] flex items-center justify-center shrink-0">
+<!-- Woodworking / Carpentry icon -->
+<svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24">
+<path d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</div>
+<div class="text-left">
+<h2 class="text-xs font-bold text-[#00112B] leading-tight">3 mesas de roble</h2>
+<p class="text-[11px] text-slate-500 font-medium">Rubro: Carpintería tradicional</p>
+</div>
+</div>
+<span class="text-[11px] font-semibold text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded-md border border-emerald-200">
+            En curso
+          </span>
+</div>
+</section>
+<!-- END: ConfirmationCard -->
+<!-- BEGIN: ActionButtons -->
+<!-- Two action buttons aligned horizontally as defined in screen 6 wireframe -->
+<footer class="w-full pt-4 pb-2 flex items-center gap-3" data-purpose="screen-bottom-actions">
+<!-- Secondary Action: Volver al inicio -->
+<a class="flex-1 h-12 rounded-xl bg-slate-200 hover:bg-slate-300 text-slate-700 font-semibold text-sm flex items-center justify-center transition-colors active:scale-[0.98] select-none" href="#" role="button">
+          Volver al inicio
+        </a>
+<!-- Primary Action: Ir al chat -->
+<a class="flex-1 h-12 rounded-xl bg-[#1764AE] hover:bg-[#0e4377] text-white font-semibold text-sm flex items-center justify-center gap-1.5 shadow-btn transition-all active:scale-[0.98] select-none" href="#" role="button">
+<span>Ir al chat</span>
+<svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.2" viewbox="0 0 24 24">
+<path d="M14 5l7 7m0 0l-7 7m7-7H3" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</a>
+</footer>
+<!-- END: ActionButtons -->
+</div>
+<!-- END: ScreenContent -->
+<!-- BEGIN: iOSHomeIndicator -->
+<div class="w-full pb-2 pt-1 flex justify-center shrink-0 bg-white">
+<div class="w-32 h-1 bg-slate-300 rounded-full"></div>
+</div>
+<!-- END: iOSHomeIndicator -->
+</main>
+<!-- END: MobileDeviceFrame -->
+</body></html>

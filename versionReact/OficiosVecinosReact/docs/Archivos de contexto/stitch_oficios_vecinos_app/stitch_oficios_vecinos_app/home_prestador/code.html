@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+
+<html lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport"/>
+<title>Oficios Vecinos - Inicio Prestador</title>
+<!-- Google Fonts: Plus Jakarta Sans -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS CDN -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              primary: '#1764ae',
+              dark: '#00112B',
+              grayContainer: '#E5E7EB',
+              btnPrimary: '#54595E',
+              btnPrimaryHover: '#40454A',
+              btnSecondary: '#DDE0E4',
+              btnSecondaryHover: '#D0D4DA',
+              surface: '#F8F9FA'
+            }
+          },
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'system-ui', '-apple-system', 'sans-serif'],
+          },
+          borderRadius: {
+            '3xl': '24px',
+            '4xl': '32px'
+          }
+        }
+      }
+    }
+  </script>
+<!-- Font Awesome Icons -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+<style data-purpose="base-styling">
+    body {
+      background-color: #ECEEF1;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      -webkit-font-smoothing: antialiased;
+      -webkit-tap-highlight-color: transparent;
+    }
+    .mobile-frame {
+      width: 100%;
+      max-width: 390px;
+      min-height: 844px;
+    }
+  </style>
+<style data-purpose="interactive-enhancements">
+    .tap-effect {
+      transition: transform 0.15s ease, opacity 0.15s ease;
+    }
+    .tap-effect:active {
+      transform: scale(0.98);
+      opacity: 0.92;
+    }
+  </style>
+</head>
+<body class="flex justify-center items-center min-h-screen py-0 sm:py-6 text-brand-dark">
+<!-- BEGIN: MobileDeviceContainer -->
+<div class="mobile-frame bg-[#FAFAFA] flex flex-col justify-between shadow-2xl relative overflow-hidden sm:rounded-[40px] border border-gray-200" data-purpose="main-screen">
+<!-- BEGIN: TopBarAndContent -->
+<div class="w-full flex flex-col">
+<!-- BEGIN: HeaderSection -->
+<header class="bg-gray-200/90 backdrop-blur-md px-4 pt-4 pb-3.5 border-b border-gray-300 flex items-center justify-between gap-2.5 z-20" data-purpose="app-header">
+<!-- App Brand Logo & Name -->
+<a class="flex flex-col leading-none select-none shrink-0" data-purpose="brand-logo" href="#">
+<span class="text-[17px] font-extrabold tracking-tight text-brand-dark">Oficios</span>
+<span class="text-[17px] font-extrabold tracking-tight text-brand-dark -mt-0.5">Vecinos</span>
+</a>
+<!-- Search Bar Input Capsule -->
+<div class="flex-1 max-w-[170px]" data-purpose="search-box">
+<div class="relative flex items-center">
+<input class="w-full h-8 pl-3 pr-7 text-xs bg-white text-gray-800 placeholder-gray-400 rounded-full border border-gray-200 focus:outline-none focus:ring-1 focus:ring-brand-primary focus:border-brand-primary" placeholder="Buscar" type="text"/>
+<i class="fa-solid fa-magnifying-glass absolute right-2.5 text-xs text-gray-500 pointer-events-none"></i>
+</div>
+</div>
+<!-- Header Actions: Chat & Profile Avatar -->
+<div class="flex items-center space-x-2 shrink-0" data-purpose="header-actions">
+<!-- Chat Button with Notification Indicator -->
+<button aria-label="Abrir chats" class="tap-effect relative p-1.5 text-brand-dark hover:text-brand-primary transition-colors" type="button">
+<i class="fa-regular fa-comment-dots text-xl"></i>
+<span class="absolute top-1 right-0.5 w-2 h-2 bg-emerald-500 rounded-full ring-2 ring-white"></span>
+</button>
+<!-- User Profile Avatar Pill -->
+<button aria-label="Mi Perfil" class="tap-effect block w-9 h-9 rounded-full bg-brand-dark p-0.5 focus:outline-none" type="button">
+<div class="w-full h-full rounded-full bg-brand-dark border border-gray-300 flex items-center justify-center text-white overflow-hidden">
+<i class="fa-solid fa-user text-sm text-gray-200"></i>
+</div>
+</button>
+</div>
+</header>
+<!-- END: HeaderSection -->
+<!-- BEGIN: ManagementModule -->
+<main class="px-5 pt-8 pb-4" data-purpose="core-management-area">
+<!-- Central Card: 'Gestión' -->
+<div class="bg-gray-200/80 rounded-3xl p-5 pt-7 pb-6 flex flex-col items-center shadow-inner border border-gray-300/60" data-purpose="management-card">
+<!-- Section Title -->
+<h2 class="text-2xl font-bold text-gray-900 tracking-tight mb-6">
+            Gestión
+          </h2>
+<!-- Action Buttons Group inside Management Card -->
+<div class="w-full space-y-4">
+<!-- Button: Ofrecer un nuevo servicio -->
+<button class="tap-effect w-full bg-[#56595F] hover:bg-[#484B50] text-white py-5 px-6 rounded-2xl shadow-sm flex items-center justify-center space-x-3 text-center transition-colors" data-purpose="action-new-service" type="button">
+<i class="fa-solid fa-plus-circle text-lg text-gray-300"></i>
+<span class="text-base font-semibold tracking-wide">Ofrecer un nuevo servicio</span>
+</button>
+<!-- Button: Mis servicios -->
+<button class="tap-effect w-full bg-[#56595F] hover:bg-[#484B50] text-white py-5 px-6 rounded-2xl shadow-sm flex items-center justify-center space-x-3 text-center transition-colors" data-purpose="action-my-services" type="button">
+<i class="fa-solid fa-briefcase text-base text-gray-300"></i>
+<span class="text-base font-semibold tracking-wide">Mis servicios</span>
+</button>
+</div>
+</div>
+</main>
+<!-- END: ManagementModule -->
+</div>
+<!-- END: TopBarAndContent -->
+<!-- BEGIN: QuickAccessNavigation -->
+<!-- Distinct, large secondary navigation pills as structured in wireframe without bottom tab bar -->
+<footer class="px-5 pt-2 pb-10 flex flex-col space-y-3.5" data-purpose="quick-access-footer">
+<!-- Nav Pill: Ir al Perfil -->
+<button class="tap-effect w-full bg-[#DADBDD] hover:bg-[#CFD1D4] text-gray-900 py-3.5 px-6 rounded-full shadow-sm flex items-center justify-center space-x-2 text-base font-medium transition-colors" data-purpose="nav-profile" type="button">
+<i class="fa-regular fa-id-badge text-gray-700"></i>
+<span>Ir al Perfil</span>
+</button>
+<!-- Nav Pill: Mensajes -->
+<button class="tap-effect w-full bg-[#DADBDD] hover:bg-[#CFD1D4] text-gray-900 py-3.5 px-6 rounded-full shadow-sm flex items-center justify-center space-x-2 text-base font-medium transition-colors" data-purpose="nav-messages" type="button">
+<i class="fa-regular fa-envelope text-gray-700"></i>
+<span>Mensajes</span>
+</button>
+</footer>
+<!-- END: QuickAccessNavigation -->
+</div>
+<!-- END: MobileDeviceContainer -->
+</body></html>
